@@ -47,7 +47,7 @@ const categories = [
       },
       {
         q: "Peut-on utiliser les lunettes pour filmer avec son téléphone ?",
-        a: "Non. Les lunettes sont conçues pour les yeux humains. Pour filmer, utilisez notre filtre téléphone universel (ND 5.0), positionné devant l'objectif de votre smartphone. Ne regardez jamais l'écran en direct sans protection si votre téléphone capte directement le soleil.",
+        a: "Oui, vous pouvez le faire, mais nous vendons des filtres spécialement conçus pour ça, au même prix.",
       },
     ],
   },
