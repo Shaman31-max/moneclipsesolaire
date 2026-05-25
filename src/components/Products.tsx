@@ -48,7 +48,7 @@ const PRODUCTS: ProductDef[] = [
     id: "glasses",
     name: "Lunettes Éclipse Pro",
     subtitle: "Observer en toute sécurité",
-    image: "/lunette-eclipse.png",
+    image: "/lunettes_avec_presentoir.png",
     bullets: [
       { title: "Certification ISO 12312-2 & marquage CE", text: "Conformes à la norme internationale, certification obtenue auprès d'un laboratoire européen agréé." },
       { title: "Filtre solaire optique ND 5.0", text: "Bloque plus de 99,999 % de la lumière solaire, UV et infrarouges." },
