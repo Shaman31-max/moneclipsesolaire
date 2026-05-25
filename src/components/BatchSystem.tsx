@@ -167,7 +167,7 @@ export default function BatchSystem() {
         </div>
 
         {/* ── Frises chronologiques ── */}
-        <div className="grid md:grid-cols-[1fr_auto_1fr] gap-4 mb-10 items-center">
+        <div className="grid md:grid-cols-2 gap-6 mb-10">
 
           {/* Frise Première Série */}
           <motion.div
@@ -202,24 +202,10 @@ export default function BatchSystem() {
                 </div>
               ))}
             </div>
+            <div className="mt-4 pt-3 border-t border-white/8 flex justify-center">
+              <span className="px-3 py-1.5 rounded-full border border-[#22D3EE]/30 bg-[#22D3EE]/08 text-[10px] font-black text-[#22D3EE] uppercase tracking-wider">Précommande</span>
+            </div>
           </motion.div>
-
-          {/* Séparateurs centraux */}
-          <div className="hidden md:flex flex-col items-center gap-3 px-2">
-            <div className="px-3 py-1.5 rounded-full border border-[#22D3EE]/30 bg-[#22D3EE]/08 text-[10px] font-black text-[#22D3EE] uppercase tracking-wider whitespace-nowrap">
-              Précommande
-            </div>
-            <div className="w-px h-6 bg-white/10" />
-            <div className="px-3 py-1.5 rounded-full border border-[#FFB800]/30 bg-[#FFB800]/08 text-[10px] font-black text-[#FFB800] uppercase tracking-wider whitespace-nowrap">
-              Production
-            </div>
-          </div>
-
-          {/* Labels mobile */}
-          <div className="flex md:hidden justify-center gap-4">
-            <span className="px-3 py-1 rounded-full border border-[#22D3EE]/30 bg-[#22D3EE]/08 text-[10px] font-black text-[#22D3EE] uppercase tracking-wider">Précommande</span>
-            <span className="px-3 py-1 rounded-full border border-[#FFB800]/30 bg-[#FFB800]/08 text-[10px] font-black text-[#FFB800] uppercase tracking-wider">Production</span>
-          </div>
 
           {/* Frise Deuxième Série */}
           <motion.div
@@ -252,6 +238,9 @@ export default function BatchSystem() {
                   <div className="text-[9px] text-white/55 text-center leading-tight">{item.label}</div>
                 </div>
               ))}
+            </div>
+            <div className="mt-4 pt-3 border-t border-white/8 flex justify-center">
+              <span className="px-3 py-1.5 rounded-full border border-[#FFB800]/30 bg-[#FFB800]/08 text-[10px] font-black text-[#FFB800] uppercase tracking-wider">Production</span>
             </div>
           </motion.div>
 
