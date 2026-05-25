@@ -43,7 +43,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     subtitle: "Observation directe certifiée ISO",
     desc: "",
     bullets: [
-      { title: "Packaging en pack de 20 unités avec présentoir", text: "Pour faciliter la distribution." },
+      { title: "Packaging en pack de 50 unités avec présentoir", text: "Pour faciliter la distribution." },
       { title: "Code-barres EAN standardisé", text: "Pour un passage en caisse rapide et simplifié." },
       { title: "Certification ISO 12312-2 & marquage CE", text: "Lunettes certifiées conformes à la norme internationale ISO 12312-2 pour l'observation directe du Soleil. Certification CE obtenue auprès d'un laboratoire européen agréé.", link: { href: "/#faq", label: "En savoir plus" } },
       { title: "Filtre solaire optique ND 5.0", text: "Filtration haute densité bloquant plus de 99,999 % de la lumière solaire ainsi que les rayons UV et infrarouges nocifs." },
