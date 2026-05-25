@@ -72,7 +72,6 @@ const PRODUCTS: ProductDef[] = [
       { title: "Compatible avec tous les téléphones", text: "Ce filtre est le même que celui pour les lunettes et permet de rendre ce moment mémorable." },
       { title: "Production responsable", text: "Production réalisée en batches limités afin de réduire le gaspillage et la surproduction." },
     ],
-    useCases: ["Vidéos time-lapse", "Créateurs de contenu"],
     warnings: [
       "Ce filtre est conçu exclusivement pour la capture photo/vidéo du Soleil avec un smartphone ou une tablette.",
       "Ne jamais observer directement le Soleil à travers l'écran ou l'objectif sans protection adaptée pour les yeux.",
