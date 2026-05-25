@@ -45,10 +45,10 @@ const B2B_PRODUCTS: B2BProduct[] = [
     sliderMax: 5000,
     unit: "paire",
     tiers: [
-      { min: 500,  label: "500",   unitHT: 0.83,  tag: null },
-      { min: 1000, label: "1 000", unitHT: 0.78,  tag: null },
-      { min: 2000, label: "2 000", unitHT: 0.74,  tag: null },
-      { min: 5000, label: "5 000", unitHT: 0.69,  tag: null },
+      { min: 500,  label: "500",   unitHT: 0.695, tag: null },
+      { min: 1000, label: "1 000", unitHT: 0.663, tag: null },
+      { min: 2000, label: "2 000", unitHT: 0.630, tag: null },
+      { min: 5000, label: "5 000", unitHT: 0.610, tag: null },
     ],
   },
   {
