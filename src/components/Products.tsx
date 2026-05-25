@@ -371,10 +371,13 @@ export default function Products() {
         </div>
 
         {/* Disclaimer */}
-        <p className="text-center text-xs text-white/35 italic mt-2 mb-6">
-          <span className="font-semibold not-italic text-white/45">Information importante —</span>{" "}
-          Ne pas utiliser si le filtre présente des rayures ou dommages. Enfants : surveillance adulte obligatoire.
-        </p>
+        <div className="flex items-center justify-center gap-3 mt-2 mb-6 px-4 py-3 rounded-xl border border-amber-400/30 bg-amber-400/06 max-w-2xl mx-auto">
+          <span className="text-amber-400 text-lg flex-shrink-0">⚠️</span>
+          <p className="text-sm text-white/80">
+            <span className="font-black text-amber-400">* Information importante — </span>
+            Ne pas utiliser si le filtre présente des rayures ou dommages. Enfants : surveillance adulte obligatoire.
+          </p>
+        </div>
 
         {/* Bandeau livraison */}
         <motion.div
