@@ -69,13 +69,7 @@ const PRODUCTS: ProductDef[] = [
     unit: "filtre",
     color: "#FFB800",
     icon: Smartphone,
-    features: [
-      "Compatible smartphones et tablettes",
-      "Protection renforcée pour l'objectif photo",
-      "Réduction extrême de la luminosité solaire (ND 5.0)",
-      "Filmer l'éclipse et les détails de la couronne solaire",
-      "Installation simple et légère",
-    ],
+    features: [],
     variantId: "gid://shopify/ProductVariant/58125148586329",
   },
   {
