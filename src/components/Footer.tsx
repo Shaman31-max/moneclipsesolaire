@@ -41,31 +41,13 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          {[
-            {
-              title: "Produits",
-              links: ["Lunettes solaires", "Filtres téléphone", "Filtres photo", "Packs familles"],
-            },
-            {
-              title: "Entreprises",
-              links: ["Commandes groupées", "Co-branding", "Devis B2B", "Partenaires"],
-            },
-            {
-              title: "Aide",
-              links: ["FAQ", "Livraison & retours", "Certifications ISO", "Contact"],
-            },
-          ].map(({ title, links }) => (
-            <div key={title}>
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#E8F0FF]/82 mb-4">{title}</h4>
-              <ul className="space-y-2">
-                {links.map((l) => (
-                  <li key={l}>
-                    <button className="text-xs text-[#E8F0FF]/65 hover:text-[#22D3EE] transition-colors">{l}</button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#E8F0FF]/82 mb-4">Produits</h4>
+            <ul className="space-y-2">
+              <li><a href="/#produits" className="text-xs text-[#E8F0FF]/65 hover:text-[#22D3EE] transition-colors">Lunettes Éclipse</a></li>
+              <li><a href="/#produits" className="text-xs text-[#E8F0FF]/65 hover:text-[#22D3EE] transition-colors">Filtres téléphone</a></li>
+            </ul>
+          </div>
         </div>
 
         {/* Contact bar */}
