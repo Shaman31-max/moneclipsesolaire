@@ -40,9 +40,9 @@ export default function Navbar() {
             <div className="absolute inset-[3px] rounded-full bg-[#060412]" />
           </div>
           <span className="font-bold text-base tracking-tight hidden sm:block">
-            <span className="gradient-text-blue">MonEclipse</span>
+            <span style={{ background: "linear-gradient(135deg, #22D3EE, #FFB800)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>MonEclipse</span>
             <span className="text-white">Solaire</span>
-            <span className="text-[#22D3EE]">.fr</span>
+            <span style={{ background: "linear-gradient(135deg, #FFB800, #22D3EE)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>.fr</span>
           </span>
         </Link>
 
@@ -78,7 +78,7 @@ export default function Navbar() {
 
           <a
             href="/#produits"
-            className="px-4 py-2 rounded-full bg-[#22D3EE] text-white text-sm font-semibold hover:bg-[#3D8FFF] transition-all duration-200 glow-blue whitespace-nowrap"
+            className="px-4 py-2 rounded-full bg-[#FFB800] text-black text-sm font-semibold hover:bg-[#FFC933] transition-all duration-200 glow-gold whitespace-nowrap"
           >
             Commander
           </a>
