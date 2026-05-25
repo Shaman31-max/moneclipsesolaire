@@ -46,11 +46,11 @@ export default function BatchSystem() {
             Production à la demande
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-5 leading-tight">
-            Calendrier de <span className="gradient-text-blue">production</span>
+            Un événement unique, zéro sur-production,<br />
+            <span className="gradient-text-blue">pas de gaspillage</span>
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto text-sm leading-relaxed">
-            Nous fonctionnons en production à la demande : les commandes sont regroupées par vagues de fabrication
-            afin de produire <strong className="text-white">uniquement les quantités réellement commandées</strong>.
+            Les commandes sont regroupées par vagues de fabrication afin de produire <strong className="text-white">uniquement les quantités réellement commandées</strong>.
           </p>
         </motion.div>
 
