@@ -370,9 +370,9 @@ export default function Products() {
         </div>
 
         {/* Disclaimer */}
-        <div className="flex items-center justify-center gap-3 mt-2 mb-6 px-4 py-3 rounded-xl border border-amber-400/30 bg-amber-400/06 max-w-2xl mx-auto">
+        <div className="flex items-center gap-3 mt-2 mb-6 px-4 py-3 rounded-xl border border-amber-400/30 bg-amber-400/06">
           <span className="text-amber-400 text-lg flex-shrink-0">⚠️</span>
-          <p className="text-sm text-white/80">
+          <p className="text-xs text-white/80">
             <span className="font-black text-amber-400">* Information importante — </span>
             Ne pas utiliser si le filtre présente des rayures ou dommages. Enfants : surveillance adulte obligatoire.
           </p>
