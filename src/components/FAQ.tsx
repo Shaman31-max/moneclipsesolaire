@@ -46,10 +46,6 @@ const categories = [
         a: "L'ISO 12312-2:2015 est la norme internationale qui définit les exigences de sécurité pour les filtres solaires oculaires. Elle impose une transmission lumineuse inférieure à 0,003 % (densité optique ≥ 5,0), le blocage total des UV (290–380 nm) et des IR jusqu'à 1400 nm. Tous nos produits sont testés par DIN CERTCO, laboratoire européen accrédité.",
       },
       {
-        q: "Mes lunettes portent un marquage CE. Est-ce suffisant ?",
-        a: "Le marquage CE seul ne garantit pas la conformité eclipse. Il doit être accompagné de la référence ISO 12312-2 et du numéro de l'organisme notifié (ex : CE 2797). Nos lunettes portent ces deux indications et sont livrées avec un certificat de conformité.",
-      },
-      {
         q: "Peut-on utiliser les lunettes pour filmer avec son téléphone ?",
         a: "Non. Les lunettes sont conçues pour les yeux humains. Pour filmer, utilisez notre filtre téléphone universel (ND 5.0), positionné devant l'objectif de votre smartphone. Ne regardez jamais l'écran en direct sans protection si votre téléphone capte directement le soleil.",
       },
