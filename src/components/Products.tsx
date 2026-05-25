@@ -165,7 +165,7 @@ function ProductCard({ product }: { product: ProductDef }) {
             </div>
           ))}
           {product.warning && (
-            <p className="text-[14px] text-white/45 italic mt-1 pl-6">{product.warning}</p>
+            <p className="text-[16px] text-white/45 italic mt-1 pl-6">{product.warning}</p>
           )}
         </div>
       ) : (
