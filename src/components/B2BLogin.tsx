@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Building2, Lock, Mail, ShieldCheck, Eye, EyeOff, ArrowRight, ExternalLink } from "lucide-react";
+import { Building2, Lock, ShieldCheck, Eye, EyeOff, ArrowRight, ExternalLink } from "lucide-react";
 import type { B2BSession } from "./B2BPortal";
 
 // Demo access codes (in production these would be backend-validated)
@@ -11,7 +11,7 @@ const VALID_CODES = ["ECLIPSE2026", "B2BPRO", "PARTENAIRE"];
 type Props = { onLogin: (s: B2BSession) => void };
 
 export default function B2BLogin({ onLogin }: Props) {
-  const [form, setForm] = useState({ company: "", email: "", code: "" });
+  const [form, setForm] = useState({ company: "", code: "" });
   const [showCode, setShowCode] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ export default function B2BLogin({ onLogin }: Props) {
       setLoading(false);
       return;
     }
-    onLogin({ company: form.company, email: form.email });
+    onLogin({ company: form.company });
   };
 
   return (
@@ -73,18 +73,6 @@ export default function B2BLogin({ onLogin }: Props) {
                 placeholder="Eclipse Distribution SAS"
                 value={form.company}
                 onChange={set("company")}
-                className="input-b2b"
-              />
-            </Field>
-
-            {/* Email */}
-            <Field label="Email professionnel" icon={Mail}>
-              <input
-                type="email"
-                required
-                placeholder="achat@votre-societe.fr"
-                value={form.email}
-                onChange={set("email")}
                 className="input-b2b"
               />
             </Field>

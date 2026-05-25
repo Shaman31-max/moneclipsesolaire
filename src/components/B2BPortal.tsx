@@ -8,7 +8,6 @@ const SESSION_KEY = "mes_b2b_session";
 
 export type B2BSession = {
   company: string;
-  email: string;
 };
 
 export default function B2BPortal() {

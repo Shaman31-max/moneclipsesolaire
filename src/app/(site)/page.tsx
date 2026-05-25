@@ -1,6 +1,5 @@
 ﻿import Hero from "@/components/Hero";
 import Products from "@/components/Products";
-import BatchSystem from "@/components/BatchSystem";
 import EclipseInfo from "@/components/EclipseInfo";
 import IsoCertification from "@/components/IsoCertification";
 import B2BTeaser from "@/components/B2BTeaser";
@@ -26,8 +25,6 @@ export default function Home() {
         <Hero />
         <Divider />
         <EclipseInfo />
-        <Divider />
-        <BatchSystem />
         <Divider />
         <IsoCertification />
         <Divider />

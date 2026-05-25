@@ -209,7 +209,7 @@ function B2BProductCard({
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="relative rounded-3xl p-8 border flex flex-col overflow-hidden"
+      className="relative rounded-3xl p-4 sm:p-8 border flex flex-col overflow-hidden"
       style={{
         background: "rgba(4,18,58,0.88)",
         borderColor: `${product.color}28`,
@@ -288,7 +288,7 @@ function B2BProductCard({
       <div className="relative z-10 flex items-end gap-3 mb-6">
         <div>
           <div className="flex items-baseline gap-2">
-            <span className="text-4xl font-black" style={{ color: product.color }}>
+            <span className="text-3xl sm:text-4xl font-black" style={{ color: product.color }}>
               {fmt(unitHT)} €
             </span>
           </div>
@@ -319,7 +319,7 @@ function B2BProductCard({
         <div className="flex items-center justify-between mb-3">
           <span className="text-xs font-bold text-white/82 uppercase tracking-wider">Quantité</span>
           <div className="flex items-baseline gap-1.5">
-            <span className="text-2xl font-black tabular-nums" style={{ color: product.color }}>
+            <span className="text-xl sm:text-2xl font-black tabular-nums" style={{ color: product.color }}>
               {qty.toLocaleString("fr-FR")}
             </span>
             <span className="text-xs text-white/72">{product.unit}s</span>
@@ -348,7 +348,7 @@ function B2BProductCard({
       </AnimatePresence>
 
       {/* Tier badges */}
-      <div className="relative z-10 grid grid-cols-4 gap-1.5 mb-6">
+      <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-1.5 mb-6">
         {product.tiers.map((t) => {
           const unlocked = qty >= t.min;
           const active = activeTier === t;
@@ -404,7 +404,8 @@ function B2BProductCard({
         {inQuote ? (
           <><CheckCircle size={18} /> Dans le devis</>
         ) : (
-          <><ShoppingCart size={18} /> Ajouter au devis — {qty.toLocaleString("fr-FR")} {product.unit}s</>
+          <><ShoppingCart size={18} /> <span className="hidden sm:inline">Ajouter au devis — </span>{qty.toLocaleString("fr-FR")} {product.unit}s</>
+
         )}
       </motion.button>
     </motion.div>
@@ -443,9 +444,9 @@ export default function B2BCatalog({ session, onLogout }: Props) {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#22D3EE] opacity-[0.02] blur-[150px]" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
+      <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-6 py-8 sm:py-12">
         {/* Header */}
-        <div className="flex items-center justify-between mb-10 flex-wrap gap-4">
+        <div className="flex items-center justify-between mb-8 sm:mb-10 flex-wrap gap-4">
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <Building2 size={16} className="text-[#22D3EE]" />
@@ -454,7 +455,6 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                 Partenaire certifié
               </span>
             </div>
-            <p className="text-xs text-white/70 mt-1">{session.email}</p>
           </div>
 
           <div className="flex items-center gap-3">
@@ -483,29 +483,31 @@ export default function B2BCatalog({ session, onLogout }: Props) {
 
         {/* Conditions bar */}
         <div
-          className="rounded-2xl p-5 mb-10 flex flex-wrap gap-6 items-center"
+          className="rounded-2xl p-4 sm:p-5 mb-8 sm:mb-10"
           style={{ background: "rgba(4,18,58,0.88)", border: "1px solid rgba(30,127,255,0.2)" }}
         >
-          {[
-            { icon: ShieldCheck, label: "Prix unitaire HT", value: "à partir de 0,61 €" },
-            { icon: Eye, label: "Min. Lunettes", value: "500 paires" },
-            { icon: Smartphone, label: "Min. Filtres", value: "250 unités" },
-            { icon: Truck, label: "Délai livraison", value: "Selon calendrier", href: "/#commande" },
-            { icon: FileText, label: "Paiement", value: "50% acompte, solde à réception" },
-          ].map(({ icon: Icon, label, value, href }: { icon: React.ComponentType<{ size?: number; className?: string }>; label: string; value: string; href?: string }) => (
-            <div key={label} className="flex items-center gap-2.5">
-              <Icon size={14} className="text-[#22D3EE] flex-shrink-0" />
-              <div>
-                <div className="text-[10px] text-white/72 uppercase tracking-wider">{label}</div>
-                {href ? (
-                  <a href={href} className="text-sm font-bold text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">{value} →</a>
-                ) : (
-                  <div className="text-sm font-bold text-white">{value}</div>
-                )}
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-4 sm:gap-6 items-center">
+            {[
+              { icon: ShieldCheck, label: "Prix unitaire HT", value: "à partir de 0,61 €" },
+              { icon: Eye, label: "Min. Lunettes", value: "500 paires" },
+              { icon: Smartphone, label: "Min. Filtres", value: "250 unités" },
+              { icon: Truck, label: "Délai livraison", value: "Selon calendrier", href: "/#commande" },
+              { icon: FileText, label: "Paiement", value: "50% acompte, solde à réception" },
+            ].map(({ icon: Icon, label, value, href }: { icon: React.ComponentType<{ size?: number; className?: string }>; label: string; value: string; href?: string }) => (
+              <div key={label} className="flex items-center gap-2">
+                <Icon size={13} className="text-[#22D3EE] flex-shrink-0" />
+                <div>
+                  <div className="text-[10px] text-white/72 uppercase tracking-wider">{label}</div>
+                  {href ? (
+                    <a href={href} className="text-xs sm:text-sm font-bold text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">{value} →</a>
+                  ) : (
+                    <div className="text-xs sm:text-sm font-bold text-white">{value}</div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
-          <div className="ml-auto flex gap-2">
+            ))}
+          </div>
+          <div className="flex gap-2 mt-4 pt-3 border-t border-white/5">
             {[
               { code: "ISO 12312-2", href: "https://www.iso.org/standard/59289.html" },
               { code: "CE 2797", href: "https://ec.europa.eu/growth/single-market/ce-marking_en" },
@@ -543,7 +545,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
         {/* Section title */}
         <div className="mb-8">
           <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-1 font-medium">Catalogue B2B</p>
-          <h1 className="text-3xl font-black text-white">
+          <h1 className="text-2xl sm:text-3xl font-black text-white">
             Collection Éclipse 2026 — <span className="gradient-text-blue">Tarifs Partenaires</span>
           </h1>
           <p className="text-white/78 text-sm mt-1">
@@ -565,7 +567,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
 
         {/* Paliers table */}
         <div
-          className="rounded-2xl p-6 border"
+          className="rounded-2xl p-4 sm:p-6 border"
           style={{ background: "rgba(4,18,58,0.88)", borderColor: "rgba(30,127,255,0.18)" }}
         >
           <h3 className="text-sm font-bold text-white mb-4">Paliers de remise</h3>
@@ -672,7 +674,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                   <CheckCircle size={26} className="text-[#FFB800]" />
                 </div>
                 <h3 className="font-black text-white text-lg mb-1">Envoyé !</h3>
-                <p className="text-sm text-white/72">Réponse sous 24h ouvrées à {session.email}</p>
+                <p className="text-sm text-white/72">Réponse sous 24h ouvrées</p>
               </div>
             )}
           </motion.div>

@@ -77,7 +77,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-white/92 text-lg mb-8 max-w-md leading-relaxed">
-            Le 12 août 2026, la France vivra sa plus impressionnante éclipse solaire depuis 1999.
+            Le 12 août 2026, la France vivra sa plus impressionnante éclipse solaire depuis 1999. Ne ratez pas cet évènement unique qui ne se reproduira pas avant 2081.
           </p>
 
           {/* CTAs */}

@@ -393,8 +393,11 @@ export default function Products() {
               <Zap size={18} className="text-[#22c55e]" />
             </div>
             <div className="text-left">
-              <div className="text-lg md:text-xl font-black text-white leading-tight">🚚 Livraison gratuite & incluse</div>
-              <div className="text-sm font-semibold mt-0.5" style={{ color: "#22c55e" }}>Garantie chez vous avant l'éclipse — sans frais cachés</div>
+              <div className="text-lg md:text-xl font-black text-white leading-tight">🚚 Livraison gratuite & incluse directement dans votre boîte aux lettres</div>
+              <div className="text-sm font-semibold mt-0.5" style={{ color: "#22c55e" }}>
+                Garantie chez vous avant l'éclipse — sans frais cachés · selon le{" "}
+                <a href="/#commande" className="underline underline-offset-2 hover:text-white transition-colors">planning de livraison</a>*
+              </div>
             </div>
           </div>
         </motion.div>
