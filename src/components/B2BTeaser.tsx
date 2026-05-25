@@ -59,15 +59,25 @@ export default function B2BTeaser() {
                 ))}
               </div>
 
-              <motion.a
-                href="/b2b"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#FFB800] text-black font-bold text-sm glow-gold hover:bg-[#FFC933] transition-colors"
-              >
-                Accéder à l'espace partenaires
-                <ArrowRight size={15} />
-              </motion.a>
+              <div className="flex flex-wrap gap-3">
+                <motion.a
+                  href="/b2b"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#FFB800] text-black font-bold text-sm glow-gold hover:bg-[#FFC933] transition-colors"
+                >
+                  Accéder à l'espace partenaires
+                  <ArrowRight size={15} />
+                </motion.a>
+                <motion.a
+                  href="mailto:b2b@moneclipsesolaire.fr?subject=Demande%20d%27acc%C3%A8s%20espace%20partenaires"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border border-[#22D3EE]/40 text-white font-bold text-sm hover:border-[#22D3EE] hover:text-[#22D3EE] transition-colors"
+                >
+                  Demandez vos accès
+                </motion.a>
+              </div>
             </div>
 
             {/* Right : image */}
