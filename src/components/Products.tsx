@@ -190,7 +190,7 @@ function ProductCard({ product }: { product: ProductDef }) {
               {PRICE_STEPS.map((s, i) => (
                 <span
                   key={i}
-                  className="text-[8px] font-bold transition-colors"
+                  className="text-[12px] font-bold transition-colors"
                   style={{ color: i === stepIdx ? product.color : "rgba(220,232,255,0.2)" }}
                 >
                   {s.qty}
