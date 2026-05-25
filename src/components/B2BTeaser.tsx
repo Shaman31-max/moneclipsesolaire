@@ -7,7 +7,7 @@ const perks = [
   { icon: Percent, text: "Des remises exclusives" },
   { icon: Package, text: "Commande min. 500 pièces" },
   { icon: ShieldCheck, text: "Code-barres EAN pour faciliter le passage en caisse" },
-  { icon: Truck, text: "Livraison groupée express" },
+  { icon: Truck, text: "Livraison gratuite" },
 ];
 
 export default function B2BTeaser() {
