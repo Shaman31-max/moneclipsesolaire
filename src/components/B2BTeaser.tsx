@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Building2, ArrowRight, Package, Percent, Truck, ShieldCheck } from "lucide-react";
 
 const perks = [
-  { icon: Percent, text: "–10% dès 1 000 unités" },
+  { icon: Percent, text: "Des remises exclusives" },
   { icon: Package, text: "Commande min. 500 pièces" },
   { icon: ShieldCheck, text: "Factures pro + certificats CE" },
   { icon: Truck, text: "Livraison groupée express" },
