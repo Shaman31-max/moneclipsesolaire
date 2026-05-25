@@ -514,6 +514,25 @@ export default function B2BCatalog({ session, onLogout }: Props) {
           </div>
         </div>
 
+        {/* Certificats téléchargeables */}
+        <div className="mb-8 flex flex-wrap gap-3 items-center">
+          <span className="text-xs text-white/50 uppercase tracking-widest font-semibold">Télécharger les certificats</span>
+          <a
+            href="/certificat-iso-12312-2.pdf"
+            download
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-white border border-[#22D3EE]/30 bg-[#22D3EE]/10 hover:bg-[#22D3EE]/20 transition-colors"
+          >
+            <FileText size={14} className="text-[#22D3EE]" /> Certificat ISO 12312-2
+          </a>
+          <a
+            href="/certificat-ce.pdf"
+            download
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-white border border-[#FFB800]/30 bg-[#FFB800]/10 hover:bg-[#FFB800]/20 transition-colors"
+          >
+            <FileText size={14} className="text-[#FFB800]" /> Certificat CE
+          </a>
+        </div>
+
         {/* Section title */}
         <div className="mb-8">
           <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-1 font-medium">Catalogue B2B</p>
