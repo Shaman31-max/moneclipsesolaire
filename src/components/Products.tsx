@@ -64,6 +64,7 @@ const PRODUCTS: ProductDef[] = [
     id: "filter",
     name: "Filtre Téléphone Universel",
     subtitle: "Filmer & photographier l'éclipse",
+    image: "/filtre_telephone.png",
     desc: "Découvrez notre film solaire ND 5.0 spécialement conçu pour smartphones et tablettes. Capturez l'éclipse et filmez la couronne solaire en toute sécurité tout en protégeant l'objectif de votre appareil contre l'intensité extrême de la lumière solaire. Grâce à sa forte densité optique, ce filtre réduit efficacement la luminosité du soleil afin de permettre des prises de vue nettes, détaillées et spectaculaires. Idéal pour immortaliser les phénomènes astronomiques comme les éclipses solaires, sans risque pour votre capteur photo. Observez, filmez et partagez l'éclipse en toute sérénité.",
     unit: "filtre",
     color: "#FFB800",
