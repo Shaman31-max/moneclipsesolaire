@@ -101,7 +101,7 @@ export default function Hero() {
           className="relative flex flex-col gap-4"
         >
           {/* Compte à rebours */}
-          <div className="flex justify-center gap-4 mb-2">
+          <div className="flex justify-center gap-2 md:gap-4 mb-2">
             {[
               { val: time.j, label: "Jours" },
               { val: time.h, label: "Heures" },
@@ -109,12 +109,12 @@ export default function Hero() {
               { val: time.s, label: "Sec" },
             ].map(({ val, label }, i) => (
               <div key={label} className="flex flex-col items-center">
-                <div className="glass rounded-2xl px-4 py-3 border border-red-500/40 min-w-[64px] text-center">
-                  <span className="text-4xl font-black tabular-nums text-red-500" style={{ textShadow: "0 0 16px rgba(239,68,68,0.8)" }}>
+                <div className="glass rounded-xl px-2 py-2 md:px-4 md:py-3 border border-red-500/40 min-w-[52px] md:min-w-[64px] text-center">
+                  <span className="text-2xl md:text-4xl font-black tabular-nums text-red-500" style={{ textShadow: "0 0 16px rgba(239,68,68,0.8)" }}>
                     {i === 0 ? val : pad(val)}
                   </span>
                 </div>
-                <span className="text-[10px] uppercase tracking-widest text-white/70 mt-1">{label}</span>
+                <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-white/70 mt-1">{label}</span>
               </div>
             ))}
           </div>
