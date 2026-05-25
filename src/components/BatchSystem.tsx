@@ -223,42 +223,67 @@ function FriseTimeline({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className={`glass p-6 overflow-x-auto border-2 ${topRounded ? "rounded-2xl" : "rounded-b-2xl"}`}
+      className={`glass p-6 border-2 ${topRounded ? "rounded-2xl" : "rounded-b-2xl"}`}
       style={{ borderColor: `${border}40` }}
     >
-      <p className="text-sm uppercase tracking-widest font-black mb-8" style={{ color: titleColor }}>
+      <p className="text-sm uppercase tracking-widest font-black mb-6" style={{ color: titleColor }}>
         {title}
       </p>
 
-      {/* Timeline row */}
-      <div className="relative flex items-center min-w-[420px]">
-        {/* Background line */}
+      {/* ── Desktop : horizontal ── */}
+      <div className="hidden sm:flex relative items-center">
         <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px]"
           style={{ background: `linear-gradient(to right, ${nodes[0].color}60, ${nodes[1].color}50, ${nodes[2].color}60)` }}
         />
-
-        {/* Node 1 */}
         <TimelineNode node={nodes[0]} num={1} />
-
-        {/* Badge 1 */}
         <div className="flex-1 flex justify-center items-center relative z-10">
-          <span className="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider whitespace-nowrap bg-[#060412] border border-white/20 text-white/80">
-            {badges[0]}
-          </span>
+          <span className="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider whitespace-nowrap bg-[#060412] border border-white/20 text-white/80">{badges[0]}</span>
         </div>
-
-        {/* Node 2 */}
         <TimelineNode node={nodes[1]} num={2} />
-
-        {/* Badge 2 */}
         <div className="flex-1 flex justify-center items-center relative z-10">
-          <span className="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider whitespace-nowrap bg-[#060412] border border-white/20 text-white/80">
-            {badges[1]}
-          </span>
+          <span className="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider whitespace-nowrap bg-[#060412] border border-white/20 text-white/80">{badges[1]}</span>
         </div>
-
-        {/* Node 3 */}
         <TimelineNode node={nodes[2]} num={3} />
+      </div>
+
+      {/* ── Mobile : vertical ── */}
+      <div className="flex sm:hidden flex-col">
+        {[0, 1, 2].map((i) => (
+          <div key={i}>
+            {/* Node row */}
+            <div className="flex items-start gap-4">
+              {/* Left : circle + vertical line */}
+              <div className="flex flex-col items-center flex-shrink-0">
+                <div
+                  className="w-10 h-10 rounded-full border-2 flex items-center justify-center font-black text-sm"
+                  style={{
+                    backgroundColor: `${nodes[i].color}20`,
+                    borderColor: nodes[i].color,
+                    color: nodes[i].color,
+                    boxShadow: nodes[i].glow ? `0 0 14px ${nodes[i].color}90` : undefined,
+                  }}
+                >
+                  {i + 1}
+                </div>
+                {i < 2 && <div className="w-[2px] h-8 mt-1" style={{ background: `${nodes[i].color}40` }} />}
+              </div>
+              {/* Right : date + label */}
+              <div className="pt-2 pb-1">
+                <div className="text-sm font-black" style={{ color: nodes[i].color }}>{nodes[i].date}</div>
+                <div className="text-xs text-white/60 mt-0.5 leading-tight">{nodes[i].label}</div>
+              </div>
+            </div>
+            {/* Badge between nodes */}
+            {i < 2 && (
+              <div className="flex items-center gap-3 ml-5 my-1">
+                <div className="w-[2px] h-4 invisible" />
+                <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#060412] border border-white/20 text-white/70">
+                  {badges[i]}
+                </span>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </motion.div>
   );
