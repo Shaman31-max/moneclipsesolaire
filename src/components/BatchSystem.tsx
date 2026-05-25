@@ -239,31 +239,6 @@ export default function BatchSystem() {
           </div>
         </motion.div>
 
-        {/* ── Avantages ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="glass rounded-2xl p-5 border border-[#22c55e]/20"
-        >
-          <p className="text-xs font-bold text-[#22c55e] uppercase tracking-widest mb-4">✅ Cela permet :</p>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {[
-              { icon: "♻️", label: "Zéro gaspillage", desc: "Une meilleure qualité de production" },
-              { icon: "📦", label: "Moins de surstock", desc: "Produit uniquement pour les commandes" },
-              { icon: "🎯", label: "Séries exclusives", desc: "Fabriquées spécialement pour vous" },
-            ].map((item) => (
-              <div key={item.label} className="flex items-start gap-3">
-                <span className="text-xl flex-shrink-0">{item.icon}</span>
-                <div>
-                  <div className="text-xs font-black text-white">{item.label}</div>
-                  <div className="text-[10px] text-white/60 mt-0.5">{item.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
 
       </div>
     </section>
