@@ -94,14 +94,6 @@ const categories = [
         q: "Comment obtenir un code d'accès partenaire B2B ?",
         a: "Envoyez un email à b2b@moneclipsesolaire.fr avec votre SIRET, votre secteur d'activité et le volume estimé. Notre équipe commerciale vous contacte sous 24h ouvrées avec votre code personnalisé.",
       },
-      {
-        q: "Le prix de 1,10 € HT est-il négociable au-delà de 5 000 unités ?",
-        a: "Oui. Le tarif affiché de 0,935 € HT (–15%) s'applique automatiquement dès 5 000 unités. Pour des volumes supérieurs à 10 000 unités ou des contrats annuels, un devis personnalisé est établi avec des conditions spécifiques (paliers supplémentaires, stockage, personnalisation).",
-      },
-      {
-        q: "Peut-on faire imprimer notre logo sur les lunettes ?",
-        a: "Oui, le co-branding est disponible sur les lunettes Premium dès 1 000 unités. Impression quadrichromie sur la branche ou le frontal. Délai de production supplémentaire : 7 à 10 jours ouvrés. Maquette PDF fournie avant validation.",
-      },
     ],
   },
 ];
