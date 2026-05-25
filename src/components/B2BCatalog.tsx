@@ -16,12 +16,15 @@ function fmt(n: number) {
 }
 
 // ── B2B Products ─────────────────────────────────────────────────
+type B2BBullet = { title: string; text: string; link?: { href: string; label: string } };
+
 type B2BProduct = {
   id: string;
   sku: string;
   name: string;
   subtitle: string;
   desc: string;
+  bullets?: B2BBullet[];
   image?: string;
   color: string;
   icon: React.ComponentType<{ size?: number; className?: string; style?: React.CSSProperties }>;
@@ -38,7 +41,15 @@ const B2B_PRODUCTS: B2BProduct[] = [
     sku: "MES-LUN-B2B",
     name: "Lunettes Éclipse avec présentoir",
     subtitle: "Observation directe certifiée ISO",
-    desc: "Lunettes certifiées ISO 12312-2, filtre ND 5.0. Monture rigide recyclée. Co-branding possible dès 1 000 u.",
+    desc: "",
+    bullets: [
+      { title: "Packaging en pack de 50 unités avec présentoir", text: "Pour faciliter la distribution." },
+      { title: "Code-barres EAN standardisé", text: "Pour un passage en caisse rapide et simplifié." },
+      { title: "Certification ISO 12312-2 & marquage CE", text: "Lunettes certifiées conformes à la norme internationale ISO 12312-2 pour l'observation directe du Soleil. Certification CE obtenue auprès d'un laboratoire européen agréé.", link: { href: "/#faq", label: "En savoir plus" } },
+      { title: "Filtre solaire optique ND 5.0", text: "Filtration haute densité bloquant plus de 99,999 % de la lumière solaire ainsi que les rayons UV et infrarouges nocifs." },
+      { title: "Observation solaire sécurisée", text: "Permet d'observer une éclipse solaire directement en toute sécurité." },
+      { title: "Convient aux adultes et aux enfants", text: "Design léger et confortable adapté à toute la famille." },
+    ],
     image: "/lunettes_avec_presentoir.png",
     color: "#22D3EE",
     icon: Eye,
@@ -231,7 +242,27 @@ function B2BProductCard({
       </div>
 
       {/* Description */}
-      <p className="relative z-10 text-sm text-white/88 leading-relaxed mb-4">{product.desc}</p>
+      {product.bullets && product.bullets.length > 0 ? (
+        <div className="relative z-10 space-y-2.5 mb-4">
+          {product.bullets.map((b) => (
+            <div key={b.title} className="flex items-start gap-2.5">
+              <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: `${product.color}20`, border: `1px solid ${product.color}40` }}>
+                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: product.color }} />
+              </div>
+              <p className="text-sm text-white/85 leading-snug">
+                <span className="font-bold text-white">{b.title}</span>
+                {" — "}
+                <span className="text-white/70">{b.text}</span>
+                {b.link && (
+                  <> <a href={b.link.href} className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors text-xs ml-1">{b.link.label} →</a></>
+                )}
+              </p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="relative z-10 text-sm text-white/88 leading-relaxed mb-4">{product.desc}</p>
+      )}
 
       {/* Features */}
       <div className="relative z-10 flex flex-wrap gap-2 mb-6">
@@ -453,7 +484,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
             { icon: Eye, label: "Min. Lunettes", value: "500 paires" },
             { icon: Smartphone, label: "Min. Filtres", value: "250 unités" },
             { icon: Truck, label: "Délai livraison", value: "5–7 j ouvrés" },
-            { icon: FileText, label: "Paiement", value: "Virement 30j" },
+            { icon: FileText, label: "Paiement", value: "40% acompte, solde à réception" },
           ].map(({ icon: Icon, label, value }) => (
             <div key={label} className="flex items-center gap-2.5">
               <Icon size={14} className="text-[#22D3EE] flex-shrink-0" />
