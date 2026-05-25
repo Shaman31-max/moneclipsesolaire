@@ -235,7 +235,7 @@ function ProductCard({ product }: { product: ProductDef }) {
                 <span className="text-[calc(2.25rem-7px)] font-black" style={{ color: product.color }}>{fmt(step.total)} €</span>
                 <span className="text-xs font-semibold whitespace-nowrap" style={{ color: product.color }}>Livraison incluse</span>
               </div>
-              <div className="text-xs text-white/65 mt-0.5">
+              <div className="text-[calc(0.75rem+2px)] text-white/65 mt-0.5">
                 {fmt(unitPrice)} € / {product.unit}
               </div>
             </div>
