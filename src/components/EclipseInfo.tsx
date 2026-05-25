@@ -108,7 +108,7 @@ export default function EclipseInfo() {
             ))}
           </div>
           <p className="text-xs text-[#E8F0FF]/70 leading-relaxed">
-            ⚠️ Le Soleil sera très bas sur l'horizon au moment du maximum — choisissez un endroit avec une vue dégagée vers l'ouest.
+            💡 Le Soleil sera très bas sur l'horizon au moment du maximum — choisissez un endroit avec une vue dégagée vers l'ouest.
           </p>
         </motion.div>
 
