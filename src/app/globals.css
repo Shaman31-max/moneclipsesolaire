@@ -118,3 +118,10 @@ body {
   50% { transform: translateX(6px); }
 }
 .badge-bounce { animation: badge-bounce 1.8s ease-in-out infinite; }
+
+/* Range slider — zone de toucher plus grande sur mobile */
+input[type="range"] {
+  height: 28px;
+  cursor: pointer;
+  outline: none;
+}

@@ -44,7 +44,7 @@ const PRODUCTS: ProductDef[] = [
     image: "/lunette-eclipse.png",
     desc: "Lunettes certifiées ISO 12312-2 pour l'observation directe de l'éclipse solaire. Monture rigide, filtre optique ND 5.0.",
     unit: "paire",
-    color: "#22D3EE",
+    color: "#FFB800",
     icon: Eye,
     features: ["ISO 12312-2 certifiées", "Filtre ND 5.0", "Monture rigide recyclée"],
     variantId: "gid://shopify/ProductVariant/58125149110617",
@@ -55,7 +55,7 @@ const PRODUCTS: ProductDef[] = [
     subtitle: "Filmer & photographier l'éclipse",
     desc: "Découvrez notre film solaire ND 5.0 spécialement conçu pour smartphones et tablettes. Capturez l'éclipse et filmez la couronne solaire en toute sécurité tout en protégeant l'objectif de votre appareil contre l'intensité extrême de la lumière solaire. Grâce à sa forte densité optique, ce filtre réduit efficacement la luminosité du soleil afin de permettre des prises de vue nettes, détaillées et spectaculaires. Idéal pour immortaliser les phénomènes astronomiques comme les éclipses solaires, sans risque pour votre capteur photo. Observez, filmez et partagez l'éclipse en toute sérénité.",
     unit: "filtre",
-    color: "#A78BFA",
+    color: "#FFB800",
     icon: Smartphone,
     features: [
       "Compatible smartphones et tablettes",
@@ -159,7 +159,7 @@ function ProductCard({ product }: { product: ProductDef }) {
       {isFixed ? (
         <div className="relative z-10 mb-6 flex items-end gap-3">
           <div>
-            <span className="text-[calc(2.25rem-5px)] font-black" style={{ color: product.color }}>{fmt(product.fixedPrice!)} €</span>
+            <span className="text-[calc(2.25rem-7px)] font-black" style={{ color: product.color }}>{fmt(product.fixedPrice!)} €</span>
             <div className="text-xs text-white/65 mt-0.5">Téléchargement instantané · TVA incluse</div>
           </div>
         </div>
@@ -202,7 +202,7 @@ function ProductCard({ product }: { product: ProductDef }) {
           <div className="relative z-10 mb-4 flex items-end gap-3">
             <div>
               <div className="flex items-baseline gap-3">
-                <span className="text-[calc(2.25rem-5px)] font-black" style={{ color: product.color }}>{fmt(step.total)} €</span>
+                <span className="text-[calc(2.25rem-7px)] font-black" style={{ color: product.color }}>{fmt(step.total)} €</span>
                 <span className="text-xs font-semibold whitespace-nowrap" style={{ color: product.color }}>Livraison incluse</span>
               </div>
               <div className="text-xs text-white/65 mt-0.5">
