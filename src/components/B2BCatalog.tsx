@@ -52,7 +52,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     image: "/lunettes_avec_presentoir.png",
     color: "#22D3EE",
     icon: Eye,
-    features: ["ISO 12312-2 • CE 2797", "Filtre ND 5.0 optique", "Co-branding dès 1 000 u."],
+    features: [],
     minQty: 500,
     sliderMax: 5000,
     unit: "paire",
