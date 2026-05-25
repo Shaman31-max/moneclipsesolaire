@@ -113,8 +113,19 @@ export default function IsoCertification() {
                 <h3 className="text-xl font-black text-white mb-1">
                   Certifications officielles
                 </h3>
-                <p className="text-sm text-white/90 mb-4 max-w-md">
+                <p className="text-sm text-white/90 mb-2 max-w-md">
                   Nos lunettes et nos filtres sont testés dans un laboratoire européen accrédité.
+                </p>
+                <p className="text-sm text-white/70 mb-4 max-w-md">
+                  Le certificat peut être consulté{" "}
+                  <a
+                    href="https://www.ccqs.com/eu/certificateverification/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors"
+                  >
+                    ici →
+                  </a>
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {certs.map((c, i) => (
