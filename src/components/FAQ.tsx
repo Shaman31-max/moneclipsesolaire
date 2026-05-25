@@ -32,7 +32,7 @@ const categories = [
       },
       {
         q: "Puis-je commander dans les deux séries ?",
-        a: "Oui, tout à fait. Si vous souhaitez par exemple recevoir une première commande le 20 juillet pour un premier événement, puis une seconde le 7 août pour un second événement ou pour compléter votre stock, vous pouvez passer deux commandes distinctes dans les deux séries.",
+        a: "Oui, c'est possible.",
       },
     ],
   },
