@@ -480,7 +480,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
           style={{ background: "rgba(4,18,58,0.88)", border: "1px solid rgba(30,127,255,0.2)" }}
         >
           {[
-            { icon: ShieldCheck, label: "Prix unitaire HT", value: "1,10 €" },
+            { icon: ShieldCheck, label: "Prix unitaire HT", value: "à partir de 0,61 €" },
             { icon: Eye, label: "Min. Lunettes", value: "500 paires" },
             { icon: Smartphone, label: "Min. Filtres", value: "250 unités" },
             { icon: Truck, label: "Délai livraison", value: "Selon calendrier", href: "/#commande" },
