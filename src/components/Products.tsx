@@ -56,7 +56,6 @@ const PRODUCTS: ProductDef[] = [
       { title: "Adultes & enfants", text: "Design léger et confortable pour toute la famille." },
       { title: "Production responsable", text: "Fabrication à la demande pour limiter le gaspillage." },
     ],
-    warning: "Ne pas utiliser si le filtre présente des rayures ou dommages. Enfants : surveillance adulte obligatoire.",
     unit: "paire",
     color: "#FFB800",
     icon: Eye,
@@ -191,17 +190,6 @@ function ProductCard({ product }: { product: ProductDef }) {
             <div className="text-[16px] text-white/45 italic mt-1 pl-6 space-y-0.5">
               {product.warning.split(". ").filter(Boolean).map((line, i) => (
                 <p key={i}>{line}{line.endsWith(".") ? "" : "."}</p>
-              ))}
-            </div>
-          )}
-          {product.warnings && product.warnings.length > 0 && (
-            <div className="mt-3 p-3 rounded-xl border border-red-500/20 bg-red-500/06 space-y-1.5">
-              <p className="text-[10px] font-black uppercase tracking-widest text-red-400 mb-1">Information importante</p>
-              {product.warnings.map((w, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <span className="text-red-400 text-xs mt-0.5 flex-shrink-0">•</span>
-                  <p className="text-xs text-white/70 leading-snug">{w}</p>
-                </div>
               ))}
             </div>
           )}
@@ -381,6 +369,12 @@ export default function Products() {
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
+
+        {/* Disclaimer */}
+        <p className="text-center text-xs text-white/35 italic mt-2 mb-6">
+          <span className="font-semibold not-italic text-white/45">Information importante —</span>{" "}
+          Ne pas utiliser si le filtre présente des rayures ou dommages. Enfants : surveillance adulte obligatoire.
+        </p>
 
         {/* Bandeau livraison */}
         <motion.div
