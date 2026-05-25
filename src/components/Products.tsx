@@ -57,7 +57,7 @@ const PRODUCTS: ProductDef[] = [
     unit: "paire",
     color: "#FFB800",
     icon: Eye,
-    features: ["ISO 12312-2 certifiées", "Filtre ND 5.0", "Monture rigide recyclée"],
+    features: [],
     variantId: "gid://shopify/ProductVariant/58125149110617",
   },
   {
