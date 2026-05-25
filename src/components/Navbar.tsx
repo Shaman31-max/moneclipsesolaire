@@ -3,10 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingCart } from "lucide-react";
 
 const links = [
-  { href: "/#produits", label: "Produits" },
+  { href: "/#produits", label: "Commander" },
   { href: "/#eclipse", label: "L'Éclipse" },
   { href: "/#faq", label: "FAQ" },
   { href: "/b2b", label: "Partenaires B2B", badge: true },
@@ -65,15 +64,7 @@ export default function Navbar() {
         {/* Spacer on smaller screens */}
         <div className="flex-1 xl:hidden" />
 
-        {/* Right side: Cart + CTA */}
-        <div className="flex items-center gap-3">
-          <a
-            href="/#produits"
-            className="px-4 py-2 rounded-full bg-[#FFB800] text-black text-sm font-semibold hover:bg-[#FFC933] transition-all duration-200 glow-gold whitespace-nowrap"
-          >
-            Commander
-          </a>
-        </div>
+        <div />
       </div>
 
       {/* Mobile links strip */}
