@@ -483,14 +483,18 @@ export default function B2BCatalog({ session, onLogout }: Props) {
             { icon: ShieldCheck, label: "Prix unitaire HT", value: "1,10 €" },
             { icon: Eye, label: "Min. Lunettes", value: "500 paires" },
             { icon: Smartphone, label: "Min. Filtres", value: "250 unités" },
-            { icon: Truck, label: "Délai livraison", value: "5–7 j ouvrés" },
+            { icon: Truck, label: "Délai livraison", value: "Selon calendrier", href: "/#commande" },
             { icon: FileText, label: "Paiement", value: "50% acompte, solde à réception" },
-          ].map(({ icon: Icon, label, value }) => (
+          ].map(({ icon: Icon, label, value, href }: { icon: React.ComponentType<{ size?: number; className?: string }>; label: string; value: string; href?: string }) => (
             <div key={label} className="flex items-center gap-2.5">
               <Icon size={14} className="text-[#22D3EE] flex-shrink-0" />
               <div>
                 <div className="text-[10px] text-white/72 uppercase tracking-wider">{label}</div>
-                <div className="text-sm font-bold text-white">{value}</div>
+                {href ? (
+                  <a href={href} className="text-sm font-bold text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">{value} →</a>
+                ) : (
+                  <div className="text-sm font-bold text-white">{value}</div>
+                )}
               </div>
             </div>
           ))}
