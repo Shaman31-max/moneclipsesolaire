@@ -39,7 +39,7 @@ export default function Navbar() {
             <div className="absolute inset-0 rounded-full bg-[#22D3EE] opacity-80 corona-pulse" />
             <div className="absolute inset-[3px] rounded-full bg-[#060412]" />
           </div>
-          <span className="font-bold text-base tracking-tight hidden sm:block">
+          <span className="font-bold text-base tracking-tight">
             <span style={{ background: "linear-gradient(135deg, #22D3EE, #FFB800)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>MonEclipse</span>
             <span className="text-white">Solaire</span>
             <span style={{ background: "linear-gradient(135deg, #FFB800, #22D3EE)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>.fr</span>
