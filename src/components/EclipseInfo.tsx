@@ -5,10 +5,10 @@ import { MapPin, Clock, Eye, AlertTriangle, Sun, Thermometer, Star } from "lucid
 
 const cities = [
   { name: "Biarritz", pct: "99,5% d'obscurité" },
-  { name: "Bayonne", pct: "99,3% d'obscurité" },
-  { name: "Bordeaux", pct: "98,5% d'obscurité" },
-  { name: "Toulouse", pct: "97% d'obscurité" },
-  { name: "Paris", pct: "92% d'obscurité" },
+  { name: "Bayonne", pct: "99,3%" },
+  { name: "Bordeaux", pct: "98,5%" },
+  { name: "Toulouse", pct: "97%" },
+  { name: "Paris", pct: "92%" },
 ];
 
 const horaires = [
