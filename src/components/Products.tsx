@@ -367,12 +367,6 @@ export default function Products() {
               <div className="text-sm font-semibold mt-0.5" style={{ color: "#22c55e" }}>Garantie chez vous avant l'éclipse — sans frais cachés</div>
             </div>
           </div>
-          <div className="relative z-10 ml-auto text-xs text-white/60">
-            Besoin de volumes ?{" "}
-            <a href="/b2b" className="text-[#FFB800] hover:text-white underline transition-colors">
-              Espace partenaires →
-            </a>
-          </div>
         </motion.div>
       </div>
     </section>
