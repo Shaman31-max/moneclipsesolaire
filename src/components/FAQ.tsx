@@ -93,7 +93,7 @@ const categories = [
       },
       {
         q: "Livrez-vous en dehors de France métropolitaine ?",
-        a: "Oui : DOM-TOM, Belgique, Suisse, Luxembourg (délai +2 jours). Pour d'autres pays européens ou hors-UE, contactez-nous à contact@moneclipsesolaire.fr pour un devis personnalisé.",
+        a: "Non, nous livrons uniquement en France métropolitaine.",
       },
       {
         q: "Puis-je retourner les lunettes si elles ne me conviennent pas ?",
