@@ -68,7 +68,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     id: "filter",
     image: "/presentoir_filtre.png",
     sku: "MES-FIL-B2B",
-    name: "Filtre Téléphone",
+    name: "Filtre Téléphone avec présentoir",
     subtitle: "Filmer & photographier l'éclipse",
     desc: "Film ND 5.0 universel pour smartphone/tablette 50–90 mm. Sachet zip individuel, prêt à la revente.",
     color: "#FFB800",
