@@ -166,41 +166,79 @@ export default function BatchSystem() {
           </motion.div>
         </div>
 
-        {/* ── Frise chronologique ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="glass rounded-2xl p-6 border border-white/8 mb-10 overflow-x-auto"
-        >
-          <p className="text-xs uppercase tracking-widest text-white/40 mb-6 text-center">Frise chronologique</p>
-          <div className="flex items-start justify-between min-w-[480px] gap-1 relative">
-            {/* Ligne de fond */}
-            <div className="absolute top-5 left-[5%] right-[5%] h-0.5 bg-gradient-to-r from-[#22c55e]/40 via-[#FFB800]/30 to-[#FFB800]/60" />
+        {/* ── Frises chronologiques ── */}
+        <div className="grid md:grid-cols-2 gap-6 mb-10">
 
-            {[
-              { date: "Maintenant", label: "Cmd ouvertes", color: "#22c55e", dot: true },
-              { date: "15 juin", label: "Clôture P1", color: "#22D3EE", dot: false },
-              { date: "20 juil.", label: "Livraison P1", color: "#FFB800", dot: false },
-              { date: "1er août", label: "Livraison P2", color: "#22D3EE", dot: false },
-              { date: "12 août", label: "🌑 Éclipse", color: "#FFB800", dot: false },
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center gap-2 flex-1 relative z-10">
-                <div
-                  className="w-4 h-4 rounded-full border-2 flex-shrink-0"
-                  style={{
-                    backgroundColor: `${item.color}25`,
-                    borderColor: item.color,
-                    boxShadow: item.dot ? `0 0 12px ${item.color}` : undefined,
-                  }}
-                />
-                <div className="text-[10px] font-black text-center whitespace-nowrap" style={{ color: item.color }}>{item.date}</div>
-                <div className="text-[9px] text-white/55 text-center whitespace-nowrap">{item.label}</div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+          {/* Frise Phase 1 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="glass rounded-2xl p-5 border border-[#22c55e]/20 overflow-x-auto"
+          >
+            <p className="text-xs uppercase tracking-widest text-[#22c55e] mb-5 font-bold">Phase 1 — Calendrier</p>
+            <div className="flex items-start justify-between min-w-[260px] gap-1 relative">
+              <div className="absolute top-4 left-[8%] right-[8%] h-0.5 bg-gradient-to-r from-[#22c55e]/50 via-[#22D3EE]/40 to-[#FFB800]/50" />
+              {[
+                { date: "Maintenant", label: "Commandes\nouvertes", color: "#22c55e", glow: true },
+                { date: "15 juin", label: "Clôture\ncommandes", color: "#22D3EE", glow: false },
+                { date: "20 juil.", label: "Livraison\nchez vous", color: "#FFB800", glow: false },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col items-center gap-2 flex-1 relative z-10">
+                  <div
+                    className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-[10px] font-black flex-shrink-0"
+                    style={{
+                      backgroundColor: `${item.color}20`,
+                      borderColor: item.color,
+                      color: item.color,
+                      boxShadow: item.glow ? `0 0 14px ${item.color}80` : undefined,
+                    }}
+                  >
+                    {i + 1}
+                  </div>
+                  <div className="text-[10px] font-black text-center whitespace-nowrap" style={{ color: item.color }}>{item.date}</div>
+                  <div className="text-[9px] text-white/55 text-center leading-tight">{item.label.replace("\\n", "\n")}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Frise Phase 2 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="glass rounded-2xl p-5 border border-[#FFB800]/20 overflow-x-auto"
+          >
+            <p className="text-xs uppercase tracking-widest text-[#FFB800] mb-5 font-bold">Phase 2 — Calendrier</p>
+            <div className="flex items-start justify-between min-w-[260px] gap-1 relative">
+              <div className="absolute top-4 left-[8%] right-[8%] h-0.5 bg-gradient-to-r from-[#FFB800]/50 via-[#22D3EE]/40 to-[#FFB800]/60" />
+              {[
+                { date: "16 juin", label: "Commandes\nouvertes", color: "#FFB800", glow: false },
+                { date: "24 juin", label: "Clôture\ncommandes", color: "#22D3EE", glow: false },
+                { date: "1er août", label: "Livraison\nchez vous", color: "#FFB800", glow: false },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col items-center gap-2 flex-1 relative z-10">
+                  <div
+                    className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-[10px] font-black flex-shrink-0"
+                    style={{
+                      backgroundColor: `${item.color}20`,
+                      borderColor: item.color,
+                      color: item.color,
+                    }}
+                  >
+                    {i + 1}
+                  </div>
+                  <div className="text-[10px] font-black text-center whitespace-nowrap" style={{ color: item.color }}>{item.date}</div>
+                  <div className="text-[9px] text-white/55 text-center leading-tight">{item.label.replace("\\n", "\n")}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+        </div>
 
         {/* ── Comment ça fonctionne ── */}
         <motion.div
