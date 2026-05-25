@@ -166,7 +166,11 @@ function ProductCard({ product }: { product: ProductDef }) {
             </div>
           ))}
           {product.warning && (
-            <p className="text-[16px] text-white/45 italic mt-1 pl-6">{product.warning}</p>
+            <div className="text-[16px] text-white/45 italic mt-1 pl-6 space-y-0.5">
+              {product.warning!.split(". ").filter(Boolean).map((line, i) => (
+                <p key={i}>{line}{line.endsWith(".") ? "" : "."}</p>
+              ))}
+            </div>
           )}
         </div>
       ) : (
