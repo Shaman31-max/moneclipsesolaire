@@ -169,7 +169,7 @@ export default function BatchSystem() {
         {/* ── Frises chronologiques ── */}
         <div className="grid md:grid-cols-2 gap-6 mb-10">
 
-          {/* Frise Phase 1 */}
+          {/* Frise Première Série */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -177,12 +177,13 @@ export default function BatchSystem() {
             transition={{ duration: 0.6 }}
             className="glass rounded-2xl p-5 border border-[#22c55e]/20 overflow-x-auto"
           >
-            <p className="text-xs uppercase tracking-widest text-[#22c55e] mb-5 font-bold">Phase 1 — Calendrier</p>
-            <div className="flex items-start justify-between min-w-[260px] gap-1 relative">
-              <div className="absolute top-4 left-[8%] right-[8%] h-0.5 bg-gradient-to-r from-[#22c55e]/50 via-[#22D3EE]/40 to-[#FFB800]/50" />
+            <p className="text-xs uppercase tracking-widest text-[#22c55e] mb-5 font-bold">Première Série — Calendrier</p>
+            <div className="flex items-start justify-between min-w-[280px] gap-1 relative">
+              <div className="absolute top-4 left-[6%] right-[6%] h-0.5 bg-gradient-to-r from-[#22c55e]/50 via-[#22D3EE]/40 via-[#22c55e]/40 to-[#FFB800]/50" />
               {[
                 { date: "Maintenant", label: "Commandes\nouvertes", color: "#22c55e", glow: true },
                 { date: "15 juin", label: "Clôture\ncommandes", color: "#22D3EE", glow: false },
+                { date: "Fin juin", label: "Lancement\nproduction", color: "#22c55e", glow: false },
                 { date: "20 juil.", label: "Livraison\nchez vous", color: "#FFB800", glow: false },
               ].map((item, i) => (
                 <div key={i} className="flex flex-col items-center gap-2 flex-1 relative z-10">
@@ -198,13 +199,13 @@ export default function BatchSystem() {
                     {i + 1}
                   </div>
                   <div className="text-[10px] font-black text-center whitespace-nowrap" style={{ color: item.color }}>{item.date}</div>
-                  <div className="text-[9px] text-white/55 text-center leading-tight">{item.label.replace("\\n", "\n")}</div>
+                  <div className="text-[9px] text-white/55 text-center leading-tight">{item.label}</div>
                 </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Frise Phase 2 */}
+          {/* Frise Deuxième Série */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -212,9 +213,9 @@ export default function BatchSystem() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="glass rounded-2xl p-5 border border-[#FFB800]/20 overflow-x-auto"
           >
-            <p className="text-xs uppercase tracking-widest text-[#FFB800] mb-5 font-bold">Phase 2 — Calendrier</p>
-            <div className="flex items-start justify-between min-w-[260px] gap-1 relative">
-              <div className="absolute top-4 left-[8%] right-[8%] h-0.5 bg-gradient-to-r from-[#FFB800]/50 via-[#22D3EE]/40 to-[#FFB800]/60" />
+            <p className="text-xs uppercase tracking-widest text-[#FFB800] mb-5 font-bold">Deuxième Série — Calendrier</p>
+            <div className="flex items-start justify-between min-w-[280px] gap-1 relative">
+              <div className="absolute top-4 left-[6%] right-[6%] h-0.5 bg-gradient-to-r from-[#FFB800]/50 via-[#22D3EE]/40 via-[#22c55e]/40 to-[#FFB800]/60" />
               {[
                 { date: "16 juin", label: "Commandes\nouvertes", color: "#FFB800", glow: false },
                 { date: "24 juin", label: "Clôture\ncommandes", color: "#22D3EE", glow: false },
@@ -233,7 +234,7 @@ export default function BatchSystem() {
                     {i + 1}
                   </div>
                   <div className="text-[10px] font-black text-center whitespace-nowrap" style={{ color: item.color }}>{item.date}</div>
-                  <div className="text-[9px] text-white/55 text-center leading-tight">{item.label.replace("\\n", "\n")}</div>
+                  <div className="text-[9px] text-white/55 text-center leading-tight">{item.label}</div>
                 </div>
               ))}
             </div>
