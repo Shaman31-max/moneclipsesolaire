@@ -22,25 +22,9 @@ export default function EclipseInfo() {
     <section id="eclipse" className="relative py-24 px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto relative z-10 space-y-10">
 
-        {/* Titre */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center"
-        >
-          <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-4 leading-tight">
-            Éclipse solaire du 12 août 2026 en France 🇫🇷🌘
-          </h2>
-          <p className="text-[#E8F0FF]/85 text-lg max-w-3xl mx-auto leading-relaxed">
-            Le 12 août 2026, une éclipse solaire exceptionnelle sera visible partout en France.
-            Même si la totalité ne traversera pas directement l'Hexagone, une très grande partie
-            du Soleil sera masquée par la Lune, offrant un spectacle rare et impressionnant.
-          </p>
-        </motion.div>
 
-        {/* Qu'est-ce qu'une éclipse */}
+
+        {/* Pourquoi spéciale */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,25 +33,25 @@ export default function EclipseInfo() {
           className="glass rounded-2xl p-7 border border-[#22D3EE]/15"
         >
           <h3 className="text-xl font-black text-[#DCE8FF] mb-4 flex items-center gap-2">
-            <Sun size={20} style={{ color: "#22D3EE" }} /> Qu'est-ce qu'une éclipse solaire ?
+            <Star size={20} style={{ color: "#22D3EE" }} /> Pourquoi cette éclipse est-elle si spéciale ?
           </h3>
-          <p className="text-sm text-[#E8F0FF]/85 mb-4 leading-relaxed">
-            Une éclipse solaire se produit lorsque la Lune passe entre la Terre et le Soleil,
-            et masque une partie ou la totalité du disque solaire.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-3">
+          <div className="space-y-3">
             {[
-              { icon: "💡", text: "La luminosité baisse fortement" },
-              { icon: "🌆", text: "Le ciel devient crépusculaire" },
-              { icon: "🌡️", text: "La température peut diminuer" },
-              { icon: "✨", text: "L'ambiance devient presque irréelle" },
+              "La plus impressionnante visible depuis la France depuis des décennies",
+              "Visible dans tout le pays",
+              "Proche d'une éclipse totale dans certaines régions",
             ].map((item) => (
-              <div key={item.text} className="flex items-center gap-3 p-3 rounded-xl bg-[#22D3EE]/06 border border-[#22D3EE]/10">
-                <span className="text-lg">{item.icon}</span>
-                <span className="text-sm text-[#E8F0FF]/88">{item.text}</span>
+              <div key={item} className="flex items-start gap-3">
+                <div className="w-5 h-5 rounded-full bg-[#22D3EE]/20 border border-[#22D3EE]/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#22D3EE]" />
+                </div>
+                <p className="text-sm text-[#E8F0FF]/88">{item}</p>
               </div>
             ))}
           </div>
+          <p className="mt-4 text-sm text-[#E8F0FF]/70 italic">
+            Des millions de personnes devraient observer cet événement astronomique historique.
+          </p>
         </motion.div>
 
         {/* Que verra-t-on en France */}
@@ -124,36 +108,6 @@ export default function EclipseInfo() {
           </p>
         </motion.div>
 
-        {/* Pourquoi spéciale */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="glass rounded-2xl p-7 border border-[#22D3EE]/15"
-        >
-          <h3 className="text-xl font-black text-[#DCE8FF] mb-4 flex items-center gap-2">
-            <Star size={20} style={{ color: "#22D3EE" }} /> Pourquoi cette éclipse est-elle si spéciale ?
-          </h3>
-          <div className="space-y-3">
-            {[
-              "La plus impressionnante visible depuis la France depuis des décennies",
-              "Visible dans tout le pays",
-              "Proche d'une éclipse totale dans certaines régions",
-            ].map((item) => (
-              <div key={item} className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-[#22D3EE]/20 border border-[#22D3EE]/40 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#22D3EE]" />
-                </div>
-                <p className="text-sm text-[#E8F0FF]/88">{item}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-4 text-sm text-[#E8F0FF]/70 italic">
-            Des millions de personnes devraient observer cet événement astronomique historique.
-          </p>
-        </motion.div>
-
         {/* Avertissement */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -195,7 +149,7 @@ export default function EclipseInfo() {
           </p>
           <a
             href="#produits"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#22D3EE] text-white font-bold text-sm hover:bg-[#3D8FFF] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FFB800] text-black font-bold text-sm hover:bg-[#FFC933] transition-colors"
           >
             Commander mes lunettes →
           </a>

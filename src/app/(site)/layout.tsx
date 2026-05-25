@@ -1,10 +1,14 @@
 import Navbar from "@/components/Navbar";
+import TopBanner from "@/components/TopBanner";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-full flex flex-col bg-[#050510] text-[#E8E8FF]">
+    <div className="min-h-full flex flex-col bg-[#060412] text-[#F0EEFF]">
       <Navbar />
-      {children}
+      <TopBanner />
+      <div style={{ paddingTop: "calc(64px + 36px)" }}>
+        {children}
+      </div>
     </div>
   );
 }

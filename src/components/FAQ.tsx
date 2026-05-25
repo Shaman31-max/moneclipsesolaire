@@ -144,7 +144,7 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
         onClick={onToggle}
         className="w-full flex items-start justify-between gap-4 py-5 text-left group"
       >
-        <span className={`text-sm font-semibold leading-snug transition-colors ${isOpen ? "text-[#A78BFA]" : "text-white/96 group-hover:text-white"}`}>
+        <span className={`text-sm font-semibold leading-snug transition-colors ${isOpen ? "text-[#A78BFA]" : "text-[#A78BFA]/80 group-hover:text-[#A78BFA]"}`}>
           {q}
         </span>
         <motion.div
