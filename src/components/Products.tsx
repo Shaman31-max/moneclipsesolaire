@@ -47,7 +47,7 @@ type ProductDef = {
 const PRODUCTS: ProductDef[] = [
   {
     id: "glasses",
-    name: "Lunettes Éclipse Pro",
+    name: "Paire de Lunettes Éclipse",
     subtitle: "Observer en toute sécurité",
     image: "/LUNETTE_ECLIPSE_2.png",
     bullets: [
