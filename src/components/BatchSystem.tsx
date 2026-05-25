@@ -167,7 +167,7 @@ export default function BatchSystem() {
         </div>
 
         {/* ── Frises chronologiques ── */}
-        <div className="grid md:grid-cols-2 gap-6 mb-10">
+        <div className="grid md:grid-cols-[1fr_auto_1fr] gap-4 mb-10 items-center">
 
           {/* Frise Première Série */}
           <motion.div
@@ -178,12 +178,11 @@ export default function BatchSystem() {
             className="glass rounded-2xl p-5 border border-[#22c55e]/20 overflow-x-auto"
           >
             <p className="text-xs uppercase tracking-widest text-[#22c55e] mb-5 font-bold">Première Série — Calendrier</p>
-            <div className="flex items-start justify-between min-w-[280px] gap-1 relative">
-              <div className="absolute top-4 left-[6%] right-[6%] h-0.5 bg-gradient-to-r from-[#22c55e]/50 via-[#22D3EE]/40 via-[#22c55e]/40 to-[#FFB800]/50" />
+            <div className="flex items-start justify-between min-w-[220px] gap-1 relative">
+              <div className="absolute top-4 left-[6%] right-[6%] h-0.5 bg-gradient-to-r from-[#22c55e]/50 via-[#22D3EE]/40 to-[#FFB800]/50" />
               {[
                 { date: "Maintenant", label: "Commandes\nouvertes", color: "#22c55e", glow: true },
-                { date: "15 juin", label: "Clôture\ncommandes", color: "#22D3EE", glow: false },
-                { date: "Fin juin", label: "Lancement\nproduction", color: "#22c55e", glow: false },
+                { date: "15 juin", label: "Clôture · Lancement\nproduction 1", color: "#22D3EE", glow: false },
                 { date: "20 juil.", label: "Livraison\nchez vous", color: "#FFB800", glow: false },
               ].map((item, i) => (
                 <div key={i} className="flex flex-col items-center gap-2 flex-1 relative z-10">
@@ -205,6 +204,23 @@ export default function BatchSystem() {
             </div>
           </motion.div>
 
+          {/* Séparateurs centraux */}
+          <div className="hidden md:flex flex-col items-center gap-3 px-2">
+            <div className="px-3 py-1.5 rounded-full border border-[#22D3EE]/30 bg-[#22D3EE]/08 text-[10px] font-black text-[#22D3EE] uppercase tracking-wider whitespace-nowrap">
+              Précommande
+            </div>
+            <div className="w-px h-6 bg-white/10" />
+            <div className="px-3 py-1.5 rounded-full border border-[#FFB800]/30 bg-[#FFB800]/08 text-[10px] font-black text-[#FFB800] uppercase tracking-wider whitespace-nowrap">
+              Production
+            </div>
+          </div>
+
+          {/* Labels mobile */}
+          <div className="flex md:hidden justify-center gap-4">
+            <span className="px-3 py-1 rounded-full border border-[#22D3EE]/30 bg-[#22D3EE]/08 text-[10px] font-black text-[#22D3EE] uppercase tracking-wider">Précommande</span>
+            <span className="px-3 py-1 rounded-full border border-[#FFB800]/30 bg-[#FFB800]/08 text-[10px] font-black text-[#FFB800] uppercase tracking-wider">Production</span>
+          </div>
+
           {/* Frise Deuxième Série */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -214,12 +230,11 @@ export default function BatchSystem() {
             className="glass rounded-2xl p-5 border border-[#FFB800]/20 overflow-x-auto"
           >
             <p className="text-xs uppercase tracking-widest text-[#FFB800] mb-5 font-bold">Deuxième Série — Calendrier</p>
-            <div className="flex items-start justify-between min-w-[280px] gap-1 relative">
-              <div className="absolute top-4 left-[6%] right-[6%] h-0.5 bg-gradient-to-r from-[#FFB800]/50 via-[#22D3EE]/40 via-[#22c55e]/40 to-[#FFB800]/60" />
+            <div className="flex items-start justify-between min-w-[220px] gap-1 relative">
+              <div className="absolute top-4 left-[6%] right-[6%] h-0.5 bg-gradient-to-r from-[#FFB800]/50 via-[#22D3EE]/40 to-[#FFB800]/60" />
               {[
                 { date: "16 juin", label: "Commandes\nouvertes", color: "#FFB800", glow: false },
-                { date: "24 juin", label: "Clôture\ncommandes", color: "#22D3EE", glow: false },
-                { date: "Juillet", label: "Lancement\nproduction", color: "#22c55e", glow: false },
+                { date: "24 juin", label: "Clôture · Lancement\nproduction 2", color: "#22D3EE", glow: false },
                 { date: "1er août", label: "Livraison\nchez vous", color: "#FFB800", glow: false },
               ].map((item, i) => (
                 <div key={i} className="flex flex-col items-center gap-2 flex-1 relative z-10">
