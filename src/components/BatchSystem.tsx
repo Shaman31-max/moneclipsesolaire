@@ -40,7 +40,7 @@ export default function BatchSystem() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-14"
+          className="text-center mb-6"
         >
           <p className="text-[calc(0.75rem+3px)] uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-medium">
             Production à la demande
@@ -56,7 +56,7 @@ export default function BatchSystem() {
 
         {/* Badge batch 1 actif */}
         {batch1Active && (
-          <div className="flex justify-center mb-10">
+          <div className="flex justify-center mb-6">
             <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-[#22c55e]/40 bg-[#22c55e]/10">
               <span className="w-2 h-2 rounded-full bg-[#22c55e] corona-pulse" />
               <span className="text-sm font-bold text-[#22c55e]">
