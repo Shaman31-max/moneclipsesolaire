@@ -218,6 +218,7 @@ export default function BatchSystem() {
               {[
                 { date: "16 juin", label: "Commandes\nouvertes", color: "#FFB800", glow: false },
                 { date: "24 juin", label: "Clôture\ncommandes", color: "#22D3EE", glow: false },
+                { date: "Juillet", label: "Lancement\nproduction", color: "#22c55e", glow: false },
                 { date: "1er août", label: "Livraison\nchez vous", color: "#FFB800", glow: false },
               ].map((item, i) => (
                 <div key={i} className="flex flex-col items-center gap-2 flex-1 relative z-10">
