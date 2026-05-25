@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { MapPin, Clock, Eye, AlertTriangle, Sun, Thermometer, Star } from "lucide-react";
 
 const cities = [
-  { name: "Biarritz", pct: "99,5%" },
-  { name: "Bayonne", pct: "99,3%" },
-  { name: "Bordeaux", pct: "98,5%" },
-  { name: "Toulouse", pct: "97%" },
-  { name: "Paris", pct: "92%" },
+  { name: "Biarritz", pct: "99,5% d'obscurité" },
+  { name: "Bayonne", pct: "99,3% d'obscurité" },
+  { name: "Bordeaux", pct: "98,5% d'obscurité" },
+  { name: "Toulouse", pct: "97% d'obscurité" },
+  { name: "Paris", pct: "92% d'obscurité" },
 ];
 
 const horaires = [
@@ -79,10 +79,10 @@ export default function EclipseInfo() {
                 <div className="flex-1 h-2 rounded-full bg-white/10 overflow-hidden">
                   <div
                     className="h-full rounded-full bg-gradient-to-r from-[#22D3EE] to-[#FFB800]"
-                    style={{ width: c.pct.replace(",", ".").replace("%", "") + "%" }}
+                    style={{ width: c.pct.replace(",", ".").match(/[\d.]+/)?.[0] + "%" }}
                   />
                 </div>
-                <div className="text-sm font-black w-14 text-right" style={{ color: "#FFB800" }}>{c.pct}</div>
+                <div className="text-sm font-black text-right whitespace-nowrap" style={{ color: "#FFB800" }}>{c.pct}</div>
               </div>
             ))}
           </div>
