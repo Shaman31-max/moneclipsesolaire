@@ -66,6 +66,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
   },
   {
     id: "filter",
+    image: "/presentoir_filtre.png",
     sku: "MES-FIL-B2B",
     name: "Filtre Téléphone",
     subtitle: "Filmer & photographier l'éclipse",
