@@ -22,6 +22,7 @@ type B2BProduct = {
   name: string;
   subtitle: string;
   desc: string;
+  image?: string;
   color: string;
   icon: React.ComponentType<{ size?: number; className?: string; style?: React.CSSProperties }>;
   features: string[];
@@ -38,6 +39,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     name: "Lunettes Éclipse",
     subtitle: "Observation directe certifiée ISO",
     desc: "Lunettes certifiées ISO 12312-2, filtre ND 5.0. Monture rigide recyclée. Co-branding possible dès 1 000 u.",
+    image: "/lunettes_avec_presentoir.png",
     color: "#22D3EE",
     icon: Eye,
     features: ["ISO 12312-2 • CE 2797", "Filtre ND 5.0 optique", "Co-branding dès 1 000 u."],
@@ -200,6 +202,14 @@ function B2BProductCard({
         className="absolute inset-0 pointer-events-none opacity-[0.05]"
         style={{ background: `radial-gradient(ellipse at 30% 15%, ${product.color}, transparent 65%)` }}
       />
+
+      {/* Product image */}
+      {product.image && (
+        <div className="relative z-10 w-full h-44 mb-4 flex items-center justify-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={product.image} alt={product.name} className="w-full h-full object-contain drop-shadow-lg" />
+        </div>
+      )}
 
       {/* SKU */}
       <div className="relative z-10 text-[10px] font-mono text-white/65 mb-3">{product.sku}</div>
