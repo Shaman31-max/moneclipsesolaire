@@ -23,7 +23,8 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
-html { font-size: 21.5px; }
+html { font-size: 18.5px; }
+@media (min-width: 768px) { html { font-size: 21.5px; } }
 
 body {
   background-color: var(--cosmic-dark);
