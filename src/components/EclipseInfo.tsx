@@ -12,8 +12,8 @@ const cities = [
 ];
 
 const horaires = [
-  { label: "Début", time: "~18h00" },
-  { label: "Maximum", time: "19h15–20h30" },
+  { label: "Début", time: "~19h00" },
+  { label: "Maximum", time: "~20h30" },
   { label: "Fin", time: ">21h00" },
 ];
 
