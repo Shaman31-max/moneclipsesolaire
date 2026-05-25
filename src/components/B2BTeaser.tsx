@@ -38,7 +38,7 @@ export default function B2BTeaser() {
                 <span className="text-xs font-bold text-[#A78BFA] uppercase tracking-widest">Espace Partenaires</span>
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-black text-[#FFB800] mb-4 leading-tight">
                 Vous êtes un professionnel ?
                 <br />
                 <span className="gradient-text-blue">Accès B2B dédié</span>

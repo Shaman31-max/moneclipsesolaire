@@ -199,7 +199,7 @@ export default function FAQ() {
           <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-3 font-medium">
             Questions fréquentes
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+          <h2 className="text-5xl md:text-6xl font-black text-[#FFB800] mb-4">
             Tout ce que vous devez <span className="gradient-text-blue">savoir</span>
           </h2>
           <p className="text-white/88 max-w-xl mx-auto text-sm">

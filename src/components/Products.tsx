@@ -284,7 +284,7 @@ export default function Products() {
           className="text-center mb-14"
         >
           <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-3 font-medium">Nos Produits</p>
-          <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-4">
+          <h2 className="text-5xl md:text-6xl font-black text-[#FFB800] mb-4">
             Choisissez vos <span className="gradient-text-blue">équipements</span>
           </h2>
           <p className="text-white/75 text-sm max-w-lg mx-auto">
