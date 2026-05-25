@@ -1,9 +1,9 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 :root {
   --electric-blue: #22D3EE;
   --deep-blue: #0891B2;
-  --ice-blue: #A78BFA;
+  --ice-blue: #FFB800;
   --cosmic-dark: #060412;
   --cosmic-mid: #0D0820;
   --cosmic-navy: #130D2E;
@@ -39,10 +39,10 @@ body {
 
 /* Glows */
 .glow-blue {
-  box-shadow: 0 0 20px rgba(34,211,238,0.45), 0 0 60px rgba(167,139,250,0.2);
+  box-shadow: 0 0 20px rgba(34,211,238,0.45), 0 0 60px rgba(255,184,0,0.2);
 }
 .glow-blue-text {
-  text-shadow: 0 0 24px rgba(167,139,250,0.9), 0 0 48px rgba(34,211,238,0.5);
+  text-shadow: 0 0 24px rgba(255,184,0,0.9), 0 0 48px rgba(34,211,238,0.5);
 }
 .glow-ice {
   box-shadow: 0 0 30px rgba(34,211,238,0.35), 0 0 80px rgba(34,211,238,0.12);
@@ -69,7 +69,7 @@ body {
 
 /* Gradient text */
 .gradient-text-blue {
-  background: linear-gradient(135deg, #22D3EE, #A78BFA, #7C3AED);
+  background: linear-gradient(135deg, #22D3EE, #FFB800, #FFB800);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

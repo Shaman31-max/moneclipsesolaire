@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -29,7 +29,7 @@ export default function BatchSystem() {
     <section id="commande" className="relative py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/20 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#A78BFA] opacity-[0.025] blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#FFB800] opacity-[0.025] blur-[100px]" />
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
@@ -106,7 +106,7 @@ export default function BatchSystem() {
               />
               <PhaseStep
                 icon={Truck}
-                color="#A78BFA"
+                color="#FFB800"
                 label="Expéditions & livraisons"
                 value="à partir du 20 juillet"
               />
@@ -125,13 +125,13 @@ export default function BatchSystem() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative glass rounded-2xl p-6 border-2 overflow-hidden"
-            style={{ borderColor: "#A78BFA30" }}
+            style={{ borderColor: "#FFB80030" }}
           >
             <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-[#FFB800]/15 border border-[#FFB800]/30 text-[10px] font-black text-[#FFB800] uppercase tracking-wider">
               Bientôt
             </div>
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-[#A78BFA]/15 border border-[#A78BFA]/30 flex items-center justify-center font-black text-[#A78BFA] text-lg">2</div>
+              <div className="w-10 h-10 rounded-xl bg-[#FFB800]/15 border border-[#FFB800]/30 flex items-center justify-center font-black text-[#FFB800] text-lg">2</div>
               <div>
                 <div className="font-black text-white text-base">Phase 2</div>
                 <div className="text-[10px] text-white/55 uppercase tracking-wider">Dernière série</div>
@@ -147,7 +147,7 @@ export default function BatchSystem() {
               />
               <PhaseStep
                 icon={Factory}
-                color="#A78BFA"
+                color="#FFB800"
                 label="Production"
                 value="juillet"
               />
@@ -177,12 +177,12 @@ export default function BatchSystem() {
           <p className="text-xs uppercase tracking-widest text-white/40 mb-6 text-center">Frise chronologique</p>
           <div className="flex items-start justify-between min-w-[480px] gap-1 relative">
             {/* Ligne de fond */}
-            <div className="absolute top-5 left-[5%] right-[5%] h-0.5 bg-gradient-to-r from-[#22c55e]/40 via-[#A78BFA]/30 to-[#FFB800]/60" />
+            <div className="absolute top-5 left-[5%] right-[5%] h-0.5 bg-gradient-to-r from-[#22c55e]/40 via-[#FFB800]/30 to-[#FFB800]/60" />
 
             {[
               { date: "Maintenant", label: "Cmd ouvertes", color: "#22c55e", dot: true },
               { date: "15 juin", label: "Clôture P1", color: "#22D3EE", dot: false },
-              { date: "20 juil.", label: "Livraison P1", color: "#A78BFA", dot: false },
+              { date: "20 juil.", label: "Livraison P1", color: "#FFB800", dot: false },
               { date: "1er août", label: "Livraison P2", color: "#22D3EE", dot: false },
               { date: "12 août", label: "🌑 Éclipse", color: "#FFB800", dot: false },
             ].map((item, i) => (
@@ -219,7 +219,7 @@ export default function BatchSystem() {
             {[
               { n: "1", text: "Vous passez votre commande pendant la période ouverte.", color: "#22c55e" },
               { n: "2", text: "Une fois les commandes clôturées, nous lançons la fabrication.", color: "#22D3EE" },
-              { n: "3", text: "Les produits sont contrôlés puis expédiés en une seule vague.", color: "#A78BFA" },
+              { n: "3", text: "Les produits sont contrôlés puis expédiés en une seule vague.", color: "#FFB800" },
             ].map((step, i) => (
               <div key={i} className="flex flex-row sm:flex-col items-start sm:items-center gap-3 flex-1">
                 <div className="flex sm:flex-col items-center gap-2 sm:gap-1 flex-shrink-0">

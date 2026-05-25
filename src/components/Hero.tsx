@@ -59,7 +59,7 @@ export default function Hero() {
       {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#22D3EE] opacity-[0.04] blur-[120px]" />
-        <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] rounded-full bg-[#A78BFA] opacity-[0.03] blur-[80px]" />
+        <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] rounded-full bg-[#FFB800] opacity-[0.03] blur-[80px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-8 items-start pt-6 pb-16">
@@ -151,7 +151,7 @@ export default function Hero() {
                   </motion.span>
                   <ShieldCheck size={12} className="text-[#22D3EE]" />
                   <div>
-                    <div className="text-[#A78BFA] font-bold text-[11px] leading-none">{cert.code}</div>
+                    <div className="text-[#FFB800] font-bold text-[11px] leading-none">{cert.code}</div>
                     <div className="text-white/82 text-[9px]">{cert.lab}</div>
                   </div>
                 </motion.a>

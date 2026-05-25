@@ -31,7 +31,7 @@ export default function StarField() {
     resize();
     window.addEventListener("resize", resize);
 
-    const COLORS = ["rgba(240,238,255,", "rgba(167,139,250,", "rgba(34,211,238,", "rgba(200,190,255,"];
+    const COLORS = ["rgba(240,238,255,", "rgba(255,184,0,", "rgba(34,211,238,", "rgba(200,190,255,"];
 
     const stars: Star[] = Array.from({ length: 500 }, () => ({
       x: Math.random() * window.innerWidth,
@@ -114,7 +114,7 @@ export default function StarField() {
 
         const grad = ctx.createLinearGradient(tailX, tailY, s.x, s.y);
         grad.addColorStop(0, `rgba(240,238,255,0)`);
-        grad.addColorStop(0.6, `rgba(167,139,250,${(s.alpha * 0.4).toFixed(2)})`);
+        grad.addColorStop(0.6, `rgba(255,184,0,${(s.alpha * 0.4).toFixed(2)})`);
         grad.addColorStop(1, `rgba(240,238,255,${s.alpha.toFixed(2)})`);
 
         ctx.beginPath();

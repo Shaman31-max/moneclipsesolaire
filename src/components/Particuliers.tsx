@@ -27,7 +27,7 @@ export default function Particuliers() {
     <section id="particuliers" className="relative py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/20 to-transparent" />
-        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] -translate-y-1/2 bg-[#A78BFA] opacity-[0.02] blur-[100px]" />
+        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] -translate-y-1/2 bg-[#FFB800] opacity-[0.02] blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">

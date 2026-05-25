@@ -32,11 +32,11 @@ export default function NavCountdown() {
   return (
     <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-xl glass border border-[#22D3EE]/15 select-none">
       {/* Pulsing dot */}
-      <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA] corona-pulse flex-shrink-0" />
+      <span className="w-1.5 h-1.5 rounded-full bg-[#FFB800] corona-pulse flex-shrink-0" />
 
       {/* Units */}
       <div className="flex items-baseline gap-1 text-xs font-mono tabular-nums">
-        <span className="font-black text-[#A78BFA]">{t.j}</span>
+        <span className="font-black text-[#FFB800]">{t.j}</span>
         <span className="text-[#DCE8FF]/30 text-[10px]">j</span>
         <span className="text-[#DCE8FF]/50 mx-0.5">·</span>
         <span className="font-black text-[#DCE8FF]">{pad(t.h)}</span>

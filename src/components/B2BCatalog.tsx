@@ -58,7 +58,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     name: "Filtre Téléphone",
     subtitle: "Filmer & photographier l'éclipse",
     desc: "Film ND 5.0 universel pour smartphone/tablette 50–90 mm. Sachet zip individuel, prêt à la revente.",
-    color: "#A78BFA",
+    color: "#FFB800",
     icon: Smartphone,
     features: ["Compatible 50–90 mm", "Film ND 5.0 optique", "Sachet zip individuel"],
     minQty: 250,
@@ -408,7 +408,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
             <div className="flex items-center gap-2 flex-wrap">
               <Building2 size={16} className="text-[#22D3EE]" />
               <span className="font-black text-white text-lg">{session.company}</span>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold text-[#A78BFA] border border-[#22D3EE]/30 bg-[#22D3EE]/12">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold text-[#FFB800] border border-[#22D3EE]/30 bg-[#22D3EE]/12">
                 Partenaire certifié
               </span>
             </div>
@@ -418,7 +418,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setShowQuote((v) => !v)}
-              className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white/90 hover:text-[#A78BFA] transition-all border"
+              className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white/90 hover:text-[#FFB800] transition-all border"
               style={{ background: "rgba(4,18,58,0.85)", borderColor: "rgba(30,127,255,0.25)" }}
             >
               <FileText size={14} />
@@ -465,7 +465,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
               { code: "CE 2797", href: "https://ec.europa.eu/growth/single-market/ce-marking_en" },
             ].map((c) => (
               <a key={c.code} href={c.href} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] text-[#A78BFA] hover:opacity-80 transition-opacity group border"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] text-[#FFB800] hover:opacity-80 transition-opacity group border"
                 style={{ background: "rgba(30,127,255,0.12)", borderColor: "rgba(30,127,255,0.28)" }}
               >
                 <ShieldCheck size={11} /> {c.code}
@@ -512,7 +512,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                   <th className="text-center pb-3 text-white/72 text-xs uppercase tracking-wider font-semibold">Base</th>
                   <th className="text-center pb-3 text-[#22D3EE] text-xs uppercase tracking-wider font-semibold">–5%</th>
                   <th className="text-center pb-3 text-[#22D3EE] text-xs uppercase tracking-wider font-semibold">–10%</th>
-                  <th className="text-center pb-3 text-[#A78BFA] text-xs uppercase tracking-wider font-semibold">–15%</th>
+                  <th className="text-center pb-3 text-[#FFB800] text-xs uppercase tracking-wider font-semibold">–15%</th>
                 </tr>
               </thead>
               <tbody>
@@ -565,7 +565,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                       <div className="text-xs text-white/75 mt-1">
                         {line.qty.toLocaleString("fr-FR")} × {fmt(line.unitHT)} € HT
                       </div>
-                      <div className="text-sm font-black text-[#A78BFA] mt-1">{fmt(line.qty * line.unitHT)} € HT</div>
+                      <div className="text-sm font-black text-[#FFB800] mt-1">{fmt(line.qty * line.unitHT)} € HT</div>
                     </div>
                     <button onClick={() => setQuote((q) => q.filter((l) => l.productId !== line.productId))}
                       className="text-white/45 hover:text-red-400 transition-colors text-xl leading-none">×</button>
@@ -590,7 +590,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                   </div>
                   <div className="flex justify-between text-base font-black pt-2 border-t border-[#E8F0FF]/8">
                     <span className="text-white">Total TTC</span>
-                    <span className="text-[#A78BFA]">{fmt(totalTTC)} €</span>
+                    <span className="text-[#FFB800]">{fmt(totalTTC)} €</span>
                   </div>
                 </div>
                 <button onClick={() => setSent(true)}
@@ -604,7 +604,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
             {sent && (
               <div className="px-6 py-8 text-center">
                 <div className="w-14 h-14 rounded-full bg-[#22D3EE]/20 flex items-center justify-center mx-auto mb-3 glow-blue">
-                  <CheckCircle size={26} className="text-[#A78BFA]" />
+                  <CheckCircle size={26} className="text-[#FFB800]" />
                 </div>
                 <h3 className="font-black text-white text-lg mb-1">Envoyé !</h3>
                 <p className="text-sm text-white/72">Réponse sous 24h ouvrées à {session.email}</p>

@@ -97,7 +97,7 @@ function OrderCard({ order }: { order: Order }) {
           </div>
         </div>
         <div className="flex items-center gap-3 flex-shrink-0 ml-4">
-          <span className="text-sm font-black text-[#A78BFA] hidden sm:block">
+          <span className="text-sm font-black text-[#FFB800] hidden sm:block">
             {fmt(totalHT(order.items) * 1.2)} € TTC
           </span>
           {expanded ? <ChevronUp size={16} className="text-white/78" /> : <ChevronDown size={16} className="text-white/78" />}
@@ -115,7 +115,7 @@ function OrderCard({ order }: { order: Order }) {
                   initial={{ width: 0 }}
                   animate={{ width: `${(currentStep / (STEPS.length - 1)) * 100}%` }}
                   transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-                  className="h-full bg-gradient-to-r from-[#22D3EE] to-[#A78BFA]"
+                  className="h-full bg-gradient-to-r from-[#22D3EE] to-[#FFB800]"
                 />
               </div>
 
@@ -131,7 +131,7 @@ function OrderCard({ order }: { order: Order }) {
                       transition={{ delay: 0.1 * i, duration: 0.4 }}
                       className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all ${
                         active
-                          ? "border-[#A78BFA] bg-[#22D3EE]/20 shadow-[0_0_16px_rgba(30,127,255,0.5)]"
+                          ? "border-[#FFB800] bg-[#22D3EE]/20 shadow-[0_0_16px_rgba(30,127,255,0.5)]"
                           : done
                           ? "border-[#22D3EE] bg-[#22D3EE]/15"
                           : "border-white/8 bg-white/5"
@@ -139,14 +139,14 @@ function OrderCard({ order }: { order: Order }) {
                     >
                       <Icon
                         size={15}
-                        className={done ? (active ? "text-[#A78BFA]" : "text-[#22D3EE]") : "text-white/65"}
+                        className={done ? (active ? "text-[#FFB800]" : "text-[#22D3EE]") : "text-white/65"}
                       />
                     </motion.div>
                     <div className="text-center hidden sm:block">
                       <div className={`text-[10px] font-bold leading-tight ${done ? "text-white/95" : "text-white/65"}`}>
                         {step.label}
                       </div>
-                      <div className={`text-[9px] mt-0.5 ${active ? "text-[#A78BFA]/60" : "text-white/65"}`}>
+                      <div className={`text-[9px] mt-0.5 ${active ? "text-[#FFB800]/60" : "text-white/65"}`}>
                         {step.desc}
                       </div>
                     </div>
@@ -157,14 +157,14 @@ function OrderCard({ order }: { order: Order }) {
 
             {/* Current status message */}
             <div className="mt-6 flex items-center gap-2 px-4 py-3 rounded-xl bg-[#22D3EE]/08 border border-[#22D3EE]/15">
-              <div className="w-2 h-2 rounded-full bg-[#A78BFA] corona-pulse" />
+              <div className="w-2 h-2 rounded-full bg-[#FFB800] corona-pulse" />
               <div className="text-xs text-white/92">
                 {order.status === "confirmed" && (
                   <>Commande confirmée — mise en production après clôture de la <strong className="text-white/96">1ère série le 15 juin</strong>. Livraison le <strong className="text-white/96">20 juillet</strong>.</>
                 )}
                 {order.status === "production" && <>Vos lunettes sont en cours de fabrication. Expédition prévue début juillet.</>}
                 {order.status === "shipped" && (
-                  <>Colis expédié{order.tracking && <> — Suivi : <span className="font-mono text-[#A78BFA]">{order.tracking}</span></>}</>
+                  <>Colis expédié{order.tracking && <> — Suivi : <span className="font-mono text-[#FFB800]">{order.tracking}</span></>}</>
                 )}
                 {order.status === "delivered" && <>Commande livrée. Profitez bien de l'éclipse du 12 août !</>}
               </div>
@@ -196,7 +196,7 @@ function OrderCard({ order }: { order: Order }) {
             </div>
             <div className="flex justify-between text-sm font-black pt-1.5">
               <span className="text-white/96">Total TTC</span>
-              <span className="text-[#A78BFA]">{fmt(totalHT(order.items) * 1.2)} €</span>
+              <span className="text-[#FFB800]">{fmt(totalHT(order.items) * 1.2)} €</span>
             </div>
           </div>
         </div>

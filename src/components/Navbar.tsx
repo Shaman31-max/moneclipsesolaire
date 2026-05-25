@@ -56,7 +56,7 @@ export default function Navbar() {
             >
               {l.label}
               {l.badge && (
-                <span className="px-1.5 py-0.5 rounded-full bg-[#22D3EE]/20 text-[9px] font-bold text-[#A78BFA] border border-[#22D3EE]/30">
+                <span className="px-1.5 py-0.5 rounded-full bg-[#22D3EE]/20 text-[9px] font-bold text-[#FFB800] border border-[#22D3EE]/30">
                   PRO
                 </span>
               )}
@@ -112,7 +112,7 @@ export default function Navbar() {
                 >
                   <span>{l.label}</span>
                   {l.badge && (
-                    <span className="px-1.5 py-0.5 rounded-full bg-[#22D3EE]/20 text-[9px] font-bold text-[#A78BFA] border border-[#22D3EE]/30">
+                    <span className="px-1.5 py-0.5 rounded-full bg-[#22D3EE]/20 text-[9px] font-bold text-[#FFB800] border border-[#22D3EE]/30">
                       PRO
                     </span>
                   )}

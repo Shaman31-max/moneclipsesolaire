@@ -60,10 +60,10 @@ export default function EclipseInfo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass rounded-2xl p-7 border border-[#A78BFA]/15"
+          className="glass rounded-2xl p-7 border border-[#FFB800]/15"
         >
           <h3 className="text-xl font-black text-[#DCE8FF] mb-4 flex items-center gap-2">
-            <MapPin size={20} style={{ color: "#A78BFA" }} /> Que verra-t-on en France ?
+            <MapPin size={20} style={{ color: "#FFB800" }} /> Que verra-t-on en France ?
           </h3>
           <p className="text-sm text-[#E8F0FF]/85 mb-5 leading-relaxed">
             En France, l'éclipse sera <strong className="text-white">partielle mais extrêmement spectaculaire</strong>. Les meilleures régions pour observer le phénomène :
@@ -74,11 +74,11 @@ export default function EclipseInfo() {
                 <div className="w-24 text-sm font-bold text-white">{c.name}</div>
                 <div className="flex-1 h-2 rounded-full bg-white/10 overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-[#22D3EE] to-[#A78BFA]"
+                    className="h-full rounded-full bg-gradient-to-r from-[#22D3EE] to-[#FFB800]"
                     style={{ width: c.pct.replace(",", ".").replace("%", "") + "%" }}
                   />
                 </div>
-                <div className="text-sm font-black w-14 text-right" style={{ color: "#A78BFA" }}>{c.pct}</div>
+                <div className="text-sm font-black w-14 text-right" style={{ color: "#FFB800" }}>{c.pct}</div>
               </div>
             ))}
           </div>

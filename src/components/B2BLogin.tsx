@@ -127,7 +127,7 @@ export default function B2BLogin({ onLogin }: Props) {
               </div>
               <p className="text-[10px] text-white/78 mt-1.5">
                 Vous n'avez pas encore de code ?{" "}
-                <a href="mailto:b2b@moneclipsesolaire.fr" className="text-[#A78BFA]/60 hover:text-[#A78BFA] underline transition-colors">
+                <a href="mailto:b2b@moneclipsesolaire.fr" className="text-[#FFB800]/60 hover:text-[#FFB800] underline transition-colors">
                   Contactez notre équipe commerciale
                 </a>
               </p>
@@ -172,7 +172,7 @@ export default function B2BLogin({ onLogin }: Props) {
           className="mt-4 p-3 rounded-xl bg-[#22D3EE]/05 border border-[#22D3EE]/10 text-center"
         >
           <p className="text-[10px] text-white/72">
-            Demo — code d'accès : <span className="text-[#A78BFA]/50 font-mono">ECLIPSE2026</span>
+            Demo — code d'accès : <span className="text-[#FFB800]/50 font-mono">ECLIPSE2026</span>
           </p>
         </motion.div>
 
@@ -187,7 +187,7 @@ export default function B2BLogin({ onLogin }: Props) {
               href={c.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[10px] text-white/72 hover:text-[#A78BFA]/60 transition-colors"
+              className="flex items-center gap-1.5 text-[10px] text-white/72 hover:text-[#FFB800]/60 transition-colors"
             >
               <ShieldCheck size={10} />
               {c.label}

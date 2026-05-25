@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import ClientShell from "@/components/ClientShell";
 
 const Divider = () => (
-  <div className="w-full h-px bg-gradient-to-r from-transparent via-[#A78BFA]/20 to-transparent" />
+  <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FFB800]/20 to-transparent" />
 );
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
       <ClientShell />
 
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-[#7C3AED] opacity-[0.04] blur-[160px]" />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-[#FFB800] opacity-[0.04] blur-[160px]" />
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-[#22D3EE] opacity-[0.03] blur-[140px]" />
       </div>
 

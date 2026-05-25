@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 
@@ -36,7 +36,7 @@ export default function TopBanner() {
     >
       <div className="flex" style={{ animation: "ticker 30s linear infinite" }}>
         {items.map((item, i) => (
-          <span key={i} className="text-[15px] font-semibold text-[#A78BFA] tracking-wider flex-shrink-0 px-8">
+          <span key={i} className="text-[15px] font-semibold text-[#FFB800] tracking-wider flex-shrink-0 px-8">
             {item}
           </span>
         ))}

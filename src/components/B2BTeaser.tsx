@@ -35,7 +35,7 @@ export default function B2BTeaser() {
             <div className="flex-1 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#22D3EE]/10 border border-[#22D3EE]/20 mb-5">
                 <Building2 size={13} className="text-[#22D3EE]" />
-                <span className="text-xs font-bold text-[#A78BFA] uppercase tracking-widest">Espace Partenaires</span>
+                <span className="text-xs font-bold text-[#FFB800] uppercase tracking-widest">Espace Partenaires</span>
               </div>
 
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">

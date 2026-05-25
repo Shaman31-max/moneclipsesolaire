@@ -6,16 +6,16 @@ import { useState } from "react";
 
 const advantages = [
   { icon: Percent, text: "Tarifs dégressifs dès 10 unités", color: "#22D3EE" },
-  { icon: Package, text: "Conditionnement personnalisé & co-branding", color: "#A78BFA" },
+  { icon: Package, text: "Conditionnement personnalisé & co-branding", color: "#FFB800" },
   { icon: FileText, text: "Factures pro + certificats de conformité CE", color: "#22D3EE" },
-  { icon: Truck, text: "Livraison groupée express France entière", color: "#A78BFA" },
+  { icon: Truck, text: "Livraison groupée express France entière", color: "#FFB800" },
   { icon: HeadphonesIcon, text: "Account manager dédié", color: "#22D3EE" },
-  { icon: Building2, text: "Contrats cadre multi-commandes", color: "#A78BFA" },
+  { icon: Building2, text: "Contrats cadre multi-commandes", color: "#FFB800" },
 ];
 
 const tiers = [
   { label: "Starter", qty: "10–49 unités", discount: "–10%", color: "#22D3EE" },
-  { label: "Business", qty: "50–199 unités", discount: "–20%", color: "#A78BFA", highlight: true },
+  { label: "Business", qty: "50–199 unités", discount: "–20%", color: "#FFB800", highlight: true },
   { label: "Enterprise", qty: "200+ unités", discount: "–30%", color: "#0891B2" },
 ];
 
@@ -71,10 +71,10 @@ export default function B2B() {
               {tiers.map((tier) => (
                 <div
                   key={tier.label}
-                  className={`flex-1 rounded-xl p-4 text-center relative ${tier.highlight ? "glass-dark ring-1 ring-[#A78BFA]/40" : "glass"}`}
+                  className={`flex-1 rounded-xl p-4 text-center relative ${tier.highlight ? "glass-dark ring-1 ring-[#FFB800]/40" : "glass"}`}
                 >
                   {tier.highlight && (
-                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-bold bg-[#A78BFA] text-[#050510] uppercase tracking-wider">
+                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-bold bg-[#FFB800] text-[#050510] uppercase tracking-wider">
                       Populaire
                     </div>
                   )}

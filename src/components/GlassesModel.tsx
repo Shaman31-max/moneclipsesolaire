@@ -16,7 +16,7 @@ export default function GlassesModel() {
       <Canvas dpr={[1, 2]}>
         <PerspectiveCamera makeDefault position={[0, 0, 4.5]} fov={38} />
         <ambientLight intensity={0.5} />
-        <directionalLight position={[4, 3, 4]} color="#A78BFA" intensity={2} />
+        <directionalLight position={[4, 3, 4]} color="#FFB800" intensity={2} />
         <directionalLight position={[-3, -2, 2]} color="#22D3EE" intensity={1.5} />
         <pointLight position={[0, 2, 3]} color="#FFFFFF" intensity={1} />
         <Suspense fallback={null}>

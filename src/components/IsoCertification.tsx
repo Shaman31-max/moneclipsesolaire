@@ -18,7 +18,7 @@ const certs = [
     label: "Directive EPI 2016/425",
     lab: "Laboratoire notifié UE",
     href: "https://ec.europa.eu/growth/single-market/ce-marking_en",
-    color: "#A78BFA",
+    color: "#FFB800",
   },
 ];
 
@@ -178,7 +178,7 @@ export default function IsoCertification() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="glass rounded-2xl p-5 border border-[#22D3EE]/15"
           >
-            <div className="text-xs font-bold uppercase tracking-widest text-[#A78BFA] mb-4">
+            <div className="text-xs font-bold uppercase tracking-widest text-[#FFB800] mb-4">
               Contrôles en laboratoire
             </div>
             {[

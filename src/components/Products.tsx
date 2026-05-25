@@ -318,7 +318,7 @@ export default function Products() {
           </div>
           <div className="relative z-10 ml-auto text-xs text-white/60">
             Besoin de volumes ?{" "}
-            <a href="/b2b" className="text-[#A78BFA] hover:text-white underline transition-colors">
+            <a href="/b2b" className="text-[#FFB800] hover:text-white underline transition-colors">
               Espace partenaires →
             </a>
           </div>
