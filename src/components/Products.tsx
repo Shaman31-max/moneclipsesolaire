@@ -42,7 +42,7 @@ const PRODUCTS: ProductDef[] = [
     name: "Lunettes Éclipse Pro",
     subtitle: "Observer en toute sécurité",
     image: "/lunette-eclipse.png",
-    desc: "Lunettes certifiées ISO 12312-2 pour l'observation directe de l'éclipse solaire. Monture rigide, filtre optique ND 5.0.",
+    desc: "• Certification ISO 12312-2 & marquage CE — Conformes à la norme internationale, certification obtenue auprès d'un laboratoire européen agréé.\n• Filtre solaire optique ND 5.0 — Bloque plus de 99,999 % de la lumière solaire, UV et infrarouges.\n• Observation solaire sécurisée — Observer une éclipse directement en toute sécurité.\n• Convient aux adultes et aux enfants — Design léger et confortable pour toute la famille.\n• Production responsable à la demande — Fabrication en batches pour limiter le gaspillage.\n\n* Ne pas utiliser si le filtre présente des rayures ou dommages. Enfants : surveillance adulte obligatoire.",
     unit: "paire",
     color: "#FFB800",
     icon: Eye,
