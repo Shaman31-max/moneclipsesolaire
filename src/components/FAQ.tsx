@@ -19,10 +19,6 @@ const categories = [
         a: "1ère série : commandes closes le 15 juin 2026, livraison le 20 juillet 2026 (23 jours avant l'éclipse). 2ème série : commandes closes le 7 juillet 2026, livraison le 7 août 2026 (5 jours avant l'éclipse). Il n'y aura pas de 3ème série ni de vente après ces dates.",
       },
       {
-        q: "Quelle série choisir ?",
-        a: "Nous recommandons fortement la 1ère série. Vous recevez vos lunettes 23 jours avant l'éclipse, ce qui vous laisse largement le temps de vérifier votre commande, de les distribuer (si vous êtes une organisation) ou de les offrir. La 2ème série est une solution de dernier recours pour les retardataires : vous ne recevez les lunettes que 5 jours avant l'éclipse, sans marge en cas de problème de livraison.",
-      },
-      {
         q: "Que se passe-t-il si je rate les deux séries ?",
         a: "Après la clôture de la 2ème série (7 juillet), il ne sera plus possible de commander sur notre site. Nous ne ferons aucune exception et aucune commande express ne sera acceptée après cette date, car le délai de production ne permet pas de garantir la livraison avant le 12 août.",
       },
@@ -56,29 +52,6 @@ const categories = [
       {
         q: "Peut-on utiliser les lunettes pour filmer avec son téléphone ?",
         a: "Non. Les lunettes sont conçues pour les yeux humains. Pour filmer, utilisez notre filtre téléphone universel (ND 5.0), positionné devant l'objectif de votre smartphone. Ne regardez jamais l'écran en direct sans protection si votre téléphone capte directement le soleil.",
-      },
-    ],
-  },
-  {
-    icon: Package,
-    label: "Produits & Commande",
-    color: "#22D3EE",
-    faqs: [
-      {
-        q: "Quelle est la différence entre les lunettes Standard et Premium ?",
-        a: "Les lunettes Standard ont une monture en carton recyclé (économique, idéal grands événements). Les lunettes Premium ont une monture en plastique rigide recyclé avec finition mate et sont compatibles co-branding (logo imprimé). La protection optique est identique sur les deux modèles.",
-      },
-      {
-        q: "Combien de temps puis-je conserver les lunettes ?",
-        a: "Les lunettes sont valables tant que le filtre optique n'est pas endommagé. Vérifiez avant chaque utilisation qu'il n'y a aucune rayure, trou ou déchirure. Ne les stockez pas en plein soleil et conservez-les dans leur sachet. Date limite indicative : 3 ans à compter de la fabrication.",
-      },
-      {
-        q: "Puis-je commander une petite quantité en tant que particulier ?",
-        a: "Oui, notre boutique en ligne est ouverte à tous les particuliers sans minimum de commande. Le minimum de 500 unités à 1,10 € HT/pièce s'applique uniquement à l'espace B2B partenaires.",
-      },
-      {
-        q: "Les filtres téléphone sont-ils compatibles avec tous les smartphones ?",
-        a: "Le filtre universel s'adapte aux objectifs jusqu'à 90 mm de diamètre. Il est compatible avec la quasi-totalité des smartphones actuels (iPhone, Samsung, Google Pixel, etc.) via son système de maintien par friction. Un guide de pose est inclus.",
       },
     ],
   },
