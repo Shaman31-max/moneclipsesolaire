@@ -20,9 +20,9 @@ export default function Footer() {
                 <div className="absolute inset-[3px] rounded-full bg-[#050510]" />
               </div>
               <span className="font-bold">
-                <span className="gradient-text-blue">MonEclipse</span>
+                <span style={{ background: "linear-gradient(135deg, #22D3EE, #FFB800)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>MonEclipse</span>
                 <span className="text-white">Solaire</span>
-                <span className="text-[#22D3EE]">.fr</span>
+                <span style={{ background: "linear-gradient(135deg, #FFB800, #22D3EE)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>.fr</span>
               </span>
             </div>
             <p className="text-xs text-[#E8F0FF]/65 leading-relaxed mb-4">
