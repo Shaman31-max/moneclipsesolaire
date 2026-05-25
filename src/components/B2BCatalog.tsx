@@ -36,7 +36,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
   {
     id: "glasses",
     sku: "MES-LUN-B2B",
-    name: "Lunettes Éclipse",
+    name: "Lunettes Éclipse avec présentoir",
     subtitle: "Observation directe certifiée ISO",
     desc: "Lunettes certifiées ISO 12312-2, filtre ND 5.0. Monture rigide recyclée. Co-branding possible dès 1 000 u.",
     image: "/lunettes_avec_presentoir.png",
