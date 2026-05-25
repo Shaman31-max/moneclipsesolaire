@@ -77,7 +77,7 @@ const categories = [
     faqs: [
       {
         q: "Quels moyens de paiement acceptez-vous ?",
-        a: "Carte bancaire (Visa, Mastercard, CB), PayPal, Apple Pay et Google Pay. Les commandes B2B supérieures à 500 € HT peuvent régler par virement bancaire (30 jours fin de mois, sur devis signé).",
+        a: "Carte bancaire (Visa, Mastercard, CB), PayPal, Apple Pay et Google Pay. Pour les commandes B2B : 50% d'acompte à la commande, solde à la livraison.",
       },
       {
         q: "Mes données bancaires sont-elles sécurisées ?",
