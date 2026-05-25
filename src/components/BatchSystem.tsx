@@ -79,7 +79,7 @@ export default function BatchSystem() {
           >
             {/* Carte Phase 1 */}
             <div
-              className="relative glass rounded-t-2xl p-6 border-2 border-b-0 overflow-hidden"
+              className="relative glass rounded-2xl p-6 border-2 overflow-hidden"
               style={{ borderColor: batch1Active ? "#22c55e60" : "#22D3EE30" }}
             >
               {batch1Active && (
@@ -100,20 +100,6 @@ export default function BatchSystem() {
                 <PhaseStep icon={Truck} color="#FFB800" label="Expéditions & livraisons" value="à partir du 20 juillet" />
               </div>
             </div>
-            {/* Frise Phase 1 collée */}
-            <FriseTimeline
-              title="Première Série — Calendrier"
-              titleColor="#22c55e"
-              border={batch1Active ? "#22c55e" : "#22D3EE"}
-              topRounded={false}
-              nodes={[
-                { date: "Maintenant", label: "Commandes ouvertes", color: "#22c55e", glow: true },
-                { date: "15 juin", label: "Clôture · Lancement production 1", color: "#22D3EE", glow: false },
-                { date: "20 juil.", label: "Livraisons à partir du 20 juil.", color: "#FFB800", glow: false },
-              ]}
-              badges={["Précommande", "Production"]}
-              delay={0}
-            />
           </motion.div>
 
           {/* Colonne 2 : Phase 2 + Frise */}
@@ -126,7 +112,7 @@ export default function BatchSystem() {
           >
             {/* Carte Phase 2 */}
             <div
-              className="relative glass rounded-t-2xl p-6 border-2 border-b-0 overflow-hidden"
+              className="relative glass rounded-2xl p-6 border-2 overflow-hidden"
               style={{ borderColor: "#FFB80030" }}
             >
               <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-[#FFB800]/15 border border-[#FFB800]/30 text-[10px] font-black text-[#FFB800] uppercase tracking-wider">
@@ -145,20 +131,6 @@ export default function BatchSystem() {
                 <PhaseStep icon={Truck} color="#22D3EE" label="Expéditions & livraisons" value="à partir du 1er août" />
               </div>
             </div>
-            {/* Frise Phase 2 collée */}
-            <FriseTimeline
-              title="Deuxième Série — Calendrier"
-              titleColor="#FFB800"
-              border="#FFB800"
-              topRounded={false}
-              nodes={[
-                { date: "16 juin", label: "Commandes ouvertes", color: "#FFB800", glow: false },
-                { date: "24 juin", label: "Clôture · Lancement production 2", color: "#22D3EE", glow: false },
-                { date: "1er août", label: "Livraisons à partir du 1er août", color: "#FFB800", glow: false },
-              ]}
-              badges={["Précommande", "Production"]}
-              delay={0.1}
-            />
           </motion.div>
 
         </div>

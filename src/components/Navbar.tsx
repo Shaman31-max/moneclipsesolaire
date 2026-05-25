@@ -1,9 +1,9 @@
 ﻿"use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 const links = [
   { href: "/#produits", label: "Produits" },
@@ -15,8 +15,6 @@ const links = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
@@ -68,14 +66,7 @@ export default function Navbar() {
         <div className="flex-1 xl:hidden" />
 
         {/* Right side: Cart + CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <button className="relative p-2 text-white/92 hover:text-[#22D3EE] transition-colors">
-            <ShoppingCart size={18} />
-            <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-[#22D3EE] text-[9px] flex items-center justify-center text-white font-bold">
-              0
-            </span>
-          </button>
-
+        <div className="flex items-center gap-3">
           <a
             href="/#produits"
             className="px-4 py-2 rounded-full bg-[#FFB800] text-black text-sm font-semibold hover:bg-[#FFC933] transition-all duration-200 glow-gold whitespace-nowrap"
@@ -83,52 +74,27 @@ export default function Navbar() {
             Commander
           </a>
         </div>
-
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden text-white p-2 flex-shrink-0"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
       </div>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-dark border-t border-[#22D3EE]/10"
-          >
-            <div className="px-6 py-4 flex flex-col gap-3">
-              {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="flex items-center justify-between text-white/93 hover:text-[#22D3EE] py-2 border-b border-white/5 transition-colors"
-                >
-                  <span>{l.label}</span>
-                  {l.badge && (
-                    <span className="px-1.5 py-0.5 rounded-full bg-[#22D3EE]/20 text-[9px] font-bold text-[#FFB800] border border-[#22D3EE]/30">
-                      PRO
-                    </span>
-                  )}
-                </a>
-              ))}
-              <a
-                href="/#produits"
-                onClick={() => setOpen(false)}
-                className="mt-1 px-4 py-3 rounded-full bg-[#22D3EE] text-white text-center font-semibold text-sm"
-              >
-                Commander maintenant
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile links strip */}
+      <div className="xl:hidden glass-dark border-t border-[#22D3EE]/08">
+        <div className="flex overflow-x-auto scrollbar-none px-4 gap-1 py-1.5">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold text-white/80 hover:text-[#22D3EE] whitespace-nowrap transition-colors flex-shrink-0"
+            >
+              {l.label}
+              {l.badge && (
+                <span className="px-1.5 py-0.5 rounded-full bg-[#22D3EE]/20 text-[9px] font-bold text-[#FFB800] border border-[#22D3EE]/30">
+                  PRO
+                </span>
+              )}
+            </a>
+          ))}
+        </div>
+      </div>
     </motion.nav>
   );
 }

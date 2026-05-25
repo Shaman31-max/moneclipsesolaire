@@ -88,7 +88,7 @@ export default function Hero() {
               whileTap={{ scale: 0.97 }}
               className="px-8 py-4 rounded-full bg-white text-black font-bold text-base glow-blue hover:bg-gray-100 transition-colors text-center"
             >
-              Découvrir nos produits
+              Commandez vos lunettes d'Éclipse ici
             </motion.a>
           </div>
         </motion.div>

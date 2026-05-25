@@ -92,7 +92,7 @@ const PRODUCTS: ProductDef[] = [
     unit: "ebook",
     color: "#FFB800",
     icon: BookOpen,
-    features: ["Dès 6 ans", "Illustré & interactif", "Téléchargement instantané", "Format PDF"],
+    features: [],
     variantId: "gid://shopify/ProductVariant/58125148586329",
     fixedPrice: 0.99,
   },
@@ -305,6 +305,10 @@ function ProductCard({ product }: { product: ProductDef }) {
           </label>
         ) : (
           <div className="flex flex-col gap-2">
+            <p className="text-xs text-white/50 text-center">
+              * Production à la demande — commandez maintenant et recevez le <strong className="text-white/70">20 juillet</strong> ·{" "}
+              <a href="/#commande" className="text-[#22D3EE]/70 hover:text-[#22D3EE] underline underline-offset-2 transition-colors">voir le planning</a>
+            </p>
             <motion.button
               whileTap={{ scale: 0.96 }}
               onClick={handleAdd}
