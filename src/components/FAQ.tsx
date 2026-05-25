@@ -88,8 +88,8 @@ const categories = [
     color: "#FFB800",
     faqs: [
       {
-        q: "Quels sont les délais de livraison ?",
-        a: "Livraison standard : 3–5 jours ouvrés (Colissimo). Livraison express 48h disponible en option (+2,90 €). Pour les commandes B2B supérieures à 1 000 unités, délai de préparation de 5–7 jours ouvrés avec suivi dédié.",
+        q: "Quand ma commande sera-t-elle expédiée ?",
+        a: "expédition-calendrier",
       },
       {
         q: "Livrez-vous en dehors de France métropolitaine ?",
@@ -165,9 +165,17 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="text-sm text-white/90 leading-relaxed pb-5 pr-8">
-              {a}
-            </p>
+            <div className="text-sm text-white/90 leading-relaxed pb-5 pr-8">
+              {a === "expédition-calendrier" ? (
+                <>
+                  L'expédition suit le{" "}
+                  <a href="#commande" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
+                    calendrier de production
+                  </a>
+                  {" "}— toutes les commandes sont expédiées en une seule vague, en enveloppe via La Poste, directement dans votre boîte aux lettres. Aucun déplacement en point relais n'est nécessaire.
+                </>
+              ) : a}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
