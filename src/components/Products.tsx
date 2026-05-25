@@ -39,6 +39,7 @@ type ProductDef = {
   icon: React.ComponentType<{ size?: number; className?: string; style?: React.CSSProperties }>;
   features: string[];
   variantId: string;
+  variantIds?: string[];
   fixedPrice?: number;
   image?: string;
 };
@@ -60,7 +61,20 @@ const PRODUCTS: ProductDef[] = [
     color: "#FFB800",
     icon: Eye,
     features: [],
-    variantId: "gid://shopify/ProductVariant/58125149110617",
+    variantId: "gid://shopify/ProductVariant/58137193283929",
+    variantIds: [
+      "gid://shopify/ProductVariant/58137193283929",
+      "gid://shopify/ProductVariant/58137193316697",
+      "gid://shopify/ProductVariant/58137193349465",
+      "gid://shopify/ProductVariant/58137193382233",
+      "gid://shopify/ProductVariant/58137193415001",
+      "gid://shopify/ProductVariant/58137193447769",
+      "gid://shopify/ProductVariant/58137193480537",
+      "gid://shopify/ProductVariant/58137193513305",
+      "gid://shopify/ProductVariant/58137193546073",
+      "gid://shopify/ProductVariant/58137193578841",
+      "gid://shopify/ProductVariant/58137193611609",
+    ],
   },
   {
     id: "filter",
@@ -81,7 +95,20 @@ const PRODUCTS: ProductDef[] = [
     color: "#FFB800",
     icon: Smartphone,
     features: [],
-    variantId: "gid://shopify/ProductVariant/58125148586329",
+    variantId: "gid://shopify/ProductVariant/58137193644377",
+    variantIds: [
+      "gid://shopify/ProductVariant/58137193644377",
+      "gid://shopify/ProductVariant/58137193677145",
+      "gid://shopify/ProductVariant/58137193709913",
+      "gid://shopify/ProductVariant/58137193742681",
+      "gid://shopify/ProductVariant/58137193775449",
+      "gid://shopify/ProductVariant/58137193808217",
+      "gid://shopify/ProductVariant/58137193840985",
+      "gid://shopify/ProductVariant/58137193873753",
+      "gid://shopify/ProductVariant/58137193906521",
+      "gid://shopify/ProductVariant/58137193939289",
+      "gid://shopify/ProductVariant/58137193972057",
+    ],
   },
   {
     id: "ebook",
@@ -93,7 +120,7 @@ const PRODUCTS: ProductDef[] = [
     color: "#FFB800",
     icon: BookOpen,
     features: [],
-    variantId: "gid://shopify/ProductVariant/58125148586329",
+    variantId: "gid://shopify/ProductVariant/58137194037593",
     fixedPrice: 0.99,
   },
 ];
@@ -107,8 +134,9 @@ function ProductCard({ product }: { product: ProductDef }) {
   const unitPrice = step.total / step.qty;
   const isFixed = !!product.fixedPrice;
 
-  const variantNumericId = product.variantId.split("/").pop();
-  const checkoutUrl = `https://ijtkfu-q9.myshopify.com/cart/${variantNumericId}:${isFixed ? 1 : step.qty}`;
+  const activeVariantId = product.variantIds ? product.variantIds[stepIdx] : product.variantId;
+  const variantNumericId = activeVariantId.split("/").pop();
+  const checkoutUrl = `https://ijtkfu-q9.myshopify.com/cart/${variantNumericId}:1`;
 
   const handleAdd = () => {
     setAdded(true);

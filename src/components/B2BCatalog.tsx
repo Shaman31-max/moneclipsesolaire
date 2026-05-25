@@ -31,7 +31,7 @@ type B2BProduct = {
   features: string[];
   minQty: number;
   sliderMax: number;
-  tiers: { min: number; label: string; unitHT: number; tag: string | null }[];
+  tiers: { min: number; label: string; unitHT: number; tag: string | null; variantId: string }[];
   unit: string;
 };
 
@@ -57,10 +57,10 @@ const B2B_PRODUCTS: B2BProduct[] = [
     sliderMax: 5000,
     unit: "paire",
     tiers: [
-      { min: 500,  label: "500",   unitHT: 0.695, tag: null },
-      { min: 1000, label: "1 000", unitHT: 0.663, tag: null },
-      { min: 2000, label: "2 000", unitHT: 0.630, tag: null },
-      { min: 5000, label: "5 000", unitHT: 0.610, tag: null },
+      { min: 500,  label: "500",   unitHT: 0.695, tag: null, variantId: "58137195741529" },
+      { min: 1000, label: "1 000", unitHT: 0.663, tag: null, variantId: "58137195774297" },
+      { min: 2000, label: "2 000", unitHT: 0.630, tag: null, variantId: "58137195807065" },
+      { min: 5000, label: "5 000", unitHT: 0.610, tag: null, variantId: "58137195839833" },
     ],
   },
   {
@@ -84,10 +84,10 @@ const B2B_PRODUCTS: B2BProduct[] = [
     sliderMax: 3000,
     unit: "filtre",
     tiers: [
-      { min: 500,  label: "500",   unitHT: 0.695, tag: null },
-      { min: 1000, label: "1 000", unitHT: 0.663, tag: null },
-      { min: 2000, label: "2 000", unitHT: 0.630, tag: null },
-      { min: 5000, label: "5 000", unitHT: 0.610, tag: null },
+      { min: 500,  label: "500",   unitHT: 0.695, tag: null, variantId: "58137196724569" },
+      { min: 1000, label: "1 000", unitHT: 0.663, tag: null, variantId: "58137196757337" },
+      { min: 2000, label: "2 000", unitHT: 0.630, tag: null, variantId: "58137196790105" },
+      { min: 5000, label: "5 000", unitHT: 0.610, tag: null, variantId: "58137196822873" },
     ],
   },
 ];
