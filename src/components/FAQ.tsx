@@ -11,6 +11,10 @@ const categories = [
     color: "#22D3EE",
     faqs: [
       {
+        q: "Quand aura lieu l'éclipse ?",
+        a: "eclipse-date",
+      },
+      {
         q: "Comment fonctionne le système de production à la demande ?",
         a: "Pour éviter tout gaspillage sur un événement unique et non renouvelable, nous produisons uniquement ce qui est commandé, en deux séries fermées. Une fois la clôture de chaque série passée, il n'est plus possible de passer commande dans ce batch. Les produits sont fabriqués après la clôture, contrôlés, puis expédiés à la date de livraison prévue.",
       },
@@ -123,7 +127,15 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
             className="overflow-hidden"
           >
             <div className="text-sm text-white/90 leading-relaxed pb-5 pr-8">
-              {a === "expédition-calendrier" ? (
+              {a === "eclipse-date" ? (
+                <>
+                  L'éclipse solaire aura lieu le <strong className="text-white">12 août 2026</strong>. Consultez le{" "}
+                  <a href="/#eclipse" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
+                    planning de l'éclipse
+                  </a>
+                  {" "}pour les horaires et les zones de visibilité en France.
+                </>
+              ) : a === "expédition-calendrier" ? (
                 <>
                   L'expédition suit le{" "}
                   <a href="#commande" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
