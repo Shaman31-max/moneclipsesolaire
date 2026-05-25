@@ -173,6 +173,15 @@ export default function BatchSystem() {
               return acc;
             }, [])}
           </div>
+
+          <div className="mt-6 flex justify-center">
+            <a
+              href="/#produits"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FFB800] text-black font-black text-sm hover:bg-[#FFC933] transition-all duration-200 glow-gold"
+            >
+              Commandez vos lunettes →
+            </a>
+          </div>
         </motion.div>
 
 
