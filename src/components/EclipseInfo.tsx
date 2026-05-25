@@ -121,7 +121,7 @@ export default function EclipseInfo() {
           className="rounded-2xl border-2 border-red-500/60 bg-red-500/08 p-6"
         >
           <h3 className="text-lg font-black text-red-400 mb-3 flex items-center gap-2">
-            <AlertTriangle size={18} /> ⚠️ Important : protéger ses yeux
+            ⚠️ Important : protéger ses yeux
           </h3>
           <p className="text-sm text-[#E8F0FF]/85 mb-3 leading-relaxed">
             Regarder une éclipse sans protection adaptée peut provoquer des <strong className="text-red-400">lésions irréversibles de la rétine</strong>.
