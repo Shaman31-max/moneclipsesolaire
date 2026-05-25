@@ -288,7 +288,7 @@ export default function Products() {
             Choisissez vos <span className="gradient-text-blue">équipements</span>
           </h2>
           <p className="text-white/75 text-sm max-w-lg mx-auto">
-            Glissez le curseur pour ajuster la quantité — le prix total et le prix unitaire se calculent automatiquement.
+            Glissez le curseur pour ajuster la quantité, prix dégressif en fonction de la quantité.
           </p>
         </motion.div>
 
