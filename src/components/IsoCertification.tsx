@@ -69,7 +69,7 @@ export default function IsoCertification() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <p className="text-[calc(0.75rem+3px)] uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-black">Certifications</p>
+        <p className="text-[calc(0.75rem+3px)] uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-black text-center">Certifications</p>
 
         {/* Bandeau avertissement rouge */}
         <motion.div
