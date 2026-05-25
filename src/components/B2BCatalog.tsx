@@ -9,7 +9,6 @@ import {
 import type { B2BSession } from "./B2BPortal";
 
 // ── B2B Pricing ──────────────────────────────────────────────────
-const UNIT_PRICE = 1.10;
 const TVA = 0.20;
 
 function fmt(n: number) {
@@ -28,7 +27,7 @@ type B2BProduct = {
   features: string[];
   minQty: number;
   sliderMax: number;
-  tiers: { min: number; label: string; discount: number; tag: string | null }[];
+  tiers: { min: number; label: string; unitHT: number; tag: string | null }[];
   unit: string;
 };
 
@@ -46,10 +45,10 @@ const B2B_PRODUCTS: B2BProduct[] = [
     sliderMax: 5000,
     unit: "paire",
     tiers: [
-      { min: 500,  label: "500",   discount: 0,    tag: null },
-      { min: 1000, label: "1 000", discount: 0.05, tag: "–5%" },
-      { min: 2500, label: "2 500", discount: 0.10, tag: "–10%" },
-      { min: 5000, label: "5 000", discount: 0.15, tag: "–15%" },
+      { min: 500,  label: "500",   unitHT: 0.83,  tag: null },
+      { min: 1000, label: "1 000", unitHT: 0.78,  tag: null },
+      { min: 2000, label: "2 000", unitHT: 0.74,  tag: null },
+      { min: 5000, label: "5 000", unitHT: 0.69,  tag: null },
     ],
   },
   {
@@ -65,10 +64,10 @@ const B2B_PRODUCTS: B2BProduct[] = [
     sliderMax: 3000,
     unit: "filtre",
     tiers: [
-      { min: 250,  label: "250",   discount: 0,    tag: null },
-      { min: 500,  label: "500",   discount: 0.05, tag: "–5%" },
-      { min: 1000, label: "1 000", discount: 0.10, tag: "–10%" },
-      { min: 2500, label: "2 500", discount: 0.15, tag: "–15%" },
+      { min: 500,  label: "500",   unitHT: 0.695, tag: null },
+      { min: 1000, label: "1 000", unitHT: 0.663, tag: null },
+      { min: 2000, label: "2 000", unitHT: 0.630, tag: null },
+      { min: 5000, label: "5 000", unitHT: 0.610, tag: null },
     ],
   },
 ];
@@ -172,7 +171,7 @@ function B2BProductCard({
 
   const activeTier = [...product.tiers].reverse().find((t) => qty >= t.min)!;
   const tierIdx = product.tiers.indexOf(activeTier);
-  const unitHT = UNIT_PRICE * (1 - activeTier.discount);
+  const unitHT = activeTier.unitHT;
   const totalHT = unitHT * qty;
   const totalTTC = totalHT * (1 + TVA);
 
@@ -244,9 +243,6 @@ function B2BProductCard({
             <span className="text-4xl font-black" style={{ color: product.color }}>
               {fmt(unitHT)} €
             </span>
-            {activeTier.discount > 0 && (
-              <span className="text-lg text-white/30 line-through">{fmt(UNIT_PRICE)} €</span>
-            )}
           </div>
           <div className="text-xs text-white/75 mt-0.5">
             HT / {product.unit} · min. {product.minQty.toLocaleString("fr-FR")} {product.unit}s
@@ -254,7 +250,7 @@ function B2BProductCard({
         </div>
 
         <AnimatePresence mode="wait">
-          {activeTier.discount > 0 && (
+          {activeTier.tag && (
             <motion.div
               key={activeTier.tag}
               initial={{ scale: 0.6, opacity: 0 }}
@@ -317,15 +313,13 @@ function B2BProductCard({
                 border: `1px solid ${active ? product.color + "55" : unlocked ? product.color + "22" : "rgba(232,240,255,0.06)"}`,
               }}
             >
-              {t.discount === 0 ? (
-                <CheckCircle size={12} style={{ color: unlocked ? product.color : "rgba(232,240,255,0.15)" }} />
-              ) : unlocked ? (
-                <Zap size={12} style={{ color: product.color }} />
+              {unlocked ? (
+                <CheckCircle size={12} style={{ color: product.color }} />
               ) : (
                 <Lock size={11} className="text-white/38" />
               )}
               <span className="text-[9px] font-black" style={{ color: unlocked ? product.color : "rgba(232,240,255,0.2)" }}>
-                {t.discount === 0 ? "Base" : t.tag}
+                {fmt(t.unitHT)} €
               </span>
               <span className="text-[8px] text-white/50">{t.label}</span>
             </div>
@@ -381,7 +375,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
   const addToQuote = (productId: string, qty: number) => {
     const p = B2B_PRODUCTS.find((x) => x.id === productId)!;
     const tier = [...p.tiers].reverse().find((t) => qty >= t.min)!;
-    const unitHT = UNIT_PRICE * (1 - tier.discount);
+    const unitHT = tier.unitHT;
     setQuote((q) => {
       const exists = q.find((l) => l.productId === productId);
       if (exists) return q.map((l) => l.productId === productId ? { ...l, qty, unitHT } : l);
@@ -522,7 +516,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                     {p.tiers.map((t) => (
                       <td key={t.min} className="py-3 text-center">
                         <div className="text-white/90 font-bold">{t.min >= 1000 ? `${t.min/1000}K` : t.min}</div>
-                        <div className="text-[10px] text-white/65">{fmt(UNIT_PRICE * (1 - t.discount))} €/u</div>
+                        <div className="text-[10px] text-white/65">{fmt(t.unitHT)} €/u</div>
                       </td>
                     ))}
                   </tr>
