@@ -29,8 +29,11 @@ type ProductDef = {
   name: string;
   subtitle: string;
   desc?: string;
+  intro?: string;
   bullets?: Bullet[];
+  useCases?: string[];
   warning?: string;
+  warnings?: string[];
   unit: string;
   color: string;
   icon: React.ComponentType<{ size?: number; className?: string; style?: React.CSSProperties }>;
@@ -65,7 +68,17 @@ const PRODUCTS: ProductDef[] = [
     name: "Filtre Téléphone Universel",
     subtitle: "Filmer & photographier l'éclipse",
     image: "/filtre_telephone.png",
-    desc: "Découvrez notre film solaire ND 5.0 spécialement conçu pour smartphones et tablettes. Capturez l'éclipse et filmez la couronne solaire en toute sécurité tout en protégeant l'objectif de votre appareil contre l'intensité extrême de la lumière solaire. Grâce à sa forte densité optique, ce filtre réduit efficacement la luminosité du soleil afin de permettre des prises de vue nettes, détaillées et spectaculaires. Idéal pour immortaliser les phénomènes astronomiques comme les éclipses solaires, sans risque pour votre capteur photo. Observez, filmez et partagez l'éclipse en toute sérénité.",
+    intro: "Capturez l'éclipse solaire du 12 août 2026 en toute sécurité grâce à notre filtre solaire ND 5.0 spécialement conçu pour smartphones et tablettes.",
+    bullets: [
+      { title: "Compatible avec tous les téléphones", text: "Ce filtre est le même que celui pour les lunettes et permet de rendre ce moment mémorable." },
+      { title: "Production responsable", text: "Production réalisée en batches limités afin de réduire le gaspillage et la surproduction." },
+    ],
+    useCases: ["Vidéos time-lapse", "Créateurs de contenu"],
+    warnings: [
+      "Ce filtre est conçu exclusivement pour la capture photo/vidéo du Soleil avec un smartphone ou une tablette.",
+      "Ne jamais observer directement le Soleil à travers l'écran ou l'objectif sans protection adaptée pour les yeux.",
+      "Toujours utiliser des lunettes certifiées ISO 12312-2 pour l'observation directe de l'éclipse solaire.",
+    ],
     unit: "filtre",
     color: "#FFB800",
     icon: Smartphone,
@@ -147,6 +160,9 @@ function ProductCard({ product }: { product: ProductDef }) {
       {/* Description */}
       {product.bullets ? (
         <div className="relative z-10 mb-5 space-y-2.5">
+          {product.intro && (
+            <p className="text-sm text-white/80 leading-relaxed mb-3">{product.intro}</p>
+          )}
           {product.bullets.map((b) => (
             <div key={b.title} className="flex items-start gap-2.5">
               <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: `${product.color}20`, border: `1px solid ${product.color}40` }}>
@@ -159,10 +175,33 @@ function ProductCard({ product }: { product: ProductDef }) {
               </p>
             </div>
           ))}
+          {product.useCases && product.useCases.length > 0 && (
+            <div className="mt-2">
+              <p className="text-xs font-bold text-white/60 uppercase tracking-widest mb-1.5">Idéal pour</p>
+              <div className="flex flex-wrap gap-2">
+                {product.useCases.map((u) => (
+                  <span key={u} className="text-xs px-2.5 py-1 rounded-full" style={{ backgroundColor: `${product.color}15`, color: product.color, border: `1px solid ${product.color}30` }}>
+                    {u}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
           {product.warning && (
             <div className="text-[16px] text-white/45 italic mt-1 pl-6 space-y-0.5">
-              {product.warning!.split(". ").filter(Boolean).map((line, i) => (
+              {product.warning.split(". ").filter(Boolean).map((line, i) => (
                 <p key={i}>{line}{line.endsWith(".") ? "" : "."}</p>
+              ))}
+            </div>
+          )}
+          {product.warnings && product.warnings.length > 0 && (
+            <div className="mt-3 p-3 rounded-xl border border-red-500/20 bg-red-500/06 space-y-1.5">
+              <p className="text-[10px] font-black uppercase tracking-widest text-red-400 mb-1">Information importante</p>
+              {product.warnings.map((w, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <span className="text-red-400 text-xs mt-0.5 flex-shrink-0">•</span>
+                  <p className="text-xs text-white/70 leading-snug">{w}</p>
+                </div>
               ))}
             </div>
           )}
