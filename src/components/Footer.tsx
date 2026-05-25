@@ -74,13 +74,6 @@ export default function Footer() {
             <Mail size={13} />
             contact@moneclipsesolaire.fr
           </a>
-          <span className="text-[#E8F0FF]/38">·</span>
-          <a href="tel:+33182736450" className="flex items-center gap-2 text-xs text-[#E8F0FF]/75 hover:text-[#22D3EE] transition-colors">
-            <Phone size={13} />
-            01 82 73 64 50
-          </a>
-          <span className="text-[#E8F0FF]/38">·</span>
-          <span className="text-xs text-[#E8F0FF]/75">Lun–Ven 9h–18h</span>
         </div>
 
         {/* Bottom */}

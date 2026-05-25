@@ -176,27 +176,30 @@ export default function BatchSystem() {
             Comment ça fonctionne ?
           </h3>
 
-          <div className="flex flex-col sm:flex-row gap-3 items-stretch">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             {[
               { n: "1", text: "Vous passez votre commande pendant la période ouverte.", color: "#22c55e" },
               { n: "2", text: "Une fois les commandes clôturées, nous lançons la fabrication.", color: "#22D3EE" },
               { n: "3", text: "Les produits sont contrôlés puis expédiés en une seule vague.", color: "#FFB800" },
             ].map((step, i) => (
-              <div key={i} className="flex flex-row sm:flex-col items-start sm:items-center gap-3 flex-1">
-                <div className="flex sm:flex-col items-center gap-2 sm:gap-1 flex-shrink-0">
-                  <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center font-black text-sm flex-shrink-0"
-                    style={{ backgroundColor: `${step.color}20`, border: `2px solid ${step.color}50`, color: step.color }}
-                  >
-                    {step.n}
-                  </div>
-                  {i < 2 && (
-                    <ChevronRight size={14} className="text-white/20 hidden sm:block rotate-90" />
-                  )}
+              <div key={i} className="flex sm:flex-col items-center gap-3 flex-1">
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center font-black text-sm flex-shrink-0"
+                  style={{ backgroundColor: `${step.color}20`, border: `2px solid ${step.color}50`, color: step.color }}
+                >
+                  {step.n}
                 </div>
                 <p className="text-xs text-white/80 leading-relaxed sm:text-center">{step.text}</p>
+                {/* Mobile: down arrow */}
+                {i < 2 && <ChevronRight size={14} className="text-white/20 sm:hidden rotate-90 flex-shrink-0" />}
               </div>
-            ))}
+            )).reduce<React.ReactNode[]>((acc, el, i) => {
+              acc.push(el);
+              if (i < 2) acc.push(
+                <ChevronRight key={`arrow-${i}`} size={18} className="text-white/20 hidden sm:block flex-shrink-0" />
+              );
+              return acc;
+            }, [])}
           </div>
         </motion.div>
 
