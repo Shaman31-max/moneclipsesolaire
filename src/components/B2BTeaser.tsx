@@ -70,6 +70,16 @@ export default function B2BTeaser() {
               </motion.a>
             </div>
 
+            {/* Right : image */}
+            <div className="flex-shrink-0 w-full lg:w-72 xl:w-80">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/lunettes_avec_presentoir.png"
+                alt="Lunettes éclipse avec présentoir"
+                className="w-full h-auto object-contain drop-shadow-2xl rounded-xl"
+              />
+            </div>
+
           </div>
         </motion.div>
       </div>
