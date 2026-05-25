@@ -89,11 +89,12 @@ export default function Footer() {
             © 2026 MonEclipseSolaire.fr — Tous droits réservés
           </p>
           <div className="flex gap-4">
-            {["Mentions légales", "CGV", "Confidentialité", "Cookies"].map((item) => (
+            {["Mentions légales", "Confidentialité", "Cookies"].map((item) => (
               <button key={item} className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">
                 {item}
               </button>
             ))}
+            <a href="/cgv" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">CGV</a>
           </div>
         </div>
       </div>
