@@ -287,7 +287,7 @@ export default function Products() {
           <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-4">
             Choisissez vos <span className="gradient-text-blue">équipements</span>
           </h2>
-          <p className="text-white/75 text-sm max-w-lg mx-auto">
+          <p className="text-white/75 text-[calc(0.875rem+2px)] max-w-lg mx-auto">
             Glissez le curseur pour ajuster la quantité, prix dégressif en fonction de la quantité.
           </p>
         </motion.div>
