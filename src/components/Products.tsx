@@ -227,7 +227,7 @@ function ProductCard({ product }: { product: ProductDef }) {
                 </span>
               ))}
             </div>
-            <p className="text-[10px] text-white/35 mt-1.5">* Prix dégressif en fonction de la quantité</p>
+            <p className="text-[14px] text-white/35 mt-1.5">* Prix dégressif en fonction de la quantité</p>
           </div>
 
           <div className="relative z-10 mb-4 flex items-end gap-3">
