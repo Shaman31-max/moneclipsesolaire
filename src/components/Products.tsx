@@ -1,0 +1,315 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ShoppingCart, Eye, Smartphone, CheckCircle, Zap, BookOpen } from "lucide-react";
+
+const PRICE_STEPS = [
+  { qty: 1,  total: 4.99,  mention: "Solo" },
+  { qty: 2,  total: 6.99,  mention: "Duo" },
+  { qty: 3,  total: 8.99,  mention: null },
+  { qty: 4,  total: 9.99,  mention: "Famille" },
+  { qty: 5,  total: 12.49, mention: null },
+  { qty: 6,  total: 13.99, mention: null },
+  { qty: 8,  total: 17.49, mention: "Bureau" },
+  { qty: 10, total: 19.99, mention: "⭐ Meilleure offre" },
+  { qty: 12, total: 22.99, mention: null },
+  { qty: 16, total: 24.99, mention: null },
+  { qty: 20, total: 34.99, mention: "🎉 Événement" },
+];
+
+function fmt(n: number) {
+  return n.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+type ProductDef = {
+  id: string;
+  name: string;
+  subtitle: string;
+  desc: string;
+  unit: string;
+  color: string;
+  icon: React.ComponentType<{ size?: number; className?: string; style?: React.CSSProperties }>;
+  features: string[];
+  variantId: string;
+  fixedPrice?: number;
+};
+
+const PRODUCTS: ProductDef[] = [
+  {
+    id: "glasses",
+    name: "Lunettes Éclipse Pro",
+    subtitle: "Observer en toute sécurité",
+    desc: "Lunettes certifiées ISO 12312-2 pour l'observation directe de l'éclipse solaire. Monture rigide, filtre optique ND 5.0.",
+    unit: "paire",
+    color: "#1E7FFF",
+    icon: Eye,
+    features: ["ISO 12312-2 certifiées", "Filtre ND 5.0", "Monture rigide recyclée"],
+    variantId: "gid://shopify/ProductVariant/58125149110617",
+  },
+  {
+    id: "filter",
+    name: "Filtre Téléphone Universel",
+    subtitle: "Filmer & photographier l'éclipse",
+    desc: "Découvrez notre film solaire ND 5.0 spécialement conçu pour smartphones et tablettes. Capturez l'éclipse et filmez la couronne solaire en toute sécurité tout en protégeant l'objectif de votre appareil contre l'intensité extrême de la lumière solaire. Grâce à sa forte densité optique, ce filtre réduit efficacement la luminosité du soleil afin de permettre des prises de vue nettes, détaillées et spectaculaires. Idéal pour immortaliser les phénomènes astronomiques comme les éclipses solaires, sans risque pour votre capteur photo. Observez, filmez et partagez l'éclipse en toute sérénité.",
+    unit: "filtre",
+    color: "#4DD9FF",
+    icon: Smartphone,
+    features: [
+      "Compatible smartphones et tablettes",
+      "Protection renforcée pour l'objectif photo",
+      "Réduction extrême de la luminosité solaire (ND 5.0)",
+      "Filmer l'éclipse et les détails de la couronne solaire",
+      "Installation simple et légère",
+    ],
+    variantId: "gid://shopify/ProductVariant/58125148586329",
+  },
+  {
+    id: "ebook",
+    name: "Ma première éclipse",
+    subtitle: "Ebook enfant — dès 6 ans",
+    desc: "Un ebook illustré et pédagogique pour expliquer l'éclipse solaire aux enfants. Comprendre le phénomène, se préparer à l'observer en sécurité, et vivre un moment inoubliable en famille. Téléchargement instantané après commande.",
+    unit: "ebook",
+    color: "#FFB800",
+    icon: BookOpen,
+    features: ["Dès 6 ans", "Illustré & interactif", "Téléchargement instantané", "Format PDF"],
+    variantId: "gid://shopify/ProductVariant/58125148586329",
+    fixedPrice: 0.99,
+  },
+];
+
+function ProductCard({ product }: { product: ProductDef }) {
+  const [stepIdx, setStepIdx] = useState(0);
+  const [added, setAdded] = useState(false);
+  const Icon = product.icon;
+
+  const step = PRICE_STEPS[stepIdx];
+  const unitPrice = step.total / step.qty;
+  const isFixed = !!product.fixedPrice;
+
+  const handleAdd = () => {
+    setAdded(true);
+    const variantNumericId = product.variantId.split("/").pop();
+    const qty = isFixed ? 1 : step.qty;
+    const checkoutUrl = `https://ijtkfu-q9.myshopify.com/cart/${variantNumericId}:${qty}`;
+    setTimeout(() => { window.location.href = checkoutUrl; }, 600);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="relative glass rounded-3xl p-8 border flex flex-col overflow-hidden"
+      style={{ borderColor: `${product.color}20` }}
+    >
+      <div
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
+        style={{ background: `radial-gradient(ellipse at 30% 20%, ${product.color}, transparent 65%)` }}
+      />
+
+      {/* Icon + title */}
+      <div className="relative z-10 flex items-start gap-4 mb-6">
+        <div
+          className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
+          style={{ backgroundColor: `${product.color}15`, border: `1px solid ${product.color}30` }}
+        >
+          <Icon size={26} style={{ color: product.color }} />
+        </div>
+        <div>
+          <div className="text-[10px] uppercase tracking-[0.25em] mb-1" style={{ color: product.color }}>
+            {product.subtitle}
+          </div>
+          <h3 className="text-xl font-black text-[#DCE8FF] leading-tight">{product.name}</h3>
+        </div>
+      </div>
+
+      {/* Description */}
+      <p className="relative z-10 text-sm text-white/85 leading-relaxed mb-5">{product.desc}</p>
+
+      {/* Features */}
+      <div className="relative z-10 flex flex-wrap gap-2 mb-6">
+        {product.features.map((f) => (
+          <span
+            key={f}
+            className="text-[10px] px-2.5 py-1 rounded-full font-medium"
+            style={{ backgroundColor: `${product.color}18`, color: "#ffffff", border: `1px solid ${product.color}40` }}
+          >
+            {f}
+          </span>
+        ))}
+      </div>
+
+      {/* Prix fixe (ebook) ou slider */}
+      {isFixed ? (
+        <div className="relative z-10 mb-6 flex items-end gap-3">
+          <div>
+            <span className="text-4xl font-black" style={{ color: product.color }}>{fmt(product.fixedPrice!)} €</span>
+            <div className="text-xs text-white/65 mt-0.5">Téléchargement instantané · TVA incluse</div>
+          </div>
+        </div>
+      ) : null}
+
+      {/* Slider + prix (produits physiques uniquement) */}
+      {!isFixed && (
+        <>
+          <div className="relative z-10 mb-4">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-semibold text-white/75 uppercase tracking-wider">Quantité</span>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl font-black tabular-nums" style={{ color: product.color }}>{step.qty}</span>
+                <span className="text-xs text-white/65">{product.unit}{step.qty > 1 ? "s" : ""}</span>
+              </div>
+            </div>
+            <input
+              type="range"
+              min={0}
+              max={PRICE_STEPS.length - 1}
+              step={1}
+              value={stepIdx}
+              onChange={(e) => { setStepIdx(Number(e.target.value)); setAdded(false); }}
+              className="w-full cursor-pointer"
+              style={{ accentColor: product.color }}
+            />
+            <div className="flex justify-between mt-1.5">
+              {PRICE_STEPS.map((s, i) => (
+                <span
+                  key={i}
+                  className="text-[8px] font-bold transition-colors"
+                  style={{ color: i === stepIdx ? product.color : "rgba(220,232,255,0.2)" }}
+                >
+                  {s.qty}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative z-10 mb-4 flex items-end gap-3">
+            <div>
+              <div className="flex items-baseline gap-3">
+                <span className="text-4xl font-black" style={{ color: product.color }}>{fmt(step.total)} €</span>
+                <span className="text-xs font-semibold whitespace-nowrap" style={{ color: product.color }}>Livraison incluse</span>
+              </div>
+              <div className="text-xs text-white/65 mt-0.5">
+                {fmt(unitPrice)} € / {product.unit}
+              </div>
+            </div>
+            <AnimatePresence mode="wait">
+              {step.mention && (
+                <motion.div
+                  key={step.mention}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.8, opacity: 0 }}
+                  className="ml-auto px-3 py-1.5 rounded-xl font-black text-sm text-white"
+                  style={{ backgroundColor: product.color, boxShadow: `0 0 20px ${product.color}60` }}
+                >
+                  {step.mention}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </>
+      )}
+
+      {/* CTA */}
+      <div className="relative z-10 mt-auto">
+        {isFixed ? (
+          <label className="flex items-center gap-4 p-4 rounded-2xl border cursor-pointer transition-all duration-200 select-none"
+            style={{ borderColor: added ? "#22c55e" : `${product.color}40`, backgroundColor: added ? "rgba(34,197,94,0.08)" : `${product.color}08` }}
+          >
+            <input
+              type="checkbox"
+              checked={added}
+              onChange={(e) => { setAdded(e.target.checked); }}
+              className="w-5 h-5 rounded cursor-pointer"
+              style={{ accentColor: product.color }}
+            />
+            <div className="flex-1">
+              <div className="font-black text-white text-sm">{product.name}</div>
+              <div className="text-xs text-white/65">Téléchargement instantané</div>
+            </div>
+            <span className="text-xl font-black" style={{ color: product.color }}>{fmt(product.fixedPrice!)} €</span>
+          </label>
+        ) : (
+          <motion.button
+            whileTap={{ scale: 0.96 }}
+            onClick={handleAdd}
+            className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-base text-white transition-all duration-200"
+            style={{
+              backgroundColor: added ? "#22c55e" : product.color,
+              boxShadow: added ? "0 0 24px rgba(34,197,94,0.4)" : `0 0 28px ${product.color}50`,
+            }}
+          >
+            {added ? (
+              <><CheckCircle size={18} /> Ajouté au panier</>
+            ) : (
+              <><ShoppingCart size={18} /> Commander — {step.qty} {product.unit}{step.qty > 1 ? "s" : ""}</>
+            )}
+          </motion.button>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
+export default function Products() {
+  return (
+    <section id="produits" className="relative py-24 px-6">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-[#1E7FFF] opacity-[0.03] blur-[100px]" />
+      </div>
+
+      <div className="max-w-5xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-14"
+        >
+          <p className="text-xs uppercase tracking-[0.3em] text-[#1E7FFF] mb-3 font-medium">Nos Produits</p>
+          <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-4">
+            Choisissez vos <span className="gradient-text-blue">équipements</span>
+          </h2>
+          <p className="text-white/75 text-sm max-w-lg mx-auto">
+            Glissez le curseur pour ajuster la quantité — le prix total et le prix unitaire se calculent automatiquement.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PRODUCTS.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+
+        {/* Bandeau livraison */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-8 relative overflow-hidden rounded-2xl border border-[#22c55e]/40 bg-[#22c55e]/08 px-6 py-5 flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-[#22c55e]/05 via-[#22c55e]/10 to-[#22c55e]/05 pointer-events-none" />
+          <div className="relative z-10 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#22c55e]/20 border border-[#22c55e]/40 flex items-center justify-center flex-shrink-0">
+              <Zap size={18} className="text-[#22c55e]" />
+            </div>
+            <div className="text-left">
+              <div className="text-lg md:text-xl font-black text-white leading-tight">🚚 Livraison gratuite & incluse</div>
+              <div className="text-sm font-semibold mt-0.5" style={{ color: "#22c55e" }}>Garantie chez vous avant l'éclipse — sans frais cachés</div>
+            </div>
+          </div>
+          <div className="relative z-10 ml-auto text-xs text-white/60">
+            Besoin de volumes ?{" "}
+            <a href="/b2b" className="text-[#4DD9FF] hover:text-white underline transition-colors">
+              Espace partenaires →
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
