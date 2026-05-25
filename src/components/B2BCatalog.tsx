@@ -60,7 +60,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     color: "#FFB800",
     icon: Smartphone,
     features: ["Compatible 50–90 mm", "Film ND 5.0 optique", "Sachet zip individuel"],
-    minQty: 250,
+    minQty: 200,
     sliderMax: 3000,
     unit: "filtre",
     tiers: [
