@@ -63,7 +63,7 @@ export default function B2BTeaser() {
                 href="/b2b"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#22D3EE] text-white font-bold text-sm glow-blue hover:bg-[#3D8FFF] transition-colors"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#FFB800] text-black font-bold text-sm glow-gold hover:bg-[#FFC933] transition-colors"
               >
                 Accéder à l'espace partenaires
                 <ArrowRight size={15} />
