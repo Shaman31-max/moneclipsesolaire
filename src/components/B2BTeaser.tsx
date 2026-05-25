@@ -41,7 +41,7 @@ export default function B2BTeaser() {
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
                 Vous êtes un professionnel ?
                 <br />
-                <span className="gradient-text-blue">Accès B2B dédié</span>
+                <span style={{ background: "linear-gradient(135deg, #22D3EE, #FFB800)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Accès B2B dédié</span>
               </h2>
 
               <p className="text-white/90 text-sm mb-6 max-w-md leading-relaxed">
