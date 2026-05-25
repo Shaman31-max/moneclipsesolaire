@@ -1,22 +1,22 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Building2, Package, FileText, HeadphonesIcon, Percent, Truck } from "lucide-react";
 import { useState } from "react";
 
 const advantages = [
-  { icon: Percent, text: "Tarifs dégressifs dès 10 unités", color: "#1E7FFF" },
-  { icon: Package, text: "Conditionnement personnalisé & co-branding", color: "#4DD9FF" },
-  { icon: FileText, text: "Factures pro + certificats de conformité CE", color: "#1E7FFF" },
-  { icon: Truck, text: "Livraison groupée express France entière", color: "#4DD9FF" },
-  { icon: HeadphonesIcon, text: "Account manager dédié", color: "#1E7FFF" },
-  { icon: Building2, text: "Contrats cadre multi-commandes", color: "#4DD9FF" },
+  { icon: Percent, text: "Tarifs dégressifs dès 10 unités", color: "#22D3EE" },
+  { icon: Package, text: "Conditionnement personnalisé & co-branding", color: "#A78BFA" },
+  { icon: FileText, text: "Factures pro + certificats de conformité CE", color: "#22D3EE" },
+  { icon: Truck, text: "Livraison groupée express France entière", color: "#A78BFA" },
+  { icon: HeadphonesIcon, text: "Account manager dédié", color: "#22D3EE" },
+  { icon: Building2, text: "Contrats cadre multi-commandes", color: "#A78BFA" },
 ];
 
 const tiers = [
-  { label: "Starter", qty: "10–49 unités", discount: "–10%", color: "#1E7FFF" },
-  { label: "Business", qty: "50–199 unités", discount: "–20%", color: "#4DD9FF", highlight: true },
-  { label: "Enterprise", qty: "200+ unités", discount: "–30%", color: "#0A3ACC" },
+  { label: "Starter", qty: "10–49 unités", discount: "–10%", color: "#22D3EE" },
+  { label: "Business", qty: "50–199 unités", discount: "–20%", color: "#A78BFA", highlight: true },
+  { label: "Enterprise", qty: "200+ unités", discount: "–30%", color: "#0891B2" },
 ];
 
 export default function B2B() {
@@ -32,9 +32,9 @@ export default function B2B() {
     <section id="b2b" className="relative py-24 px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E7FFF]/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E7FFF]/20 to-transparent" />
-        <div className="absolute top-1/2 left-0 w-[400px] h-[400px] -translate-y-1/2 bg-[#1E7FFF] opacity-[0.03] blur-[100px]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/20 to-transparent" />
+        <div className="absolute top-1/2 left-0 w-[400px] h-[400px] -translate-y-1/2 bg-[#22D3EE] opacity-[0.03] blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -45,9 +45,9 @@ export default function B2B() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#1E7FFF]/30 mb-6">
-            <Building2 size={14} className="text-[#1E7FFF]" />
-            <span className="text-xs font-medium text-[#1E7FFF] uppercase tracking-widest">Espace Partenaires</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#22D3EE]/30 mb-6">
+            <Building2 size={14} className="text-[#22D3EE]" />
+            <span className="text-xs font-medium text-[#22D3EE] uppercase tracking-widest">Espace Partenaires</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-4">
             Solutions <span className="gradient-text-blue">B2B</span>
@@ -71,10 +71,10 @@ export default function B2B() {
               {tiers.map((tier) => (
                 <div
                   key={tier.label}
-                  className={`flex-1 rounded-xl p-4 text-center relative ${tier.highlight ? "glass-dark ring-1 ring-[#4DD9FF]/40" : "glass"}`}
+                  className={`flex-1 rounded-xl p-4 text-center relative ${tier.highlight ? "glass-dark ring-1 ring-[#A78BFA]/40" : "glass"}`}
                 >
                   {tier.highlight && (
-                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-bold bg-[#4DD9FF] text-[#050510] uppercase tracking-wider">
+                    <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-bold bg-[#A78BFA] text-[#050510] uppercase tracking-wider">
                       Populaire
                     </div>
                   )}
@@ -118,7 +118,7 @@ export default function B2B() {
           >
             {submitted ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 rounded-full bg-[#1E7FFF]/20 flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 rounded-full bg-[#22D3EE]/20 flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">✓</span>
                 </div>
                 <h3 className="text-xl font-bold text-[#DCE8FF] mb-2">Demande envoyée !</h3>
@@ -145,7 +145,7 @@ export default function B2B() {
                         placeholder={placeholder}
                         value={form[key as keyof typeof form]}
                         onChange={(e) => setForm({ ...form, [key]: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-[#DCE8FF] placeholder-[#DCE8FF]/30 text-sm focus:outline-none focus:border-[#1E7FFF]/50 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-[#DCE8FF] placeholder-[#DCE8FF]/30 text-sm focus:outline-none focus:border-[#22D3EE]/50 transition-colors"
                       />
                     </div>
                   ))}
@@ -159,13 +159,13 @@ export default function B2B() {
                       placeholder="Précisez vos besoins, délais, personnalisation..."
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-[#DCE8FF] placeholder-[#DCE8FF]/30 text-sm focus:outline-none focus:border-[#1E7FFF]/50 transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-[#DCE8FF] placeholder-[#DCE8FF]/30 text-sm focus:outline-none focus:border-[#22D3EE]/50 transition-colors resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-[#1E7FFF] text-white font-bold text-sm hover:bg-[#3D8FFF] transition-colors glow-blue"
+                    className="w-full py-3.5 rounded-xl bg-[#22D3EE] text-white font-bold text-sm hover:bg-[#3D8FFF] transition-colors glow-blue"
                   >
                     Envoyer la demande de devis
                   </button>

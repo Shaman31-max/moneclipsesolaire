@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 
@@ -86,7 +86,7 @@ export default function AnimatedEclipse() {
       const moonGrad = ctx!.createRadialGradient(mx, cy, 0, mx, cy, moonR);
       moonGrad.addColorStop(0, "#020818");
       moonGrad.addColorStop(0.7, "#010610");
-      moonGrad.addColorStop(1, "#000510");
+      moonGrad.addColorStop(1, "#060412");
       ctx!.beginPath();
       ctx!.arc(mx, cy, moonR, 0, Math.PI * 2);
       ctx!.fillStyle = moonGrad;

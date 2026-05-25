@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --electric-blue: #1E7FFF;
-  --deep-blue: #0A3ACC;
-  --ice-blue: #4DD9FF;
-  --cosmic-dark: #000510;
-  --cosmic-mid: #010C2E;
-  --cosmic-navy: #030F3A;
-  --star-white: #E8F0FF;
+  --electric-blue: #22D3EE;
+  --deep-blue: #0891B2;
+  --ice-blue: #A78BFA;
+  --cosmic-dark: #060412;
+  --cosmic-mid: #0D0820;
+  --cosmic-navy: #130D2E;
+  --star-white: #F0EEFF;
   --solar-gold: #FFB800;
   --solar-orange: #FF7A00;
   --corona-white: #FFF5D0;
@@ -16,8 +16,8 @@
 @theme inline {
   --color-background: var(--cosmic-dark);
   --color-foreground: var(--star-white);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-outfit);
 }
 
 * { box-sizing: border-box; }
@@ -27,9 +27,9 @@ html { font-size: 18.5px; }
 @media (min-width: 768px) { html { font-size: 21.5px; } }
 
 body {
-  background-color: var(--cosmic-dark);
+  background-color: #060412;
   color: var(--star-white);
-  font-family: var(--font-geist-sans, 'Inter', sans-serif);
+  font-family: var(--font-outfit, 'Outfit', sans-serif);
   overflow-x: hidden;
 }
 
@@ -39,33 +39,37 @@ body {
 
 /* Glows */
 .glow-blue {
-  box-shadow: 0 0 20px rgba(255,255,255,0.5), 0 0 60px rgba(255,255,255,0.2);
+  box-shadow: 0 0 20px rgba(34,211,238,0.45), 0 0 60px rgba(167,139,250,0.2);
 }
 .glow-blue-text {
-  text-shadow: 0 0 20px rgba(30,127,255,0.9), 0 0 40px rgba(77,217,255,0.4);
+  text-shadow: 0 0 24px rgba(167,139,250,0.9), 0 0 48px rgba(34,211,238,0.5);
 }
 .glow-ice {
-  box-shadow: 0 0 30px rgba(77,217,255,0.4), 0 0 80px rgba(77,217,255,0.15);
+  box-shadow: 0 0 30px rgba(34,211,238,0.35), 0 0 80px rgba(34,211,238,0.12);
 }
 .glow-gold {
   box-shadow: 0 0 20px rgba(255,184,0,0.5), 0 0 60px rgba(255,184,0,0.2);
 }
 
-/* Glass — fond quasi-noir pour lisibilité maximale */
+/* Glass — fond sombre cosmique */
 .glass {
-  background: rgba(3, 7, 22, 0.92);
+  background: rgba(15, 10, 35, 0.93);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.07);
+  border: 1px solid rgba(167, 139, 250, 0.12);
+  color: #F0EEFF;
+}
+.glass * {
+  color: #F0EEFF;
 }
 .glass-dark {
-  background: rgba(1, 3, 12, 0.97);
+  background: rgba(6, 4, 18, 0.97);
   backdrop-filter: blur(28px);
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(167, 139, 250, 0.08);
 }
 
 /* Gradient text */
 .gradient-text-blue {
-  background: linear-gradient(135deg, #4DD9FF, #1E7FFF, #7B4FFF);
+  background: linear-gradient(135deg, #22D3EE, #A78BFA, #7C3AED);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

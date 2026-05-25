@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { User, Lock, Mail, Eye, EyeOff, Package, Star, Heart } from "lucide-react";
@@ -26,8 +26,8 @@ export default function Particuliers() {
   return (
     <section id="particuliers" className="relative py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E7FFF]/20 to-transparent" />
-        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] -translate-y-1/2 bg-[#4DD9FF] opacity-[0.02] blur-[100px]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/20 to-transparent" />
+        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] -translate-y-1/2 bg-[#A78BFA] opacity-[0.02] blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -38,9 +38,9 @@ export default function Particuliers() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#1E7FFF]/30 mb-6">
-            <User size={14} className="text-[#1E7FFF]" />
-            <span className="text-xs font-medium text-[#1E7FFF] uppercase tracking-widest">Espace Particuliers</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#22D3EE]/30 mb-6">
+            <User size={14} className="text-[#22D3EE]" />
+            <span className="text-xs font-medium text-[#22D3EE] uppercase tracking-widest">Espace Particuliers</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-4">
             Votre compte <span className="gradient-text-blue">personnel</span>
@@ -60,7 +60,7 @@ export default function Particuliers() {
           >
             <div className="relative">
               {/* Eclipse decorative */}
-              <div className="absolute -top-10 -left-10 w-48 h-48 rounded-full bg-[#1E7FFF] opacity-[0.05] blur-[60px]" />
+              <div className="absolute -top-10 -left-10 w-48 h-48 rounded-full bg-[#22D3EE] opacity-[0.05] blur-[60px]" />
               <h3 className="text-2xl font-bold text-[#DCE8FF] mb-8 relative">
                 Un compte, tous vos avantages
               </h3>
@@ -74,8 +74,8 @@ export default function Particuliers() {
                     transition={{ delay: i * 0.1, duration: 0.4 }}
                     className="flex items-center gap-4 p-4 glass rounded-xl"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-[#1E7FFF]/15 border border-[#1E7FFF]/30 flex items-center justify-center flex-shrink-0">
-                      <Icon size={18} className="text-[#1E7FFF]" />
+                    <div className="w-10 h-10 rounded-xl bg-[#22D3EE]/15 border border-[#22D3EE]/30 flex items-center justify-center flex-shrink-0">
+                      <Icon size={18} className="text-[#22D3EE]" />
                     </div>
                     <span className="text-[#DCE8FF]/70 text-sm">{text}</span>
                   </motion.div>
@@ -108,8 +108,8 @@ export default function Particuliers() {
             <div className="glass rounded-2xl p-8">
               {loggedIn ? (
                 <div className="text-center py-8">
-                  <div className="w-20 h-20 rounded-full bg-[#1E7FFF]/20 flex items-center justify-center mx-auto mb-4 glow-blue">
-                    <User size={32} className="text-[#1E7FFF]" />
+                  <div className="w-20 h-20 rounded-full bg-[#22D3EE]/20 flex items-center justify-center mx-auto mb-4 glow-blue">
+                    <User size={32} className="text-[#22D3EE]" />
                   </div>
                   <h3 className="text-xl font-bold text-[#DCE8FF] mb-2">
                     Bienvenue, {form.name || form.email.split("@")[0]} !
@@ -119,7 +119,7 @@ export default function Particuliers() {
                     {["Mes commandes", "Mes favoris", "Mon profil"].map((item) => (
                       <button
                         key={item}
-                        className="py-2 px-3 text-xs rounded-xl glass border border-[#1E7FFF]/20 text-[#DCE8FF]/60 hover:text-[#1E7FFF] hover:border-[#1E7FFF]/40 transition-all"
+                        className="py-2 px-3 text-xs rounded-xl glass border border-[#22D3EE]/20 text-[#DCE8FF]/60 hover:text-[#22D3EE] hover:border-[#22D3EE]/40 transition-all"
                       >
                         {item}
                       </button>
@@ -136,7 +136,7 @@ export default function Particuliers() {
                         onClick={() => setTab(t)}
                         className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${
                           tab === t
-                            ? "bg-[#1E7FFF] text-white"
+                            ? "bg-[#22D3EE] text-white"
                             : "text-[#DCE8FF]/50 hover:text-[#DCE8FF]"
                         }`}
                       >
@@ -159,7 +159,7 @@ export default function Particuliers() {
                             placeholder="Marie Dupont"
                             value={form.name}
                             onChange={(e) => setForm({ ...form, name: e.target.value })}
-                            className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-[#DCE8FF] placeholder-[#DCE8FF]/30 text-sm focus:outline-none focus:border-[#1E7FFF]/50 transition-colors"
+                            className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-[#DCE8FF] placeholder-[#DCE8FF]/30 text-sm focus:outline-none focus:border-[#22D3EE]/50 transition-colors"
                           />
                         </div>
                       </div>
@@ -177,7 +177,7 @@ export default function Particuliers() {
                           placeholder="vous@exemple.fr"
                           value={form.email}
                           onChange={(e) => setForm({ ...form, email: e.target.value })}
-                          className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-[#DCE8FF] placeholder-[#DCE8FF]/30 text-sm focus:outline-none focus:border-[#1E7FFF]/50 transition-colors"
+                          className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-[#DCE8FF] placeholder-[#DCE8FF]/30 text-sm focus:outline-none focus:border-[#22D3EE]/50 transition-colors"
                         />
                       </div>
                     </div>
@@ -194,7 +194,7 @@ export default function Particuliers() {
                           placeholder="••••••••"
                           value={form.password}
                           onChange={(e) => setForm({ ...form, password: e.target.value })}
-                          className="w-full pl-10 pr-12 py-3 rounded-xl bg-white/5 border border-white/10 text-[#DCE8FF] placeholder-[#DCE8FF]/30 text-sm focus:outline-none focus:border-[#1E7FFF]/50 transition-colors"
+                          className="w-full pl-10 pr-12 py-3 rounded-xl bg-white/5 border border-white/10 text-[#DCE8FF] placeholder-[#DCE8FF]/30 text-sm focus:outline-none focus:border-[#22D3EE]/50 transition-colors"
                         />
                         <button
                           type="button"
@@ -208,7 +208,7 @@ export default function Particuliers() {
 
                     {tab === "login" && (
                       <div className="text-right">
-                        <button type="button" className="text-xs text-[#1E7FFF]/70 hover:text-[#1E7FFF] transition-colors">
+                        <button type="button" className="text-xs text-[#22D3EE]/70 hover:text-[#22D3EE] transition-colors">
                           Mot de passe oublié ?
                         </button>
                       </div>
@@ -216,7 +216,7 @@ export default function Particuliers() {
 
                     <button
                       type="submit"
-                      className="w-full py-3.5 rounded-xl bg-[#1E7FFF] text-white font-bold text-sm hover:bg-[#3D8FFF] transition-colors glow-blue mt-2"
+                      className="w-full py-3.5 rounded-xl bg-[#22D3EE] text-white font-bold text-sm hover:bg-[#3D8FFF] transition-colors glow-blue mt-2"
                     >
                       {tab === "login" ? "Se connecter" : "Créer mon compte"}
                     </button>
@@ -224,9 +224,9 @@ export default function Particuliers() {
 
                   <p className="text-center text-xs text-[#DCE8FF]/30 mt-4">
                     En continuant, vous acceptez nos{" "}
-                    <button className="text-[#1E7FFF]/60 hover:text-[#1E7FFF] underline">CGV</button>
+                    <button className="text-[#22D3EE]/60 hover:text-[#22D3EE] underline">CGV</button>
                     {" "}et notre{" "}
-                    <button className="text-[#1E7FFF]/60 hover:text-[#1E7FFF] underline">politique de confidentialité</button>.
+                    <button className="text-[#22D3EE]/60 hover:text-[#22D3EE] underline">politique de confidentialité</button>.
                   </p>
                 </>
               )}

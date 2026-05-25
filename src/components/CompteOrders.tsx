@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { LogOut, Package, Truck, CheckCircle, Clock, MapPin, ChevronDown, ChevronUp, ShoppingBag } from "lucide-react";
@@ -61,13 +61,13 @@ function OrderCard({ order }: { order: Order }) {
   const [expanded, setExpanded] = useState(true);
   const currentStep = statusIndex(order.status);
 
-  const batchColor = order.batch === 1 ? "#1E7FFF" : "#FFAA00";
+  const batchColor = order.batch === 1 ? "#22D3EE" : "#FFAA00";
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="glass rounded-2xl border border-[#1E7FFF]/12 overflow-hidden"
+      className="glass rounded-2xl border border-[#22D3EE]/12 overflow-hidden"
     >
       {/* Header */}
       <button
@@ -97,7 +97,7 @@ function OrderCard({ order }: { order: Order }) {
           </div>
         </div>
         <div className="flex items-center gap-3 flex-shrink-0 ml-4">
-          <span className="text-sm font-black text-[#4DD9FF] hidden sm:block">
+          <span className="text-sm font-black text-[#A78BFA] hidden sm:block">
             {fmt(totalHT(order.items) * 1.2)} € TTC
           </span>
           {expanded ? <ChevronUp size={16} className="text-white/78" /> : <ChevronDown size={16} className="text-white/78" />}
@@ -115,7 +115,7 @@ function OrderCard({ order }: { order: Order }) {
                   initial={{ width: 0 }}
                   animate={{ width: `${(currentStep / (STEPS.length - 1)) * 100}%` }}
                   transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-                  className="h-full bg-gradient-to-r from-[#1E7FFF] to-[#4DD9FF]"
+                  className="h-full bg-gradient-to-r from-[#22D3EE] to-[#A78BFA]"
                 />
               </div>
 
@@ -131,22 +131,22 @@ function OrderCard({ order }: { order: Order }) {
                       transition={{ delay: 0.1 * i, duration: 0.4 }}
                       className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all ${
                         active
-                          ? "border-[#4DD9FF] bg-[#1E7FFF]/20 shadow-[0_0_16px_rgba(30,127,255,0.5)]"
+                          ? "border-[#A78BFA] bg-[#22D3EE]/20 shadow-[0_0_16px_rgba(30,127,255,0.5)]"
                           : done
-                          ? "border-[#1E7FFF] bg-[#1E7FFF]/15"
+                          ? "border-[#22D3EE] bg-[#22D3EE]/15"
                           : "border-white/8 bg-white/5"
                       }`}
                     >
                       <Icon
                         size={15}
-                        className={done ? (active ? "text-[#4DD9FF]" : "text-[#1E7FFF]") : "text-white/65"}
+                        className={done ? (active ? "text-[#A78BFA]" : "text-[#22D3EE]") : "text-white/65"}
                       />
                     </motion.div>
                     <div className="text-center hidden sm:block">
                       <div className={`text-[10px] font-bold leading-tight ${done ? "text-white/95" : "text-white/65"}`}>
                         {step.label}
                       </div>
-                      <div className={`text-[9px] mt-0.5 ${active ? "text-[#4DD9FF]/60" : "text-white/65"}`}>
+                      <div className={`text-[9px] mt-0.5 ${active ? "text-[#A78BFA]/60" : "text-white/65"}`}>
                         {step.desc}
                       </div>
                     </div>
@@ -156,15 +156,15 @@ function OrderCard({ order }: { order: Order }) {
             </div>
 
             {/* Current status message */}
-            <div className="mt-6 flex items-center gap-2 px-4 py-3 rounded-xl bg-[#1E7FFF]/08 border border-[#1E7FFF]/15">
-              <div className="w-2 h-2 rounded-full bg-[#4DD9FF] corona-pulse" />
+            <div className="mt-6 flex items-center gap-2 px-4 py-3 rounded-xl bg-[#22D3EE]/08 border border-[#22D3EE]/15">
+              <div className="w-2 h-2 rounded-full bg-[#A78BFA] corona-pulse" />
               <div className="text-xs text-white/92">
                 {order.status === "confirmed" && (
                   <>Commande confirmée — mise en production après clôture de la <strong className="text-white/96">1ère série le 15 juin</strong>. Livraison le <strong className="text-white/96">20 juillet</strong>.</>
                 )}
                 {order.status === "production" && <>Vos lunettes sont en cours de fabrication. Expédition prévue début juillet.</>}
                 {order.status === "shipped" && (
-                  <>Colis expédié{order.tracking && <> — Suivi : <span className="font-mono text-[#4DD9FF]">{order.tracking}</span></>}</>
+                  <>Colis expédié{order.tracking && <> — Suivi : <span className="font-mono text-[#A78BFA]">{order.tracking}</span></>}</>
                 )}
                 {order.status === "delivered" && <>Commande livrée. Profitez bien de l'éclipse du 12 août !</>}
               </div>
@@ -196,7 +196,7 @@ function OrderCard({ order }: { order: Order }) {
             </div>
             <div className="flex justify-between text-sm font-black pt-1.5">
               <span className="text-white/96">Total TTC</span>
-              <span className="text-[#4DD9FF]">{fmt(totalHT(order.items) * 1.2)} €</span>
+              <span className="text-[#A78BFA]">{fmt(totalHT(order.items) * 1.2)} €</span>
             </div>
           </div>
         </div>
@@ -209,9 +209,9 @@ type Props = { session: CompteSession; onLogout: () => void };
 
 export default function CompteOrders({ session, onLogout }: Props) {
   return (
-    <div className="min-h-screen bg-[#000510] pt-16">
+    <div className="min-h-screen bg-[#060412] pt-16">
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-[#010C2E]/50 blur-[100px]" />
+        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-[#0D0820]/50 blur-[100px]" />
       </div>
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 py-12">
@@ -223,7 +223,7 @@ export default function CompteOrders({ session, onLogout }: Props) {
           className="flex items-center justify-between mb-10"
         >
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-[#1E7FFF] mb-1">Mon espace</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-[#22D3EE] mb-1">Mon espace</p>
             <h1 className="text-2xl font-black text-white">
               Bonjour, {session.name.split(" ")[0]} 👋
             </h1>
@@ -248,7 +248,7 @@ export default function CompteOrders({ session, onLogout }: Props) {
             <div className="glass rounded-2xl p-12 text-center border border-white/8">
               <ShoppingBag size={32} className="text-[#E8F0FF]/28 mx-auto mb-3" />
               <p className="text-sm text-white/78">Aucune commande pour le moment</p>
-              <a href="/#produits" className="mt-4 inline-block px-5 py-2.5 rounded-full bg-[#1E7FFF] text-white text-sm font-semibold">
+              <a href="/#produits" className="mt-4 inline-block px-5 py-2.5 rounded-full bg-[#22D3EE] text-white text-sm font-semibold">
                 Découvrir nos produits
               </a>
             </div>
@@ -264,7 +264,7 @@ export default function CompteOrders({ session, onLogout }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="mt-8 p-5 glass rounded-2xl border border-[#1E7FFF]/10 flex items-center justify-between gap-4 flex-wrap"
+          className="mt-8 p-5 glass rounded-2xl border border-[#22D3EE]/10 flex items-center justify-between gap-4 flex-wrap"
         >
           <div>
             <p className="text-sm font-semibold text-white/95">Besoin de plus de lunettes ?</p>
@@ -272,7 +272,7 @@ export default function CompteOrders({ session, onLogout }: Props) {
           </div>
           <a
             href="/#produits"
-            className="px-5 py-2.5 rounded-full bg-[#1E7FFF] text-white text-sm font-semibold hover:bg-[#3D8FFF] transition-colors glow-blue whitespace-nowrap"
+            className="px-5 py-2.5 rounded-full bg-[#22D3EE] text-white text-sm font-semibold hover:bg-[#3D8FFF] transition-colors glow-blue whitespace-nowrap"
           >
             Commander
           </a>

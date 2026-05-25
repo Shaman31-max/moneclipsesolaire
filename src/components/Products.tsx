@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,6 +33,7 @@ type ProductDef = {
   features: string[];
   variantId: string;
   fixedPrice?: number;
+  image?: string;
 };
 
 const PRODUCTS: ProductDef[] = [
@@ -40,9 +41,10 @@ const PRODUCTS: ProductDef[] = [
     id: "glasses",
     name: "Lunettes Éclipse Pro",
     subtitle: "Observer en toute sécurité",
+    image: "/lunette-eclipse.png",
     desc: "Lunettes certifiées ISO 12312-2 pour l'observation directe de l'éclipse solaire. Monture rigide, filtre optique ND 5.0.",
     unit: "paire",
-    color: "#1E7FFF",
+    color: "#22D3EE",
     icon: Eye,
     features: ["ISO 12312-2 certifiées", "Filtre ND 5.0", "Monture rigide recyclée"],
     variantId: "gid://shopify/ProductVariant/58125149110617",
@@ -53,7 +55,7 @@ const PRODUCTS: ProductDef[] = [
     subtitle: "Filmer & photographier l'éclipse",
     desc: "Découvrez notre film solaire ND 5.0 spécialement conçu pour smartphones et tablettes. Capturez l'éclipse et filmez la couronne solaire en toute sécurité tout en protégeant l'objectif de votre appareil contre l'intensité extrême de la lumière solaire. Grâce à sa forte densité optique, ce filtre réduit efficacement la luminosité du soleil afin de permettre des prises de vue nettes, détaillées et spectaculaires. Idéal pour immortaliser les phénomènes astronomiques comme les éclipses solaires, sans risque pour votre capteur photo. Observez, filmez et partagez l'éclipse en toute sérénité.",
     unit: "filtre",
-    color: "#4DD9FF",
+    color: "#A78BFA",
     icon: Smartphone,
     features: [
       "Compatible smartphones et tablettes",
@@ -108,6 +110,18 @@ function ProductCard({ product }: { product: ProductDef }) {
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{ background: `radial-gradient(ellipse at 30% 20%, ${product.color}, transparent 65%)` }}
       />
+
+      {/* Product image */}
+      {product.image && (
+        <div className="relative z-10 w-full h-48 mb-4 -mt-2 flex items-center justify-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-contain drop-shadow-lg"
+          />
+        </div>
+      )}
 
       {/* Icon + title */}
       <div className="relative z-10 flex items-start gap-4 mb-6">
@@ -258,7 +272,7 @@ export default function Products() {
   return (
     <section id="produits" className="relative py-24 px-6">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-[#1E7FFF] opacity-[0.03] blur-[100px]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-[#22D3EE] opacity-[0.03] blur-[100px]" />
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
@@ -269,7 +283,7 @@ export default function Products() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-[#1E7FFF] mb-3 font-medium">Nos Produits</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-3 font-medium">Nos Produits</p>
           <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-4">
             Choisissez vos <span className="gradient-text-blue">équipements</span>
           </h2>
@@ -304,7 +318,7 @@ export default function Products() {
           </div>
           <div className="relative z-10 ml-auto text-xs text-white/60">
             Besoin de volumes ?{" "}
-            <a href="/b2b" className="text-[#4DD9FF] hover:text-white underline transition-colors">
+            <a href="/b2b" className="text-[#A78BFA] hover:text-white underline transition-colors">
               Espace partenaires →
             </a>
           </div>

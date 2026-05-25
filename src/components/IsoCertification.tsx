@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { ShieldCheck, ExternalLink, Award, CheckCircle } from "lucide-react";
@@ -10,7 +10,7 @@ const certs = [
     label: "Protection oculaire solaire",
     lab: "DIN CERTCO — Europe",
     href: "https://www.iso.org/standard/59289.html",
-    color: "#1E7FFF",
+    color: "#22D3EE",
   },
   {
     code: "CE 2797",
@@ -18,7 +18,7 @@ const certs = [
     label: "Directive EPI 2016/425",
     lab: "Laboratoire notifié UE",
     href: "https://ec.europa.eu/growth/single-market/ce-marking_en",
-    color: "#4DD9FF",
+    color: "#A78BFA",
   },
 ];
 
@@ -63,9 +63,9 @@ export default function IsoCertification() {
   return (
     <section className="relative py-16 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[#010B2E]/60" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E7FFF]/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E7FFF]/30 to-transparent" />
+        <div className="absolute inset-0 bg-[#060412]/60" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/30 to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -102,10 +102,10 @@ export default function IsoCertification() {
           >
             <div className="flex items-start gap-5">
               <div className="relative flex-shrink-0">
-                <div className="w-16 h-16 rounded-2xl bg-[#1E7FFF]/15 border border-[#1E7FFF]/30 flex items-center justify-center">
-                  <Award size={28} className="text-[#1E7FFF]" />
+                <div className="w-16 h-16 rounded-2xl bg-[#22D3EE]/15 border border-[#22D3EE]/30 flex items-center justify-center">
+                  <Award size={28} className="text-[#22D3EE]" />
                 </div>
-                <div className="absolute -inset-1 rounded-2xl border border-[#1E7FFF]/10 animate-ping" style={{ animationDuration: "3s" }} />
+                <div className="absolute -inset-1 rounded-2xl border border-[#22D3EE]/10 animate-ping" style={{ animationDuration: "3s" }} />
               </div>
               <div>
                 <h3 className="text-xl font-black text-white mb-1">
@@ -176,9 +176,9 @@ export default function IsoCertification() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass rounded-2xl p-5 border border-[#1E7FFF]/15"
+            className="glass rounded-2xl p-5 border border-[#22D3EE]/15"
           >
-            <div className="text-xs font-bold uppercase tracking-widest text-[#4DD9FF] mb-4">
+            <div className="text-xs font-bold uppercase tracking-widest text-[#A78BFA] mb-4">
               Contrôles en laboratoire
             </div>
             {[
@@ -189,7 +189,7 @@ export default function IsoCertification() {
               "Conforme Règlement UE 2016/425",
             ].map((item, i) => (
               <div key={item} className="flex items-center gap-2.5 py-1.5 border-b border-white/8 last:border-0">
-                <CheckCircle size={13} className="text-[#1E7FFF] flex-shrink-0" />
+                <CheckCircle size={13} className="text-[#22D3EE] flex-shrink-0" />
                 <span className="text-xs text-white/92">{item}</span>
               </div>
             ))}

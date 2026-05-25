@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,7 +8,7 @@ const categories = [
   {
     icon: CalendarClock,
     label: "Séries & Livraisons",
-    color: "#1E7FFF",
+    color: "#22D3EE",
     faqs: [
       {
         q: "Comment fonctionne le système de production à la demande ?",
@@ -39,7 +39,7 @@ const categories = [
   {
     icon: Eye,
     label: "Sécurité & Certifications",
-    color: "#4DD9FF",
+    color: "#A78BFA",
     faqs: [
       {
         q: "Pourquoi faut-il des lunettes spéciales pour l'éclipse ?",
@@ -62,7 +62,7 @@ const categories = [
   {
     icon: Package,
     label: "Produits & Commande",
-    color: "#1E7FFF",
+    color: "#22D3EE",
     faqs: [
       {
         q: "Quelle est la différence entre les lunettes Standard et Premium ?",
@@ -85,7 +85,7 @@ const categories = [
   {
     icon: Truck,
     label: "Livraison & Retours",
-    color: "#4DD9FF",
+    color: "#A78BFA",
     faqs: [
       {
         q: "Quels sont les délais de livraison ?",
@@ -104,7 +104,7 @@ const categories = [
   {
     icon: CreditCard,
     label: "Paiement",
-    color: "#1E7FFF",
+    color: "#22D3EE",
     faqs: [
       {
         q: "Quels moyens de paiement acceptez-vous ?",
@@ -119,7 +119,7 @@ const categories = [
   {
     icon: Building2,
     label: "Espace B2B",
-    color: "#4DD9FF",
+    color: "#A78BFA",
     faqs: [
       {
         q: "Comment obtenir un code d'accès partenaire B2B ?",
@@ -139,12 +139,12 @@ const categories = [
 
 function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boolean; onToggle: () => void }) {
   return (
-    <div className={`border-b border-[#1E7FFF]/08 last:border-0 transition-colors ${isOpen ? "border-[#1E7FFF]/15" : ""}`}>
+    <div className={`border-b border-[#22D3EE]/08 last:border-0 transition-colors ${isOpen ? "border-[#22D3EE]/15" : ""}`}>
       <button
         onClick={onToggle}
         className="w-full flex items-start justify-between gap-4 py-5 text-left group"
       >
-        <span className={`text-sm font-semibold leading-snug transition-colors ${isOpen ? "text-[#4DD9FF]" : "text-white/96 group-hover:text-white"}`}>
+        <span className={`text-sm font-semibold leading-snug transition-colors ${isOpen ? "text-[#A78BFA]" : "text-white/96 group-hover:text-white"}`}>
           {q}
         </span>
         <motion.div
@@ -152,7 +152,7 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
           transition={{ duration: 0.25 }}
           className="flex-shrink-0 mt-0.5"
         >
-          <ChevronDown size={16} className={`transition-colors ${isOpen ? "text-[#4DD9FF]" : "text-white/78"}`} />
+          <ChevronDown size={16} className={`transition-colors ${isOpen ? "text-[#A78BFA]" : "text-white/78"}`} />
         </motion.div>
       </button>
 
@@ -184,8 +184,8 @@ export default function FAQ() {
   return (
     <section id="faq" className="relative py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E7FFF]/20 to-transparent" />
-        <div className="absolute bottom-1/3 right-0 w-[350px] h-[350px] bg-[#1E7FFF] opacity-[0.03] blur-[100px]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/20 to-transparent" />
+        <div className="absolute bottom-1/3 right-0 w-[350px] h-[350px] bg-[#22D3EE] opacity-[0.03] blur-[100px]" />
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
@@ -196,7 +196,7 @@ export default function FAQ() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-[#1E7FFF] mb-3 font-medium">
+          <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-3 font-medium">
             Questions fréquentes
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
@@ -225,8 +225,8 @@ export default function FAQ() {
                   onClick={() => { setOpenCat(i); setOpenItem(null); }}
                   className={`flex items-center gap-2.5 px-4 py-3 rounded-xl text-left transition-all duration-200 whitespace-nowrap lg:whitespace-normal flex-shrink-0 lg:flex-shrink border ${
                     active
-                      ? "bg-[#1E7FFF]/15 border-[#1E7FFF]/30 text-[#4DD9FF]"
-                      : "glass border-transparent text-white/88 hover:text-white/96 hover:border-[#1E7FFF]/10"
+                      ? "bg-[#22D3EE]/15 border-[#22D3EE]/30 text-[#A78BFA]"
+                      : "glass border-transparent text-white/88 hover:text-white/96 hover:border-[#22D3EE]/10"
                   }`}
                 >
                   <Icon size={14} style={{ color: active ? cat.color : undefined }} className="flex-shrink-0" />
@@ -242,10 +242,10 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="glass rounded-2xl px-6 border border-[#1E7FFF]/10"
+            className="glass rounded-2xl px-6 border border-[#22D3EE]/10"
           >
             {/* Category header */}
-            <div className="flex items-center gap-3 py-5 border-b border-[#1E7FFF]/10 mb-1">
+            <div className="flex items-center gap-3 py-5 border-b border-[#22D3EE]/10 mb-1">
               {(() => {
                 const cat = categories[openCat];
                 const Icon = cat.icon;
@@ -289,7 +289,7 @@ export default function FAQ() {
           <p className="text-sm text-white/85">Vous n'avez pas trouvé votre réponse ?</p>
           <a
             href="mailto:contact@moneclipsesolaire.fr"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full glass border border-[#1E7FFF]/25 text-sm font-semibold text-[#4DD9FF] hover:border-[#1E7FFF]/50 transition-all"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full glass border border-[#22D3EE]/25 text-sm font-semibold text-[#A78BFA] hover:border-[#22D3EE]/50 transition-all"
           >
             <ShieldCheck size={13} />
             Contactez notre équipe

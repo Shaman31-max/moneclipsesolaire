@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -39,7 +39,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     name: "Lunettes Éclipse",
     subtitle: "Observation directe certifiée ISO",
     desc: "Lunettes certifiées ISO 12312-2, filtre ND 5.0. Monture rigide recyclée. Co-branding possible dès 1 000 u.",
-    color: "#1E7FFF",
+    color: "#22D3EE",
     icon: Eye,
     features: ["ISO 12312-2 • CE 2797", "Filtre ND 5.0 optique", "Co-branding dès 1 000 u."],
     minQty: 500,
@@ -58,7 +58,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     name: "Filtre Téléphone",
     subtitle: "Filmer & photographier l'éclipse",
     desc: "Film ND 5.0 universel pour smartphone/tablette 50–90 mm. Sachet zip individuel, prêt à la revente.",
-    color: "#4DD9FF",
+    color: "#A78BFA",
     icon: Smartphone,
     features: ["Compatible 50–90 mm", "Film ND 5.0 optique", "Sachet zip individuel"],
     minQty: 250,
@@ -108,7 +108,7 @@ function B2BSlider({
               style={{
                 left: `${p}%`,
                 borderColor: unlocked ? color : "rgba(232,240,255,0.15)",
-                backgroundColor: unlocked ? color : "#000510",
+                backgroundColor: unlocked ? color : "#060412",
                 boxShadow: unlocked ? `0 0 10px ${color}90` : "none",
               }}
             />
@@ -395,10 +395,10 @@ export default function B2BCatalog({ session, onLogout }: Props) {
   const totalUnits = quote.reduce((s, l) => s + l.qty, 0);
 
   return (
-    <div className="min-h-screen bg-[#000510] pt-16">
+    <div className="min-h-screen bg-[#060412] pt-16">
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-[#010C2E]/50 blur-[100px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#1E7FFF] opacity-[0.02] blur-[150px]" />
+        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-[#0D0820]/50 blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#22D3EE] opacity-[0.02] blur-[150px]" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
@@ -406,9 +406,9 @@ export default function B2BCatalog({ session, onLogout }: Props) {
         <div className="flex items-center justify-between mb-10 flex-wrap gap-4">
           <div>
             <div className="flex items-center gap-2 flex-wrap">
-              <Building2 size={16} className="text-[#1E7FFF]" />
+              <Building2 size={16} className="text-[#22D3EE]" />
               <span className="font-black text-white text-lg">{session.company}</span>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold text-[#4DD9FF] border border-[#1E7FFF]/30 bg-[#1E7FFF]/12">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold text-[#A78BFA] border border-[#22D3EE]/30 bg-[#22D3EE]/12">
                 Partenaire certifié
               </span>
             </div>
@@ -418,13 +418,13 @@ export default function B2BCatalog({ session, onLogout }: Props) {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setShowQuote((v) => !v)}
-              className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white/90 hover:text-[#4DD9FF] transition-all border"
+              className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white/90 hover:text-[#A78BFA] transition-all border"
               style={{ background: "rgba(4,18,58,0.85)", borderColor: "rgba(30,127,255,0.25)" }}
             >
               <FileText size={14} />
               Devis
               {quote.length > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-[#1E7FFF] text-[10px] font-bold text-white flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-[#22D3EE] text-[10px] font-bold text-white flex items-center justify-center">
                   {quote.length}
                 </span>
               )}
@@ -452,7 +452,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
             { icon: FileText, label: "Paiement", value: "Virement 30j" },
           ].map(({ icon: Icon, label, value }) => (
             <div key={label} className="flex items-center gap-2.5">
-              <Icon size={14} className="text-[#1E7FFF] flex-shrink-0" />
+              <Icon size={14} className="text-[#22D3EE] flex-shrink-0" />
               <div>
                 <div className="text-[10px] text-white/72 uppercase tracking-wider">{label}</div>
                 <div className="text-sm font-bold text-white">{value}</div>
@@ -465,7 +465,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
               { code: "CE 2797", href: "https://ec.europa.eu/growth/single-market/ce-marking_en" },
             ].map((c) => (
               <a key={c.code} href={c.href} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] text-[#4DD9FF] hover:opacity-80 transition-opacity group border"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] text-[#A78BFA] hover:opacity-80 transition-opacity group border"
                 style={{ background: "rgba(30,127,255,0.12)", borderColor: "rgba(30,127,255,0.28)" }}
               >
                 <ShieldCheck size={11} /> {c.code}
@@ -477,7 +477,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
 
         {/* Section title */}
         <div className="mb-8">
-          <p className="text-xs uppercase tracking-[0.3em] text-[#1E7FFF] mb-1 font-medium">Catalogue B2B</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-1 font-medium">Catalogue B2B</p>
           <h1 className="text-3xl font-black text-white">
             Collection Éclipse 2026 — <span className="gradient-text-blue">Tarifs Partenaires</span>
           </h1>
@@ -510,9 +510,9 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                 <tr className="border-b border-[#E8F0FF]/8">
                   <th className="text-left pb-3 text-white/72 text-xs uppercase tracking-wider font-semibold">Produit</th>
                   <th className="text-center pb-3 text-white/72 text-xs uppercase tracking-wider font-semibold">Base</th>
-                  <th className="text-center pb-3 text-[#1E7FFF] text-xs uppercase tracking-wider font-semibold">–5%</th>
-                  <th className="text-center pb-3 text-[#1E7FFF] text-xs uppercase tracking-wider font-semibold">–10%</th>
-                  <th className="text-center pb-3 text-[#4DD9FF] text-xs uppercase tracking-wider font-semibold">–15%</th>
+                  <th className="text-center pb-3 text-[#22D3EE] text-xs uppercase tracking-wider font-semibold">–5%</th>
+                  <th className="text-center pb-3 text-[#22D3EE] text-xs uppercase tracking-wider font-semibold">–10%</th>
+                  <th className="text-center pb-3 text-[#A78BFA] text-xs uppercase tracking-wider font-semibold">–15%</th>
                 </tr>
               </thead>
               <tbody>
@@ -565,7 +565,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                       <div className="text-xs text-white/75 mt-1">
                         {line.qty.toLocaleString("fr-FR")} × {fmt(line.unitHT)} € HT
                       </div>
-                      <div className="text-sm font-black text-[#4DD9FF] mt-1">{fmt(line.qty * line.unitHT)} € HT</div>
+                      <div className="text-sm font-black text-[#A78BFA] mt-1">{fmt(line.qty * line.unitHT)} € HT</div>
                     </div>
                     <button onClick={() => setQuote((q) => q.filter((l) => l.productId !== line.productId))}
                       className="text-white/45 hover:text-red-400 transition-colors text-xl leading-none">×</button>
@@ -590,11 +590,11 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                   </div>
                   <div className="flex justify-between text-base font-black pt-2 border-t border-[#E8F0FF]/8">
                     <span className="text-white">Total TTC</span>
-                    <span className="text-[#4DD9FF]">{fmt(totalTTC)} €</span>
+                    <span className="text-[#A78BFA]">{fmt(totalTTC)} €</span>
                   </div>
                 </div>
                 <button onClick={() => setSent(true)}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#1E7FFF] text-white font-bold text-sm hover:bg-[#3D8FFF] transition-colors glow-blue">
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#22D3EE] text-white font-bold text-sm hover:bg-[#3D8FFF] transition-colors glow-blue">
                   <FileText size={14} /> Envoyer la demande de devis
                 </button>
                 <p className="text-[10px] text-white/50 text-center mt-2">Devis PDF sous 24h ouvrées</p>
@@ -603,8 +603,8 @@ export default function B2BCatalog({ session, onLogout }: Props) {
 
             {sent && (
               <div className="px-6 py-8 text-center">
-                <div className="w-14 h-14 rounded-full bg-[#1E7FFF]/20 flex items-center justify-center mx-auto mb-3 glow-blue">
-                  <CheckCircle size={26} className="text-[#4DD9FF]" />
+                <div className="w-14 h-14 rounded-full bg-[#22D3EE]/20 flex items-center justify-center mx-auto mb-3 glow-blue">
+                  <CheckCircle size={26} className="text-[#A78BFA]" />
                 </div>
                 <h3 className="font-black text-white text-lg mb-1">Envoyé !</h3>
                 <p className="text-sm text-white/72">Réponse sous 24h ouvrées à {session.email}</p>

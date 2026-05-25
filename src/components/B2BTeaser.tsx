@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Building2, ArrowRight, Package, Percent, Truck, ShieldCheck } from "lucide-react";
@@ -14,7 +14,7 @@ export default function B2BTeaser() {
   return (
     <section id="b2b" className="relative py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E7FFF]/20 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/20 to-transparent" />
       </div>
 
       <div className="max-w-5xl mx-auto">
@@ -23,19 +23,19 @@ export default function B2BTeaser() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="glass rounded-3xl p-10 border border-[#1E7FFF]/15 relative overflow-hidden"
+          className="glass rounded-3xl p-10 border border-[#22D3EE]/15 relative overflow-hidden"
         >
           {/* Background glow */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#1E7FFF] opacity-[0.04] blur-[80px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#22D3EE] opacity-[0.04] blur-[80px]" />
           </div>
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10">
             {/* Left */}
             <div className="flex-1 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1E7FFF]/10 border border-[#1E7FFF]/20 mb-5">
-                <Building2 size={13} className="text-[#1E7FFF]" />
-                <span className="text-xs font-bold text-[#4DD9FF] uppercase tracking-widest">Espace Partenaires</span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#22D3EE]/10 border border-[#22D3EE]/20 mb-5">
+                <Building2 size={13} className="text-[#22D3EE]" />
+                <span className="text-xs font-bold text-[#A78BFA] uppercase tracking-widest">Espace Partenaires</span>
               </div>
 
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
@@ -51,8 +51,8 @@ export default function B2BTeaser() {
               <div className="grid grid-cols-2 gap-3 mb-8">
                 {perks.map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-2.5 text-xs text-white/92">
-                    <div className="w-6 h-6 rounded-lg bg-[#1E7FFF]/15 flex items-center justify-center flex-shrink-0">
-                      <Icon size={12} className="text-[#1E7FFF]" />
+                    <div className="w-6 h-6 rounded-lg bg-[#22D3EE]/15 flex items-center justify-center flex-shrink-0">
+                      <Icon size={12} className="text-[#22D3EE]" />
                     </div>
                     {text}
                   </div>
@@ -63,7 +63,7 @@ export default function B2BTeaser() {
                 href="/b2b"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#1E7FFF] text-white font-bold text-sm glow-blue hover:bg-[#3D8FFF] transition-colors"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#22D3EE] text-white font-bold text-sm glow-blue hover:bg-[#3D8FFF] transition-colors"
               >
                 Accéder à l'espace partenaires
                 <ArrowRight size={15} />

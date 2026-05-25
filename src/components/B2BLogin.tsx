@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -39,10 +39,10 @@ export default function B2BLogin({ onLogin }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-[#000510] flex flex-col items-center justify-center px-6 py-24">
+    <div className="min-h-screen bg-[#060412] flex flex-col items-center justify-center px-6 py-24">
       {/* Background */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#1E7FFF] opacity-[0.04] blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#22D3EE] opacity-[0.04] blur-[150px]" />
       </div>
 
       <div className="relative z-10 w-full max-w-lg">
@@ -53,8 +53,8 @@ export default function B2BLogin({ onLogin }: Props) {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#1E7FFF]/15 border border-[#1E7FFF]/30 mb-5 mx-auto">
-            <Building2 size={28} className="text-[#1E7FFF]" />
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#22D3EE]/15 border border-[#22D3EE]/30 mb-5 mx-auto">
+            <Building2 size={28} className="text-[#22D3EE]" />
           </div>
           <h1 className="text-3xl font-black text-white mb-2">Espace Partenaires</h1>
           <p className="text-white/88 text-sm">
@@ -67,7 +67,7 @@ export default function B2BLogin({ onLogin }: Props) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="glass rounded-2xl p-8 border border-[#1E7FFF]/10"
+          className="glass rounded-2xl p-8 border border-[#22D3EE]/10"
         >
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Company */}
@@ -127,7 +127,7 @@ export default function B2BLogin({ onLogin }: Props) {
               </div>
               <p className="text-[10px] text-white/78 mt-1.5">
                 Vous n'avez pas encore de code ?{" "}
-                <a href="mailto:b2b@moneclipsesolaire.fr" className="text-[#4DD9FF]/60 hover:text-[#4DD9FF] underline transition-colors">
+                <a href="mailto:b2b@moneclipsesolaire.fr" className="text-[#A78BFA]/60 hover:text-[#A78BFA] underline transition-colors">
                   Contactez notre équipe commerciale
                 </a>
               </p>
@@ -150,7 +150,7 @@ export default function B2BLogin({ onLogin }: Props) {
               type="submit"
               disabled={loading}
               whileTap={{ scale: 0.97 }}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#1E7FFF] text-white font-bold text-sm hover:bg-[#3D8FFF] transition-colors glow-blue disabled:opacity-60 disabled:cursor-not-allowed mt-2"
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#22D3EE] text-white font-bold text-sm hover:bg-[#3D8FFF] transition-colors glow-blue disabled:opacity-60 disabled:cursor-not-allowed mt-2"
             >
               {loading ? (
                 <div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
@@ -169,10 +169,10 @@ export default function B2BLogin({ onLogin }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-4 p-3 rounded-xl bg-[#1E7FFF]/05 border border-[#1E7FFF]/10 text-center"
+          className="mt-4 p-3 rounded-xl bg-[#22D3EE]/05 border border-[#22D3EE]/10 text-center"
         >
           <p className="text-[10px] text-white/72">
-            Demo — code d'accès : <span className="text-[#4DD9FF]/50 font-mono">ECLIPSE2026</span>
+            Demo — code d'accès : <span className="text-[#A78BFA]/50 font-mono">ECLIPSE2026</span>
           </p>
         </motion.div>
 
@@ -187,7 +187,7 @@ export default function B2BLogin({ onLogin }: Props) {
               href={c.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[10px] text-white/72 hover:text-[#4DD9FF]/60 transition-colors"
+              className="flex items-center gap-1.5 text-[10px] text-white/72 hover:text-[#A78BFA]/60 transition-colors"
             >
               <ShieldCheck size={10} />
               {c.label}
@@ -220,7 +220,7 @@ function Field({ label, icon: Icon, children }: { label: string; icon: React.Com
   return (
     <div>
       <label className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-widest text-white/85 mb-1.5">
-        <Icon size={10} className="text-[#1E7FFF]" />
+        <Icon size={10} className="text-[#22D3EE]" />
         {label}
       </label>
       {children}

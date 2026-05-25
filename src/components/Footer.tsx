@@ -1,13 +1,13 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Share2, MessageCircle, Globe, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative pt-16 pb-8 px-6 overflow-hidden border-t border-[#1E7FFF]/10">
+    <footer className="relative pt-16 pb-8 px-6 overflow-hidden border-t border-[#22D3EE]/10">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-[#1E7FFF] opacity-[0.02] blur-[80px]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-[#22D3EE] opacity-[0.02] blur-[80px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -16,13 +16,13 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-7 h-7 relative">
-                <div className="absolute inset-0 rounded-full bg-[#1E7FFF] opacity-80 corona-pulse" />
+                <div className="absolute inset-0 rounded-full bg-[#22D3EE] opacity-80 corona-pulse" />
                 <div className="absolute inset-[3px] rounded-full bg-[#050510]" />
               </div>
               <span className="font-bold">
                 <span className="gradient-text-blue">MonEclipse</span>
                 <span className="text-white">Solaire</span>
-                <span className="text-[#1E7FFF]">.fr</span>
+                <span className="text-[#22D3EE]">.fr</span>
               </span>
             </div>
             <p className="text-xs text-[#E8F0FF]/65 leading-relaxed mb-4">
@@ -32,7 +32,7 @@ export default function Footer() {
               {[Share2, MessageCircle, Globe].map((Icon, i) => (
                 <button
                   key={i}
-                  className="w-8 h-8 rounded-lg glass border border-white/10 flex items-center justify-center text-[#E8F0FF]/65 hover:text-[#1E7FFF] hover:border-[#1E7FFF]/30 transition-all"
+                  className="w-8 h-8 rounded-lg glass border border-white/10 flex items-center justify-center text-[#E8F0FF]/65 hover:text-[#22D3EE] hover:border-[#22D3EE]/30 transition-all"
                 >
                   <Icon size={14} />
                 </button>
@@ -60,7 +60,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 {links.map((l) => (
                   <li key={l}>
-                    <button className="text-xs text-[#E8F0FF]/65 hover:text-[#1E7FFF] transition-colors">{l}</button>
+                    <button className="text-xs text-[#E8F0FF]/65 hover:text-[#22D3EE] transition-colors">{l}</button>
                   </li>
                 ))}
               </ul>
@@ -70,12 +70,12 @@ export default function Footer() {
 
         {/* Contact bar */}
         <div className="flex flex-wrap gap-4 justify-center mb-8 py-4 glass rounded-xl">
-          <a href="mailto:contact@moneclipsesolaire.fr" className="flex items-center gap-2 text-xs text-[#E8F0FF]/75 hover:text-[#1E7FFF] transition-colors">
+          <a href="mailto:contact@moneclipsesolaire.fr" className="flex items-center gap-2 text-xs text-[#E8F0FF]/75 hover:text-[#22D3EE] transition-colors">
             <Mail size={13} />
             contact@moneclipsesolaire.fr
           </a>
           <span className="text-[#E8F0FF]/38">·</span>
-          <a href="tel:+33182736450" className="flex items-center gap-2 text-xs text-[#E8F0FF]/75 hover:text-[#1E7FFF] transition-colors">
+          <a href="tel:+33182736450" className="flex items-center gap-2 text-xs text-[#E8F0FF]/75 hover:text-[#22D3EE] transition-colors">
             <Phone size={13} />
             01 82 73 64 50
           </a>
@@ -90,7 +90,7 @@ export default function Footer() {
           </p>
           <div className="flex gap-4">
             {["Mentions légales", "CGV", "Confidentialité", "Cookies"].map((item) => (
-              <button key={item} className="text-xs text-[#E8F0FF]/45 hover:text-[#1E7FFF]/60 transition-colors">
+              <button key={item} className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">
                 {item}
               </button>
             ))}

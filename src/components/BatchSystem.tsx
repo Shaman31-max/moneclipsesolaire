@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -15,7 +15,7 @@ const BATCHES = [
     orderLabel: "Commandez avant le 15 juin",
     deliveryLabel: "Livraison le 20 juillet",
     desc: "Idéal pour prévoir sereinement. Vous recevez votre commande 23 jours avant l'éclipse.",
-    color: "#1E7FFF",
+    color: "#22D3EE",
     glowColor: "rgba(30,127,255,0.3)",
   },
   {
@@ -71,8 +71,8 @@ export default function BatchSystem() {
   return (
     <section id="commande" className="relative py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E7FFF]/20 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#1E7FFF] opacity-[0.03] blur-[100px]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/20 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#22D3EE] opacity-[0.03] blur-[100px]" />
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
@@ -84,7 +84,7 @@ export default function BatchSystem() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-[#1E7FFF] mb-3 font-medium">
+          <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-3 font-medium">
             Production à la demande
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-5 leading-tight">
@@ -103,16 +103,16 @@ export default function BatchSystem() {
 
         {/* Badge batch 1 en cours */}
         <div className="flex justify-start mb-6">
-          <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-[#1E7FFF]/40 bg-[#1E7FFF]/10">
-            <span className="w-2 h-2 rounded-full bg-[#1E7FFF] corona-pulse" />
-            <span className="text-sm font-bold text-[#4DD9FF]">Batch 1 en cours jusqu'au 15 juin</span>
+          <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-[#22D3EE]/40 bg-[#22D3EE]/10">
+            <span className="w-2 h-2 rounded-full bg-[#22D3EE] corona-pulse" />
+            <span className="text-sm font-bold text-[#A78BFA]">Batch 1 en cours jusqu'au 15 juin</span>
           </div>
         </div>
 
         {/* Timeline visuelle */}
         <div className="relative mb-14">
           {/* Ligne de temps */}
-          <div className="hidden md:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-[#1E7FFF]/30 via-[#4DD9FF]/20 to-[#FFAA00]/30" />
+          <div className="hidden md:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-[#22D3EE]/30 via-[#A78BFA]/20 to-[#FFAA00]/30" />
 
           <div className="grid md:grid-cols-5 gap-3 md:gap-0 items-start relative z-10">
             {/* Point 1 : Commande série 1 */}
@@ -120,14 +120,14 @@ export default function BatchSystem() {
               date="15 juin"
               label="Clôture commandes"
               sublabel="1ère série"
-              color="#1E7FFF"
+              color="#22D3EE"
               icon={ShoppingCart}
               active={batch1Open}
             />
 
             {/* Flèche */}
             <div className="hidden md:flex items-center justify-center pt-6">
-              <div className="w-full h-0.5 bg-[#1E7FFF]/20" />
+              <div className="w-full h-0.5 bg-[#22D3EE]/20" />
             </div>
 
             {/* Point 2 : Livraison série 1 = Commande série 2 */}
@@ -135,7 +135,7 @@ export default function BatchSystem() {
               date="20 juil."
               label="Livraison S1"
               sublabel="Clôture S2 : 30 juin (définitive)"
-              color="#4DD9FF"
+              color="#A78BFA"
               icon={Truck}
               active={batch2Open}
             />
@@ -166,11 +166,11 @@ export default function BatchSystem() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="glass rounded-2xl p-6 border border-[#1E7FFF]/10"
+          className="glass rounded-2xl p-6 border border-[#22D3EE]/10"
         >
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-[#1E7FFF]/15 border border-[#1E7FFF]/25 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <Package size={18} className="text-[#1E7FFF]" />
+            <div className="w-10 h-10 rounded-xl bg-[#22D3EE]/15 border border-[#22D3EE]/25 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <Package size={18} className="text-[#22D3EE]" />
             </div>
             <div>
               <h3 className="font-bold text-[#DCE8FF] mb-2 text-sm">Pourquoi la production à la demande ?</h3>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -28,10 +28,10 @@ export default function CompteLogin({ onLogin }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-[#000510] flex items-center justify-center px-6 py-24">
+    <div className="min-h-screen bg-[#060412] flex items-center justify-center px-6 py-24">
       {/* Glow */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#1E7FFF] opacity-[0.04] blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#22D3EE] opacity-[0.04] blur-[150px]" />
       </div>
 
       <div className="relative z-10 w-full max-w-sm">
@@ -42,8 +42,8 @@ export default function CompteLogin({ onLogin }: Props) {
           transition={{ duration: 0.5 }}
           className="text-center mb-8"
         >
-          <div className="w-14 h-14 rounded-2xl bg-[#1E7FFF]/15 border border-[#1E7FFF]/25 flex items-center justify-center mx-auto mb-4">
-            <User size={24} className="text-[#1E7FFF]" />
+          <div className="w-14 h-14 rounded-2xl bg-[#22D3EE]/15 border border-[#22D3EE]/25 flex items-center justify-center mx-auto mb-4">
+            <User size={24} className="text-[#22D3EE]" />
           </div>
           <h1 className="text-2xl font-black text-white">Mon espace</h1>
           <p className="text-sm text-white/85 mt-1">Suivez vos commandes en temps réel</p>
@@ -54,7 +54,7 @@ export default function CompteLogin({ onLogin }: Props) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="glass rounded-2xl p-7 border border-[#1E7FFF]/12"
+          className="glass rounded-2xl p-7 border border-[#22D3EE]/12"
         >
           {/* Tab switcher */}
           <div className="flex rounded-xl bg-white/4 p-1 mb-6">
@@ -63,7 +63,7 @@ export default function CompteLogin({ onLogin }: Props) {
                 key={t}
                 onClick={() => setTab(t)}
                 className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${
-                  tab === t ? "bg-[#1E7FFF] text-white" : "text-white/88 hover:text-white/96"
+                  tab === t ? "bg-[#22D3EE] text-white" : "text-white/88 hover:text-white/96"
                 }`}
               >
                 {t === "login" ? "Connexion" : "Créer un compte"}
@@ -107,7 +107,7 @@ export default function CompteLogin({ onLogin }: Props) {
 
             {tab === "login" && (
               <div className="text-right -mt-2">
-                <button type="button" className="text-xs text-[#1E7FFF]/60 hover:text-[#1E7FFF] transition-colors">
+                <button type="button" className="text-xs text-[#22D3EE]/60 hover:text-[#22D3EE] transition-colors">
                   Mot de passe oublié ?
                 </button>
               </div>
@@ -115,7 +115,7 @@ export default function CompteLogin({ onLogin }: Props) {
 
             <button
               type="submit" disabled={loading}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#1E7FFF] text-white font-bold text-sm hover:bg-[#3D8FFF] transition-colors glow-blue disabled:opacity-60 mt-2"
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#22D3EE] text-white font-bold text-sm hover:bg-[#3D8FFF] transition-colors glow-blue disabled:opacity-60 mt-2"
             >
               {loading
                 ? <div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
@@ -127,9 +127,9 @@ export default function CompteLogin({ onLogin }: Props) {
 
         <p className="text-center text-[10px] text-white/65 mt-5">
           En continuant vous acceptez nos{" "}
-          <span className="text-[#1E7FFF]/40 underline cursor-pointer">CGV</span>
+          <span className="text-[#22D3EE]/40 underline cursor-pointer">CGV</span>
           {" "}et notre{" "}
-          <span className="text-[#1E7FFF]/40 underline cursor-pointer">politique de confidentialité</span>.
+          <span className="text-[#22D3EE]/40 underline cursor-pointer">politique de confidentialité</span>.
         </p>
       </div>
 
@@ -160,7 +160,7 @@ function InputField({ label, icon: Icon, children }: {
   return (
     <div>
       <label className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white/82 mb-1.5">
-        <Icon size={10} className="text-[#1E7FFF]" />
+        <Icon size={10} className="text-[#22D3EE]" />
         {label}
       </label>
       {children}

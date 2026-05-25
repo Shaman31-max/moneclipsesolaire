@@ -1,19 +1,32 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import { ArrowDown, ShieldCheck, Star, Zap, ExternalLink } from "lucide-react";
+
+const ECLIPSE = new Date("2026-08-12T10:00:00+02:00");
+function getLeft() {
+  const diff = ECLIPSE.getTime() - Date.now();
+  if (diff <= 0) return { j: 0, h: 0, m: 0, s: 0 };
+  return {
+    j: Math.floor(diff / 86400000),
+    h: Math.floor((diff % 86400000) / 3600000),
+    m: Math.floor((diff % 3600000) / 60000),
+    s: Math.floor((diff % 60000) / 1000),
+  };
+}
+function pad(n: number) { return String(n).padStart(2, "0"); }
 
 const GlassesModel = dynamic(() => import("./GlassesModel"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="w-28 h-28 rounded-full border-4 border-[#1E7FFF]/30 border-t-[#1E7FFF] animate-spin" />
+      <div className="w-28 h-28 rounded-full border-4 border-[#22D3EE]/30 border-t-[#22D3EE] animate-spin" />
     </div>
   ),
 });
 
-const AnimatedEclipse = dynamic(() => import("./AnimatedEclipse"), { ssr: false });
 
 const badges = [
   { icon: ShieldCheck, text: "ISO 12312-2 Certifiées" },
@@ -35,12 +48,18 @@ const isoCerts = [
 ];
 
 export default function Hero() {
+  const [time, setTime] = useState(getLeft());
+  useEffect(() => {
+    const id = setInterval(() => setTime(getLeft()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16">
       {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#1E7FFF] opacity-[0.04] blur-[120px]" />
-        <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] rounded-full bg-[#4DD9FF] opacity-[0.03] blur-[80px]" />
+        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#22D3EE] opacity-[0.04] blur-[120px]" />
+        <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] rounded-full bg-[#A78BFA] opacity-[0.03] blur-[80px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-8 items-center py-16">
@@ -51,83 +70,15 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center lg:text-left"
         >
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#1E7FFF]/25 mb-8"
-          >
-            <span className="w-2 h-2 rounded-full bg-[#4DD9FF] corona-pulse" />
-            <span className="text-xs font-medium text-[#4DD9FF] uppercase tracking-widest">
-              Éclipse Totale · 12 Août 2026 · France
-            </span>
-          </motion.div>
-
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight mb-6">
-            <span className="block text-white">Observez</span>
-            <span className="block gradient-text-blue glow-blue-text">l'Éclipse</span>
-            <span className="block text-white">en toute</span>
-            <span className="block text-white">sécurité</span>
+            <span className="block text-white">Vivez l'éclipse</span>
+            <span className="block gradient-text-blue glow-blue-text">solaire du</span>
+            <span className="block text-white">12 Août 2026</span>
           </h1>
 
           <p className="text-white/92 text-lg mb-8 max-w-md leading-relaxed">
             Le 12 août 2026, la France vivra sa plus impressionnante éclipse solaire depuis 1999.
           </p>
-
-          {/* Quality badges */}
-          <div className="flex flex-wrap gap-2.5 justify-center lg:justify-start mb-4">
-            {badges.map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-2 px-3 py-1.5 rounded-full glass text-xs text-white/93 border border-[#1E7FFF]/10">
-                <Icon size={12} className="text-[#4DD9FF]" />
-                <span>{text}</span>
-              </div>
-            ))}
-          </div>
-          <div className="flex items-center gap-2 mb-8 justify-center lg:justify-start">
-            <span className="text-xs text-white/65">Livraison en 2 séries de production —</span>
-            <a href="#commande" className="text-xs text-[#4DD9FF] hover:text-white underline transition-colors">
-              Voir les explications
-            </a>
-          </div>
-
-          {/* ISO Certifications with arrows */}
-          <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10">
-            {isoCerts.map((cert, i) => (
-              <motion.a
-                key={cert.code}
-                href={cert.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, x: -15 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 + i * 0.15, duration: 0.4 }}
-                whileHover={{ scale: 1.05 }}
-                className="group flex items-center gap-2.5 px-4 py-2.5 rounded-xl glass border border-[#1E7FFF]/20 hover:border-[#1E7FFF]/50 transition-all duration-200"
-              >
-                {/* Animated arrow */}
-                <motion.span
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
-                >
-                  <div
-                    className="w-0 h-0 flex-shrink-0"
-                    style={{
-                      borderTop: "5px solid transparent",
-                      borderBottom: "5px solid transparent",
-                      borderLeft: "7px solid #1E7FFF",
-                    }}
-                  />
-                </motion.span>
-                <ShieldCheck size={14} className="text-[#1E7FFF] flex-shrink-0" />
-                <div className="text-left">
-                  <div className="text-xs font-bold text-[#4DD9FF] leading-none">{cert.code} {cert.label}</div>
-                  <div className="text-[10px] text-white/82 mt-0.5 flex items-center gap-1">
-                    {cert.lab} <ExternalLink size={8} className="opacity-60" />
-                  </div>
-                </div>
-              </motion.a>
-            ))}
-          </div>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -139,14 +90,6 @@ export default function Hero() {
             >
               Découvrir nos produits
             </motion.a>
-            <motion.a
-              href="#eclipse"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 rounded-full glass border border-[#1E7FFF]/25 text-white font-semibold text-base hover:border-[#1E7FFF]/60 transition-all text-center"
-            >
-              En savoir plus
-            </motion.a>
           </div>
         </motion.div>
 
@@ -157,10 +100,34 @@ export default function Hero() {
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
           className="relative flex flex-col gap-4"
         >
-          {/* 3D Glasses */}
-          <div className="relative h-[300px] lg:h-[340px]">
-            <div className="absolute inset-0 rounded-full bg-[#1E7FFF] opacity-[0.08] blur-[60px] scale-75" />
-            <GlassesModel />
+          {/* Compte à rebours */}
+          <div className="flex justify-center gap-4 mb-2">
+            {[
+              { val: time.j, label: "Jours" },
+              { val: time.h, label: "Heures" },
+              { val: time.m, label: "Min" },
+              { val: time.s, label: "Sec" },
+            ].map(({ val, label }, i) => (
+              <div key={label} className="flex flex-col items-center">
+                <div className="glass rounded-2xl px-4 py-3 border border-red-500/40 min-w-[64px] text-center">
+                  <span className="text-4xl font-black tabular-nums text-red-500" style={{ textShadow: "0 0 16px rgba(239,68,68,0.8)" }}>
+                    {i === 0 ? val : pad(val)}
+                  </span>
+                </div>
+                <span className="text-[10px] uppercase tracking-widest text-white/70 mt-1">{label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Lunettes image */}
+          <div className="relative h-[300px] lg:h-[380px] flex items-center justify-center">
+            <div className="absolute inset-0 rounded-full bg-[#22D3EE] opacity-[0.1] blur-[80px] scale-75" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/lunette-eclipse.png"
+              alt="Lunettes Éclipse Pro"
+              className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
+            />
 
             {/* ISO badge floating next to glasses */}
             <motion.div
@@ -180,11 +147,11 @@ export default function Hero() {
                   className="flex items-center gap-2 px-3 py-2 glass rounded-xl text-xs shadow-lg hover:scale-105 transition-transform"
                 >
                   <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.5 }}>
-                    <div className="w-0 h-0" style={{ borderTop: "4px solid transparent", borderBottom: "4px solid transparent", borderLeft: "6px solid #1E7FFF" }} />
+                    <div className="w-0 h-0" style={{ borderTop: "4px solid transparent", borderBottom: "4px solid transparent", borderLeft: "6px solid #22D3EE" }} />
                   </motion.span>
-                  <ShieldCheck size={12} className="text-[#1E7FFF]" />
+                  <ShieldCheck size={12} className="text-[#22D3EE]" />
                   <div>
-                    <div className="text-[#4DD9FF] font-bold text-[11px] leading-none">{cert.code}</div>
+                    <div className="text-[#A78BFA] font-bold text-[11px] leading-none">{cert.code}</div>
                     <div className="text-white/82 text-[9px]">{cert.lab}</div>
                   </div>
                 </motion.a>
@@ -192,20 +159,6 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Eclipse canvas */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="relative h-[220px] lg:h-[260px] rounded-2xl overflow-hidden glass border border-[#1E7FFF]/10"
-          >
-            <AnimatedEclipse />
-            <div className="absolute bottom-3 left-0 right-0 flex justify-center">
-              <div className="px-3 py-1 rounded-full bg-[#000510]/80 text-[10px] text-white/90 border border-[#1E7FFF]/10">
-                Simulation en direct · Éclipse totale du 12 août 2026
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
 

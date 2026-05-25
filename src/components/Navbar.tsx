@@ -1,10 +1,9 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart, Menu, X } from "lucide-react";
-import NavCountdown from "./NavCountdown";
 
 const links = [
   { href: "/#produits", label: "Produits" },
@@ -37,13 +36,13 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
           <div className="w-7 h-7 relative">
-            <div className="absolute inset-0 rounded-full bg-[#1E7FFF] opacity-80 corona-pulse" />
-            <div className="absolute inset-[3px] rounded-full bg-[#000510]" />
+            <div className="absolute inset-0 rounded-full bg-[#22D3EE] opacity-80 corona-pulse" />
+            <div className="absolute inset-[3px] rounded-full bg-[#060412]" />
           </div>
           <span className="font-bold text-base tracking-tight hidden sm:block">
             <span className="gradient-text-blue">MonEclipse</span>
             <span className="text-white">Solaire</span>
-            <span className="text-[#1E7FFF]">.fr</span>
+            <span className="text-[#22D3EE]">.fr</span>
           </span>
         </Link>
 
@@ -53,11 +52,11 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="flex items-center gap-1.5 text-sm text-white/93 hover:text-[#1E7FFF] transition-colors duration-200 tracking-wide whitespace-nowrap"
+              className="flex items-center gap-1.5 text-sm text-white/93 hover:text-[#22D3EE] transition-colors duration-200 tracking-wide whitespace-nowrap"
             >
               {l.label}
               {l.badge && (
-                <span className="px-1.5 py-0.5 rounded-full bg-[#1E7FFF]/20 text-[9px] font-bold text-[#4DD9FF] border border-[#1E7FFF]/30">
+                <span className="px-1.5 py-0.5 rounded-full bg-[#22D3EE]/20 text-[9px] font-bold text-[#A78BFA] border border-[#22D3EE]/30">
                   PRO
                 </span>
               )}
@@ -68,21 +67,18 @@ export default function Navbar() {
         {/* Spacer on smaller screens */}
         <div className="flex-1 xl:hidden" />
 
-        {/* Right side: Countdown + Cart + CTA */}
+        {/* Right side: Cart + CTA */}
         <div className="hidden md:flex items-center gap-3">
-          {/* ← Countdown left of commander */}
-          <NavCountdown />
-
-          <button className="relative p-2 text-white/92 hover:text-[#1E7FFF] transition-colors">
+          <button className="relative p-2 text-white/92 hover:text-[#22D3EE] transition-colors">
             <ShoppingCart size={18} />
-            <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-[#1E7FFF] text-[9px] flex items-center justify-center text-white font-bold">
+            <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-[#22D3EE] text-[9px] flex items-center justify-center text-white font-bold">
               0
             </span>
           </button>
 
           <a
             href="/#produits"
-            className="px-4 py-2 rounded-full bg-[#1E7FFF] text-white text-sm font-semibold hover:bg-[#3D8FFF] transition-all duration-200 glow-blue whitespace-nowrap"
+            className="px-4 py-2 rounded-full bg-[#22D3EE] text-white text-sm font-semibold hover:bg-[#3D8FFF] transition-all duration-200 glow-blue whitespace-nowrap"
           >
             Commander
           </a>
@@ -104,23 +100,19 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-dark border-t border-[#1E7FFF]/10"
+            className="md:hidden glass-dark border-t border-[#22D3EE]/10"
           >
             <div className="px-6 py-4 flex flex-col gap-3">
-              {/* Mobile countdown */}
-              <div className="flex justify-center py-2">
-                <NavCountdown />
-              </div>
               {links.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-between text-white/93 hover:text-[#1E7FFF] py-2 border-b border-white/5 transition-colors"
+                  className="flex items-center justify-between text-white/93 hover:text-[#22D3EE] py-2 border-b border-white/5 transition-colors"
                 >
                   <span>{l.label}</span>
                   {l.badge && (
-                    <span className="px-1.5 py-0.5 rounded-full bg-[#1E7FFF]/20 text-[9px] font-bold text-[#4DD9FF] border border-[#1E7FFF]/30">
+                    <span className="px-1.5 py-0.5 rounded-full bg-[#22D3EE]/20 text-[9px] font-bold text-[#A78BFA] border border-[#22D3EE]/30">
                       PRO
                     </span>
                   )}
@@ -129,7 +121,7 @@ export default function Navbar() {
               <a
                 href="/#produits"
                 onClick={() => setOpen(false)}
-                className="mt-1 px-4 py-3 rounded-full bg-[#1E7FFF] text-white text-center font-semibold text-sm"
+                className="mt-1 px-4 py-3 rounded-full bg-[#22D3EE] text-white text-center font-semibold text-sm"
               >
                 Commander maintenant
               </a>

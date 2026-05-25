@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -62,7 +62,7 @@ export default function Countdown() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-[#1E7FFF] mb-4 font-medium">
+          <p className="text-sm uppercase tracking-[0.3em] text-[#22D3EE] mb-4 font-medium">
             Compte à rebours
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#DCE8FF] mb-2">
@@ -83,11 +83,11 @@ export default function Countdown() {
           </div>
 
           <motion.div
-            className="mt-12 inline-flex items-center gap-3 px-6 py-3 rounded-full glass border border-[#1E7FFF]/20"
+            className="mt-12 inline-flex items-center gap-3 px-6 py-3 rounded-full glass border border-[#22D3EE]/20"
             animate={{ borderColor: ["rgba(30,127,255,0.15)", "rgba(77,217,255,0.5)", "rgba(30,127,255,0.15)"] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <div className="w-2 h-2 rounded-full bg-[#1E7FFF] corona-pulse" />
+            <div className="w-2 h-2 rounded-full bg-[#22D3EE] corona-pulse" />
             <span className="text-sm text-[#E8F0FF]/88">
               Ne manquez pas cet événement unique — commandez maintenant pour être prêt
             </span>
