@@ -84,10 +84,10 @@ export default function BatchSystem() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-3 font-medium">
+          <p className="text-[calc(0.75rem+3px)] uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-medium">
             Production à la demande
           </p>
-          <h2 className="text-5xl md:text-6xl font-black text-[#FFB800] mb-5 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-5 leading-tight">
             Un événement unique,<br />
             <span className="gradient-text-blue">zéro gaspillage</span>
           </h2>

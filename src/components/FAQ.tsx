@@ -196,10 +196,10 @@ export default function FAQ() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-3 font-medium">
+          <p className="text-[calc(0.75rem+3px)] uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-medium">
             Questions fréquentes
           </p>
-          <h2 className="text-5xl md:text-6xl font-black text-[#FFB800] mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
             Tout ce que vous devez <span className="gradient-text-blue">savoir</span>
           </h2>
           <p className="text-white/88 max-w-xl mx-auto text-sm">
