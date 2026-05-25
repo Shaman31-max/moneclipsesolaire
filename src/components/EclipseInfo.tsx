@@ -65,9 +65,13 @@ export default function EclipseInfo() {
           <h3 className="text-xl font-black text-[#DCE8FF] mb-4 flex items-center gap-2">
             <MapPin size={20} style={{ color: "#FFB800" }} /> Que verra-t-on en France ?
           </h3>
-          <p className="text-sm text-[#E8F0FF]/85 mb-5 leading-relaxed">
-            En France, l'éclipse sera <strong className="text-white">partielle mais extrêmement spectaculaire</strong>. Les meilleures régions pour observer le phénomène :
+          <p className="text-sm text-[#E8F0FF]/85 mb-3 leading-relaxed">
+            La France observera une éclipse partielle <strong className="text-white">extrêmement impressionnante</strong> : la Lune viendra masquer une très grande partie du Soleil pendant quelques minutes.
           </p>
+          <p className="text-sm text-[#E8F0FF]/75 mb-5 leading-relaxed">
+            Plus vous êtes dans le <strong className="text-white">sud-ouest</strong>, plus le Soleil sera recouvert.
+          </p>
+          <p className="text-xs uppercase tracking-widest text-white/40 mb-3 font-semibold">Taux d'occultation par ville</p>
           <div className="space-y-2">
             {cities.map((c) => (
               <div key={c.name} className="flex items-center gap-3">
