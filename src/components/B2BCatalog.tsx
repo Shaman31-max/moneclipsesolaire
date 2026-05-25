@@ -169,7 +169,7 @@ function B2BProductCard({
   const [qty, setQty] = useState(product.minQty);
   const [prevTierIdx, setPrevTierIdx] = useState(0);
 
-  const activeTier = [...product.tiers].reverse().find((t) => qty >= t.min)!;
+  const activeTier = [...product.tiers].reverse().find((t) => qty >= t.min) ?? product.tiers[0];
   const tierIdx = product.tiers.indexOf(activeTier);
   const unitHT = activeTier.unitHT;
   const totalHT = unitHT * qty;
@@ -406,7 +406,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                 Partenaire certifié
               </span>
             </div>
-            <p className="text-xs text-white/70 mt-1">{session.email} · {session.siret}</p>
+            <p className="text-xs text-white/70 mt-1">{session.email}</p>
           </div>
 
           <div className="flex items-center gap-3">

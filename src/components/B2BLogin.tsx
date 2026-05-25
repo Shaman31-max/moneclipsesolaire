@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Building2, Lock, Mail, Hash, ShieldCheck, Eye, EyeOff, ArrowRight, ExternalLink } from "lucide-react";
+import { Building2, Lock, Mail, ShieldCheck, Eye, EyeOff, ArrowRight, ExternalLink } from "lucide-react";
 import type { B2BSession } from "./B2BPortal";
 
 // Demo access codes (in production these would be backend-validated)
@@ -11,7 +11,7 @@ const VALID_CODES = ["ECLIPSE2026", "B2BPRO", "PARTENAIRE"];
 type Props = { onLogin: (s: B2BSession) => void };
 
 export default function B2BLogin({ onLogin }: Props) {
-  const [form, setForm] = useState({ company: "", email: "", siret: "", code: "" });
+  const [form, setForm] = useState({ company: "", email: "", code: "" });
   const [showCode, setShowCode] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -30,12 +30,7 @@ export default function B2BLogin({ onLogin }: Props) {
       setLoading(false);
       return;
     }
-    if (form.siret.replace(/\s/g, "").length < 9) {
-      setError("Numéro SIRET / TVA intracommunautaire invalide.");
-      setLoading(false);
-      return;
-    }
-    onLogin({ company: form.company, email: form.email, siret: form.siret });
+    onLogin({ company: form.company, email: form.email });
   };
 
   return (
@@ -90,18 +85,6 @@ export default function B2BLogin({ onLogin }: Props) {
                 placeholder="achat@votre-societe.fr"
                 value={form.email}
                 onChange={set("email")}
-                className="input-b2b"
-              />
-            </Field>
-
-            {/* SIRET */}
-            <Field label="SIRET ou TVA intracommunautaire" icon={Hash}>
-              <input
-                type="text"
-                required
-                placeholder="FR 12 345678901 ou 80 234 123 456 00000"
-                value={form.siret}
-                onChange={set("siret")}
                 className="input-b2b"
               />
             </Field>

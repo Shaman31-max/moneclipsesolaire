@@ -22,11 +22,15 @@ function fmt(n: number) {
   return n.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
+type Bullet = { title: string; text: string };
+
 type ProductDef = {
   id: string;
   name: string;
   subtitle: string;
-  desc: string;
+  desc?: string;
+  bullets?: Bullet[];
+  warning?: string;
   unit: string;
   color: string;
   icon: React.ComponentType<{ size?: number; className?: string; style?: React.CSSProperties }>;
@@ -42,7 +46,14 @@ const PRODUCTS: ProductDef[] = [
     name: "Lunettes Éclipse Pro",
     subtitle: "Observer en toute sécurité",
     image: "/lunette-eclipse.png",
-    desc: "• Certification ISO 12312-2 & marquage CE — Conformes à la norme internationale, certification obtenue auprès d'un laboratoire européen agréé.\n• Filtre solaire optique ND 5.0 — Bloque plus de 99,999 % de la lumière solaire, UV et infrarouges.\n• Observation solaire sécurisée — Observer une éclipse directement en toute sécurité.\n• Convient aux adultes et aux enfants — Design léger et confortable pour toute la famille.\n• Production responsable à la demande — Fabrication en batches pour limiter le gaspillage.\n\n* Ne pas utiliser si le filtre présente des rayures ou dommages. Enfants : surveillance adulte obligatoire.",
+    bullets: [
+      { title: "Certification ISO 12312-2 & marquage CE", text: "Conformes à la norme internationale, certification obtenue auprès d'un laboratoire européen agréé." },
+      { title: "Filtre solaire optique ND 5.0", text: "Bloque plus de 99,999 % de la lumière solaire, UV et infrarouges." },
+      { title: "Observation solaire sécurisée", text: "Observer une éclipse directement en toute sécurité." },
+      { title: "Adultes & enfants", text: "Design léger et confortable pour toute la famille." },
+      { title: "Production responsable", text: "Fabrication à la demande pour limiter le gaspillage." },
+    ],
+    warning: "Ne pas utiliser si le filtre présente des rayures ou dommages. Enfants : surveillance adulte obligatoire.",
     unit: "paire",
     color: "#FFB800",
     icon: Eye,
@@ -131,7 +142,7 @@ function ProductCard({ product }: { product: ProductDef }) {
           <Icon size={26} style={{ color: product.color }} />
         </div>
         <div>
-          <div className="text-[10px] uppercase tracking-[0.25em] mb-1" style={{ color: product.color }}>
+          <div className="text-[12px] uppercase tracking-[0.25em] mb-1" style={{ color: product.color }}>
             {product.subtitle}
           </div>
           <h3 className="text-xl font-black text-[#DCE8FF] leading-tight">{product.name}</h3>
@@ -139,7 +150,27 @@ function ProductCard({ product }: { product: ProductDef }) {
       </div>
 
       {/* Description */}
-      <p className="relative z-10 text-sm text-white/85 leading-relaxed mb-5">{product.desc}</p>
+      {product.bullets ? (
+        <div className="relative z-10 mb-5 space-y-2.5">
+          {product.bullets.map((b) => (
+            <div key={b.title} className="flex items-start gap-2.5">
+              <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: `${product.color}20`, border: `1px solid ${product.color}40` }}>
+                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: product.color }} />
+              </div>
+              <p className="text-sm text-white/85 leading-snug">
+                <span className="font-bold text-white">{b.title}</span>
+                {" — "}
+                <span className="text-white/70">{b.text}</span>
+              </p>
+            </div>
+          ))}
+          {product.warning && (
+            <p className="text-[11px] text-white/45 italic mt-1 pl-6">{product.warning}</p>
+          )}
+        </div>
+      ) : (
+        <p className="relative z-10 text-sm text-white/85 leading-relaxed mb-5">{product.desc}</p>
+      )}
 
       {/* Features */}
       <div className="relative z-10 flex flex-wrap gap-2 mb-6">
