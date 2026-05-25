@@ -89,12 +89,11 @@ function ProductCard({ product }: { product: ProductDef }) {
   const unitPrice = step.total / step.qty;
   const isFixed = !!product.fixedPrice;
 
+  const variantNumericId = product.variantId.split("/").pop();
+  const checkoutUrl = `https://ijtkfu-q9.myshopify.com/cart/${variantNumericId}:${isFixed ? 1 : step.qty}`;
+
   const handleAdd = () => {
     setAdded(true);
-    const variantNumericId = product.variantId.split("/").pop();
-    const qty = isFixed ? 1 : step.qty;
-    const checkoutUrl = `https://ijtkfu-q9.myshopify.com/cart/${variantNumericId}:${qty}`;
-    setTimeout(() => { window.location.href = checkoutUrl; }, 600);
   };
 
   return (
@@ -247,21 +246,36 @@ function ProductCard({ product }: { product: ProductDef }) {
             <span className="text-xl font-black" style={{ color: product.color }}>{fmt(product.fixedPrice!)} €</span>
           </label>
         ) : (
-          <motion.button
-            whileTap={{ scale: 0.96 }}
-            onClick={handleAdd}
-            className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-base text-white transition-all duration-200"
-            style={{
-              backgroundColor: added ? "#22c55e" : product.color,
-              boxShadow: added ? "0 0 24px rgba(34,197,94,0.4)" : `0 0 28px ${product.color}50`,
-            }}
-          >
-            {added ? (
-              <><CheckCircle size={18} /> Ajouté au panier</>
-            ) : (
-              <><ShoppingCart size={18} /> Commander — {step.qty} {product.unit}{step.qty > 1 ? "s" : ""}</>
-            )}
-          </motion.button>
+          <div className="flex flex-col gap-2">
+            <motion.button
+              whileTap={{ scale: 0.96 }}
+              onClick={handleAdd}
+              className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-base text-white transition-all duration-200"
+              style={{
+                backgroundColor: added ? "#22c55e" : product.color,
+                boxShadow: added ? "0 0 24px rgba(34,197,94,0.4)" : `0 0 28px ${product.color}50`,
+              }}
+            >
+              {added ? (
+                <><CheckCircle size={18} /> Ajouté au panier</>
+              ) : (
+                <><ShoppingCart size={18} /> Ajouter au panier — {step.qty} {product.unit}{step.qty > 1 ? "s" : ""}</>
+              )}
+            </motion.button>
+            <AnimatePresence>
+              {added && (
+                <motion.a
+                  href={checkoutUrl}
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl font-black text-sm text-black transition-all duration-200 bg-white hover:bg-gray-100"
+                >
+                  Finaliser ma commande →
+                </motion.a>
+              )}
+            </AnimatePresence>
+          </div>
         )}
       </div>
     </motion.div>
