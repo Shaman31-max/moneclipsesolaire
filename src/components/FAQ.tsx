@@ -68,10 +68,6 @@ const categories = [
         q: "Livrez-vous en dehors de France métropolitaine ?",
         a: "Non, nous livrons uniquement en France métropolitaine.",
       },
-      {
-        q: "Puis-je retourner les lunettes si elles ne me conviennent pas ?",
-        a: "Vous disposez de 14 jours de rétractation légale (article L221-18 du Code de la consommation), à condition que les lunettes soient non utilisées et dans leur emballage d'origine. Les filtres optiques ouverts ne sont pas échangeables pour des raisons d'hygiène et de sécurité.",
-      },
     ],
   },
   {
