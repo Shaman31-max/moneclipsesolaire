@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { MapPin, Clock, Eye, AlertTriangle, Sun, Thermometer, Star } from "lucide-react";
 
 const cities = [
-  { name: "Biarritz", pct: "99,5% d'obscurité" },
+  { name: "Biarritz", pct: "99,5%" },
   { name: "Bayonne", pct: "99,3%" },
   { name: "Bordeaux", pct: "98,5%" },
   { name: "Toulouse", pct: "97%" },
@@ -66,7 +66,7 @@ export default function EclipseInfo() {
             <MapPin size={20} style={{ color: "#FFB800" }} /> Que verra-t-on en France ?
           </h3>
           <p className="text-sm text-[#E8F0FF]/85 mb-3 leading-relaxed">
-            La France observera une éclipse partielle <strong className="text-white">extrêmement impressionnante</strong> : la Lune viendra masquer une très grande partie du Soleil pendant quelques minutes.
+            La France observera une éclipse <strong className="text-white">extrêmement impressionnante</strong> : la Lune viendra masquer une très grande partie du Soleil pendant quelques minutes.
           </p>
           <p className="text-sm text-[#E8F0FF]/75 mb-5 leading-relaxed">
             Plus vous êtes dans le <strong className="text-white">sud-ouest</strong>, plus le Soleil sera recouvert.
