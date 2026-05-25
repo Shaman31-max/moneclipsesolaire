@@ -269,8 +269,8 @@ function FriseTimeline({
               </div>
               {/* Right : date + label */}
               <div className="pt-2 pb-1">
-                <div className="text-sm font-black" style={{ color: nodes[i].color }}>{nodes[i].date}</div>
-                <div className="text-xs text-white/60 mt-0.5 leading-tight">{nodes[i].label}</div>
+                <div className="text-base font-black" style={{ color: nodes[i].color }}>{nodes[i].date}</div>
+                <div className="text-sm text-white/60 mt-0.5 leading-tight">{nodes[i].label}</div>
               </div>
             </div>
             {/* Badge between nodes */}
@@ -303,8 +303,8 @@ function TimelineNode({ node, num }: { node: { date: string; label: string; colo
       >
         {num}
       </div>
-      <div className="text-[11px] font-black text-center whitespace-nowrap mt-1" style={{ color: node.color }}>{node.date}</div>
-      <div className="text-[10px] text-white/60 text-center max-w-[100px] leading-tight">{node.label}</div>
+      <div className="text-[13px] font-black text-center whitespace-nowrap mt-1" style={{ color: node.color }}>{node.date}</div>
+      <div className="text-[12px] text-white/60 text-center max-w-[100px] leading-tight">{node.label}</div>
     </div>
   );
 }
