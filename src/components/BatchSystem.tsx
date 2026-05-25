@@ -66,132 +66,101 @@ export default function BatchSystem() {
           </div>
         )}
 
-        {/* ── Phases ── */}
+        {/* ── Phases + Frises côte à côte ── */}
         <div className="grid md:grid-cols-2 gap-6 mb-10">
 
-          {/* Phase 1 */}
+          {/* Colonne 1 : Phase 1 + Frise */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative glass rounded-2xl p-6 border-2 overflow-hidden"
-            style={{ borderColor: batch1Active ? "#22c55e60" : "#22D3EE30" }}
+            className="flex flex-col"
           >
-            {batch1Active && (
-              <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-[#22c55e]/20 border border-[#22c55e]/40 text-[10px] font-black text-[#22c55e] uppercase tracking-wider">
-                Ouverte
+            {/* Carte Phase 1 */}
+            <div
+              className="relative glass rounded-t-2xl p-6 border-2 border-b-0 overflow-hidden"
+              style={{ borderColor: batch1Active ? "#22c55e60" : "#22D3EE30" }}
+            >
+              {batch1Active && (
+                <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-[#22c55e]/20 border border-[#22c55e]/40 text-[10px] font-black text-[#22c55e] uppercase tracking-wider">
+                  Ouverte
+                </div>
+              )}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-[#22D3EE]/15 border border-[#22D3EE]/30 flex items-center justify-center font-black text-[#22D3EE] text-lg">1</div>
+                <div>
+                  <div className="font-black text-white text-base">Phase 1</div>
+                  <div className="text-[10px] text-white/55 uppercase tracking-wider">Première série</div>
+                </div>
               </div>
-            )}
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-[#22D3EE]/15 border border-[#22D3EE]/30 flex items-center justify-center font-black text-[#22D3EE] text-lg">1</div>
-              <div>
-                <div className="font-black text-white text-base">Phase 1</div>
-                <div className="text-[10px] text-white/55 uppercase tracking-wider">Première série</div>
+              <div className="space-y-3">
+                <PhaseStep icon={ShoppingCart} color="#22c55e" label="Commandes ouvertes" value="maintenant → 15 juin" />
+                <PhaseStep icon={Factory} color="#22D3EE" label="Production" value="fin juin / début juillet" />
+                <PhaseStep icon={Truck} color="#FFB800" label="Expéditions & livraisons" value="à partir du 20 juillet" />
               </div>
             </div>
-
-            <div className="space-y-3">
-              <PhaseStep
-                icon={ShoppingCart}
-                color="#22c55e"
-                label="Commandes ouvertes"
-                value="maintenant → 15 juin"
-              />
-              <PhaseStep
-                icon={Factory}
-                color="#22D3EE"
-                label="Production"
-                value="fin juin / début juillet"
-              />
-              <PhaseStep
-                icon={Truck}
-                color="#FFB800"
-                label="Expéditions & livraisons"
-                value="à partir du 20 juillet"
-              />
-            </div>
-
-            <div className="mt-5 pt-4 border-t border-white/8 flex items-center justify-between">
-              <span className="text-xs text-white/55">Avant l'éclipse</span>
-              <span className="text-sm font-black text-[#22c55e]">23 jours de marge</span>
-            </div>
+            {/* Frise Phase 1 collée */}
+            <FriseTimeline
+              title="Première Série — Calendrier"
+              titleColor="#22c55e"
+              border={batch1Active ? "#22c55e" : "#22D3EE"}
+              topRounded={false}
+              nodes={[
+                { date: "Maintenant", label: "Commandes ouvertes", color: "#22c55e", glow: true },
+                { date: "15 juin", label: "Clôture · Lancement production 1", color: "#22D3EE", glow: false },
+                { date: "20 juil.", label: "Livraison chez vous", color: "#FFB800", glow: false },
+              ]}
+              badges={["Précommande", "Production"]}
+              delay={0}
+            />
           </motion.div>
 
-          {/* Phase 2 */}
+          {/* Colonne 2 : Phase 2 + Frise */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative glass rounded-2xl p-6 border-2 overflow-hidden"
-            style={{ borderColor: "#FFB80030" }}
+            className="flex flex-col"
           >
-            <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-[#FFB800]/15 border border-[#FFB800]/30 text-[10px] font-black text-[#FFB800] uppercase tracking-wider">
-              Bientôt
-            </div>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-[#FFB800]/15 border border-[#FFB800]/30 flex items-center justify-center font-black text-[#FFB800] text-lg">2</div>
-              <div>
-                <div className="font-black text-white text-base">Phase 2</div>
-                <div className="text-[10px] text-white/55 uppercase tracking-wider">Dernière série</div>
+            {/* Carte Phase 2 */}
+            <div
+              className="relative glass rounded-t-2xl p-6 border-2 border-b-0 overflow-hidden"
+              style={{ borderColor: "#FFB80030" }}
+            >
+              <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-[#FFB800]/15 border border-[#FFB800]/30 text-[10px] font-black text-[#FFB800] uppercase tracking-wider">
+                Bientôt
+              </div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-[#FFB800]/15 border border-[#FFB800]/30 flex items-center justify-center font-black text-[#FFB800] text-lg">2</div>
+                <div>
+                  <div className="font-black text-white text-base">Phase 2</div>
+                  <div className="text-[10px] text-white/55 uppercase tracking-wider">Dernière série</div>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <PhaseStep icon={ShoppingCart} color="#FFB800" label="Commandes ouvertes" value="16 juin → 24 juin" />
+                <PhaseStep icon={Factory} color="#FFB800" label="Production" value="juillet" />
+                <PhaseStep icon={Truck} color="#22D3EE" label="Expéditions & livraisons" value="à partir du 1er août" />
               </div>
             </div>
-
-            <div className="space-y-3">
-              <PhaseStep
-                icon={ShoppingCart}
-                color="#FFB800"
-                label="Commandes ouvertes"
-                value="16 juin → 24 juin"
-              />
-              <PhaseStep
-                icon={Factory}
-                color="#FFB800"
-                label="Production"
-                value="juillet"
-              />
-              <PhaseStep
-                icon={Truck}
-                color="#22D3EE"
-                label="Expéditions & livraisons"
-                value="à partir du 1er août"
-              />
-            </div>
-
-            <div className="mt-5 pt-4 border-t border-white/8 flex items-center justify-between">
-              <span className="text-xs text-white/55">Avant l'éclipse</span>
-              <span className="text-sm font-black text-[#FFB800]">11 jours de marge</span>
-            </div>
+            {/* Frise Phase 2 collée */}
+            <FriseTimeline
+              title="Deuxième Série — Calendrier"
+              titleColor="#FFB800"
+              border="#FFB800"
+              topRounded={false}
+              nodes={[
+                { date: "16 juin", label: "Commandes ouvertes", color: "#FFB800", glow: false },
+                { date: "24 juin", label: "Clôture · Lancement production 2", color: "#22D3EE", glow: false },
+                { date: "1er août", label: "Livraison chez vous", color: "#FFB800", glow: false },
+              ]}
+              badges={["Précommande", "Production"]}
+              delay={0.1}
+            />
           </motion.div>
-        </div>
 
-        {/* ── Frises chronologiques ── */}
-        <div className="flex flex-col gap-6 mb-10">
-          <FriseTimeline
-            title="Première Série — Calendrier"
-            titleColor="#22c55e"
-            border="#22c55e"
-            nodes={[
-              { date: "Maintenant", label: "Commandes ouvertes", color: "#22c55e", glow: true },
-              { date: "15 juin", label: "Clôture · Lancement production 1", color: "#22D3EE", glow: false },
-              { date: "20 juil.", label: "Livraison chez vous", color: "#FFB800", glow: false },
-            ]}
-            badges={["Précommande", "Production"]}
-            delay={0}
-          />
-          <FriseTimeline
-            title="Deuxième Série — Calendrier"
-            titleColor="#FFB800"
-            border="#FFB800"
-            nodes={[
-              { date: "16 juin", label: "Commandes ouvertes", color: "#FFB800", glow: false },
-              { date: "24 juin", label: "Clôture · Lancement production 2", color: "#22D3EE", glow: false },
-              { date: "1er août", label: "Livraison chez vous", color: "#FFB800", glow: false },
-            ]}
-            badges={["Précommande", "Production"]}
-            delay={0.1}
-          />
         </div>
 
         {/* ── Comment ça fonctionne ── */}
@@ -238,7 +207,7 @@ export default function BatchSystem() {
 }
 
 function FriseTimeline({
-  title, titleColor, border, nodes, badges, delay,
+  title, titleColor, border, nodes, badges, delay, topRounded = true,
 }: {
   title: string;
   titleColor: string;
@@ -246,6 +215,7 @@ function FriseTimeline({
   nodes: { date: string; label: string; color: string; glow: boolean }[];
   badges: string[];
   delay: number;
+  topRounded?: boolean;
 }) {
   return (
     <motion.div
@@ -253,8 +223,8 @@ function FriseTimeline({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className="glass rounded-2xl p-6 overflow-x-auto"
-      style={{ border: `1px solid ${border}25` }}
+      className={`glass p-6 overflow-x-auto border-2 ${topRounded ? "rounded-2xl" : "rounded-b-2xl"}`}
+      style={{ borderColor: `${border}40` }}
     >
       <p className="text-sm uppercase tracking-widest font-black mb-8" style={{ color: titleColor }}>
         {title}
