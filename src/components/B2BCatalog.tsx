@@ -484,7 +484,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
             { icon: Eye, label: "Min. Lunettes", value: "500 paires" },
             { icon: Smartphone, label: "Min. Filtres", value: "250 unités" },
             { icon: Truck, label: "Délai livraison", value: "5–7 j ouvrés" },
-            { icon: FileText, label: "Paiement", value: "40% acompte, solde à réception" },
+            { icon: FileText, label: "Paiement", value: "50% acompte, solde à réception" },
           ].map(({ icon: Icon, label, value }) => (
             <div key={label} className="flex items-center gap-2.5">
               <Icon size={14} className="text-[#22D3EE] flex-shrink-0" />
