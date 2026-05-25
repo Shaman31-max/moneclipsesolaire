@@ -87,6 +87,7 @@ const PRODUCTS: ProductDef[] = [
     id: "ebook",
     name: "Ma première éclipse",
     subtitle: "Ebook enfant — dès 6 ans",
+    image: "/ebook.png",
     desc: "Un ebook illustré et pédagogique pour expliquer l'éclipse solaire aux enfants. Comprendre le phénomène, se préparer à l'observer en sécurité, et vivre un moment inoubliable en famille. Téléchargement instantané après commande.",
     unit: "ebook",
     color: "#FFB800",
