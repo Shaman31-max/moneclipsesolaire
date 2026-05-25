@@ -167,83 +167,31 @@ export default function BatchSystem() {
         </div>
 
         {/* ── Frises chronologiques ── */}
-        <div className="grid md:grid-cols-2 gap-6 mb-10">
-
-          {/* Frise Première Série */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="glass rounded-2xl p-5 border border-[#22c55e]/20 overflow-x-auto"
-          >
-            <p className="text-xs uppercase tracking-widest text-[#22c55e] mb-5 font-bold">Première Série — Calendrier</p>
-            <div className="flex items-start justify-between min-w-[220px] gap-1 relative">
-              <div className="absolute top-4 left-[6%] right-[6%] h-0.5 bg-gradient-to-r from-[#22c55e]/50 via-[#22D3EE]/40 to-[#FFB800]/50" />
-              {[
-                { date: "Maintenant", label: "Commandes\nouvertes", color: "#22c55e", glow: true },
-                { date: "15 juin", label: "Clôture · Lancement\nproduction 1", color: "#22D3EE", glow: false },
-                { date: "20 juil.", label: "Livraison\nchez vous", color: "#FFB800", glow: false },
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center gap-2 flex-1 relative z-10">
-                  <div
-                    className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-[10px] font-black flex-shrink-0"
-                    style={{
-                      backgroundColor: `${item.color}20`,
-                      borderColor: item.color,
-                      color: item.color,
-                      boxShadow: item.glow ? `0 0 14px ${item.color}80` : undefined,
-                    }}
-                  >
-                    {i + 1}
-                  </div>
-                  <div className="text-[10px] font-black text-center whitespace-nowrap" style={{ color: item.color }}>{item.date}</div>
-                  <div className="text-[9px] text-white/55 text-center leading-tight">{item.label}</div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 pt-3 border-t border-white/8 flex justify-center">
-              <span className="px-3 py-1.5 rounded-full border border-[#22D3EE]/30 bg-[#22D3EE]/08 text-[10px] font-black text-[#22D3EE] uppercase tracking-wider">Précommande</span>
-            </div>
-          </motion.div>
-
-          {/* Frise Deuxième Série */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="glass rounded-2xl p-5 border border-[#FFB800]/20 overflow-x-auto"
-          >
-            <p className="text-xs uppercase tracking-widest text-[#FFB800] mb-5 font-bold">Deuxième Série — Calendrier</p>
-            <div className="flex items-start justify-between min-w-[220px] gap-1 relative">
-              <div className="absolute top-4 left-[6%] right-[6%] h-0.5 bg-gradient-to-r from-[#FFB800]/50 via-[#22D3EE]/40 to-[#FFB800]/60" />
-              {[
-                { date: "16 juin", label: "Commandes\nouvertes", color: "#FFB800", glow: false },
-                { date: "24 juin", label: "Clôture · Lancement\nproduction 2", color: "#22D3EE", glow: false },
-                { date: "1er août", label: "Livraison\nchez vous", color: "#FFB800", glow: false },
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center gap-2 flex-1 relative z-10">
-                  <div
-                    className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-[10px] font-black flex-shrink-0"
-                    style={{
-                      backgroundColor: `${item.color}20`,
-                      borderColor: item.color,
-                      color: item.color,
-                    }}
-                  >
-                    {i + 1}
-                  </div>
-                  <div className="text-[10px] font-black text-center whitespace-nowrap" style={{ color: item.color }}>{item.date}</div>
-                  <div className="text-[9px] text-white/55 text-center leading-tight">{item.label}</div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 pt-3 border-t border-white/8 flex justify-center">
-              <span className="px-3 py-1.5 rounded-full border border-[#FFB800]/30 bg-[#FFB800]/08 text-[10px] font-black text-[#FFB800] uppercase tracking-wider">Production</span>
-            </div>
-          </motion.div>
-
+        <div className="flex flex-col gap-6 mb-10">
+          <FriseTimeline
+            title="Première Série — Calendrier"
+            titleColor="#22c55e"
+            border="#22c55e"
+            nodes={[
+              { date: "Maintenant", label: "Commandes ouvertes", color: "#22c55e", glow: true },
+              { date: "15 juin", label: "Clôture · Lancement production 1", color: "#22D3EE", glow: false },
+              { date: "20 juil.", label: "Livraison chez vous", color: "#FFB800", glow: false },
+            ]}
+            badges={["Précommande", "Production"]}
+            delay={0}
+          />
+          <FriseTimeline
+            title="Deuxième Série — Calendrier"
+            titleColor="#FFB800"
+            border="#FFB800"
+            nodes={[
+              { date: "16 juin", label: "Commandes ouvertes", color: "#FFB800", glow: false },
+              { date: "24 juin", label: "Clôture · Lancement production 2", color: "#22D3EE", glow: false },
+              { date: "1er août", label: "Livraison chez vous", color: "#FFB800", glow: false },
+            ]}
+            badges={["Précommande", "Production"]}
+            delay={0.1}
+          />
         </div>
 
         {/* ── Comment ça fonctionne ── */}
@@ -286,6 +234,83 @@ export default function BatchSystem() {
 
       </div>
     </section>
+  );
+}
+
+function FriseTimeline({
+  title, titleColor, border, nodes, badges, delay,
+}: {
+  title: string;
+  titleColor: string;
+  border: string;
+  nodes: { date: string; label: string; color: string; glow: boolean }[];
+  badges: string[];
+  delay: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay }}
+      className="glass rounded-2xl p-6 overflow-x-auto"
+      style={{ border: `1px solid ${border}25` }}
+    >
+      <p className="text-sm uppercase tracking-widest font-black mb-8" style={{ color: titleColor }}>
+        {title}
+      </p>
+
+      {/* Timeline row */}
+      <div className="relative flex items-center min-w-[420px]">
+        {/* Background line */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 h-[2px]"
+          style={{ background: `linear-gradient(to right, ${nodes[0].color}60, ${nodes[1].color}50, ${nodes[2].color}60)` }}
+        />
+
+        {/* Node 1 */}
+        <TimelineNode node={nodes[0]} num={1} />
+
+        {/* Badge 1 */}
+        <div className="flex-1 flex justify-center items-center relative z-10">
+          <span className="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider whitespace-nowrap bg-[#060412] border border-white/20 text-white/80">
+            {badges[0]}
+          </span>
+        </div>
+
+        {/* Node 2 */}
+        <TimelineNode node={nodes[1]} num={2} />
+
+        {/* Badge 2 */}
+        <div className="flex-1 flex justify-center items-center relative z-10">
+          <span className="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider whitespace-nowrap bg-[#060412] border border-white/20 text-white/80">
+            {badges[1]}
+          </span>
+        </div>
+
+        {/* Node 3 */}
+        <TimelineNode node={nodes[2]} num={3} />
+      </div>
+    </motion.div>
+  );
+}
+
+function TimelineNode({ node, num }: { node: { date: string; label: string; color: string; glow: boolean }; num: number }) {
+  return (
+    <div className="relative z-10 flex flex-col items-center gap-2 flex-shrink-0">
+      <div
+        className="w-11 h-11 rounded-full border-2 flex items-center justify-center font-black text-sm"
+        style={{
+          backgroundColor: `${node.color}20`,
+          borderColor: node.color,
+          color: node.color,
+          boxShadow: node.glow ? `0 0 18px ${node.color}90` : undefined,
+        }}
+      >
+        {num}
+      </div>
+      <div className="text-[11px] font-black text-center whitespace-nowrap mt-1" style={{ color: node.color }}>{node.date}</div>
+      <div className="text-[10px] text-white/60 text-center max-w-[100px] leading-tight">{node.label}</div>
+    </div>
   );
 }
 
