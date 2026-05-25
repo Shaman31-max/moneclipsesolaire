@@ -109,7 +109,7 @@ export default function BatchSystem() {
               nodes={[
                 { date: "Maintenant", label: "Commandes ouvertes", color: "#22c55e", glow: true },
                 { date: "15 juin", label: "Clôture · Lancement production 1", color: "#22D3EE", glow: false },
-                { date: "20 juil.", label: "Livraison chez vous", color: "#FFB800", glow: false },
+                { date: "20 juil.", label: "Livraisons à partir du 20 juil.", color: "#FFB800", glow: false },
               ]}
               badges={["Précommande", "Production"]}
               delay={0}
@@ -154,7 +154,7 @@ export default function BatchSystem() {
               nodes={[
                 { date: "16 juin", label: "Commandes ouvertes", color: "#FFB800", glow: false },
                 { date: "24 juin", label: "Clôture · Lancement production 2", color: "#22D3EE", glow: false },
-                { date: "1er août", label: "Livraison chez vous", color: "#FFB800", glow: false },
+                { date: "1er août", label: "Livraisons à partir du 1er août", color: "#FFB800", glow: false },
               ]}
               badges={["Précommande", "Production"]}
               delay={0.1}
