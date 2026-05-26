@@ -275,12 +275,12 @@ function ProductCard({ product }: { product: ProductDef }) {
       {/* Slider + prix (produits physiques uniquement) */}
       {!isFixed && (
         <>
-          <div className="relative z-10 mb-4">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold text-white/75 uppercase tracking-wider">Quantité</span>
-              <div className="flex items-center gap-2">
-                <span className="text-2xl font-black tabular-nums" style={{ color: product.color }}>{step.qty}</span>
-                <span className="text-xs text-white/65">{product.unit}{step.qty > 1 ? "s" : ""}</span>
+          <div className="relative z-10 mb-2">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[10px] font-semibold text-white/60 uppercase tracking-wider">Quantité</span>
+              <div className="flex items-center gap-1.5">
+                <span className="text-xl font-black tabular-nums" style={{ color: product.color }}>{step.qty}</span>
+                <span className="text-xs text-white/55">{product.unit}{step.qty > 1 ? "s" : ""}</span>
               </div>
             </div>
             <input
@@ -293,28 +293,24 @@ function ProductCard({ product }: { product: ProductDef }) {
               className="w-full cursor-pointer"
               style={{ accentColor: product.color }}
             />
-            <div className="flex justify-between mt-1.5">
+            <div className="flex justify-between mt-1">
               {PRICE_STEPS.map((s, i) => (
                 <span
                   key={i}
-                  className="text-[12px] font-bold transition-colors"
-                  style={{ color: i === stepIdx ? product.color : "rgba(220,232,255,0.2)" }}
+                  className="text-[10px] font-bold transition-colors"
+                  style={{ color: i === stepIdx ? product.color : "rgba(220,232,255,0.18)" }}
                 >
                   {s.qty}
                 </span>
               ))}
             </div>
-            <p className="text-[14px] text-white/35 mt-1.5">* Prix dégressif en fonction de la quantité</p>
           </div>
 
-          <div className="relative z-10 mb-4 flex items-end gap-3">
+          <div className="relative z-10 mb-3 flex items-center gap-2">
             <div>
-              <div className="flex items-baseline gap-3">
-                <span className="text-[calc(2.25rem-7px)] font-black" style={{ color: product.color }}>{fmt(step.total)} €</span>
-                <span className="text-xs font-semibold whitespace-nowrap" style={{ color: product.color }}>Livraison incluse</span>
-              </div>
-              <div className="text-[calc(0.75rem+2px)] text-white/65 mt-0.5">
-                {fmt(unitPrice)} € / {product.unit}
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl font-black" style={{ color: product.color }}>{fmt(step.total)} €</span>
+                <span className="text-[10px] font-semibold whitespace-nowrap text-white/55">Livraison incluse · {fmt(unitPrice)} €/{product.unit}</span>
               </div>
             </div>
             <AnimatePresence mode="wait">
@@ -324,8 +320,8 @@ function ProductCard({ product }: { product: ProductDef }) {
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.8, opacity: 0 }}
-                  className="ml-auto px-3 py-1.5 rounded-xl font-black text-sm text-white"
-                  style={{ backgroundColor: product.color, boxShadow: `0 0 20px ${product.color}60` }}
+                  className="ml-auto px-2.5 py-1 rounded-lg font-black text-xs text-white"
+                  style={{ backgroundColor: product.color, boxShadow: `0 0 14px ${product.color}60` }}
                 >
                   {step.mention}
                 </motion.div>
