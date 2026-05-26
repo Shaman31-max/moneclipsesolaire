@@ -181,18 +181,18 @@ function ProductCard({ product }: { product: ProductDef }) {
               href="https://www.iso.org/standard/59289.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute top-0 left-0 z-20 group flex items-center gap-2 px-3 py-2 rounded-xl glass border transition-all duration-200 hover:scale-[1.03]"
+              className="absolute top-0 left-0 z-20 group flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl glass border transition-all duration-200 hover:scale-[1.03]"
               style={{ borderColor: "rgba(34,211,238,0.30)" }}
             >
               <div className="flex items-center gap-1 badge-bounce">
-                <div className="w-0 h-0" style={{ borderTop: "5px solid transparent", borderBottom: "5px solid transparent", borderLeft: "7px solid #22D3EE" }} />
+                <div className="w-0 h-0" style={{ borderTop: "4px solid transparent", borderBottom: "4px solid transparent", borderLeft: "6px solid #22D3EE" }} />
               </div>
-              <ShieldCheck size={14} className="text-[#22D3EE] flex-shrink-0" />
+              <ShieldCheck size={12} className="text-[#22D3EE] flex-shrink-0" />
               <div>
-                <div className="text-xs font-bold leading-none text-[#22D3EE]">{product.badge}</div>
-                <div className="text-[10px] text-white/80 mt-0.5 leading-none">DIN CERTCO — Europe</div>
+                <div className="text-[10px] font-bold leading-none text-[#22D3EE]">{product.badge}</div>
+                <div className="text-[8px] text-white/80 mt-0.5 leading-none">DIN CERTCO — Europe</div>
               </div>
-              <ExternalLink size={10} className="text-white/50 group-hover:text-white/90 transition-colors flex-shrink-0" />
+              <ExternalLink size={9} className="text-white/50 group-hover:text-white/90 transition-colors flex-shrink-0" />
             </a>
           )}
           {/* eslint-disable-next-line @next/next/no-img-element */}
