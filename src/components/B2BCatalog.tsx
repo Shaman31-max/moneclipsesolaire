@@ -427,7 +427,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
 
   const addToQuote = (productId: string, qty: number) => {
     const p = B2B_PRODUCTS.find((x) => x.id === productId)!;
-    const tier = [...p.tiers].reverse().find((t) => qty >= t.min)!;
+    const tier = [...p.tiers].reverse().find((t) => qty >= t.min) ?? p.tiers[0];
     const unitHT = tier.unitHT;
     const variantId = tier.variantId;
     const acompteVariantId = tier.acompteVariantId;
