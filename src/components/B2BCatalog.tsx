@@ -1,6 +1,7 @@
 ﻿"use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+import { useB2BCart } from "@/contexts/B2BCartContext";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Building2, LogOut, ShieldCheck, FileText, Truck,
@@ -420,9 +421,9 @@ type Props = { session: B2BSession; onLogout: () => void };
 
 export default function B2BCatalog({ session, onLogout }: Props) {
   const [quote, setQuote] = useState<QuoteLine[]>([]);
-  const [showQuote, setShowQuote] = useState(false);
   const [entreprise, setEntreprise] = useState("");
   const [tva, setTva] = useState("");
+  const { sidebarOpen: showQuote, setSidebarOpen: setShowQuote, sync } = useB2BCart();
 
   const addToQuote = (productId: string, qty: number) => {
     const p = B2B_PRODUCTS.find((x) => x.id === productId)!;
@@ -454,6 +455,10 @@ export default function B2BCatalog({ session, onLogout }: Props) {
   const checkoutUrl = buildUrl(false);
   const acompteUrl = buildUrl(true);
 
+  useEffect(() => {
+    sync(quote.length, checkoutUrl, acompteUrl);
+  }, [quote, checkoutUrl, acompteUrl, sync]);
+
   return (
     <div className="min-h-screen bg-[#060412] pt-16">
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -476,7 +481,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
 
           <div className="flex items-center gap-3">
             <button
-              onClick={() => setShowQuote((v) => !v)}
+              onClick={() => setShowQuote(!showQuote)}
               className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all border"
               style={{
                 background: quote.length > 0 ? "rgba(255,184,0,0.15)" : "rgba(4,18,58,0.85)",
@@ -575,7 +580,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
         </div>
 
         {/* Product cards */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="grid md:grid-cols-2 gap-6 mb-4">
           {B2B_PRODUCTS.map((p) => (
             <B2BProductCard
               key={p.id}
@@ -585,6 +590,38 @@ export default function B2BCatalog({ session, onLogout }: Props) {
             />
           ))}
         </div>
+
+        {/* Full-width CTA */}
+        <AnimatePresence>
+          {quote.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 16 }}
+              className="mb-8 flex flex-col sm:flex-row gap-3"
+            >
+              <a
+                href={checkoutUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-3 py-5 rounded-2xl font-black text-lg text-black bg-white hover:bg-gray-100 transition-colors"
+                style={{ boxShadow: "0 0 32px rgba(255,255,255,0.12)" }}
+              >
+                <ShoppingCart size={20} />
+                Finaliser la commande — {fmt(totalTTC)} € TTC →
+              </a>
+              <a
+                href={acompteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sm:w-auto flex items-center justify-center gap-2 px-8 py-5 rounded-2xl font-black text-base text-black bg-[#FFB800] hover:bg-[#e6a700] transition-colors whitespace-nowrap"
+                style={{ boxShadow: "0 0 24px rgba(255,184,0,0.35)" }}
+              >
+                Acompte 50% — {fmt(totalTTC * 0.5)} € →
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Paliers table */}
         <div
