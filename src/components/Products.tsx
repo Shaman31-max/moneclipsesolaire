@@ -382,21 +382,6 @@ function ProductCard({ product }: { product: ProductDef }) {
                 <><ShoppingCart size={18} /> Ajouter au panier — {step.qty} {product.unit}{step.qty > 1 ? "s" : ""}</>
               )}
             </motion.button>
-            <AnimatePresence>
-              {added && (
-                <motion.a
-                  href={checkoutUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl font-black text-sm text-black transition-all duration-200 bg-white hover:bg-gray-100"
-                >
-                  Finaliser ma commande →
-                </motion.a>
-              )}
-            </AnimatePresence>
           </div>
         )}
       </div>
@@ -405,6 +390,8 @@ function ProductCard({ product }: { product: ProductDef }) {
 }
 
 export default function Products() {
+  const { totalItems, checkoutUrl } = useCart();
+
   return (
     <section id="produits" className="relative py-24 px-6">
       <div className="absolute inset-0 pointer-events-none">
@@ -433,6 +420,26 @@ export default function Products() {
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
+
+        {/* Finaliser ma commande — pleine largeur */}
+        <AnimatePresence>
+          {totalItems > 0 && (
+            <motion.a
+              href={checkoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="mt-6 w-full flex items-center justify-center gap-3 py-5 rounded-2xl font-black text-lg text-black bg-white hover:bg-gray-100 transition-colors"
+              style={{ boxShadow: "0 0 40px rgba(255,255,255,0.12)" }}
+            >
+              <ShoppingCart size={20} />
+              Finaliser ma commande — {totalItems} article{totalItems > 1 ? "s" : ""} →
+            </motion.a>
+          )}
+        </AnimatePresence>
 
         {/* Disclaimer */}
         <div className="flex items-center gap-3 mt-2 mb-6 px-4 py-3 rounded-xl border border-amber-400/30 bg-amber-400/06">
