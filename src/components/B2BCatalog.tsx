@@ -404,9 +404,9 @@ function B2BProductCard({
         }}
       >
         {inQuote ? (
-          <><CheckCircle size={18} /> Dans le devis</>
+          <><CheckCircle size={18} /> Dans le panier</>
         ) : (
-          <><ShoppingCart size={18} /> <span className="hidden sm:inline">Ajouter au devis — </span>{qty.toLocaleString("fr-FR")} {product.unit}s</>
+          <><ShoppingCart size={18} /> <span className="hidden sm:inline">Ajouter au panier — </span>{qty.toLocaleString("fr-FR")} {product.unit}s</>
 
         )}
       </motion.button>
