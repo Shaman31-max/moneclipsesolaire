@@ -5,9 +5,10 @@ import { useB2BCart } from "@/contexts/B2BCartContext";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Building2, LogOut, ShieldCheck, FileText, Truck,
-  Eye, Smartphone, Zap, Lock, CheckCircle, ShoppingCart, ExternalLink,
+  Eye, Smartphone, Zap, Lock, CheckCircle, ShoppingCart, ExternalLink, BarChart3, Package,
 } from "lucide-react";
 import type { B2BSession } from "./B2BPortal";
+import RentabilityCalculator from "./RentabilityCalculator";
 
 // ── B2B Pricing ──────────────────────────────────────────────────
 const TVA = 0.20;
@@ -50,6 +51,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
       { title: "Certification ISO 12312-2 & marquage CE", text: "Lunettes certifiées conformes à la norme internationale ISO 12312-2 pour l'observation directe du Soleil. Certification CE obtenue auprès d'un laboratoire européen agréé.", link: { href: "/#faq", label: "En savoir plus" } },
       { title: "Filtre solaire optique ND 5.0", text: "Filtration haute densité bloquant plus de 99,999 % de la lumière solaire ainsi que les rayons UV et infrarouges nocifs." },
       { title: "Observation solaire sécurisée", text: "Permet d'observer une éclipse solaire directement en toute sécurité." },
+      { title: "Faible MOQ — Commerce de proximité", text: "Commande dès 200 paires, idéal pour les épiceries, librairies, offices de tourisme et boutiques de proximité." },
     ],
     image: "/lunettes_avec_presentoir.png",
     color: "#22D3EE",
@@ -60,7 +62,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     step: 50,
     unit: "paire",
     tiers: [
-      { min: 200,  label: "200",   unitHT: 0.92, tag: null, variantId: "58142211866969", acompteVariantId: "58142212260185" },
+      { min: 200,  label: "200",   unitHT: 0.92, tag: "Faible MOQ", variantId: "58142211866969", acompteVariantId: "58142212260185" },
       { min: 500,  label: "500",   unitHT: 0.70, tag: null, variantId: "58137195741529", acompteVariantId: "58140136145241" },
       { min: 1000, label: "1 000", unitHT: 0.66, tag: null, variantId: "58137195774297", acompteVariantId: "58140136178009" },
       { min: 2000, label: "2 000", unitHT: 0.63, tag: null, variantId: "58137195807065", acompteVariantId: "58140136210777" },
@@ -80,6 +82,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
       { title: "Certification ISO 12312-2 & marquage CE", text: "Filtres certifiés conformes à la norme internationale ISO 12312-2. Certification CE obtenue auprès d'un laboratoire européen agréé.", link: { href: "/#faq", label: "En savoir plus" } },
       { title: "Filtre solaire optique ND 5.0", text: "Filtration haute densité bloquant plus de 99,999 % de la lumière solaire ainsi que les rayons UV et infrarouges nocifs." },
       { title: "Observation solaire sécurisée", text: "Permet de filmer et photographier l'éclipse solaire en toute sécurité." },
+      { title: "Faible MOQ — Commerce de proximité", text: "Commande dès 80 filtres, idéal pour les épiceries, librairies, offices de tourisme et boutiques de proximité." },
     ],
     color: "#FFB800",
     icon: Smartphone,
@@ -89,7 +92,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     step: 40,
     unit: "filtre",
     tiers: [
-      { min: 80,   label: "80",    unitHT: 0.92, tag: null, variantId: "58142212227417", acompteVariantId: "58142212358489" },
+      { min: 80,   label: "80",    unitHT: 0.92, tag: "Faible MOQ", variantId: "58142212227417", acompteVariantId: "58142212358489" },
       { min: 200,  label: "200",   unitHT: 0.70, tag: null, variantId: "58137196724569", acompteVariantId: "58140136276313" },
       { min: 1000, label: "1 000", unitHT: 0.66, tag: null, variantId: "58137196757337", acompteVariantId: "58140136309081" },
       { min: 2000, label: "2 000", unitHT: 0.63, tag: null, variantId: "58137196790105", acompteVariantId: "58140136341849" },
@@ -425,6 +428,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
   const [quote, setQuote] = useState<QuoteLine[]>([]);
   const [entreprise, setEntreprise] = useState("");
   const [tva, setTva] = useState("");
+  const [activeTab, setActiveTab] = useState<"catalogue" | "calculateur">("catalogue");
   const { sidebarOpen: showQuote, setSidebarOpen: setShowQuote, sync } = useB2BCart();
 
   const addToQuote = (productId: string, qty: number) => {
@@ -570,17 +574,45 @@ export default function B2BCatalog({ session, onLogout }: Props) {
           </a>
         </div>
 
-        {/* Section title */}
+        {/* Section title + Tab switcher */}
         <div className="mb-8">
-          <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-1 font-medium">Catalogue B2B</p>
-          <h1 className="text-2xl sm:text-3xl font-black text-white">
+          <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-1 font-medium">Espace Partenaires B2B</p>
+          <h1 className="text-2xl sm:text-3xl font-black text-white mb-4">
             Collection Éclipse 2026 — <span className="gradient-text-blue">Tarifs Partenaires</span>
           </h1>
-          <p className="text-white/78 text-sm mt-1">
-            Glissez le curseur pour ajuster la quantité — remises automatiques à chaque palier.
-          </p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setActiveTab("catalogue")}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all border"
+              style={{
+                background: activeTab === "catalogue" ? "rgba(34,211,238,0.15)" : "rgba(255,255,255,0.04)",
+                borderColor: activeTab === "catalogue" ? "#22D3EE" : "rgba(255,255,255,0.1)",
+                color: activeTab === "catalogue" ? "#22D3EE" : "rgba(255,255,255,0.6)",
+              }}
+            >
+              <Package size={14} /> Catalogue
+            </button>
+            <button
+              onClick={() => setActiveTab("calculateur")}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all border"
+              style={{
+                background: activeTab === "calculateur" ? "rgba(255,184,0,0.15)" : "rgba(255,255,255,0.04)",
+                borderColor: activeTab === "calculateur" ? "#FFB800" : "rgba(255,255,255,0.1)",
+                color: activeTab === "calculateur" ? "#FFB800" : "rgba(255,255,255,0.6)",
+              }}
+            >
+              <BarChart3 size={14} /> Calculateur de rentabilité
+            </button>
+          </div>
         </div>
 
+        {/* Tab content */}
+        {activeTab === "calculateur" ? (
+          <div className="mb-8">
+            <RentabilityCalculator />
+          </div>
+        ) : (
+          <div>
         {/* Product cards */}
         <div className="grid md:grid-cols-2 gap-6 mb-4">
           {B2B_PRODUCTS.map((p) => (
@@ -658,6 +690,8 @@ export default function B2BCatalog({ session, onLogout }: Props) {
             </table>
           </div>
         </div>
+          </div>
+        )}
       </div>
 
       {/* Quote sidebar */}
