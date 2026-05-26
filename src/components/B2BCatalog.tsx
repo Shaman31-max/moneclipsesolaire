@@ -422,6 +422,8 @@ export default function B2BCatalog({ session, onLogout }: Props) {
   const [quote, setQuote] = useState<QuoteLine[]>([]);
   const [sent, setSent] = useState(false);
   const [showQuote, setShowQuote] = useState(false);
+  const [entreprise, setEntreprise] = useState("");
+  const [tva, setTva] = useState("");
 
   const addToQuote = (productId: string, qty: number) => {
     const p = B2B_PRODUCTS.find((x) => x.id === productId)!;
@@ -438,9 +440,17 @@ export default function B2BCatalog({ session, onLogout }: Props) {
   const totalHT = quote.reduce((s, l) => s + l.qty * l.unitHT, 0);
   const totalTTC = totalHT * (1 + TVA);
   const totalUnits = quote.reduce((s, l) => s + l.qty, 0);
-  const checkoutUrl = quote.length > 0
-    ? `https://ijtkfu-q9.myshopify.com/cart/${quote.map((l) => `${l.variantId}:${l.qty}`).join(",")}`
-    : "#";
+
+  const buildCheckoutUrl = () => {
+    if (quote.length === 0) return "#";
+    const base = `https://ijtkfu-q9.myshopify.com/cart/${quote.map((l) => `${l.variantId}:${l.qty}`).join(",")}`;
+    const params = new URLSearchParams();
+    if (entreprise.trim()) params.set("attributes[Entreprise]", entreprise.trim());
+    if (tva.trim()) params.set("attributes[N° TVA]", tva.trim());
+    const qs = params.toString();
+    return qs ? `${base}?${qs}` : base;
+  };
+  const checkoutUrl = buildCheckoutUrl();
 
   return (
     <div className="min-h-screen bg-[#060412] pt-16">
@@ -669,6 +679,34 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                   <div className="flex justify-between text-base font-black pt-2 border-t border-[#E8F0FF]/8">
                     <span className="text-white">Total TTC</span>
                     <span className="text-[#FFB800]">{fmt(totalTTC)} €</span>
+                  </div>
+                </div>
+
+                {/* Champs optionnels entreprise / TVA */}
+                <div className="space-y-2 mb-4">
+                  <div>
+                    <label className="text-[10px] text-white/50 uppercase tracking-wider font-semibold mb-1 block">
+                      Entreprise <span className="text-white/30 normal-case">(facultatif)</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={entreprise}
+                      onChange={(e) => setEntreprise(e.target.value)}
+                      placeholder="Nom de l'entreprise"
+                      className="w-full bg-white/05 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white placeholder-white/25 outline-none focus:border-[#FFB800]/50 transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] text-white/50 uppercase tracking-wider font-semibold mb-1 block">
+                      N° TVA intracommunautaire <span className="text-white/30 normal-case">(facultatif)</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={tva}
+                      onChange={(e) => setTva(e.target.value)}
+                      placeholder="FR12345678901"
+                      className="w-full bg-white/05 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white placeholder-white/25 outline-none focus:border-[#FFB800]/50 transition-colors font-mono"
+                    />
                   </div>
                 </div>
 
