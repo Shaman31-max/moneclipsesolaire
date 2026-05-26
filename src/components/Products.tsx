@@ -129,6 +129,7 @@ const PRODUCTS: ProductDef[] = [
 function ProductCard({ product }: { product: ProductDef }) {
   const [stepIdx, setStepIdx] = useState(0);
   const [added, setAdded] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const Icon = product.icon;
   const { addItem, removeItem, checkoutUrl } = useCart();
 
@@ -197,47 +198,56 @@ function ProductCard({ product }: { product: ProductDef }) {
         </div>
       </div>
 
-      {/* Description */}
-      {product.bullets ? (
-        <div className="relative z-10 mb-5 space-y-2.5">
-          {product.intro && (
-            <p className="text-sm text-white/80 leading-relaxed mb-3">{product.intro}</p>
+      {/* Description — collapsible */}
+      <div className="relative z-10 mb-4">
+        <AnimatePresence initial={false}>
+          {expanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              {product.bullets ? (
+                <div className="space-y-2.5 mb-3">
+                  {product.intro && (
+                    <p className="text-sm text-white/80 leading-relaxed mb-3">{product.intro}</p>
+                  )}
+                  {product.bullets.map((b) => (
+                    <div key={b.title} className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: `${product.color}20`, border: `1px solid ${product.color}40` }}>
+                        <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: product.color }} />
+                      </div>
+                      <p className="text-sm text-white/85 leading-snug">
+                        <span className="font-bold text-white">{b.title}</span>
+                        {" — "}
+                        <span className="text-white/70">{b.text}</span>
+                      </p>
+                    </div>
+                  ))}
+                  {product.warnings && product.warnings.map((w, i) => (
+                    <p key={i} className="text-xs text-white/45 italic pl-6">{w}</p>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-sm text-white/85 leading-relaxed mb-3">{product.desc}</p>
+              )}
+            </motion.div>
           )}
-          {product.bullets.map((b) => (
-            <div key={b.title} className="flex items-start gap-2.5">
-              <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: `${product.color}20`, border: `1px solid ${product.color}40` }}>
-                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: product.color }} />
-              </div>
-              <p className="text-sm text-white/85 leading-snug">
-                <span className="font-bold text-white">{b.title}</span>
-                {" — "}
-                <span className="text-white/70">{b.text}</span>
-              </p>
-            </div>
-          ))}
-          {product.useCases && product.useCases.length > 0 && (
-            <div className="mt-2">
-              <p className="text-xs font-bold text-white/60 uppercase tracking-widest mb-1.5">Idéal pour</p>
-              <div className="flex flex-wrap gap-2">
-                {product.useCases.map((u) => (
-                  <span key={u} className="text-xs px-2.5 py-1 rounded-full" style={{ backgroundColor: `${product.color}15`, color: product.color, border: `1px solid ${product.color}30` }}>
-                    {u}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-          {product.warning && (
-            <div className="text-[16px] text-white/45 italic mt-1 pl-6 space-y-0.5">
-              {product.warning.split(". ").filter(Boolean).map((line, i) => (
-                <p key={i}>{line}{line.endsWith(".") ? "" : "."}</p>
-              ))}
-            </div>
-          )}
-        </div>
-      ) : (
-        <p className="relative z-10 text-sm text-white/85 leading-relaxed mb-5">{product.desc}</p>
-      )}
+        </AnimatePresence>
+
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          className="flex items-center gap-1.5 text-xs font-semibold transition-colors"
+          style={{ color: expanded ? "rgba(255,255,255,0.5)" : product.color }}
+        >
+          <motion.span animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.25 }}>
+            ▼
+          </motion.span>
+          {expanded ? "Masquer" : "En savoir plus"}
+        </button>
+      </div>
 
       {/* Features */}
       <div className="relative z-10 flex flex-wrap gap-2 mb-6">
