@@ -55,11 +55,12 @@ const B2B_PRODUCTS: B2BProduct[] = [
     color: "#22D3EE",
     icon: Eye,
     features: [],
-    minQty: 500,
+    minQty: 200,
     sliderMax: 5000,
     step: 50,
     unit: "paire",
     tiers: [
+      { min: 200,  label: "200",   unitHT: 0.92, tag: null, variantId: "58142211866969", acompteVariantId: "58142212260185" },
       { min: 500,  label: "500",   unitHT: 0.70, tag: null, variantId: "58137195741529", acompteVariantId: "58140136145241" },
       { min: 1000, label: "1 000", unitHT: 0.66, tag: null, variantId: "58137195774297", acompteVariantId: "58140136178009" },
       { min: 2000, label: "2 000", unitHT: 0.63, tag: null, variantId: "58137195807065", acompteVariantId: "58140136210777" },
@@ -83,12 +84,13 @@ const B2B_PRODUCTS: B2BProduct[] = [
     color: "#FFB800",
     icon: Smartphone,
     features: [],
-    minQty: 200,
+    minQty: 80,
     sliderMax: 3000,
     step: 40,
     unit: "filtre",
     tiers: [
-      { min: 500,  label: "500",   unitHT: 0.70, tag: null, variantId: "58137196724569", acompteVariantId: "58140136276313" },
+      { min: 80,   label: "80",    unitHT: 0.92, tag: null, variantId: "58142212227417", acompteVariantId: "58142212358489" },
+      { min: 200,  label: "200",   unitHT: 0.70, tag: null, variantId: "58137196724569", acompteVariantId: "58140136276313" },
       { min: 1000, label: "1 000", unitHT: 0.66, tag: null, variantId: "58137196757337", acompteVariantId: "58140136309081" },
       { min: 2000, label: "2 000", unitHT: 0.63, tag: null, variantId: "58137196790105", acompteVariantId: "58140136341849" },
       { min: 5000, label: "5 000", unitHT: 0.61, tag: null, variantId: "58137196822873", acompteVariantId: "58140136374617" },
@@ -515,8 +517,8 @@ export default function B2BCatalog({ session, onLogout }: Props) {
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-4 sm:gap-6 items-center">
             {[
               { icon: ShieldCheck, label: "Prix unitaire HT", value: "à partir de 0,61 € HT" },
-              { icon: Eye, label: "Min. Lunettes", value: "500 paires" },
-              { icon: Smartphone, label: "Min. Filtres", value: "200 unités" },
+              { icon: Eye, label: "Min. Lunettes", value: "200 paires" },
+              { icon: Smartphone, label: "Min. Filtres", value: "80 unités" },
               { icon: Truck, label: "Délai livraison", value: "Selon calendrier", href: "/#commande" },
               { icon: FileText, label: "Paiement", value: "50% acompte, solde à réception" },
             ].map(({ icon: Icon, label, value, href }: { icon: React.ComponentType<{ size?: number; className?: string }>; label: string; value: string; href?: string }) => (
