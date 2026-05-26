@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ShoppingCart, Factory, Truck, Sun, ChevronRight, CheckCircle } from "lucide-react";
 
 const ECLIPSE_DATE = new Date("2026-08-12T10:00:00+02:00");
+const BATCH0_DEADLINE = new Date("2026-06-07T23:59:59+02:00");
 const BATCH1_DEADLINE = new Date("2026-06-15T23:59:59+02:00");
 
 function daysUntil(date: Date) {
@@ -12,17 +13,20 @@ function daysUntil(date: Date) {
 }
 
 export default function BatchSystem() {
+  const [days0, setDays0] = useState(daysUntil(BATCH0_DEADLINE));
   const [days1, setDays1] = useState(daysUntil(BATCH1_DEADLINE));
   const [daysEclipse, setDaysEclipse] = useState(daysUntil(ECLIPSE_DATE));
 
   useEffect(() => {
     const id = setInterval(() => {
+      setDays0(daysUntil(BATCH0_DEADLINE));
       setDays1(daysUntil(BATCH1_DEADLINE));
       setDaysEclipse(daysUntil(ECLIPSE_DATE));
     }, 60000);
     return () => clearInterval(id);
   }, []);
 
+  const batch0Active = days0 > 0;
   const batch1Active = days1 > 0;
 
   return (
@@ -54,81 +58,92 @@ export default function BatchSystem() {
           </p>
         </motion.div>
 
-        {/* Badge batch 1 actif */}
-        {batch1Active && (
+        {/* Badge phase active */}
+        {batch0Active && (
           <div className="flex justify-center mb-6">
             <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-[#22c55e]/40 bg-[#22c55e]/10">
               <span className="w-2 h-2 rounded-full bg-[#22c55e] corona-pulse" />
               <span className="text-sm font-bold text-[#22c55e]">
-                Phase 1 ouverte — encore {days1} jour{days1 > 1 ? "s" : ""} pour commander
+                Phase 1 ouverte — encore {days0} jour{days0 > 1 ? "s" : ""} pour commander (livraison 6 juillet)
               </span>
             </div>
           </div>
         )}
 
-        {/* ── Phases + Frises côte à côte ── */}
-        <div className="grid md:grid-cols-2 gap-6 mb-10">
+        {/* ── Phases ── */}
+        <div className="grid md:grid-cols-3 gap-4 mb-10">
 
-          {/* Colonne 1 : Phase 1 + Frise */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col"
-          >
-            {/* Carte Phase 1 */}
-            <div
-              className="relative glass rounded-2xl p-6 border-2 overflow-hidden"
-              style={{ borderColor: batch1Active ? "#22c55e60" : "#22D3EE30" }}
-            >
-              {batch1Active && (
+          {/* Phase 1 — Express */}
+          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <div className="relative glass rounded-2xl p-6 border-2 overflow-hidden h-full"
+              style={{ borderColor: batch0Active ? "#22c55e60" : "#22c55e20" }}>
+              {batch0Active && (
                 <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-[#22c55e]/20 border border-[#22c55e]/40 text-[10px] font-black text-[#22c55e] uppercase tracking-wider">
                   Ouverte
                 </div>
               )}
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-[#22D3EE]/15 border border-[#22D3EE]/30 flex items-center justify-center font-black text-[#22D3EE] text-lg">1</div>
+                <div className="w-10 h-10 rounded-xl bg-[#22c55e]/15 border border-[#22c55e]/30 flex items-center justify-center font-black text-[#22c55e] text-lg">1</div>
                 <div>
                   <div className="font-black text-white text-base">Phase 1</div>
-                  <div className="text-[10px] text-white/55 uppercase tracking-wider">Première série</div>
+                  <div className="text-[10px] text-white/55 uppercase tracking-wider">Livraison rapide</div>
                 </div>
               </div>
               <div className="space-y-3">
-                <PhaseStep icon={ShoppingCart} color="#22c55e" label="Commandes ouvertes" value="maintenant → 15 juin" />
-                <PhaseStep icon={Factory} color="#22D3EE" label="Production" value="fin juin / début juillet" />
-                <PhaseStep icon={Truck} color="#FFB800" label="Expéditions & livraisons" value="à partir du 20 juillet" />
+                <PhaseStep icon={ShoppingCart} color="#22c55e" label="Commandes ouvertes" value="maintenant → 07 juin" />
+                <PhaseStep icon={Factory} color="#22D3EE" label="Production" value="courant juin" />
+                <PhaseStep icon={Truck} color="#FFB800" label="Livraison" value="06 juillet" />
               </div>
             </div>
           </motion.div>
 
-          {/* Colonne 2 : Phase 2 + Frise */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col"
-          >
-            {/* Carte Phase 2 */}
-            <div
-              className="relative glass rounded-2xl p-6 border-2 overflow-hidden"
-              style={{ borderColor: "#FFB80030" }}
-            >
+          {/* Phase 2 */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
+            <div className="relative glass rounded-2xl p-6 border-2 overflow-hidden h-full"
+              style={{ borderColor: !batch0Active && batch1Active ? "#22D3EE60" : "#22D3EE20" }}>
+              {!batch0Active && batch1Active && (
+                <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-[#22D3EE]/20 border border-[#22D3EE]/40 text-[10px] font-black text-[#22D3EE] uppercase tracking-wider">
+                  Ouverte
+                </div>
+              )}
+              {batch0Active && (
+                <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-black text-white/40 uppercase tracking-wider">
+                  Bientôt
+                </div>
+              )}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-[#22D3EE]/15 border border-[#22D3EE]/30 flex items-center justify-center font-black text-[#22D3EE] text-lg">2</div>
+                <div>
+                  <div className="font-black text-white text-base">Phase 2</div>
+                  <div className="text-[10px] text-white/55 uppercase tracking-wider">Première série</div>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <PhaseStep icon={ShoppingCart} color="#22D3EE" label="Commandes ouvertes" value="08 juin → 15 juin" />
+                <PhaseStep icon={Factory} color="#22D3EE" label="Production" value="fin juin / début juillet" />
+                <PhaseStep icon={Truck} color="#FFB800" label="Livraison" value="à partir du 20 juillet" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Phase 3 */}
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
+            <div className="relative glass rounded-2xl p-6 border-2 overflow-hidden h-full"
+              style={{ borderColor: "#FFB80030" }}>
               <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-[#FFB800]/15 border border-[#FFB800]/30 text-[10px] font-black text-[#FFB800] uppercase tracking-wider">
                 Bientôt
               </div>
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-[#FFB800]/15 border border-[#FFB800]/30 flex items-center justify-center font-black text-[#FFB800] text-lg">2</div>
+                <div className="w-10 h-10 rounded-xl bg-[#FFB800]/15 border border-[#FFB800]/30 flex items-center justify-center font-black text-[#FFB800] text-lg">3</div>
                 <div>
-                  <div className="font-black text-white text-base">Phase 2</div>
+                  <div className="font-black text-white text-base">Phase 3</div>
                   <div className="text-[10px] text-white/55 uppercase tracking-wider">Dernière série</div>
                 </div>
               </div>
               <div className="space-y-3">
                 <PhaseStep icon={ShoppingCart} color="#FFB800" label="Commandes ouvertes" value="16 juin → 24 juin" />
                 <PhaseStep icon={Factory} color="#FFB800" label="Production" value="juillet" />
-                <PhaseStep icon={Truck} color="#22D3EE" label="Expéditions & livraisons" value="à partir du 1er août" />
+                <PhaseStep icon={Truck} color="#22D3EE" label="Livraison" value="à partir du 1er août" />
               </div>
             </div>
           </motion.div>

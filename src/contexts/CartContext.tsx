@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, useCallback } from "react";
 
-const SHOPIFY_STORE = "https://ijtkfu-q9.myshopify.com";
+const SHOPIFY_STORE = "https://shop.moneclipsesolaire.fr";
 
 export type CartItem = {
   variantNumericId: string;

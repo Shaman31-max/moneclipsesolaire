@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { motion } from "framer-motion";
-import { Building2, ArrowRight, Package, Percent, Truck, ShieldCheck } from "lucide-react";
+import { Building2, ArrowRight, Package, Percent, Truck, ShieldCheck, BarChart3 } from "lucide-react";
 
 const perks = [
   { icon: Percent, text: "Des remises exclusives" },
@@ -59,24 +59,37 @@ export default function B2BTeaser() {
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col gap-3">
                 <motion.a
-                  href="/b2b"
-                  whileHover={{ scale: 1.03 }}
+                  href="/b2b?tab=calculateur"
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#FFB800] text-black font-bold text-sm glow-gold hover:bg-[#FFC933] transition-colors"
+                  className="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-2xl font-black text-base text-black transition-colors"
+                  style={{ background: "linear-gradient(135deg, #22D3EE, #0891B2)", boxShadow: "0 0 32px rgba(34,211,238,0.35)" }}
                 >
-                  Accéder à l'espace partenaires
-                  <ArrowRight size={15} />
+                  <BarChart3 size={20} />
+                  Calculer ma rentabilité
+                  <ArrowRight size={18} />
                 </motion.a>
-                <motion.a
-                  href="mailto:b2b@moneclipsesolaire.fr?subject=Demande%20d%27acc%C3%A8s%20espace%20partenaires"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border border-[#22D3EE]/40 text-white font-bold text-sm hover:border-[#22D3EE] hover:text-[#22D3EE] transition-colors"
-                >
-                  Demandez vos accès
-                </motion.a>
+                <div className="flex flex-wrap gap-3">
+                  <motion.a
+                    href="/b2b"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#FFB800] text-black font-bold text-sm glow-gold hover:bg-[#FFC933] transition-colors"
+                  >
+                    Espace partenaires
+                    <ArrowRight size={14} />
+                  </motion.a>
+                  <motion.a
+                    href="mailto:b2b@moneclipsesolaire.fr?subject=Demande%20d%27acc%C3%A8s%20espace%20partenaires"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-[#22D3EE]/40 text-white font-bold text-sm hover:border-[#22D3EE] hover:text-[#22D3EE] transition-colors"
+                  >
+                    Demandez vos accès
+                  </motion.a>
+                </div>
               </div>
             </div>
 

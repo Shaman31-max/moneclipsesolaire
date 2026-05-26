@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { useB2BCart } from "@/contexts/B2BCartContext";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -189,13 +189,22 @@ function B2BProductCard({
   product,
   onAddToQuote,
   inQuote,
+  recommendedQty,
 }: {
   product: B2BProduct;
   onAddToQuote: (id: string, qty: number) => void;
   inQuote: boolean;
+  recommendedQty?: number;
 }) {
   const [qty, setQty] = useState(product.minQty);
   const [prevTierIdx, setPrevTierIdx] = useState(0);
+
+  useEffect(() => {
+    if (recommendedQty === undefined) return;
+    const snapped = Math.round(recommendedQty / product.step) * product.step;
+    const clamped = Math.max(product.minQty, Math.min(product.sliderMax, snapped));
+    setQty(clamped);
+  }, [recommendedQty, product.step, product.minQty, product.sliderMax]);
 
   const activeTier = [...product.tiers].reverse().find((t) => qty >= t.min) ?? product.tiers[0];
   const tierIdx = product.tiers.indexOf(activeTier);
@@ -326,11 +335,14 @@ function B2BProductCard({
       <div className="relative z-10 mb-5">
         <div className="flex items-center justify-between mb-3">
           <span className="text-xs font-bold text-white/82 uppercase tracking-wider">Quantité</span>
-          <div className="flex items-baseline gap-1.5">
+          <div className="flex items-baseline gap-2">
             <span className="text-xl sm:text-2xl font-black tabular-nums" style={{ color: product.color }}>
               {qty.toLocaleString("fr-FR")}
             </span>
             <span className="text-xs text-white/72">{product.unit}s</span>
+            <span className="text-xs text-white/40">·</span>
+            <span className="text-sm font-bold text-white/55">{Math.ceil(qty / 50)}</span>
+            <span className="text-xs text-white/40">packs de 50</span>
           </div>
         </div>
         <B2BSlider qty={qty} onChange={handleQty} color={product.color} product={product} />
@@ -428,7 +440,14 @@ export default function B2BCatalog({ session, onLogout }: Props) {
   const [quote, setQuote] = useState<QuoteLine[]>([]);
   const [entreprise, setEntreprise] = useState("");
   const [tva, setTva] = useState("");
-  const [activeTab, setActiveTab] = useState<"catalogue" | "calculateur">("catalogue");
+  const [recommendedQty, setRecommendedQty] = useState<number | undefined>(undefined);
+  const [activeTab, setActiveTab] = useState<"catalogue" | "calculateur">(() => {
+    if (typeof window !== "undefined") {
+      const p = new URLSearchParams(window.location.search);
+      if (p.get("tab") === "calculateur") return "calculateur";
+    }
+    return "catalogue";
+  });
   const { sidebarOpen: showQuote, setSidebarOpen: setShowQuote, sync } = useB2BCart();
 
   const addToQuote = (productId: string, qty: number) => {
@@ -577,39 +596,54 @@ export default function B2BCatalog({ session, onLogout }: Props) {
         {/* Section title + Tab switcher */}
         <div className="mb-8">
           <p className="text-xs uppercase tracking-[0.3em] text-[#22D3EE] mb-1 font-medium">Espace Partenaires B2B</p>
-          <h1 className="text-2xl sm:text-3xl font-black text-white mb-4">
-            Collection Éclipse 2026 — <span className="gradient-text-blue">Tarifs Partenaires</span>
-          </h1>
-          <div className="flex gap-2">
-            <button
-              onClick={() => setActiveTab("catalogue")}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all border"
-              style={{
-                background: activeTab === "catalogue" ? "rgba(34,211,238,0.15)" : "rgba(255,255,255,0.04)",
-                borderColor: activeTab === "catalogue" ? "#22D3EE" : "rgba(255,255,255,0.1)",
-                color: activeTab === "catalogue" ? "#22D3EE" : "rgba(255,255,255,0.6)",
-              }}
-            >
-              <Package size={14} /> Catalogue
-            </button>
-            <button
-              onClick={() => setActiveTab("calculateur")}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all border"
-              style={{
-                background: activeTab === "calculateur" ? "rgba(255,184,0,0.15)" : "rgba(255,255,255,0.04)",
-                borderColor: activeTab === "calculateur" ? "#FFB800" : "rgba(255,255,255,0.1)",
-                color: activeTab === "calculateur" ? "#FFB800" : "rgba(255,255,255,0.6)",
-              }}
-            >
-              <BarChart3 size={14} /> Calculateur de rentabilité
-            </button>
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <h1 className="text-2xl sm:text-3xl font-black text-white">
+              {activeTab === "catalogue"
+                ? <>Collection Éclipse 2026 — <span className="gradient-text-blue">Catalogue</span></>
+                : <>Simulateur de <span className="gradient-text-blue">Vente</span></>
+              }
+            </h1>
+            <div className="flex gap-2">
+              <button
+                onClick={() => setActiveTab("catalogue")}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all border"
+                style={{
+                  background: activeTab === "catalogue" ? "rgba(34,211,238,0.15)" : "rgba(255,255,255,0.04)",
+                  borderColor: activeTab === "catalogue" ? "#22D3EE" : "rgba(255,255,255,0.1)",
+                  color: activeTab === "catalogue" ? "#22D3EE" : "rgba(255,255,255,0.6)",
+                }}
+              >
+                <Package size={14} /> Catalogue
+              </button>
+              <button
+                onClick={() => setActiveTab("calculateur")}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all border"
+                style={{
+                  background: activeTab === "calculateur" ? "rgba(255,184,0,0.15)" : "rgba(255,255,255,0.04)",
+                  borderColor: activeTab === "calculateur" ? "#FFB800" : "rgba(255,255,255,0.1)",
+                  color: activeTab === "calculateur" ? "#FFB800" : "rgba(255,255,255,0.6)",
+                }}
+              >
+                <BarChart3 size={14} /> Simulateur
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Hint calculateur */}
+        {activeTab === "catalogue" && (
+          <p className="text-sm text-white/35 -mt-4 mb-6">
+            Perdu sur les quantités ?{" "}
+            <button onClick={() => setActiveTab("calculateur")} className="text-[#FFB800] font-semibold hover:underline underline-offset-2 transition-colors">
+              Cliquez ici pour accéder à notre simulateur →
+            </button>
+          </p>
+        )}
 
         {/* Tab content */}
         {activeTab === "calculateur" ? (
           <div className="mb-8">
-            <RentabilityCalculator onOrder={() => setActiveTab("catalogue")} />
+            <RentabilityCalculator onOrder={(units) => { setRecommendedQty(units); setActiveTab("catalogue"); }} />
           </div>
         ) : (
           <div>
@@ -621,6 +655,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
               product={p}
               onAddToQuote={addToQuote}
               inQuote={quote.some((l) => l.productId === p.id)}
+              recommendedQty={p.id === "glasses" ? recommendedQty : undefined}
             />
           ))}
         </div>
