@@ -162,7 +162,7 @@ function ProductCard({ product }: { product: ProductDef }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="relative glass rounded-3xl p-8 border flex flex-col overflow-hidden"
+      className="relative glass rounded-3xl p-5 border flex flex-col overflow-hidden"
       style={{ borderColor: `${product.color}20` }}
     >
       <div
@@ -172,7 +172,7 @@ function ProductCard({ product }: { product: ProductDef }) {
 
       {/* Product image */}
       {product.image && (
-        <div className="relative z-10 w-full h-48 mb-4 -mt-2 flex items-center justify-center">
+        <div className="relative z-10 w-full h-32 mb-3 flex items-center justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={product.image}
@@ -183,12 +183,12 @@ function ProductCard({ product }: { product: ProductDef }) {
       )}
 
       {/* Icon + title */}
-      <div className="relative z-10 flex items-start gap-4 mb-6">
+      <div className="relative z-10 flex items-start gap-3 mb-3">
         <div
-          className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
+          className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
           style={{ backgroundColor: `${product.color}15`, border: `1px solid ${product.color}30` }}
         >
-          <Icon size={26} style={{ color: product.color }} />
+          <Icon size={20} style={{ color: product.color }} />
         </div>
         <div>
           <div className="text-[12px] uppercase tracking-[0.25em] mb-1" style={{ color: product.color }}>
@@ -199,7 +199,7 @@ function ProductCard({ product }: { product: ProductDef }) {
       </div>
 
       {/* Description — collapsible */}
-      <div className="relative z-10 mb-4">
+      <div className="relative z-10 mb-3">
         <AnimatePresence initial={false}>
           {expanded && (
             <motion.div
