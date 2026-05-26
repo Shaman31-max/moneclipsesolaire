@@ -32,7 +32,7 @@ type B2BProduct = {
   minQty: number;
   sliderMax: number;
   step: number;
-  tiers: { min: number; label: string; unitHT: number; tag: string | null; variantId: string }[];
+  tiers: { min: number; label: string; unitHT: number; tag: string | null; variantId: string; acompteVariantId: string }[];
   unit: string;
 };
 
@@ -59,10 +59,10 @@ const B2B_PRODUCTS: B2BProduct[] = [
     step: 50,
     unit: "paire",
     tiers: [
-      { min: 500,  label: "500",   unitHT: 0.70, tag: null, variantId: "58137195741529" },
-      { min: 1000, label: "1 000", unitHT: 0.66, tag: null, variantId: "58137195774297" },
-      { min: 2000, label: "2 000", unitHT: 0.63, tag: null, variantId: "58137195807065" },
-      { min: 5000, label: "5 000", unitHT: 0.61, tag: null, variantId: "58137195839833" },
+      { min: 500,  label: "500",   unitHT: 0.70, tag: null, variantId: "58137195741529", acompteVariantId: "58140136145241" },
+      { min: 1000, label: "1 000", unitHT: 0.66, tag: null, variantId: "58137195774297", acompteVariantId: "58140136178009" },
+      { min: 2000, label: "2 000", unitHT: 0.63, tag: null, variantId: "58137195807065", acompteVariantId: "58140136210777" },
+      { min: 5000, label: "5 000", unitHT: 0.61, tag: null, variantId: "58137195839833", acompteVariantId: "58140136243545" },
     ],
   },
   {
@@ -87,10 +87,10 @@ const B2B_PRODUCTS: B2BProduct[] = [
     step: 20,
     unit: "filtre",
     tiers: [
-      { min: 500,  label: "500",   unitHT: 0.70, tag: null, variantId: "58137196724569" },
-      { min: 1000, label: "1 000", unitHT: 0.66, tag: null, variantId: "58137196757337" },
-      { min: 2000, label: "2 000", unitHT: 0.63, tag: null, variantId: "58137196790105" },
-      { min: 5000, label: "5 000", unitHT: 0.61, tag: null, variantId: "58137196822873" },
+      { min: 500,  label: "500",   unitHT: 0.70, tag: null, variantId: "58137196724569", acompteVariantId: "58140136276313" },
+      { min: 1000, label: "1 000", unitHT: 0.66, tag: null, variantId: "58137196757337", acompteVariantId: "58140136309081" },
+      { min: 2000, label: "2 000", unitHT: 0.63, tag: null, variantId: "58137196790105", acompteVariantId: "58140136341849" },
+      { min: 5000, label: "5 000", unitHT: 0.61, tag: null, variantId: "58137196822873", acompteVariantId: "58140136374617" },
     ],
   },
 ];
@@ -415,7 +415,7 @@ function B2BProductCard({
 }
 
 // ── Main catalog ─────────────────────────────────────────────────
-type QuoteLine = { productId: string; qty: number; unitHT: number; name: string; variantId: string };
+type QuoteLine = { productId: string; qty: number; unitHT: number; name: string; variantId: string; acompteVariantId: string };
 type Props = { session: B2BSession; onLogout: () => void };
 
 export default function B2BCatalog({ session, onLogout }: Props) {
@@ -429,10 +429,11 @@ export default function B2BCatalog({ session, onLogout }: Props) {
     const tier = [...p.tiers].reverse().find((t) => qty >= t.min)!;
     const unitHT = tier.unitHT;
     const variantId = tier.variantId;
+    const acompteVariantId = tier.acompteVariantId;
     setQuote((q) => {
       const exists = q.find((l) => l.productId === productId);
-      if (exists) return q.map((l) => l.productId === productId ? { ...l, qty, unitHT, variantId } : l);
-      return [...q, { productId, qty, unitHT, variantId, name: p.name }];
+      if (exists) return q.map((l) => l.productId === productId ? { ...l, qty, unitHT, variantId, acompteVariantId } : l);
+      return [...q, { productId, qty, unitHT, variantId, acompteVariantId, name: p.name }];
     });
   };
 
@@ -440,16 +441,18 @@ export default function B2BCatalog({ session, onLogout }: Props) {
   const totalTTC = totalHT * (1 + TVA);
   const totalUnits = quote.reduce((s, l) => s + l.qty, 0);
 
-  const buildCheckoutUrl = () => {
+  const buildUrl = (useAcompte: boolean) => {
     if (quote.length === 0) return "#";
-    const base = `https://ijtkfu-q9.myshopify.com/cart/${quote.map((l) => `${l.variantId}:${l.qty}`).join(",")}`;
+    const items = quote.map((l) => `${useAcompte ? l.acompteVariantId : l.variantId}:${l.qty}`).join(",");
+    const base = `https://ijtkfu-q9.myshopify.com/cart/${items}`;
     const params = new URLSearchParams();
     if (entreprise.trim()) params.set("attributes[Entreprise]", entreprise.trim());
     if (tva.trim()) params.set("attributes[N° TVA]", tva.trim());
     const qs = params.toString();
     return qs ? `${base}?${qs}` : base;
   };
-  const checkoutUrl = buildCheckoutUrl();
+  const checkoutUrl = buildUrl(false);
+  const acompteUrl = buildUrl(true);
 
   return (
     <div className="min-h-screen bg-[#060412] pt-16">
@@ -723,7 +726,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                 <div className="mt-3 pt-3 border-t border-white/06">
                   <p className="text-[10px] text-white/45 text-center mb-2">— ou régler en 2 fois —</p>
                   <a
-                    href={`https://ijtkfu-q9.myshopify.com/cart/58139934916953:${Math.round(totalTTC * 50)}`}
+                    href={acompteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm text-black bg-[#FFB800] hover:bg-[#e6a700] transition-colors"
