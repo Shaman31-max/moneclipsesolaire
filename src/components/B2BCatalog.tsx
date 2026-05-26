@@ -59,10 +59,10 @@ const B2B_PRODUCTS: B2BProduct[] = [
     step: 50,
     unit: "paire",
     tiers: [
-      { min: 500,  label: "500",   unitHT: 0.695, tag: null, variantId: "58137195741529" },
-      { min: 1000, label: "1 000", unitHT: 0.663, tag: null, variantId: "58137195774297" },
-      { min: 2000, label: "2 000", unitHT: 0.630, tag: null, variantId: "58137195807065" },
-      { min: 5000, label: "5 000", unitHT: 0.610, tag: null, variantId: "58137195839833" },
+      { min: 500,  label: "500",   unitHT: 0.70, tag: null, variantId: "58137195741529" },
+      { min: 1000, label: "1 000", unitHT: 0.66, tag: null, variantId: "58137195774297" },
+      { min: 2000, label: "2 000", unitHT: 0.63, tag: null, variantId: "58137195807065" },
+      { min: 5000, label: "5 000", unitHT: 0.61, tag: null, variantId: "58137195839833" },
     ],
   },
   {
@@ -87,10 +87,10 @@ const B2B_PRODUCTS: B2BProduct[] = [
     step: 20,
     unit: "filtre",
     tiers: [
-      { min: 500,  label: "500",   unitHT: 0.695, tag: null, variantId: "58137196724569" },
-      { min: 1000, label: "1 000", unitHT: 0.663, tag: null, variantId: "58137196757337" },
-      { min: 2000, label: "2 000", unitHT: 0.630, tag: null, variantId: "58137196790105" },
-      { min: 5000, label: "5 000", unitHT: 0.610, tag: null, variantId: "58137196822873" },
+      { min: 500,  label: "500",   unitHT: 0.70, tag: null, variantId: "58137196724569" },
+      { min: 1000, label: "1 000", unitHT: 0.66, tag: null, variantId: "58137196757337" },
+      { min: 2000, label: "2 000", unitHT: 0.63, tag: null, variantId: "58137196790105" },
+      { min: 5000, label: "5 000", unitHT: 0.61, tag: null, variantId: "58137196822873" },
     ],
   },
 ];
@@ -497,7 +497,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
         >
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-4 sm:gap-6 items-center">
             {[
-              { icon: ShieldCheck, label: "Prix unitaire HT", value: "à partir de 0,61 €" },
+              { icon: ShieldCheck, label: "Prix unitaire HT", value: "à partir de 0,61 € HT" },
               { icon: Eye, label: "Min. Lunettes", value: "500 paires" },
               { icon: Smartphone, label: "Min. Filtres", value: "200 unités" },
               { icon: Truck, label: "Délai livraison", value: "Selon calendrier", href: "/#commande" },
