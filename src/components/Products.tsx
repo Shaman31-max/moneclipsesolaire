@@ -150,7 +150,7 @@ function ProductCard({ product }: { product: ProductDef }) {
     } else {
       addItem({
         variantNumericId,
-        qty: isFixed ? 1 : step.qty,
+        qty: 1,
         name: product.name,
         price: isFixed ? product.fixedPrice! : step.total,
         productId: product.id,

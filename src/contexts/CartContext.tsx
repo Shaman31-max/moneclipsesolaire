@@ -29,7 +29,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const saved = localStorage.getItem("mes_cart");
-      if (saved) setItems(JSON.parse(saved));
+      if (saved) {
+        const parsed: CartItem[] = JSON.parse(saved);
+        // Force qty:1 per item (variants already encode the pack size)
+        setItems(parsed.map((i) => ({ ...i, qty: 1 })));
+      }
     } catch {}
   }, []);
 
@@ -53,7 +57,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const checkoutUrl = items.length === 0
     ? "#"
-    : `${SHOPIFY_STORE}/cart/${items.map((i) => `${i.variantNumericId}:${i.qty}`).join(",")}`;
+    : `${SHOPIFY_STORE}/cart/${items.map((i) => `${i.variantNumericId}:1`).join(",")}`;
 
   const totalItems = items.reduce((s, i) => s + i.qty, 0);
 

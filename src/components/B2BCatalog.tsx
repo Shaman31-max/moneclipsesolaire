@@ -609,7 +609,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
         {/* Tab content */}
         {activeTab === "calculateur" ? (
           <div className="mb-8">
-            <RentabilityCalculator />
+            <RentabilityCalculator onOrder={() => setActiveTab("catalogue")} />
           </div>
         ) : (
           <div>
