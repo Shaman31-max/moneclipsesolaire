@@ -632,7 +632,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
 
             <div className="flex-1 overflow-y-auto px-6 py-4 space-y-3">
               {quote.length === 0 ? (
-                <p className="text-center text-sm text-white/65 py-12">Aucun produit dans le devis</p>
+                <p className="text-center text-sm text-white/65 py-12">Aucun produit dans le panier</p>
               ) : quote.map((line) => {
                 const p = B2B_PRODUCTS.find((x) => x.id === line.productId)!;
                 return (
