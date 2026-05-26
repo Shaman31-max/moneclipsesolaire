@@ -74,7 +74,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     subtitle: "Filmer & photographier l'éclipse",
     desc: "",
     bullets: [
-      { title: "Packaging en pack de 20 unités avec présentoir", text: "Pour faciliter la distribution." },
+      { title: "Packaging en pack de 40 unités avec présentoir", text: "Pour faciliter la distribution." },
       { title: "Code-barres EAN standardisé", text: "Pour un passage en caisse rapide et simplifié." },
       { title: "Certification ISO 12312-2 & marquage CE", text: "Filtres certifiés conformes à la norme internationale ISO 12312-2. Certification CE obtenue auprès d'un laboratoire européen agréé.", link: { href: "/#faq", label: "En savoir plus" } },
       { title: "Filtre solaire optique ND 5.0", text: "Filtration haute densité bloquant plus de 99,999 % de la lumière solaire ainsi que les rayons UV et infrarouges nocifs." },
@@ -85,7 +85,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     features: [],
     minQty: 200,
     sliderMax: 3000,
-    step: 20,
+    step: 40,
     unit: "filtre",
     tiers: [
       { min: 500,  label: "500",   unitHT: 0.70, tag: null, variantId: "58137196724569", acompteVariantId: "58140136276313" },
