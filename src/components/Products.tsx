@@ -43,6 +43,7 @@ type ProductDef = {
   variantIds?: string[];
   fixedPrice?: number;
   image?: string;
+  badge?: string;
 };
 
 const PRODUCTS: ProductDef[] = [
@@ -61,6 +62,7 @@ const PRODUCTS: ProductDef[] = [
     unit: "paire",
     color: "#FFB800",
     icon: Eye,
+    badge: "ISO 12312-2",
     features: [],
     variantId: "gid://shopify/ProductVariant/58137193283929",
     variantIds: [
@@ -96,6 +98,7 @@ const PRODUCTS: ProductDef[] = [
     color: "#FFB800",
     icon: Smartphone,
     features: [],
+    badge: "ISO 12312-2",
     variantId: "gid://shopify/ProductVariant/58137193644377",
     variantIds: [
       "gid://shopify/ProductVariant/58137193644377",
@@ -194,7 +197,14 @@ function ProductCard({ product }: { product: ProductDef }) {
           <div className="text-[12px] uppercase tracking-[0.25em] mb-1" style={{ color: product.color }}>
             {product.subtitle}
           </div>
-          <h3 className="text-xl font-black text-[#DCE8FF] leading-tight">{product.name}</h3>
+          <div className="flex items-center gap-2 flex-wrap">
+            <h3 className="text-xl font-black text-[#DCE8FF] leading-tight">{product.name}</h3>
+            {product.badge && (
+              <span className="px-2 py-0.5 rounded-full text-[9px] font-bold text-[#FFB800] border border-[#22D3EE]/30 bg-[#22D3EE]/12 whitespace-nowrap">
+                ✓ {product.badge}
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
