@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart, Eye, Smartphone, CheckCircle, Zap, BookOpen } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
 
 const PRICE_STEPS = [
   { qty: 1,  total: 4.99,  mention: "Solo" },
@@ -129,17 +130,29 @@ function ProductCard({ product }: { product: ProductDef }) {
   const [stepIdx, setStepIdx] = useState(0);
   const [added, setAdded] = useState(false);
   const Icon = product.icon;
+  const { addItem, removeItem, checkoutUrl } = useCart();
 
   const step = PRICE_STEPS[stepIdx];
   const unitPrice = step.total / step.qty;
   const isFixed = !!product.fixedPrice;
 
   const activeVariantId = product.variantIds ? product.variantIds[stepIdx] : product.variantId;
-  const variantNumericId = activeVariantId.split("/").pop();
-  const checkoutUrl = `https://ijtkfu-q9.myshopify.com/cart/${variantNumericId}:1`;
+  const variantNumericId = activeVariantId.split("/").pop()!;
 
   const handleAdd = () => {
-    setAdded(true);
+    if (added) {
+      removeItem(product.id);
+      setAdded(false);
+    } else {
+      addItem({
+        variantNumericId,
+        qty: isFixed ? 1 : step.qty,
+        name: product.name,
+        price: isFixed ? product.fixedPrice! : step.total,
+        productId: product.id,
+      });
+      setAdded(true);
+    }
   };
 
   return (
@@ -321,7 +334,14 @@ function ProductCard({ product }: { product: ProductDef }) {
             <input
               type="checkbox"
               checked={added}
-              onChange={(e) => { setAdded(e.target.checked); }}
+              onChange={(e) => {
+                if (e.target.checked) {
+                  addItem({ variantNumericId, qty: 1, name: product.name, price: product.fixedPrice!, productId: product.id });
+                } else {
+                  removeItem(product.id);
+                }
+                setAdded(e.target.checked);
+              }}
               className="w-5 h-5 rounded cursor-pointer"
               style={{ accentColor: product.color }}
             />
@@ -356,6 +376,8 @@ function ProductCard({ product }: { product: ProductDef }) {
               {added && (
                 <motion.a
                   href={checkoutUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: -6 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}

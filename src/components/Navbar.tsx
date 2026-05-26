@@ -3,17 +3,20 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
 
 const links = [
   { href: "/#produits", label: "Commander" },
   { href: "/#eclipse", label: "L'Éclipse" },
   { href: "/#faq", label: "FAQ" },
   { href: "/b2b", label: "Partenaires B2B", badge: true },
-  { href: "/compte", label: "Mon Compte" },
+  { href: "/suivi", label: "Suivre ma commande" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { totalItems, checkoutUrl } = useCart();
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
@@ -64,7 +67,20 @@ export default function Navbar() {
         {/* Spacer on smaller screens */}
         <div className="flex-1 xl:hidden" />
 
-        <div />
+        {/* Cart button */}
+        {totalItems > 0 && (
+          <a
+            href={checkoutUrl}
+            className="relative flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-black text-black bg-[#FFB800] hover:bg-[#e6a700] transition-colors flex-shrink-0"
+            style={{ boxShadow: "0 0 18px rgba(255,184,0,0.45)" }}
+          >
+            <ShoppingCart size={15} />
+            <span className="hidden sm:inline">Panier</span>
+            <span className="w-5 h-5 rounded-full bg-black/25 text-[10px] font-bold flex items-center justify-center">
+              {totalItems}
+            </span>
+          </a>
+        )}
       </div>
 
       {/* Mobile links strip */}

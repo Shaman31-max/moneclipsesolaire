@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import ClientProviders from "@/components/ClientProviders";
 
 const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: ["300","400","500","600","700","800","900"] });
 
@@ -26,7 +27,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="fr" className={`${outfit.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        {children}
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );

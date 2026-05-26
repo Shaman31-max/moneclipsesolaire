@@ -65,6 +65,10 @@ const categories = [
         a: "expédition-calendrier",
       },
       {
+        q: "Comment suivre ma commande ?",
+        a: "suivi-commande",
+      },
+      {
         q: "Livrez-vous en dehors de France métropolitaine ?",
         a: "Non, nous livrons uniquement en France métropolitaine.",
       },
@@ -134,6 +138,14 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
                     planning de l'éclipse
                   </a>
                   {" "}pour les horaires et les zones de visibilité en France.
+                </>
+              ) : a === "suivi-commande" ? (
+                <>
+                  Dès que votre colis est remis à La Poste, vous recevrez un email avec votre numéro de suivi. Rendez-vous ensuite sur notre page{" "}
+                  <a href="/suivi" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
+                    Suivre ma commande
+                  </a>
+                  {" "}pour saisir ce numéro et consulter le statut en temps réel directement sur La Poste.fr. En attendant l'expédition, la page affiche également l'avancement de votre commande dans notre planning de production.
                 </>
               ) : a === "expédition-calendrier" ? (
                 <>

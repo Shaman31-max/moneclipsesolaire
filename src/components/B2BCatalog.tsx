@@ -430,7 +430,6 @@ export default function B2BCatalog({ session, onLogout }: Props) {
       if (exists) return q.map((l) => l.productId === productId ? { ...l, qty, unitHT } : l);
       return [...q, { productId, qty, unitHT, name: p.name }];
     });
-    setShowQuote(true);
   };
 
   const totalHT = quote.reduce((s, l) => s + l.qty * l.unitHT, 0);
@@ -673,8 +672,25 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                 <div className="w-14 h-14 rounded-full bg-[#22D3EE]/20 flex items-center justify-center mx-auto mb-3 glow-blue">
                   <CheckCircle size={26} className="text-[#FFB800]" />
                 </div>
-                <h3 className="font-black text-white text-lg mb-1">Envoyé !</h3>
-                <p className="text-sm text-white/72">Réponse sous 24h ouvrées</p>
+                <h3 className="font-black text-white text-lg mb-1">Demande envoyée !</h3>
+                <p className="text-sm text-white/72 mb-6">Réponse sous 24h ouvrées</p>
+
+                <div className="rounded-xl p-4 mb-4 text-left" style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.25)" }}>
+                  <p className="text-xs text-white/60 mb-1">Acompte à régler (50%)</p>
+                  <p className="text-2xl font-black text-[#FFB800]">{fmt(totalTTC * 0.5)} € TTC</p>
+                  <p className="text-xs text-white/45 mt-1">Solde de {fmt(totalTTC * 0.5)} € à réception</p>
+                </div>
+
+                <a
+                  href={`https://ijtkfu-q9.myshopify.com/cart/58139934916953:${Math.round(totalTTC * 50)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-black text-sm text-black bg-[#FFB800] hover:bg-[#e6a700] transition-colors"
+                  style={{ boxShadow: "0 0 20px rgba(255,184,0,0.4)" }}
+                >
+                  Payer l'acompte — {fmt(totalTTC * 0.5)} € →
+                </a>
+                <p className="text-[10px] text-white/35 mt-2">Paiement sécurisé · Shopify Payments</p>
               </div>
             )}
           </motion.div>
