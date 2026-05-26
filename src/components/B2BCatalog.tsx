@@ -31,6 +31,7 @@ type B2BProduct = {
   features: string[];
   minQty: number;
   sliderMax: number;
+  step: number;
   tiers: { min: number; label: string; unitHT: number; tag: string | null; variantId: string }[];
   unit: string;
 };
@@ -55,6 +56,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     features: [],
     minQty: 500,
     sliderMax: 5000,
+    step: 50,
     unit: "paire",
     tiers: [
       { min: 500,  label: "500",   unitHT: 0.695, tag: null, variantId: "58137195741529" },
@@ -82,6 +84,7 @@ const B2B_PRODUCTS: B2BProduct[] = [
     features: [],
     minQty: 200,
     sliderMax: 3000,
+    step: 20,
     unit: "filtre",
     tiers: [
       { min: 500,  label: "500",   unitHT: 0.695, tag: null, variantId: "58137196724569" },
@@ -103,8 +106,7 @@ function B2BSlider({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const raw = Number(e.target.value);
-    // snap to multiples of 50
-    onChange(Math.round(raw / 50) * 50 || minQty);
+    onChange(Math.round(raw / product.step) * product.step || minQty);
   };
 
   return (
@@ -136,7 +138,7 @@ function B2BSlider({
 
         {/* Native input (invisible) */}
         <input
-          type="range" min={minQty} max={sliderMax} step={50} value={qty}
+          type="range" min={minQty} max={sliderMax} step={product.step} value={qty}
           onChange={handleChange}
           className="absolute inset-0 w-full opacity-0 cursor-pointer h-full"
           style={{ zIndex: 10 }}
@@ -413,7 +415,7 @@ function B2BProductCard({
 }
 
 // ── Main catalog ─────────────────────────────────────────────────
-type QuoteLine = { productId: string; qty: number; unitHT: number; name: string };
+type QuoteLine = { productId: string; qty: number; unitHT: number; name: string; variantId: string };
 type Props = { session: B2BSession; onLogout: () => void };
 
 export default function B2BCatalog({ session, onLogout }: Props) {
@@ -425,16 +427,20 @@ export default function B2BCatalog({ session, onLogout }: Props) {
     const p = B2B_PRODUCTS.find((x) => x.id === productId)!;
     const tier = [...p.tiers].reverse().find((t) => qty >= t.min)!;
     const unitHT = tier.unitHT;
+    const variantId = tier.variantId;
     setQuote((q) => {
       const exists = q.find((l) => l.productId === productId);
-      if (exists) return q.map((l) => l.productId === productId ? { ...l, qty, unitHT } : l);
-      return [...q, { productId, qty, unitHT, name: p.name }];
+      if (exists) return q.map((l) => l.productId === productId ? { ...l, qty, unitHT, variantId } : l);
+      return [...q, { productId, qty, unitHT, variantId, name: p.name }];
     });
   };
 
   const totalHT = quote.reduce((s, l) => s + l.qty * l.unitHT, 0);
   const totalTTC = totalHT * (1 + TVA);
   const totalUnits = quote.reduce((s, l) => s + l.qty, 0);
+  const checkoutUrl = quote.length > 0
+    ? `https://ijtkfu-q9.myshopify.com/cart/${quote.map((l) => `${l.variantId}:${l.qty}`).join(",")}`
+    : "#";
 
   return (
     <div className="min-h-screen bg-[#060412] pt-16">
@@ -459,13 +465,17 @@ export default function B2BCatalog({ session, onLogout }: Props) {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setShowQuote((v) => !v)}
-              className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white/90 hover:text-[#FFB800] transition-all border"
-              style={{ background: "rgba(4,18,58,0.85)", borderColor: "rgba(30,127,255,0.25)" }}
+              className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all border"
+              style={{
+                background: quote.length > 0 ? "rgba(255,184,0,0.15)" : "rgba(4,18,58,0.85)",
+                borderColor: quote.length > 0 ? "rgba(255,184,0,0.4)" : "rgba(30,127,255,0.25)",
+                color: quote.length > 0 ? "#FFB800" : "rgba(255,255,255,0.9)",
+              }}
             >
-              <FileText size={14} />
-              Devis
+              <ShoppingCart size={14} />
+              Mon panier
               {quote.length > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-[#22D3EE] text-[10px] font-bold text-white flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-[#FFB800] text-[10px] font-bold text-black flex items-center justify-center">
                   {quote.length}
                 </span>
               )}
@@ -489,7 +499,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
             {[
               { icon: ShieldCheck, label: "Prix unitaire HT", value: "à partir de 0,61 €" },
               { icon: Eye, label: "Min. Lunettes", value: "500 paires" },
-              { icon: Smartphone, label: "Min. Filtres", value: "250 unités" },
+              { icon: Smartphone, label: "Min. Filtres", value: "200 unités" },
               { icon: Truck, label: "Délai livraison", value: "Selon calendrier", href: "/#commande" },
               { icon: FileText, label: "Paiement", value: "50% acompte, solde à réception" },
             ].map(({ icon: Icon, label, value, href }: { icon: React.ComponentType<{ size?: number; className?: string }>; label: string; value: string; href?: string }) => (
@@ -612,7 +622,9 @@ export default function B2BCatalog({ session, onLogout }: Props) {
           >
             <div className="flex items-center justify-between px-6 py-5 border-b border-[#E8F0FF]/8">
               <div>
-                <h2 className="font-black text-white text-lg">Récap devis</h2>
+                <h2 className="font-black text-white text-lg flex items-center gap-2">
+                  <ShoppingCart size={18} className="text-[#FFB800]" /> Mon panier B2B
+                </h2>
                 <p className="text-[10px] text-white/65">{session.company}</p>
               </div>
               <button onClick={() => setShowQuote(false)} className="text-white/70 hover:text-white text-2xl font-light">×</button>
@@ -642,7 +654,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
 
             {quote.length > 0 && !sent && (
               <div className="px-6 py-5 border-t border-[#E8F0FF]/8">
-                <div className="space-y-1.5 mb-4">
+                <div className="space-y-1.5 mb-5">
                   <div className="flex justify-between text-sm text-white/78">
                     <span>Unités totales</span>
                     <span className="font-bold text-white">{totalUnits.toLocaleString("fr-FR")}</span>
@@ -659,11 +671,26 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                     <span className="text-[#FFB800]">{fmt(totalTTC)} €</span>
                   </div>
                 </div>
-                <button onClick={() => setSent(true)}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#22D3EE] text-white font-bold text-sm hover:bg-[#3D8FFF] transition-colors glow-blue">
-                  <FileText size={14} /> Envoyer la demande de devis
+
+                {/* Finaliser — bouton principal blanc */}
+                <a
+                  href={checkoutUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-black text-sm text-black bg-white hover:bg-gray-100 transition-colors mb-3"
+                  style={{ boxShadow: "0 0 24px rgba(255,255,255,0.15)" }}
+                >
+                  <ShoppingCart size={15} /> Finaliser la commande — {fmt(totalTTC)} € →
+                </a>
+
+                {/* Devis — bouton secondaire cyan outline */}
+                <button
+                  onClick={() => setSent(true)}
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm text-[#22D3EE] border border-[#22D3EE]/40 hover:border-[#22D3EE]/70 hover:bg-[#22D3EE]/08 transition-all"
+                >
+                  <FileText size={13} /> Demander un devis PDF
                 </button>
-                <p className="text-[10px] text-white/50 text-center mt-2">Devis PDF sous 24h ouvrées</p>
+                <p className="text-[10px] text-white/35 text-center mt-2">Réponse sous 24h ouvrées</p>
               </div>
             )}
 
