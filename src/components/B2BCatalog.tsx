@@ -397,7 +397,7 @@ function B2BProductCard({
       <motion.button
         whileTap={{ scale: 0.96 }}
         onClick={() => onAddToQuote(product.id, qty)}
-        className="relative z-10 w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-base text-white transition-all"
+        className="relative z-10 mt-auto w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-base text-white transition-all"
         style={{
           backgroundColor: inQuote ? "#22c55e" : product.color,
           boxShadow: inQuote ? "0 0 24px rgba(34,197,94,0.4)" : `0 0 28px ${product.color}50`,
