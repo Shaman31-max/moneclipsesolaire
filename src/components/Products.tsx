@@ -176,6 +176,11 @@ function ProductCard({ product }: { product: ProductDef }) {
       {/* Product image */}
       {product.image && (
         <div className="relative z-10 w-full h-32 mb-3 flex items-center justify-center">
+          {product.badge && (
+            <div className="absolute top-0 left-0 z-20 flex items-center gap-1 px-2 py-1 rounded-lg text-[9px] font-bold text-[#FFB800] border border-[#22D3EE]/30 bg-[#060412]/80 backdrop-blur-sm">
+              <span className="text-[#22D3EE]">✓</span> {product.badge}
+            </div>
+          )}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={product.image}
