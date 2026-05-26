@@ -420,7 +420,6 @@ type Props = { session: B2BSession; onLogout: () => void };
 
 export default function B2BCatalog({ session, onLogout }: Props) {
   const [quote, setQuote] = useState<QuoteLine[]>([]);
-  const [sent, setSent] = useState(false);
   const [showQuote, setShowQuote] = useState(false);
   const [entreprise, setEntreprise] = useState("");
   const [tva, setTva] = useState("");
@@ -460,8 +459,8 @@ export default function B2BCatalog({ session, onLogout }: Props) {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-6 py-8 sm:py-12">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8 sm:mb-10 flex-wrap gap-4">
+        {/* Header sticky */}
+        <div className="sticky top-[100px] z-30 glass-dark border border-[#22D3EE]/10 rounded-2xl px-4 sm:px-6 py-3 mb-8 sm:mb-10 flex items-center justify-between gap-4 flex-wrap">
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <Building2 size={16} className="text-[#22D3EE]" />
@@ -662,7 +661,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
               })}
             </div>
 
-            {quote.length > 0 && !sent && (
+            {quote.length > 0 && (
               <div className="px-6 py-5 border-t border-[#E8F0FF]/8">
                 <div className="space-y-1.5 mb-5">
                   <div className="flex justify-between text-sm text-white/78">
@@ -721,43 +720,22 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                   <ShoppingCart size={15} /> Finaliser la commande — {fmt(totalTTC)} € →
                 </a>
 
-                {/* Devis — bouton secondaire cyan outline */}
-                <button
-                  onClick={() => setSent(true)}
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm text-[#22D3EE] border border-[#22D3EE]/40 hover:border-[#22D3EE]/70 hover:bg-[#22D3EE]/08 transition-all"
-                >
-                  <FileText size={13} /> Demander un devis PDF
-                </button>
-                <p className="text-[10px] text-white/35 text-center mt-2">Réponse sous 24h ouvrées</p>
+                <div className="mt-3 pt-3 border-t border-white/06">
+                  <p className="text-[10px] text-white/45 text-center mb-2">— ou régler en 2 fois —</p>
+                  <a
+                    href={`https://ijtkfu-q9.myshopify.com/cart/58139934916953:${Math.round(totalTTC * 50)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm text-black bg-[#FFB800] hover:bg-[#e6a700] transition-colors"
+                    style={{ boxShadow: "0 0 16px rgba(255,184,0,0.35)" }}
+                  >
+                    Payer l'acompte 50% — {fmt(totalTTC * 0.5)} € →
+                  </a>
+                  <p className="text-[10px] text-white/35 text-center mt-1.5">Solde de {fmt(totalTTC * 0.5)} € à réception</p>
+                </div>
               </div>
             )}
 
-            {sent && (
-              <div className="px-6 py-8 text-center">
-                <div className="w-14 h-14 rounded-full bg-[#22D3EE]/20 flex items-center justify-center mx-auto mb-3 glow-blue">
-                  <CheckCircle size={26} className="text-[#FFB800]" />
-                </div>
-                <h3 className="font-black text-white text-lg mb-1">Demande envoyée !</h3>
-                <p className="text-sm text-white/72 mb-6">Réponse sous 24h ouvrées</p>
-
-                <div className="rounded-xl p-4 mb-4 text-left" style={{ background: "rgba(255,184,0,0.08)", border: "1px solid rgba(255,184,0,0.25)" }}>
-                  <p className="text-xs text-white/60 mb-1">Acompte à régler (50%)</p>
-                  <p className="text-2xl font-black text-[#FFB800]">{fmt(totalTTC * 0.5)} € TTC</p>
-                  <p className="text-xs text-white/45 mt-1">Solde de {fmt(totalTTC * 0.5)} € à réception</p>
-                </div>
-
-                <a
-                  href={`https://ijtkfu-q9.myshopify.com/cart/58139934916953:${Math.round(totalTTC * 50)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-black text-sm text-black bg-[#FFB800] hover:bg-[#e6a700] transition-colors"
-                  style={{ boxShadow: "0 0 20px rgba(255,184,0,0.4)" }}
-                >
-                  Payer l'acompte — {fmt(totalTTC * 0.5)} € →
-                </a>
-                <p className="text-[10px] text-white/35 mt-2">Paiement sécurisé · Shopify Payments</p>
-              </div>
-            )}
           </motion.div>
         )}
       </AnimatePresence>
