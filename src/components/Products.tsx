@@ -390,6 +390,9 @@ function ProductCard({ product }: { product: ProductDef }) {
           </label>
         ) : (
           <div className="flex flex-col gap-2">
+            <p className="text-xs text-white/45 text-center italic">
+              * Prix dégressif en fonction de la quantité commandée
+            </p>
             <p className="text-xs text-white/50 text-center">
               * Production à la demande — commandez maintenant et recevez à partir du <strong className="text-white/70">20 juillet</strong> ·{" "}
               <a href="/#commande" className="text-[#22D3EE]/70 hover:text-[#22D3EE] underline underline-offset-2 transition-colors">voir le planning</a>
