@@ -21,8 +21,8 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: clip; }
-body { overflow-x: clip; max-width: 100vw; touch-action: pan-y; }
+html { scroll-behavior: smooth; overflow-x: hidden; } /* clip unsupported on Safari < 16 */
+body { overflow-x: hidden; max-width: 100vw; touch-action: pan-y pinch-zoom; }
 
 html { font-size: 18.5px; }
 @media (min-width: 768px) { html { font-size: 21.5px; } }

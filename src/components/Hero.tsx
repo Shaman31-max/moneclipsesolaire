@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ArrowDown, ShieldCheck } from "lucide-react";
@@ -38,6 +38,7 @@ const isoCerts = [
 ];
 
 export default function Hero() {
+  const shouldReduceMotion = useReducedMotion();
   const [time, setTime] = useState<ReturnType<typeof getLeft> | null>(null);
   useEffect(() => {
     setTime(getLeft());
@@ -134,11 +135,11 @@ export default function Hero() {
                   href={cert.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  animate={{ y: [0, i % 2 === 0 ? -5 : 5, 0] }}
+                  animate={shouldReduceMotion ? {} : { y: [0, i % 2 === 0 ? -5 : 5, 0] }}
                   transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut" }}
                   className="flex items-center gap-2 px-3 py-2 glass rounded-xl text-xs shadow-lg hover:scale-105 transition-transform"
                 >
-                  <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.5 }}>
+                  <motion.span animate={shouldReduceMotion ? {} : { x: [0, 4, 0] }} transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.5 }}>
                     <div className="w-0 h-0" style={{ borderTop: "4px solid transparent", borderBottom: "4px solid transparent", borderLeft: "6px solid #22D3EE" }} />
                   </motion.span>
                   <ShieldCheck size={12} className="text-[#22D3EE]" />
@@ -157,7 +158,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/72"
-        animate={{ y: [0, 8, 0] }}
+        animate={shouldReduceMotion ? {} : { y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
         <span className="text-xs uppercase tracking-widest">Découvrir</span>
