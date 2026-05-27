@@ -629,14 +629,23 @@ export default function B2BCatalog({ session, onLogout }: Props) {
           </div>
         </div>
 
-        {/* Hint calculateur */}
+        {/* Bannière simulateur */}
         {activeTab === "catalogue" && (
-          <p className="text-sm text-white/35 -mt-4 mb-6">
-            Perdu sur les quantités ?{" "}
-            <button onClick={() => setActiveTab("calculateur")} className="text-[#FFB800] font-semibold hover:underline underline-offset-2 transition-colors">
-              Cliquez ici pour accéder à notre simulateur →
-            </button>
-          </p>
+          <button
+            onClick={() => setActiveTab("calculateur")}
+            className="w-full mb-8 flex items-center justify-between gap-4 px-6 py-4 rounded-2xl border border-[#FFB800]/40 bg-[#FFB800]/08 hover:bg-[#FFB800]/14 hover:border-[#FFB800]/70 transition-all group"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-xl bg-[#FFB800]/20 border border-[#FFB800]/40 flex items-center justify-center flex-shrink-0">
+                <BarChart3 size={20} className="text-[#FFB800]" />
+              </div>
+              <div className="text-left">
+                <p className="font-black text-white text-sm">Accéder à notre simulateur de vente</p>
+                <p className="text-xs text-white/55 mt-0.5">Calculez votre rentabilité et estimez la bonne quantité à commander</p>
+              </div>
+            </div>
+            <span className="text-[#FFB800] font-black text-lg group-hover:translate-x-1 transition-transform flex-shrink-0">→</span>
+          </button>
         )}
 
         {/* Tab content */}
