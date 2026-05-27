@@ -1,7 +1,6 @@
 ﻿"use client";
 
 import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ArrowDown, ShieldCheck } from "lucide-react";
@@ -18,16 +17,6 @@ function getLeft() {
   };
 }
 function pad(n: number) { return String(n).padStart(2, "0"); }
-
-const GlassesModel = dynamic(() => import("./GlassesModel"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="w-28 h-28 rounded-full border-4 border-[#22D3EE]/30 border-t-[#22D3EE] animate-spin" />
-    </div>
-  ),
-});
-
 
 const badges = [
   { icon: ShieldCheck, text: "ISO 12312-2 Certifiées" },
