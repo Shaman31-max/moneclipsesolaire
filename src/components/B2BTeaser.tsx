@@ -98,7 +98,7 @@ export default function B2BTeaser() {
             <div className="flex-shrink-0 w-full lg:w-72 xl:w-80">
               <Image
                 src="/lunettes_avec_presentoir.png"
-                alt="Lunettes éclipse avec présentoir B2B"
+                alt="Pack lunettes éclipse solaire avec présentoir — offre grossiste B2B dès 200 pièces"
                 width={320}
                 height={320}
                 className="w-full h-auto object-contain drop-shadow-2xl rounded-xl"

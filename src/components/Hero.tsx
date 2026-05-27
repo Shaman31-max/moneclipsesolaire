@@ -115,7 +115,7 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-full bg-[#22D3EE] opacity-[0.1] blur-[80px] scale-75" />
             <Image
               src="/lunette-eclipse.png"
-              alt="Lunettes Éclipse Pro — Observation éclipse solaire 2026"
+              alt="Lunettes éclipse solaire certifiées ISO 12312-2 pour observer l'éclipse du 12 août 2026"
               fill
               priority
               className="relative z-10 object-contain drop-shadow-2xl"
