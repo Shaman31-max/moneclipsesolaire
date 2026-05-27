@@ -119,6 +119,7 @@ export default function Hero() {
               alt="Lunettes éclipse solaire certifiées ISO 12312-2 pour observer l'éclipse du 12 août 2026"
               fill
               priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="relative z-10 object-contain drop-shadow-2xl"
             />
 

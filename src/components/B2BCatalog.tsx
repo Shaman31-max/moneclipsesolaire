@@ -242,7 +242,7 @@ function B2BProductCard({
       {/* Product image */}
       {product.image && (
         <div className="relative z-10 w-full h-44 mb-4">
-          <Image src={product.image} alt={product.name} fill className="object-contain drop-shadow-lg" />
+          <Image src={product.image} alt={product.name} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain drop-shadow-lg" />
         </div>
       )}
 

@@ -1,13 +1,16 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
-import Products from "@/components/Products";
-import BatchSystem from "@/components/BatchSystem";
-import EclipseInfo from "@/components/EclipseInfo";
-import IsoCertification from "@/components/IsoCertification";
-import B2BTeaser from "@/components/B2BTeaser";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
 import ClientShell from "@/components/ClientShell";
+
+// Below-fold: lazy loaded → not in initial JS bundle
+const EclipseInfo      = dynamic(() => import("@/components/EclipseInfo"));
+const IsoCertification = dynamic(() => import("@/components/IsoCertification"));
+const BatchSystem      = dynamic(() => import("@/components/BatchSystem"));
+const Products         = dynamic(() => import("@/components/Products"));
+const B2BTeaser        = dynamic(() => import("@/components/B2BTeaser"));
+const FAQ              = dynamic(() => import("@/components/FAQ"));
+const Footer           = dynamic(() => import("@/components/Footer"));
 
 export const metadata: Metadata = {
   title: "MonEclipseSolaire.fr — Lunettes & Filtres pour l'Éclipse du 12 Août 2026",

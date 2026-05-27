@@ -101,6 +101,7 @@ export default function B2BTeaser() {
                 alt="Pack lunettes éclipse solaire avec présentoir — offre grossiste B2B dès 200 pièces"
                 width={320}
                 height={320}
+                sizes="(max-width: 1024px) 100vw, 320px"
                 className="w-full h-auto object-contain drop-shadow-2xl rounded-xl"
               />
             </div>
