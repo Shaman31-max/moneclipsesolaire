@@ -13,11 +13,14 @@ function daysUntil(date: Date) {
 }
 
 export default function BatchSystem() {
-  const [days0, setDays0] = useState(daysUntil(BATCH0_DEADLINE));
-  const [days1, setDays1] = useState(daysUntil(BATCH1_DEADLINE));
-  const [daysEclipse, setDaysEclipse] = useState(daysUntil(ECLIPSE_DATE));
+  const [days0, setDays0] = useState(0);
+  const [days1, setDays1] = useState(0);
+  const [daysEclipse, setDaysEclipse] = useState(0);
 
   useEffect(() => {
+    setDays0(daysUntil(BATCH0_DEADLINE));
+    setDays1(daysUntil(BATCH1_DEADLINE));
+    setDaysEclipse(daysUntil(ECLIPSE_DATE));
     const id = setInterval(() => {
       setDays0(daysUntil(BATCH0_DEADLINE));
       setDays1(daysUntil(BATCH1_DEADLINE));

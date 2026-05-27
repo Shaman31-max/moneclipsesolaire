@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Clock, Eye, AlertTriangle, Sun, Thermometer, Star } from "lucide-react";
+import { MapPin, Clock, Eye, Star } from "lucide-react";
 
 const cities = [
   { name: "Biarritz", pct: "99,5%" },

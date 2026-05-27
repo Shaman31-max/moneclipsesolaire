@@ -3,7 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import ClientProviders from "@/components/ClientProviders";
 
-const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: ["300","400","500","600","700","800","900"] });
+const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: ["400","700","900"], display: "swap" });
 
 export const viewport = {
   width: "device-width",

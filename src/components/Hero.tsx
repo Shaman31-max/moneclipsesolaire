@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { ArrowDown, ShieldCheck, Star, Zap, ExternalLink } from "lucide-react";
+import { ArrowDown, ShieldCheck } from "lucide-react";
 
 const ECLIPSE = new Date("2026-08-12T10:00:00+02:00");
 function getLeft() {
@@ -49,8 +49,9 @@ const isoCerts = [
 ];
 
 export default function Hero() {
-  const [time, setTime] = useState(getLeft());
+  const [time, setTime] = useState<ReturnType<typeof getLeft> | null>(null);
   useEffect(() => {
+    setTime(getLeft());
     const id = setInterval(() => setTime(getLeft()), 1000);
     return () => clearInterval(id);
   }, []);
@@ -104,10 +105,10 @@ export default function Hero() {
           {/* Compte à rebours */}
           <div className="flex justify-center gap-2 md:gap-4 mb-2">
             {[
-              { val: time.j, label: "Jours" },
-              { val: time.h, label: "Heures" },
-              { val: time.m, label: "Min" },
-              { val: time.s, label: "Sec" },
+              { val: time?.j ?? 0, label: "Jours" },
+              { val: time?.h ?? 0, label: "Heures" },
+              { val: time?.m ?? 0, label: "Min" },
+              { val: time?.s ?? 0, label: "Sec" },
             ].map(({ val, label }, i) => (
               <div key={label} className="flex flex-col items-center">
                 <div className="glass rounded-xl px-2 py-2 md:px-4 md:py-3 border border-red-500/40 min-w-[52px] md:min-w-[64px] text-center">
