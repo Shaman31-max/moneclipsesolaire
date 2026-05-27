@@ -13,9 +13,9 @@ const PRICE_STEPS = [
   { qty: 4,  total: 7.99,  mention: "Famille" },
   { qty: 5,  total: 8.49,  mention: null },
   { qty: 6,  total: 8.99,  mention: null },
-  { qty: 8,  total: 9.99,  mention: "Bureau" },
+  { qty: 8,  total: 9.99,  mention: "⭐ Meilleure offre" },
   { qty: 12, total: 12.99, mention: null },
-  { qty: 14, total: 13.99, mention: "⭐ Meilleure offre" },
+  { qty: 14, total: 13.99, mention: null },
   { qty: 24, total: 21.99, mention: "🎉 Événement" },
 ];
 
