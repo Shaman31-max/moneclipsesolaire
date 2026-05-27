@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ArrowDown, ShieldCheck, Star, Zap, ExternalLink } from "lucide-react";
 
@@ -120,13 +121,14 @@ export default function Hero() {
           </div>
 
           {/* Lunettes image */}
-          <div className="relative h-[300px] lg:h-[380px] flex items-center justify-center">
+          <div className="relative h-[300px] lg:h-[380px]">
             <div className="absolute inset-0 rounded-full bg-[#22D3EE] opacity-[0.1] blur-[80px] scale-75" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/lunette-eclipse.png"
-              alt="Lunettes Éclipse Pro"
-              className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
+              alt="Lunettes Éclipse Pro — Observation éclipse solaire 2026"
+              fill
+              priority
+              className="relative z-10 object-contain drop-shadow-2xl"
             />
 
             {/* ISO badge floating next to glasses */}

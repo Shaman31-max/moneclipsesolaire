@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { ShoppingCart, Eye, Smartphone, CheckCircle, Zap, BookOpen, ShieldCheck, ExternalLink } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 
@@ -175,7 +176,7 @@ function ProductCard({ product }: { product: ProductDef }) {
 
       {/* Product image */}
       {product.image && (
-        <div className="relative z-10 w-full h-32 mb-3 flex items-center justify-center">
+        <div className="relative z-10 w-full h-32 mb-3">
           {product.badge && (
             <a
               href="https://www.iso.org/standard/59289.html"
@@ -195,11 +196,11 @@ function ProductCard({ product }: { product: ProductDef }) {
               <ExternalLink size={9} className="text-white/50 group-hover:text-white/90 transition-colors flex-shrink-0" />
             </a>
           )}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-contain drop-shadow-lg"
+            fill
+            className="object-contain drop-shadow-lg"
           />
         </div>
       )}

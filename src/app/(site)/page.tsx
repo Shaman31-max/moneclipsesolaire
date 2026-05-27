@@ -1,4 +1,5 @@
-﻿import Hero from "@/components/Hero";
+﻿import type { Metadata } from "next";
+import Hero from "@/components/Hero";
 import Products from "@/components/Products";
 import BatchSystem from "@/components/BatchSystem";
 import EclipseInfo from "@/components/EclipseInfo";
@@ -7,6 +8,11 @@ import B2BTeaser from "@/components/B2BTeaser";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import ClientShell from "@/components/ClientShell";
+
+export const metadata: Metadata = {
+  title: "MonEclipseSolaire.fr — Lunettes & Filtres pour l'Éclipse du 12 Août 2026",
+  description: "Protégez vos yeux lors de l'éclipse solaire du 12 août 2026 en France. Lunettes certifiées ISO 12312-2, filtres téléphone, livraison gratuite.",
+};
 
 const Divider = () => (
   <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FFB800]/20 to-transparent" />

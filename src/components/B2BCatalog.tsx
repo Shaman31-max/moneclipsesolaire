@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useState, useCallback, useEffect, useRef } from "react";
+import Image from "next/image";
 import { useB2BCart } from "@/contexts/B2BCartContext";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -240,9 +241,8 @@ function B2BProductCard({
 
       {/* Product image */}
       {product.image && (
-        <div className="relative z-10 w-full h-44 mb-4 flex items-center justify-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={product.image} alt={product.name} className="w-full h-full object-contain drop-shadow-lg" />
+        <div className="relative z-10 w-full h-44 mb-4">
+          <Image src={product.image} alt={product.name} fill className="object-contain drop-shadow-lg" />
         </div>
       )}
 

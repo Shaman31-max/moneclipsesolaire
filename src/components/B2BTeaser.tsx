@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Building2, ArrowRight, Package, Percent, Truck, ShieldCheck, BarChart3 } from "lucide-react";
 
 const perks = [
@@ -95,10 +96,11 @@ export default function B2BTeaser() {
 
             {/* Right : image */}
             <div className="flex-shrink-0 w-full lg:w-72 xl:w-80">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/lunettes_avec_presentoir.png"
-                alt="Lunettes éclipse avec présentoir"
+                alt="Lunettes éclipse avec présentoir B2B"
+                width={320}
+                height={320}
                 className="w-full h-auto object-contain drop-shadow-2xl rounded-xl"
               />
             </div>
