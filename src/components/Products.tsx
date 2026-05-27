@@ -42,6 +42,7 @@ type ProductDef = {
   variantId: string;
   variantIds?: string[];
   fixedPrice?: number;
+  defaultStepIdx?: number;
   image?: string;
   badge?: string;
 };
@@ -63,6 +64,7 @@ const PRODUCTS: ProductDef[] = [
     color: "#FFB800",
     icon: Eye,
     badge: "ISO 12312-2",
+    defaultStepIdx: 6,
     features: [],
     variantId: "gid://shopify/ProductVariant/58137193283929",
     variantIds: [
@@ -98,6 +100,7 @@ const PRODUCTS: ProductDef[] = [
     icon: Smartphone,
     features: [],
     badge: "ISO 12312-2",
+    defaultStepIdx: 6,
     variantId: "gid://shopify/ProductVariant/58137193644377",
     variantIds: [
       "gid://shopify/ProductVariant/58137193644377",
@@ -128,7 +131,7 @@ const PRODUCTS: ProductDef[] = [
 ];
 
 function ProductCard({ product }: { product: ProductDef }) {
-  const [stepIdx, setStepIdx] = useState(0);
+  const [stepIdx, setStepIdx] = useState(product.defaultStepIdx ?? 0);
   const [added, setAdded] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const Icon = product.icon;
