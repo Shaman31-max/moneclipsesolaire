@@ -24,12 +24,17 @@ export default function StarField() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    let resizeTimer: ReturnType<typeof setTimeout>;
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }, 150);
     };
-    resize();
-    window.addEventListener("resize", resize);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    window.addEventListener("resize", resize, { passive: true });
 
     const COLORS = ["rgba(240,238,255,", "rgba(255,184,0,", "rgba(34,211,238,", "rgba(200,190,255,"];
 
@@ -142,6 +147,7 @@ export default function StarField() {
 
     return () => {
       cancelAnimationFrame(raf);
+      clearTimeout(resizeTimer);
       window.removeEventListener("resize", resize);
     };
   }, []);

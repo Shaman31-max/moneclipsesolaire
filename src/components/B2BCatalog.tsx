@@ -441,14 +441,13 @@ export default function B2BCatalog({ session, onLogout }: Props) {
   const [entreprise, setEntreprise] = useState("");
   const [tva, setTva] = useState("");
   const [recommendedQty, setRecommendedQty] = useState<number | undefined>(undefined);
-  const [activeTab, setActiveTab] = useState<"catalogue" | "calculateur">(() => {
-    if (typeof window !== "undefined") {
-      const p = new URLSearchParams(window.location.search);
-      if (p.get("tab") === "calculateur") return "calculateur";
-    }
-    return "catalogue";
-  });
+  const [activeTab, setActiveTab] = useState<"catalogue" | "calculateur">("catalogue");
   const { sidebarOpen: showQuote, setSidebarOpen: setShowQuote, sync } = useB2BCart();
+
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    if (p.get("tab") === "calculateur") setActiveTab("calculateur");
+  }, []);
 
   const addToQuote = (productId: string, qty: number) => {
     const p = B2B_PRODUCTS.find((x) => x.id === productId)!;
