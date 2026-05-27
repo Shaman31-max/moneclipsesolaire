@@ -7,17 +7,16 @@ import { ShoppingCart, Eye, Smartphone, CheckCircle, Zap, BookOpen, ShieldCheck,
 import { useCart } from "@/contexts/CartContext";
 
 const PRICE_STEPS = [
-  { qty: 1,  total: 4.99,  mention: "Solo" },
-  { qty: 2,  total: 6.99,  mention: "Duo" },
-  { qty: 3,  total: 8.99,  mention: null },
-  { qty: 4,  total: 9.99,  mention: "Famille" },
-  { qty: 5,  total: 12.49, mention: null },
-  { qty: 6,  total: 13.99, mention: null },
-  { qty: 8,  total: 17.49, mention: "Bureau" },
-  { qty: 10, total: 19.99, mention: "⭐ Meilleure offre" },
-  { qty: 12, total: 22.99, mention: null },
-  { qty: 16, total: 24.99, mention: null },
-  { qty: 20, total: 34.99, mention: "🎉 Événement" },
+  { qty: 1,  total: 3.99,  mention: "Solo" },
+  { qty: 2,  total: 5.99,  mention: "Duo" },
+  { qty: 3,  total: 6.99,  mention: null },
+  { qty: 4,  total: 7.99,  mention: "Famille" },
+  { qty: 5,  total: 8.49,  mention: null },
+  { qty: 6,  total: 8.99,  mention: null },
+  { qty: 8,  total: 9.99,  mention: "Bureau" },
+  { qty: 12, total: 12.99, mention: null },
+  { qty: 14, total: 13.99, mention: "⭐ Meilleure offre" },
+  { qty: 24, total: 21.99, mention: "🎉 Événement" },
 ];
 
 function fmt(n: number) {
@@ -77,7 +76,6 @@ const PRODUCTS: ProductDef[] = [
       "gid://shopify/ProductVariant/58137193513305",
       "gid://shopify/ProductVariant/58137193546073",
       "gid://shopify/ProductVariant/58137193578841",
-      "gid://shopify/ProductVariant/58137193611609",
     ],
   },
   {
@@ -112,7 +110,6 @@ const PRODUCTS: ProductDef[] = [
       "gid://shopify/ProductVariant/58137193873753",
       "gid://shopify/ProductVariant/58137193906521",
       "gid://shopify/ProductVariant/58137193939289",
-      "gid://shopify/ProductVariant/58137193972057",
     ],
   },
   {
