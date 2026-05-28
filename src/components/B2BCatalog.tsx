@@ -464,6 +464,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
 
   const totalHT = quote.reduce((s, l) => s + l.qty * l.unitHT, 0);
   const totalTTC = totalHT * (1 + TVA);
+  const shopifyAcompte = quote.reduce((s, l) => s + l.qty * (Math.round(l.unitHT * 0.60 * 100) / 100), 0);
   const totalUnits = quote.reduce((s, l) => s + l.qty, 0);
 
   const buildUrl = (useAcompte: boolean) => {
@@ -700,7 +701,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                 className="sm:w-auto flex items-center justify-center gap-2 px-8 py-5 rounded-2xl font-black text-base text-black bg-[#FFB800] hover:bg-[#e6a700] transition-colors whitespace-nowrap"
                 style={{ boxShadow: "0 0 24px rgba(255,184,0,0.35)" }}
               >
-                Acompte 50% — {fmt(totalTTC * 0.5)} € →
+                Acompte 50% — {fmt(shopifyAcompte)} € →
               </a>
             </motion.div>
           )}
@@ -854,9 +855,9 @@ export default function B2BCatalog({ session, onLogout }: Props) {
                     className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm text-black bg-[#FFB800] hover:bg-[#e6a700] transition-colors"
                     style={{ boxShadow: "0 0 16px rgba(255,184,0,0.35)" }}
                   >
-                    Payer l'acompte 50% — {fmt(totalTTC * 0.5)} € →
+                    Payer l'acompte 50% — {fmt(shopifyAcompte)} € →
                   </a>
-                  <p className="text-[10px] text-white/35 text-center mt-1.5">Solde de {fmt(totalTTC * 0.5)} € à réception</p>
+                  <p className="text-[10px] text-white/35 text-center mt-1.5">Solde de {fmt(shopifyAcompte)} € à réception</p>
                 </div>
               </div>
             )}
