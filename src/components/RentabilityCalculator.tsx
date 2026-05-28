@@ -16,11 +16,11 @@ const SEGMENTS = [
 ];
 
 const PURCHASE_TIERS = [
-  { min: 200,  price: 0.92 },
-  { min: 500,  price: 0.70 },
-  { min: 1000, price: 0.66 },
-  { min: 2000, price: 0.63 },
-  { min: 5000, price: 0.61 },
+  { min: 200,  price: 0.69 },
+  { min: 500,  price: 0.62 },
+  { min: 1000, price: 0.52 },
+  { min: 2000, price: 0.52 },
+  { min: 5000, price: 0.49 },
 ];
 
 // ── Helpers ──────────────────────────────────────────────────
