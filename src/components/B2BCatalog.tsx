@@ -63,11 +63,11 @@ const B2B_PRODUCTS: B2BProduct[] = [
     step: 50,
     unit: "paire",
     tiers: [
-      { min: 200,  label: "200",   unitHT: 0.92, tag: "Faible MOQ", variantId: "58142211866969", acompteVariantId: "58142212260185" },
-      { min: 500,  label: "500",   unitHT: 0.70, tag: null, variantId: "58137195741529", acompteVariantId: "58140136145241" },
-      { min: 1000, label: "1 000", unitHT: 0.66, tag: null, variantId: "58137195774297", acompteVariantId: "58140136178009" },
-      { min: 2000, label: "2 000", unitHT: 0.63, tag: null, variantId: "58137195807065", acompteVariantId: "58140136210777" },
-      { min: 5000, label: "5 000", unitHT: 0.61, tag: null, variantId: "58137195839833", acompteVariantId: "58140136243545" },
+      { min: 200,  label: "200",   unitHT: 0.69, tag: "Faible MOQ", variantId: "58142211866969", acompteVariantId: "58142212260185" },
+      { min: 500,  label: "500",   unitHT: 0.62, tag: null, variantId: "58137195741529", acompteVariantId: "58140136145241" },
+      { min: 1000, label: "1 000", unitHT: 0.52, tag: null, variantId: "58137195774297", acompteVariantId: "58140136178009" },
+      { min: 2000, label: "2 000", unitHT: 0.52, tag: null, variantId: "58137195807065", acompteVariantId: "58140136210777" },
+      { min: 5000, label: "5 000", unitHT: 0.49, tag: null, variantId: "58137195839833", acompteVariantId: "58140136243545" },
     ],
   },
   {
@@ -94,10 +94,10 @@ const B2B_PRODUCTS: B2BProduct[] = [
     unit: "filtre",
     tiers: [
       { min: 80,   label: "80",    unitHT: 0.92, tag: "Faible MOQ", variantId: "58142212227417", acompteVariantId: "58142212358489" },
-      { min: 200,  label: "200",   unitHT: 0.70, tag: null, variantId: "58137196724569", acompteVariantId: "58140136276313" },
-      { min: 1000, label: "1 000", unitHT: 0.66, tag: null, variantId: "58137196757337", acompteVariantId: "58140136309081" },
-      { min: 2000, label: "2 000", unitHT: 0.63, tag: null, variantId: "58137196790105", acompteVariantId: "58140136341849" },
-      { min: 5000, label: "5 000", unitHT: 0.61, tag: null, variantId: "58137196822873", acompteVariantId: "58140136374617" },
+      { min: 200,  label: "200",   unitHT: 0.69, tag: null, variantId: "58137196724569", acompteVariantId: "58140136276313" },
+      { min: 1000, label: "1 000", unitHT: 0.52, tag: null, variantId: "58137196757337", acompteVariantId: "58140136309081" },
+      { min: 2000, label: "2 000", unitHT: 0.52, tag: null, variantId: "58137196790105", acompteVariantId: "58140136341849" },
+      { min: 5000, label: "5 000", unitHT: 0.49, tag: null, variantId: "58137196822873", acompteVariantId: "58140136374617" },
     ],
   },
 ];
