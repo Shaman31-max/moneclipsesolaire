@@ -468,7 +468,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
 
   const buildUrl = (useAcompte: boolean) => {
     if (quote.length === 0) return "#";
-    const items = quote.map((l) => `${useAcompte ? l.acompteVariantId : l.variantId}:${useAcompte ? 1 : l.qty}`).join(",");
+    const items = quote.map((l) => `${useAcompte ? l.acompteVariantId : l.variantId}:${l.qty}`).join(",");
     const base = `https://shop.moneclipsesolaire.fr/cart/${items}`;
     const params = new URLSearchParams();
     if (entreprise.trim()) params.set("attributes[Entreprise]", entreprise.trim());
