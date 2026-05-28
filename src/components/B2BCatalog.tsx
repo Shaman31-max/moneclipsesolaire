@@ -633,18 +633,21 @@ export default function B2BCatalog({ session, onLogout }: Props) {
         {activeTab === "catalogue" && (
           <button
             onClick={() => setActiveTab("calculateur")}
-            className="w-full mb-8 flex items-center justify-between gap-4 px-6 py-4 rounded-2xl border border-[#FFB800]/40 bg-[#FFB800]/08 hover:bg-[#FFB800]/14 hover:border-[#FFB800]/70 transition-all group"
+            className="w-full mb-8 flex items-center justify-between gap-4 px-6 py-5 rounded-2xl transition-all group"
+            style={{ background: "linear-gradient(135deg, #FFB800, #FF8C00)", boxShadow: "0 0 32px rgba(255,184,0,0.45), 0 4px 16px rgba(0,0,0,0.3)" }}
           >
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#FFB800]/20 border border-[#FFB800]/40 flex items-center justify-center flex-shrink-0">
-                <BarChart3 size={20} className="text-[#FFB800]" />
+              <div className="w-12 h-12 rounded-xl bg-black/20 flex items-center justify-center flex-shrink-0">
+                <BarChart3 size={24} className="text-black" />
               </div>
               <div className="text-left">
-                <p className="font-black text-white text-sm">Accéder à notre simulateur de vente</p>
-                <p className="text-xs text-white/55 mt-0.5">Calculez votre rentabilité et estimez la bonne quantité à commander</p>
+                <p className="font-black text-black text-base">Accéder au simulateur de rentabilité</p>
+                <p className="text-xs text-black/65 mt-0.5">Calculez vos gains et la quantité idéale à commander</p>
               </div>
             </div>
-            <span className="text-[#FFB800] font-black text-lg group-hover:translate-x-1 transition-transform flex-shrink-0">→</span>
+            <div className="flex items-center gap-1 text-black font-black text-xl group-hover:translate-x-1 transition-transform flex-shrink-0">
+              <span>›</span><span className="group-hover:opacity-100 opacity-60 transition-opacity">›</span>
+            </div>
           </button>
         )}
 
