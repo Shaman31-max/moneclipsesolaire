@@ -468,7 +468,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
 
   const buildUrl = (useAcompte: boolean) => {
     if (quote.length === 0) return "#";
-    const items = quote.map((l) => `${useAcompte ? l.acompteVariantId : l.variantId}:${l.qty}`).join(",");
+    const items = quote.map((l) => `${useAcompte ? l.acompteVariantId : l.variantId}:${useAcompte ? 1 : l.qty}`).join(",");
     const base = `https://shop.moneclipsesolaire.fr/cart/${items}`;
     const params = new URLSearchParams();
     if (entreprise.trim()) params.set("attributes[Entreprise]", entreprise.trim());
@@ -631,6 +631,8 @@ export default function B2BCatalog({ session, onLogout }: Props) {
 
         {/* Bannière simulateur */}
         {activeTab === "catalogue" && (
+          <div className="mb-8">
+          <p className="text-center text-white/60 text-sm mb-3">Perdu sur les quantités ? Cliquez ci-dessous pour estimer vos ventes</p>
           <button
             onClick={() => setActiveTab("calculateur")}
             className="w-full mb-8 flex items-center justify-between gap-4 px-6 py-5 rounded-2xl transition-all group"
@@ -649,6 +651,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
               <span>›</span><span className="group-hover:opacity-100 opacity-60 transition-opacity">›</span>
             </div>
           </button>
+          </div>
         )}
 
         {/* Tab content */}
