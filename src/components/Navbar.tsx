@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useB2BCart } from "@/contexts/B2BCartContext";
@@ -16,7 +15,6 @@ const links = [
 ];
 
 export default function Navbar() {
-  const shouldReduceMotion = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
   const { totalItems, checkoutUrl } = useCart();
   const { count: b2bCount, setSidebarOpen } = useB2BCart();
@@ -27,11 +25,8 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.nav
-      initial={shouldReduceMotion ? false : { y: -80 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav
+      className={`anim-slide-down-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "glass-dark shadow-[0_4px_30px_rgba(30,127,255,0.08)]" : "bg-transparent"
       }`}
     >
@@ -120,6 +115,6 @@ export default function Navbar() {
           ))}
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 }

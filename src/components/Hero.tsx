@@ -1,6 +1,5 @@
 ﻿"use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ArrowDown, ShieldCheck } from "lucide-react";
@@ -38,7 +37,6 @@ const isoCerts = [
 ];
 
 export default function Hero() {
-  const shouldReduceMotion = useReducedMotion();
   const [time, setTime] = useState<ReturnType<typeof getLeft> | null>(null);
   useEffect(() => {
     setTime(getLeft());
@@ -56,12 +54,7 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-8 items-start pt-6 pb-16">
         {/* ── Left: text ── */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center lg:text-left"
-        >
+        <div className="anim-fade-in-left text-center lg:text-left">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight mb-6">
             <span className="block text-white">Vivez l'éclipse</span>
             <span className="block gradient-text-blue glow-blue-text">solaire du</span>
@@ -74,24 +67,17 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <motion.a
+            <a
               href="#produits"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 rounded-full bg-white text-black font-bold text-base glow-blue hover:bg-gray-100 transition-colors text-center"
+              className="px-8 py-4 rounded-full bg-white text-black font-bold text-base glow-blue hover:bg-gray-100 hover:scale-[1.03] active:scale-[0.97] transition-all text-center"
             >
               Commandez vos lunettes d'Éclipse ici
-            </motion.a>
+            </a>
           </div>
-        </motion.div>
+        </div>
 
         {/* ── Right: 3D glasses + eclipse ── */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          className="relative flex flex-col gap-4"
-        >
+        <div className="anim-fade-in-scale relative flex flex-col gap-4">
           {/* Compte à rebours */}
           <div className="flex justify-center gap-2 md:gap-4 mb-2">
             {[
@@ -124,47 +110,36 @@ export default function Hero() {
             />
 
             {/* ISO badge floating next to glasses */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2, duration: 0.6 }}
-              className="absolute top-6 right-2 flex flex-col gap-2"
-            >
+            <div className="anim-fade-in-right absolute top-6 right-2 flex flex-col gap-2">
               {isoCerts.map((cert, i) => (
-                <motion.a
+                <a
                   key={cert.code}
                   href={cert.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  animate={shouldReduceMotion ? {} : { y: [0, i % 2 === 0 ? -5 : 5, 0] }}
-                  transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut" }}
-                  className="flex items-center gap-2 px-3 py-2 glass rounded-xl text-xs shadow-lg hover:scale-105 transition-transform"
+                  className={`${i % 2 === 0 ? "anim-float-y" : "anim-float-y-rev"} flex items-center gap-2 px-3 py-2 glass rounded-xl text-xs shadow-lg hover:scale-105 transition-transform`}
                 >
-                  <motion.span animate={shouldReduceMotion ? {} : { x: [0, 4, 0] }} transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.5 }}>
+                  <span className="badge-bounce">
                     <div className="w-0 h-0" style={{ borderTop: "4px solid transparent", borderBottom: "4px solid transparent", borderLeft: "6px solid #22D3EE" }} />
-                  </motion.span>
+                  </span>
                   <ShieldCheck size={12} className="text-[#22D3EE]" />
                   <div>
                     <div className="text-[#FFB800] font-bold text-[11px] leading-none">{cert.code}</div>
                     <div className="text-white/82 text-[9px]">{cert.lab}</div>
                   </div>
-                </motion.a>
+                </a>
               ))}
-            </motion.div>
+            </div>
           </div>
 
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/72"
-        animate={shouldReduceMotion ? {} : { y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
+      <div className="anim-scroll-bob absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/72">
         <span className="text-xs uppercase tracking-widest">Découvrir</span>
         <ArrowDown size={14} />
-      </motion.div>
+      </div>
     </section>
   );
 }

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ShoppingCart, Eye, Smartphone, CheckCircle, Zap, BookOpen, ShieldCheck, ExternalLink } from "lucide-react";
+import { ShoppingCart, Eye, CheckCircle, Zap, BookOpen, ShieldCheck, ExternalLink } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 
 const PRICE_STEPS = [
@@ -78,41 +78,6 @@ const PRODUCTS: ProductDef[] = [
       "gid://shopify/ProductVariant/58137193513305",
       "gid://shopify/ProductVariant/58137193546073",
       "gid://shopify/ProductVariant/58137193578841",
-    ],
-  },
-  {
-    id: "filter",
-    name: "Filtre Téléphone Universel",
-    subtitle: "Filmer & photographier l'éclipse",
-    image: "/filtre_telephone.png",
-    intro: "Capturez l'éclipse solaire du 12 août 2026 en toute sécurité grâce à notre filtre solaire ND 5.0 spécialement conçu pour smartphones et tablettes.",
-    bullets: [
-      { title: "Compatible avec tous les téléphones", text: "Ce filtre est le même que celui pour les lunettes et permet de rendre ce moment mémorable." },
-      { title: "Production responsable", text: "Production réalisée en batches limités afin de réduire le gaspillage et la surproduction." },
-    ],
-    warnings: [
-      "Ce filtre est conçu exclusivement pour la capture photo/vidéo du Soleil avec un smartphone ou une tablette.",
-      "Ne jamais observer directement le Soleil à travers l'écran ou l'objectif sans protection adaptée pour les yeux.",
-      "Toujours utiliser des lunettes certifiées ISO 12312-2 pour l'observation directe de l'éclipse solaire.",
-    ],
-    unit: "filtre",
-    color: "#FFB800",
-    icon: Smartphone,
-    features: [],
-    badge: "ISO 12312-2",
-    defaultStepIdx: 6,
-    variantId: "gid://shopify/ProductVariant/58137193644377",
-    variantIds: [
-      "gid://shopify/ProductVariant/58137193644377",
-      "gid://shopify/ProductVariant/58137193677145",
-      "gid://shopify/ProductVariant/58137193709913",
-      "gid://shopify/ProductVariant/58137193742681",
-      "gid://shopify/ProductVariant/58137193775449",
-      "gid://shopify/ProductVariant/58137193808217",
-      "gid://shopify/ProductVariant/58137193840985",
-      "gid://shopify/ProductVariant/58137193873753",
-      "gid://shopify/ProductVariant/58137193906521",
-      "gid://shopify/ProductVariant/58137193939289",
     ],
   },
   {
