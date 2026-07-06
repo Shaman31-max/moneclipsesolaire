@@ -65,15 +65,6 @@ export default function Hero() {
             Le 12 août 2026, la France vivra sa plus impressionnante éclipse solaire depuis 1999. Observez-la en toute sécurité avec nos lunettes d'éclipse solaire certifiées ISO 12312-2 — un évènement qui ne se reproduira pas avant 2081.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a
-              href="#produits"
-              className="px-8 py-4 rounded-full bg-white text-black font-bold text-base glow-blue hover:bg-gray-100 hover:scale-[1.03] active:scale-[0.97] transition-all text-center"
-            >
-              Commandez vos lunettes d'Éclipse ici
-            </a>
-          </div>
         </div>
 
         {/* ── Right: 3D glasses + eclipse ── */}
@@ -130,6 +121,16 @@ export default function Hero() {
                 </a>
               ))}
             </div>
+          </div>
+
+          {/* CTA */}
+          <div className="flex justify-center">
+            <a
+              href="#produits"
+              className="px-8 py-4 rounded-full bg-white text-black font-bold text-base glow-blue hover:bg-gray-100 hover:scale-[1.03] active:scale-[0.97] transition-all text-center"
+            >
+              Commandez vos lunettes d'Éclipse ici
+            </a>
           </div>
 
         </div>
