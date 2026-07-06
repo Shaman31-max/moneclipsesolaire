@@ -542,7 +542,7 @@ export default function B2BCatalog({ session, onLogout }: Props) {
               { icon: ShieldCheck, label: "Prix unitaire HT", value: "à partir de 0,61 € HT" },
               { icon: Eye, label: "Min. Lunettes", value: "200 paires" },
               { icon: Smartphone, label: "Min. Filtres", value: "80 unités" },
-              { icon: Truck, label: "Délai livraison", value: "Selon calendrier", href: "/#commande" },
+              { icon: Truck, label: "Délai livraison", value: "Selon calendrier", href: "/suivi" },
               { icon: FileText, label: "Paiement", value: "50% acompte, solde à réception" },
             ].map(({ icon: Icon, label, value, href }: { icon: React.ComponentType<{ size?: number; className?: string }>; label: string; value: string; href?: string }) => (
               <div key={label} className="flex items-center gap-2">

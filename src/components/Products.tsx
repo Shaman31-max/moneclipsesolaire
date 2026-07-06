@@ -381,7 +381,7 @@ function ProductCard({ product }: { product: ProductDef }) {
             </p>
             <p className="text-xs text-white/50 text-center">
               * Production à la demande — commandez maintenant et recevez à partir du <strong className="text-white/70">06 juillet</strong> ·{" "}
-              <a href="/#commande" className="text-[#22D3EE]/70 hover:text-[#22D3EE] underline underline-offset-2 transition-colors">voir le planning</a>
+              <a href="/suivi" className="text-[#22D3EE]/70 hover:text-[#22D3EE] underline underline-offset-2 transition-colors">voir le planning</a>
             </p>
             <motion.button
               whileTap={{ scale: 0.96 }}
@@ -484,7 +484,7 @@ export default function Products() {
               <div className="text-lg md:text-xl font-black text-white leading-tight">🚚 Livraison gratuite & incluse directement dans votre boîte aux lettres</div>
               <div className="text-sm font-semibold mt-0.5" style={{ color: "#22c55e" }}>
                 Garantie chez vous avant l'éclipse — sans frais cachés · selon le{" "}
-                <a href="/#commande" className="underline underline-offset-2 hover:text-white transition-colors">planning de livraison</a>*
+                <a href="/suivi" className="underline underline-offset-2 hover:text-white transition-colors">planning de livraison</a>*
               </div>
             </div>
           </div>

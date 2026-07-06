@@ -150,7 +150,7 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
               ) : a === "expédition-calendrier" ? (
                 <>
                   L'expédition suit le{" "}
-                  <a href="#commande" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
+                  <a href="/suivi" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
                     calendrier de production
                   </a>
                   {" "}— toutes les commandes sont expédiées en une seule vague, en enveloppe via La Poste, directement dans votre boîte aux lettres. Aucun déplacement en point relais n'est nécessaire.

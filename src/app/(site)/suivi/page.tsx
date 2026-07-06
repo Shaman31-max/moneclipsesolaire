@@ -200,7 +200,7 @@ export default function SuiviPage() {
             <p className="text-xs text-white/40 text-center">
               Livraison garantie avant l'éclipse du{" "}
               <span className="text-white/60 font-semibold">12 août 2026</span> ·{" "}
-              <a href="/#commande" className="text-[#22D3EE]/60 hover:text-[#22D3EE] underline underline-offset-2 transition-colors">
+              <a href="/suivi" className="text-[#22D3EE]/60 hover:text-[#22D3EE] underline underline-offset-2 transition-colors">
                 voir le planning
               </a>
             </p>
