@@ -83,7 +83,7 @@ const PRODUCTS: ProductDef[] = [
   },
   {
     id: "ebook",
-    name: "Ma première éclipse",
+    name: "Luna et l'éclipse magique",
     subtitle: "Ebook enfant — dès 3 ans",
     image: "/ebook.png",
     desc: "Découvrez Luna et l'éclipse magique, un album illustré plein de douceur qui invite les enfants à partir de 3 ans à explorer la magie des éclipses solaires. À travers une histoire tendre et des illustrations colorées, les petits apprendront à observer ce phénomène fascinant en toute sécurité.",
