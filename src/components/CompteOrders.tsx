@@ -1,6 +1,5 @@
 ﻿"use client";
 
-import { motion } from "framer-motion";
 import { LogOut, Package, Truck, CheckCircle, Clock, MapPin, ChevronDown, ChevronUp, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import type { CompteSession } from "./ComptePortal";
@@ -64,11 +63,7 @@ function OrderCard({ order }: { order: Order }) {
   const batchColor = order.batch === 1 ? "#22D3EE" : "#FFAA00";
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="glass rounded-2xl border border-[#22D3EE]/12 overflow-hidden"
-    >
+    <div className="anim-fade-in-up-fast glass rounded-2xl border border-[#22D3EE]/12 overflow-hidden">
       {/* Header */}
       <button
         onClick={() => setExpanded((v) => !v)}
@@ -111,11 +106,9 @@ function OrderCard({ order }: { order: Order }) {
             <div className="relative flex items-start justify-between">
               {/* Progress bar */}
               <div className="absolute top-5 left-5 right-5 h-0.5 bg-white/5">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${(currentStep / (STEPS.length - 1)) * 100}%` }}
-                  transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-                  className="h-full bg-gradient-to-r from-[#22D3EE] to-[#FFB800]"
+                <div
+                  className="h-full bg-gradient-to-r from-[#22D3EE] to-[#FFB800] transition-[width] duration-1000 ease-out"
+                  style={{ width: `${(currentStep / (STEPS.length - 1)) * 100}%` }}
                 />
               </div>
 
@@ -125,11 +118,8 @@ function OrderCard({ order }: { order: Order }) {
                 const Icon = step.icon;
                 return (
                   <div key={step.key} className="flex flex-col items-center gap-2 relative z-10 flex-1">
-                    <motion.div
-                      initial={{ scale: 0.7, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: 0.1 * i, duration: 0.4 }}
-                      className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all ${
+                    <div
+                      className={`anim-pop-in w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all ${
                         active
                           ? "border-[#FFB800] bg-[#22D3EE]/20 shadow-[0_0_16px_rgba(30,127,255,0.5)]"
                           : done
@@ -141,7 +131,7 @@ function OrderCard({ order }: { order: Order }) {
                         size={15}
                         className={done ? (active ? "text-[#FFB800]" : "text-[#22D3EE]") : "text-white/65"}
                       />
-                    </motion.div>
+                    </div>
                     <div className="text-center hidden sm:block">
                       <div className={`text-[10px] font-bold leading-tight ${done ? "text-white/95" : "text-white/65"}`}>
                         {step.label}
@@ -201,7 +191,7 @@ function OrderCard({ order }: { order: Order }) {
           </div>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 }
 
@@ -216,12 +206,7 @@ export default function CompteOrders({ session, onLogout }: Props) {
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 py-12">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center justify-between mb-10"
-        >
+        <div className="anim-fade-in-up-fast flex items-center justify-between mb-10">
           <div>
             <p className="text-xs uppercase tracking-[0.25em] text-[#22D3EE] mb-1">Mon espace</p>
             <h1 className="text-2xl font-black text-white">
@@ -236,7 +221,7 @@ export default function CompteOrders({ session, onLogout }: Props) {
             <LogOut size={13} />
             Déconnexion
           </button>
-        </motion.div>
+        </div>
 
         {/* Orders */}
         <div className="mb-4">
@@ -260,12 +245,7 @@ export default function CompteOrders({ session, onLogout }: Props) {
         </div>
 
         {/* CTA nouvelle commande */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="mt-8 p-5 glass rounded-2xl border border-[#22D3EE]/10 flex items-center justify-between gap-4 flex-wrap"
-        >
+        <div className="anim-fade-in-up-fast mt-8 p-5 glass rounded-2xl border border-[#22D3EE]/10 flex items-center justify-between gap-4 flex-wrap">
           <div>
             <p className="text-sm font-semibold text-white/95">Besoin de plus de lunettes ?</p>
             <p className="text-xs text-white/82 mt-0.5">1ère série ouverte jusqu'au 15 juin — livraison 20 juillet</p>
@@ -276,7 +256,7 @@ export default function CompteOrders({ session, onLogout }: Props) {
           >
             Commander
           </a>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

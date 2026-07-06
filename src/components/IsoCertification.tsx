@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { motion } from "framer-motion";
+import Reveal from "@/components/Reveal";
 import { ShieldCheck, ExternalLink, Award, CheckCircle } from "lucide-react";
 
 const certs = [
@@ -72,13 +72,7 @@ export default function IsoCertification() {
         <p className="text-[calc(0.75rem+3px)] uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-black text-center">Certifications</p>
 
         {/* Bandeau avertissement rouge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 rounded-2xl border-2 border-red-500/60 bg-red-500/10 px-6 py-5 flex items-center gap-5 relative overflow-hidden"
-        >
+        <Reveal className="mb-8 rounded-2xl border-2 border-red-500/60 bg-red-500/10 px-6 py-5 flex items-center gap-5 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-red-500/05 to-transparent pointer-events-none" />
           <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-red-500/20 border-2 border-red-500/60 flex items-center justify-center">
             <span className="text-2xl">⚠️</span>
@@ -91,17 +85,11 @@ export default function IsoCertification() {
               Ne jamais utiliser de lunettes de soleil ordinaires.
             </p>
           </div>
-        </motion.div>
+        </Reveal>
 
         <div className="grid md:grid-cols-3 gap-6 items-center">
           {/* Left: Main cert */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="md:col-span-2"
-          >
+          <Reveal className="md:col-span-2">
             <div className="flex items-start gap-5">
               <div className="relative flex-shrink-0">
                 <div className="w-16 h-16 rounded-2xl bg-[#22D3EE]/15 border border-[#22D3EE]/30 flex items-center justify-center">
@@ -129,25 +117,16 @@ export default function IsoCertification() {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {certs.map((c, i) => (
-                    <motion.a
+                    <a
                       key={c.code}
                       href={c.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1, duration: 0.4 }}
-                      whileHover={{ scale: 1.04 }}
-                      className="group flex items-center gap-3 px-5 py-3 rounded-xl glass border transition-all duration-200"
+                      className="group flex items-center gap-3 px-5 py-3 rounded-xl glass border transition-all duration-200 hover:scale-[1.04]"
                       style={{ borderColor: `${c.color}25` }}
                     >
                       {/* Animated arrow */}
-                      <motion.div
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
-                        className="flex-shrink-0"
-                      >
+                      <div className="badge-bounce flex-shrink-0" style={{ animationDelay: `${i * 0.3}s` }}>
                         <div
                           className="w-0 h-0"
                           style={{
@@ -156,7 +135,7 @@ export default function IsoCertification() {
                             borderLeft: `9px solid ${c.color}`,
                           }}
                         />
-                      </motion.div>
+                      </div>
 
                       <ShieldCheck size={18} style={{ color: c.color }} className="flex-shrink-0" />
 
@@ -176,21 +155,15 @@ export default function IsoCertification() {
                           <ExternalLink size={9} className="group-hover:text-white/92 transition-colors" />
                         </div>
                       </div>
-                    </motion.a>
+                    </a>
                   ))}
                 </div>
               </div>
             </div>
-          </motion.div>
+          </Reveal>
 
           {/* Right: Checklist */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass rounded-2xl p-5 border border-[#22D3EE]/15"
-          >
+          <Reveal delay={0.2} className="glass rounded-2xl p-5 border border-[#22D3EE]/15">
             <div className="text-xs font-bold uppercase tracking-widest text-[#FFB800] mb-4">
               Contrôles en laboratoire
             </div>
@@ -206,7 +179,7 @@ export default function IsoCertification() {
                 <span className="text-xs text-white/92">{item}</span>
               </div>
             ))}
-          </motion.div>
+          </Reveal>
         </div>
 
       </div>

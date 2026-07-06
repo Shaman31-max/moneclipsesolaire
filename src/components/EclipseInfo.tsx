@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { motion } from "framer-motion";
+import Reveal from "@/components/Reveal";
 import { MapPin, Clock, Eye, Star } from "lucide-react";
 
 const cities = [
@@ -25,13 +25,7 @@ export default function EclipseInfo() {
 
 
         {/* Pourquoi spéciale */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="glass rounded-2xl p-7 border border-[#22D3EE]/15"
-        >
+        <Reveal className="glass rounded-2xl p-7 border border-[#22D3EE]/15">
           <h3 className="text-xl font-black text-[#DCE8FF] mb-4 flex items-center gap-2">
             <Star size={20} style={{ color: "#22D3EE" }} /> Pourquoi cette éclipse est-elle si spéciale ?
           </h3>
@@ -52,16 +46,10 @@ export default function EclipseInfo() {
           <p className="mt-4 text-sm text-[#E8F0FF]/70 italic">
             Des millions de personnes devraient observer cet événement astronomique historique.
           </p>
-        </motion.div>
+        </Reveal>
 
         {/* Que verra-t-on en France */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="glass rounded-2xl p-7 border border-[#FFB800]/15"
-        >
+        <Reveal className="glass rounded-2xl p-7 border border-[#FFB800]/15">
           <h3 className="text-xl font-black text-[#DCE8FF] mb-4 flex items-center gap-2">
             <MapPin size={20} style={{ color: "#FFB800" }} /> Que verra-t-on en France ?
           </h3>
@@ -86,16 +74,10 @@ export default function EclipseInfo() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </Reveal>
 
         {/* Horaires */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="glass rounded-2xl p-7 border border-[#FFB800]/15"
-        >
+        <Reveal className="glass rounded-2xl p-7 border border-[#FFB800]/15">
           <h3 className="text-xl font-black text-[#DCE8FF] mb-4 flex items-center gap-2">
             <Clock size={20} style={{ color: "#FFB800" }} /> À quelle heure aura lieu l'éclipse ?
           </h3>
@@ -110,16 +92,10 @@ export default function EclipseInfo() {
           <p className="text-xs text-[#E8F0FF]/70 leading-relaxed">
             💡 Le Soleil sera très bas sur l'horizon au moment du maximum — choisissez un endroit avec une vue dégagée vers l'ouest.
           </p>
-        </motion.div>
+        </Reveal>
 
         {/* Avertissement */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="rounded-2xl border-2 border-red-500/60 bg-red-500/08 p-6"
-        >
+        <Reveal className="rounded-2xl border-2 border-red-500/60 bg-red-500/08 p-6">
           <h3 className="text-lg font-black text-red-400 mb-3 flex items-center gap-2">
             ⚠️ Important : protéger ses yeux
           </h3>
@@ -137,16 +113,10 @@ export default function EclipseInfo() {
             </div>
           </div>
           <p className="mt-3 text-xs text-red-400/80 font-semibold">Les lunettes de soleil classiques ne protègent pas suffisamment.</p>
-        </motion.div>
+        </Reveal>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center glass rounded-2xl p-6 border border-[#22c55e]/30"
-        >
+        <Reveal className="text-center glass rounded-2xl p-6 border border-[#22c55e]/30">
           <p className="text-lg font-black text-white mb-1">🌞 Préparez-vous dès maintenant</p>
           <p className="text-sm text-[#E8F0FF]/75 mb-4">
             Les lunettes d'éclipse risquent d'être en rupture de stock à l'approche du 12 août 2026.
@@ -157,7 +127,7 @@ export default function EclipseInfo() {
           >
             Commander mes lunettes →
           </a>
-        </motion.div>
+        </Reveal>
 
       </div>
     </section>

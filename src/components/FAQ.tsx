@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import Reveal from "@/components/Reveal";
 import { ChevronDown, ShieldCheck, Package, Truck, CreditCard, Eye, CalendarClock } from "lucide-react";
 
 const categories = [
@@ -101,24 +101,13 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
         <span className={`text-sm font-semibold leading-snug transition-colors ${isOpen ? "text-[#FFB800]" : "text-[#FFB800]/80 group-hover:text-[#FFB800]"}`}>
           {q}
         </span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.25 }}
-          className="flex-shrink-0 mt-0.5"
-        >
+        <div className={`flex-shrink-0 mt-0.5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}>
           <ChevronDown size={16} className={`transition-colors ${isOpen ? "text-[#FFB800]" : "text-white/78"}`} />
-        </motion.div>
+        </div>
       </button>
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
+      <div className={`collapse-grid ${isOpen ? "collapse-open" : ""}`}>
+        <div>
             <div className="text-sm text-white/90 leading-relaxed pb-5 pr-8">
               {a === "eclipse-date" ? (
                 <>
@@ -146,9 +135,8 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
                 </>
               ) : a}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
+      </div>
     </div>
   );
 }
@@ -167,13 +155,7 @@ export default function FAQ() {
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-14"
-        >
+        <Reveal className="text-center mb-14">
           <p className="text-[calc(0.75rem+3px)] uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-medium">
             Questions fréquentes
           </p>
@@ -183,17 +165,11 @@ export default function FAQ() {
           <p className="text-white/88 max-w-xl mx-auto text-sm">
             Réponses complètes sur la sécurité, les produits, la livraison et nos offres professionnelles.
           </p>
-        </motion.div>
+        </Reveal>
 
         <div className="grid lg:grid-cols-[240px_1fr] gap-8 items-start">
           {/* Category sidebar */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:sticky lg:top-24 flex flex-row lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0"
-          >
+          <Reveal variant="x" className="lg:sticky lg:top-24 flex flex-row lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0">
             {categories.map((cat, i) => {
               const Icon = cat.icon;
               const active = openCat === i;
@@ -212,16 +188,10 @@ export default function FAQ() {
                 </button>
               );
             })}
-          </motion.div>
+          </Reveal>
 
           {/* FAQ panel */}
-          <motion.div
-            key={openCat}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="glass rounded-2xl px-6 border border-[#22D3EE]/10"
-          >
+          <div key={openCat} className="anim-fade-in-up-fast glass rounded-2xl px-6 border border-[#22D3EE]/10">
             {/* Category header */}
             <div className="flex items-center gap-3 py-5 border-b border-[#22D3EE]/10 mb-1">
               {(() => {
@@ -253,17 +223,11 @@ export default function FAQ() {
                 />
               );
             })}
-          </motion.div>
+          </div>
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-10 flex items-center justify-center gap-4 flex-wrap"
-        >
+        <Reveal delay={0.2} className="mt-10 flex items-center justify-center gap-4 flex-wrap">
           <p className="text-sm text-white/85">Vous n'avez pas trouvé votre réponse ?</p>
           <a
             href="mailto:contact@moneclipsesolaire.fr"
@@ -272,7 +236,7 @@ export default function FAQ() {
             <ShieldCheck size={13} />
             Contactez notre équipe
           </a>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

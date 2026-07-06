@@ -1,6 +1,5 @@
 ﻿"use client";
 
-import { motion } from "framer-motion";
 import { Share2, MessageCircle, Globe, Mail, Phone } from "lucide-react";
 
 export default function Footer() {

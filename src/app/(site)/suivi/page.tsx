@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Package, Truck, CheckCircle, Clock, Factory, MapPin, Search, ExternalLink } from "lucide-react";
 
 const STAGES = [
@@ -61,12 +60,7 @@ export default function SuiviPage() {
       <div className="max-w-xl mx-auto">
 
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
+        <div className="anim-fade-in-up-fast text-center mb-12">
           <p className="text-xs uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-medium">Suivi de commande</p>
           <h1 className="text-3xl md:text-4xl font-black text-[#DCE8FF] mb-3">
             Où est ma <span className="gradient-text-blue">commande&nbsp;?</span>
@@ -74,15 +68,10 @@ export default function SuiviPage() {
           <p className="text-white/65 text-sm">
             Suivez l'avancement de votre commande en temps réel.
           </p>
-        </motion.div>
+        </div>
 
         {/* Tracking input */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="glass rounded-2xl p-6 mb-8 border border-[#22D3EE]/12"
-        >
+        <div className="anim-fade-in-up-fast glass rounded-2xl p-6 mb-8 border border-[#22D3EE]/12">
           <p className="text-sm font-bold text-white/80 mb-3">
             Vous avez reçu un numéro de suivi par email ?
           </p>
@@ -116,15 +105,10 @@ export default function SuiviPage() {
           <p className="text-xs text-white/35 mt-2">
             Votre numéro de suivi vous sera envoyé par email dès traitement de votre commande.
           </p>
-        </motion.div>
+        </div>
 
         {/* Production timeline */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="glass rounded-2xl p-6 border border-[#22D3EE]/12"
-        >
+        <div className="anim-fade-in-up-fast glass rounded-2xl p-6 border border-[#22D3EE]/12">
           <p className="text-xs uppercase tracking-[0.25em] text-[#22D3EE] font-semibold mb-6">
             Statut de production
           </p>
@@ -140,13 +124,8 @@ export default function SuiviPage() {
                 const Icon = stage.icon;
 
                 return (
-                  <motion.div
-                    key={stage.key}
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
-                    className="relative flex gap-4 pb-7 last:pb-0"
-                  >
+                  <div key={stage.key}
+                    className="anim-fade-in-up-fast relative flex gap-4 pb-7 last:pb-0">
                     {/* Icon circle */}
                     <div
                       className="relative z-10 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-500"
@@ -190,7 +169,7 @@ export default function SuiviPage() {
                         {stage.sub}
                       </p>
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
@@ -205,22 +184,17 @@ export default function SuiviPage() {
               </a>
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Help */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          className="mt-6 text-center"
-        >
+        <div className="anim-fade-in-up-fast mt-6 text-center">
           <p className="text-xs text-white/35">
             Un problème avec votre commande ?{" "}
             <a href="mailto:contact@moneclipsesolaire.fr" className="text-[#FFB800]/70 hover:text-[#FFB800] underline underline-offset-2 transition-colors">
               Contactez-nous
             </a>
           </p>
-        </motion.div>
+        </div>
 
       </div>
     </main>

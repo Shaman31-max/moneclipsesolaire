@@ -1,8 +1,8 @@
 ﻿"use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 import { ShoppingCart, Eye, CheckCircle, Zap, BookOpen, ShieldCheck, ExternalLink, Star } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { trackViewItem, trackAddToCart, trackBeginCheckout } from "@/lib/analytics";
@@ -148,12 +148,8 @@ function ProductCard({ product }: { product: ProductDef }) {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      onViewportEnter={handleViewItem}
-      transition={{ duration: 0.6 }}
+    <Reveal
+      onEnter={handleViewItem}
       className="relative glass rounded-3xl p-5 border flex flex-col overflow-hidden"
       style={{ borderColor: `${product.color}20` }}
     >
@@ -219,15 +215,8 @@ function ProductCard({ product }: { product: ProductDef }) {
 
       {/* Description — collapsible */}
       <div className="relative z-10 mb-3">
-        <AnimatePresence initial={false}>
-          {expanded && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
+        <div className={`collapse-grid ${expanded ? "collapse-open" : ""}`}>
+          <div>
               {product.bullets ? (
                 <div className="space-y-2.5 mb-3">
                   {product.intro && (
@@ -252,18 +241,17 @@ function ProductCard({ product }: { product: ProductDef }) {
               ) : (
                 <p className="text-sm text-white/85 leading-relaxed mb-3">{product.desc}</p>
               )}
-            </motion.div>
-          )}
-        </AnimatePresence>
+          </div>
+        </div>
 
         <button
           onClick={() => setExpanded((v) => !v)}
           className="flex items-center gap-1.5 text-xs font-semibold transition-colors"
           style={{ color: expanded ? "rgba(255,255,255,0.5)" : product.color }}
         >
-          <motion.span animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.25 }}>
+          <span className={`inline-block transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}>
             ▼
-          </motion.span>
+          </span>
           {expanded ? "Masquer" : "En savoir plus"}
         </button>
       </div>
@@ -332,20 +320,15 @@ function ProductCard({ product }: { product: ProductDef }) {
                 <span className="text-[10px] font-semibold whitespace-nowrap text-white/55">Livraison incluse · {fmt(unitPrice)} €/{product.unit}</span>
               </div>
             </div>
-            <AnimatePresence mode="wait">
-              {step.mention && (
-                <motion.div
-                  key={step.mention}
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  className="ml-auto px-2.5 py-1 rounded-lg font-black text-xs text-white"
-                  style={{ backgroundColor: product.color, boxShadow: `0 0 14px ${product.color}60` }}
-                >
-                  {step.mention}
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {step.mention && (
+              <div
+                key={step.mention}
+                className="anim-pop-in ml-auto px-2.5 py-1 rounded-lg font-black text-xs text-white"
+                style={{ backgroundColor: product.color, boxShadow: `0 0 14px ${product.color}60` }}
+              >
+                {step.mention}
+              </div>
+            )}
           </div>
         </>
       )}
@@ -385,10 +368,9 @@ function ProductCard({ product }: { product: ProductDef }) {
             <p className="text-xs text-white/50 text-center">
               * <strong className="text-white/70">Livraison 48h</strong> en boîte aux lettres
             </p>
-            <motion.button
-              whileTap={{ scale: 0.96 }}
+            <button
               onClick={handleAdd}
-              className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-base text-white transition-all duration-200"
+              className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-base text-white transition-all duration-200 active:scale-[0.96]"
               style={{
                 backgroundColor: added ? "#22c55e" : product.color,
                 boxShadow: added ? "0 0 24px rgba(34,197,94,0.4)" : `0 0 28px ${product.color}50`,
@@ -399,7 +381,7 @@ function ProductCard({ product }: { product: ProductDef }) {
               ) : (
                 <><ShoppingCart size={18} /> Ajouter au panier — {step.qty} {product.unit}{step.qty > 1 ? "s" : ""}</>
               )}
-            </motion.button>
+            </button>
           </div>
         )}
 
@@ -420,7 +402,7 @@ function ProductCard({ product }: { product: ProductDef }) {
           </div>
         )}
       </div>
-    </motion.div>
+    </Reveal>
   );
 }
 
@@ -434,13 +416,7 @@ export default function Products() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-8"
-        >
+        <Reveal className="text-center mb-8">
           <p className="text-[calc(0.75rem+3px)] uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-medium">Nos Produits</p>
           <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-4">
             Choisissez vos <span className="gradient-text-blue">équipements</span>
@@ -448,7 +424,7 @@ export default function Products() {
           <p className="text-white/75 text-[calc(0.875rem+2px)] max-w-lg mx-auto">
             Glissez le curseur pour ajuster la quantité, prix dégressif en fonction de la quantité.
           </p>
-        </motion.div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 gap-8">
           {PRODUCTS.map((p) => (
@@ -457,25 +433,19 @@ export default function Products() {
         </div>
 
         {/* Finaliser ma commande — pleine largeur */}
-        <AnimatePresence>
-          {totalItems > 0 && (
-            <motion.a
-              href={checkoutUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackBeginCheckout(items)}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="mt-6 w-full flex items-center justify-center gap-3 py-5 rounded-2xl font-black text-lg text-black bg-white hover:bg-gray-100 transition-colors"
-              style={{ boxShadow: "0 0 40px rgba(255,255,255,0.12)" }}
-            >
-              <ShoppingCart size={20} />
-              Finaliser ma commande — {totalItems} article{totalItems > 1 ? "s" : ""} →
-            </motion.a>
-          )}
-        </AnimatePresence>
+        {totalItems > 0 && (
+          <a
+            href={checkoutUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackBeginCheckout(items)}
+            className="anim-fade-in-up-fast mt-6 w-full flex items-center justify-center gap-3 py-5 rounded-2xl font-black text-lg text-black bg-white hover:bg-gray-100 transition-colors"
+            style={{ boxShadow: "0 0 40px rgba(255,255,255,0.12)" }}
+          >
+            <ShoppingCart size={20} />
+            Finaliser ma commande — {totalItems} article{totalItems > 1 ? "s" : ""} →
+          </a>
+        )}
 
         {/* Disclaimer */}
         <div className="flex items-center gap-3 mt-2 mb-6 px-4 py-3 rounded-xl border border-amber-400/30 bg-amber-400/06">
@@ -487,11 +457,8 @@ export default function Products() {
         </div>
 
         {/* Bandeau livraison */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+        <Reveal
+          delay={0.2}
           className="mt-8 relative overflow-hidden rounded-2xl border border-[#22c55e]/40 bg-[#22c55e]/08 px-6 py-5 flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-[#22c55e]/05 via-[#22c55e]/10 to-[#22c55e]/05 pointer-events-none" />
@@ -507,7 +474,7 @@ export default function Products() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

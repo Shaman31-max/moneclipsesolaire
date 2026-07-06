@@ -152,6 +152,28 @@ body {
   50%      { transform: translate(-50%, 8px); }
 }
 
+/* Reveal au scroll (IntersectionObserver via <Reveal/>) — remplace framer-motion */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease-out, transform 0.65s ease-out; }
+.reveal-x { opacity: 0; transform: translateX(-20px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+.reveal.reveal-in, .reveal-x.reveal-in { opacity: 1; transform: none; }
+
+/* Apparition rapide (montage conditionnel) */
+@keyframes fade-in-up-fast {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim-fade-in-up-fast { animation: fade-in-up-fast 0.3s ease-out; }
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.anim-pop-in { animation: pop-in 0.25s ease-out; }
+
+/* Collapse animé en CSS pur (grid-template-rows) */
+.collapse-grid { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease-in-out; }
+.collapse-grid.collapse-open { grid-template-rows: 1fr; }
+.collapse-grid > * { overflow: hidden; min-height: 0; }
+
 .anim-fade-in-left  { opacity: 0; animation: fade-in-left 0.8s ease-out forwards; }
 .anim-fade-in-scale { opacity: 0; animation: fade-in-scale 1s ease-out 0.3s forwards; }
 .anim-fade-in-right { opacity: 0; animation: fade-in-right 0.6s ease-out 1.2s forwards; }
@@ -161,8 +183,11 @@ body {
 .anim-scroll-bob  { animation: scroll-bob 2s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-x { opacity: 1; transform: none; transition: none; }
+  .collapse-grid { transition: none; }
   .anim-fade-in-left, .anim-fade-in-scale, .anim-fade-in-right,
   .anim-slide-down-nav, .anim-float-y, .anim-float-y-rev, .anim-scroll-bob,
+  .anim-fade-in-up-fast, .anim-pop-in,
   .corona-pulse, .badge-bounce, .float {
     animation: none !important;
     opacity: 1 !important;

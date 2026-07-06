@@ -1,7 +1,6 @@
 ﻿"use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Mail, Lock, Eye, EyeOff, ArrowRight, User } from "lucide-react";
 import type { CompteSession } from "./ComptePortal";
 
@@ -36,26 +35,16 @@ export default function CompteLogin({ onLogin }: Props) {
 
       <div className="relative z-10 w-full max-w-sm">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8"
-        >
+        <div className="anim-fade-in-up-fast text-center mb-8">
           <div className="w-14 h-14 rounded-2xl bg-[#22D3EE]/15 border border-[#22D3EE]/25 flex items-center justify-center mx-auto mb-4">
             <User size={24} className="text-[#22D3EE]" />
           </div>
           <h1 className="text-2xl font-black text-white">Mon espace</h1>
           <p className="text-sm text-white/85 mt-1">Suivez vos commandes en temps réel</p>
-        </motion.div>
+        </div>
 
         {/* Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="glass rounded-2xl p-7 border border-[#22D3EE]/12"
-        >
+        <div className="anim-fade-in-up-fast glass rounded-2xl p-7 border border-[#22D3EE]/12">
           {/* Tab switcher */}
           <div className="flex rounded-xl bg-white/4 p-1 mb-6">
             {(["login", "register"] as Tab[]).map((t) => (
@@ -123,7 +112,7 @@ export default function CompteLogin({ onLogin }: Props) {
               }
             </button>
           </form>
-        </motion.div>
+        </div>
 
         <p className="text-center text-[10px] text-white/65 mt-5">
           En continuant vous acceptez nos{" "}
