@@ -56,11 +56,7 @@ export default function SeoContent() {
             <a href="#produits" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
               Commandez vos lunettes éclipse solaire dès maintenant
             </a>{" "}
-            à partir de 3,99&nbsp;€, ou découvrez notre{" "}
-            <a href="/b2b" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
-              offre B2B pour les professionnels
-            </a>{" "}
-            (pharmacies, tabacs-presse, collectivités).
+            à partir de 3,99&nbsp;€.
           </p>
         </div>
       </div>

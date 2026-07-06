@@ -17,7 +17,6 @@ export default function CookiesPage() {
             <p>MonEclipseSolaire.fr utilise uniquement des cookies strictement nécessaires au fonctionnement du site :</p>
             <div className="mt-3 space-y-3">
               <CookieRow name="Session Shopify" purpose="Gestion du panier et de la session d'achat" duration="Session" />
-              <CookieRow name="Authentification B2B" purpose="Maintien de la connexion à l'espace partenaires" duration="Session" />
               <CookieRow name="Préférences" purpose="Mémorisation de vos choix de navigation" duration="30 jours" />
             </div>
             <p className="mt-4">Nous n'utilisons <strong className="text-white">aucun cookie publicitaire, de tracking ou de réseaux sociaux</strong> sans votre consentement préalable.</p>

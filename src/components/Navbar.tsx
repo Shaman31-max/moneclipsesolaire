@@ -4,21 +4,18 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
-import { useB2BCart } from "@/contexts/B2BCartContext";
 import { trackBeginCheckout } from "@/lib/analytics";
 
 const links = [
   { href: "/#produits", label: "Commander" },
   { href: "/#eclipse", label: "L'Éclipse" },
   { href: "/#faq", label: "FAQ" },
-  { href: "/b2b", label: "Partenaires B2B", badge: true },
   { href: "/suivi", label: "Suivre ma commande" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { totalItems, checkoutUrl, items } = useCart();
-  const { count: b2bCount, setSidebarOpen } = useB2BCart();
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
@@ -54,32 +51,12 @@ export default function Navbar() {
               className="flex items-center gap-1.5 text-sm text-white/93 hover:text-[#22D3EE] transition-colors duration-200 tracking-wide whitespace-nowrap"
             >
               {l.label}
-              {l.badge && (
-                <span className="px-1.5 py-0.5 rounded-full bg-[#22D3EE]/20 text-[9px] font-bold text-[#FFB800] border border-[#22D3EE]/30">
-                  PRO
-                </span>
-              )}
             </a>
           ))}
         </div>
 
         {/* Spacer on smaller screens */}
         <div className="flex-1 xl:hidden" />
-
-        {/* B2B cart button */}
-        {b2bCount > 0 && (
-          <button
-            onClick={() => setSidebarOpen(true)}
-            className="relative flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-black text-black bg-[#FFB800] hover:bg-[#e6a700] transition-colors flex-shrink-0"
-            style={{ boxShadow: "0 0 18px rgba(255,184,0,0.45)" }}
-          >
-            <ShoppingCart size={15} />
-            <span className="hidden sm:inline">Panier B2B</span>
-            <span className="w-5 h-5 rounded-full bg-black/25 text-[10px] font-bold flex items-center justify-center">
-              {b2bCount}
-            </span>
-          </button>
-        )}
 
         {/* B2C cart button */}
         {totalItems > 0 && (
@@ -108,11 +85,6 @@ export default function Navbar() {
               className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold text-white/80 hover:text-[#22D3EE] whitespace-nowrap transition-colors flex-shrink-0"
             >
               {l.label}
-              {l.badge && (
-                <span className="px-1.5 py-0.5 rounded-full bg-[#22D3EE]/20 text-[9px] font-bold text-[#FFB800] border border-[#22D3EE]/30">
-                  PRO
-                </span>
-              )}
             </a>
           ))}
         </div>

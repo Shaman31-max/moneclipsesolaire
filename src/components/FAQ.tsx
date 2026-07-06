@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ShieldCheck, Package, Truck, CreditCard, Eye, Building2, CalendarClock } from "lucide-react";
+import { ChevronDown, ShieldCheck, Package, Truck, CreditCard, Eye, CalendarClock } from "lucide-react";
 
 const categories = [
   {
@@ -81,22 +81,11 @@ const categories = [
     faqs: [
       {
         q: "Quels moyens de paiement acceptez-vous ?",
-        a: "Carte bancaire (Visa, Mastercard, CB), PayPal, Apple Pay et Google Pay. Pour les commandes B2B : 50% d'acompte à la commande, solde à la livraison.",
+        a: "Carte bancaire (Visa, Mastercard, CB), PayPal, Apple Pay et Google Pay.",
       },
       {
         q: "Mes données bancaires sont-elles sécurisées ?",
         a: "Oui. Nous utilisons Shopify Payments, certifié PCI DSS niveau 1 (le niveau le plus élevé). Aucune donnée de carte n'est stockée sur nos serveurs.",
-      },
-    ],
-  },
-  {
-    icon: Building2,
-    label: "Espace B2B",
-    color: "#FFB800",
-    faqs: [
-      {
-        q: "Comment obtenir un code d'accès partenaire B2B ?",
-        a: "Envoyez un email à b2b@moneclipsesolaire.fr avec votre SIRET, votre secteur d'activité et le volume estimé. Notre équipe commerciale vous contacte sous 24h ouvrées avec votre code personnalisé.",
       },
     ],
   },

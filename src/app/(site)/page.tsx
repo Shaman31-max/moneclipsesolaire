@@ -8,7 +8,6 @@ import SeoContent from "@/components/SeoContent";
 const EclipseInfo      = dynamic(() => import("@/components/EclipseInfo"));
 const IsoCertification = dynamic(() => import("@/components/IsoCertification"));
 const Products         = dynamic(() => import("@/components/Products"));
-const B2BTeaser        = dynamic(() => import("@/components/B2BTeaser"));
 const FAQ              = dynamic(() => import("@/components/FAQ"));
 const Footer           = dynamic(() => import("@/components/Footer"));
 
@@ -145,8 +144,6 @@ export default function Home() {
         <EclipseInfo />
         <Divider />
         <IsoCertification />
-        <Divider />
-        <B2BTeaser />
         <Divider />
         <FAQ />
         <Divider />
