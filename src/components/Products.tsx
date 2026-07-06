@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import { ShoppingCart, Eye, CheckCircle, Zap, BookOpen, ShieldCheck, ExternalLink, Star } from "lucide-react";
@@ -102,7 +102,11 @@ const PRODUCTS: ProductDef[] = [
 function ProductCard({ product }: { product: ProductDef }) {
   const [stepIdx, setStepIdx] = useState(product.defaultStepIdx ?? 0);
   const [added, setAdded] = useState(false);
-  const [expanded, setExpanded] = useState(true);
+  // Caractéristiques repliées sur mobile, dépliées sur desktop
+  const [expanded, setExpanded] = useState(false);
+  useEffect(() => {
+    if (window.matchMedia("(min-width: 768px)").matches) setExpanded(true);
+  }, []);
   const [viewed, setViewed] = useState(false);
   const Icon = product.icon;
   const { addItem, removeItem, checkoutUrl } = useCart();
