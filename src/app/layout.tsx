@@ -10,16 +10,15 @@ const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: [
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://moneclipsesolaire.fr"),
-  title: "MonEclipseSolaire.fr — Lunettes & Filtres pour l'Éclipse du 12 Août 2026",
-  description: "Protégez vos yeux et votre appareil photo lors de l'éclipse solaire du 12 août 2026 en France. Lunettes certifiées ISO et filtres professionnels.",
-  keywords: ["éclipse solaire", "lunettes éclipse", "filtre téléphone", "éclipse 2026", "protection solaire"],
+  title: "Lunettes Éclipse Solaire Certifiées ISO 12312-2 — 12 Août 2026",
+  description: "Lunettes éclipse solaire certifiées ISO 12312-2 pour observer l'éclipse du 12 août 2026 en France en toute sécurité. Filtres téléphone inclus, livraison gratuite.",
+  keywords: ["lunettes éclipse solaire", "lunettes éclipse", "éclipse solaire 2026", "lunettes éclipse solaire certifiées", "filtre téléphone éclipse", "éclipse 12 août 2026", "protection solaire ISO 12312-2"],
   openGraph: {
-    title: "MonEclipseSolaire.fr — Lunettes pour l'Éclipse du 12 Août 2026",
+    title: "Lunettes Éclipse Solaire Certifiées ISO 12312-2 — 12 Août 2026",
     description: "Protégez vos yeux lors de l'éclipse solaire du 12 août 2026. Lunettes certifiées ISO 12312-2, livraison gratuite en France.",
     url: "https://moneclipsesolaire.fr",
     siteName: "MonEclipseSolaire.fr",
@@ -36,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MonEclipseSolaire.fr — Lunettes pour l'Éclipse 2026",
+    title: "Lunettes Éclipse Solaire Certifiées — Éclipse du 12 Août 2026",
     description: "Protégez vos yeux lors de l'éclipse solaire du 12 août 2026. Lunettes certifiées ISO 12312-2.",
     images: ["https://moneclipsesolaire.fr/lunette-eclipse.png"],
   },

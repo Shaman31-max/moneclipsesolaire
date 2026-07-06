@@ -56,13 +56,13 @@ export default function Hero() {
         {/* ── Left: text ── */}
         <div className="anim-fade-in-left text-center lg:text-left">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight mb-6">
-            <span className="block text-white">Vivez l'éclipse</span>
-            <span className="block gradient-text-blue glow-blue-text">solaire du</span>
+            <span className="block text-white">Lunettes éclipse</span>
+            <span className="block gradient-text-blue glow-blue-text">solaire certifiées</span>
             <span className="block text-white">12 Août 2026</span>
           </h1>
 
           <p className="text-white/92 text-lg mb-8 max-w-md leading-relaxed">
-            Le 12 août 2026, la France vivra sa plus impressionnante éclipse solaire depuis 1999. Ne ratez pas cet évènement unique qui ne se reproduira pas avant 2081.
+            Le 12 août 2026, la France vivra sa plus impressionnante éclipse solaire depuis 1999. Observez-la en toute sécurité avec nos lunettes d'éclipse solaire certifiées ISO 12312-2 — un évènement qui ne se reproduira pas avant 2081.
           </p>
 
           {/* CTAs */}
@@ -104,7 +104,7 @@ export default function Hero() {
               src="/lunette-eclipse.png"
               alt="Lunettes éclipse solaire certifiées ISO 12312-2 pour observer l'éclipse du 12 août 2026"
               fill
-              priority
+              preload
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="relative z-10 object-contain drop-shadow-2xl"
             />
