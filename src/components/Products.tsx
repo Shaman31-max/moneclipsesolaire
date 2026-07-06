@@ -92,6 +92,7 @@ const PRODUCTS: ProductDef[] = [
     unit: "ebook",
     color: "#FFB800",
     icon: BookOpen,
+    rating: { score: 4.9, count: 14 },
     features: ["Paiement sécurisé", "Livraison 48h depuis la France"],
     variantId: "gid://shopify/ProductVariant/58137194037593",
     fixedPrice: 0.99,
