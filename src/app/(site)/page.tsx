@@ -132,8 +132,8 @@ export default function Home() {
       <ClientShell />
 
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-[#FFB800] opacity-[0.04] blur-[160px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-[#22D3EE] opacity-[0.03] blur-[140px]" />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] " style={{ background: "radial-gradient(closest-side, rgba(255,184,0,0.04), transparent)" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] " style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.03), transparent)" }} />
       </div>
 
       <div className="relative z-10">

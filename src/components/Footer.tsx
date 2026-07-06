@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="relative pt-16 pb-8 px-6 overflow-hidden border-t border-[#22D3EE]/10">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-[#22D3EE] opacity-[0.02] blur-[80px]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] " style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.02), transparent)" }} />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">

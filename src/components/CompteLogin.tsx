@@ -30,7 +30,7 @@ export default function CompteLogin({ onLogin }: Props) {
     <div className="min-h-screen bg-[#060412] flex items-center justify-center px-6 py-24">
       {/* Glow */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#22D3EE] opacity-[0.04] blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] " style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.04), transparent)" }} />
       </div>
 
       <div className="relative z-10 w-full max-w-sm">

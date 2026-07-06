@@ -151,7 +151,7 @@ export default function FAQ() {
     <section id="faq" className="relative py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/20 to-transparent" />
-        <div className="absolute bottom-1/3 right-0 w-[350px] h-[350px] bg-[#22D3EE] opacity-[0.03] blur-[100px]" />
+        <div className="absolute bottom-1/3 right-0 w-[350px] h-[350px] " style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.03), transparent)" }} />
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">

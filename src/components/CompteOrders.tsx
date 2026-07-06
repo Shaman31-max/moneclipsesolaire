@@ -201,7 +201,7 @@ export default function CompteOrders({ session, onLogout }: Props) {
   return (
     <div className="min-h-screen bg-[#060412] pt-16">
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-[#0D0820]/50 blur-[100px]" />
+        <div className="absolute top-0 left-0 w-1/2 h-1/2" style={{ background: "radial-gradient(closest-side, rgba(13,8,32,0.5), transparent)" }} />
       </div>
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 py-12">

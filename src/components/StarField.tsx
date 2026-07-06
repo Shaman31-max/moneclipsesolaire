@@ -45,6 +45,7 @@ export default function StarField() {
         if (!canvas) return;
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        if (isMobile) draw(); // redessine la frame statique
       }, 150);
     };
     canvas.width = window.innerWidth;
@@ -158,13 +159,22 @@ export default function StarField() {
         });
       }
 
-      raf = requestAnimationFrame(draw);
+      // Mobile : une seule frame statique — pas de boucle d'animation
+      // (l'animation continue à 60 fps coûte cher en CPU/batterie sur iPhone)
+      if (!isMobile) raf = requestAnimationFrame(draw);
     };
     // Démarrage différé : ne pas concurrencer l'hydratation et le LCP
     const ric = window.requestIdleCallback as typeof window.requestIdleCallback | undefined;
     const cic = window.cancelIdleCallback as typeof window.cancelIdleCallback | undefined;
     const usedIdle = typeof ric === "function";
     idleId = usedIdle ? ric!(() => draw(), { timeout: 2500 }) : (setTimeout(draw, 1200) as unknown as number);
+
+    // Pause quand l'onglet est masqué
+    const onVisibility = () => {
+      if (document.hidden) cancelAnimationFrame(raf);
+      else if (!isMobile) raf = requestAnimationFrame(draw);
+    };
+    document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
       cancelAnimationFrame(raf);
@@ -174,6 +184,7 @@ export default function StarField() {
       }
       clearTimeout(resizeTimer);
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVisibility);
     };
   }, []);
 

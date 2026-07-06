@@ -48,8 +48,8 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col items-center overflow-hidden pt-16">
       {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#22D3EE] opacity-[0.04] blur-[120px]" />
-        <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] rounded-full bg-[#FFB800] opacity-[0.03] blur-[80px]" />
+        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] " style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.04), transparent)" }} />
+        <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] " style={{ background: "radial-gradient(closest-side, rgba(255,184,0,0.03), transparent)" }} />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-8 items-start pt-6 pb-16">
@@ -90,7 +90,7 @@ export default function Hero() {
 
           {/* Lunettes image */}
           <div className="relative h-[300px] lg:h-[380px]">
-            <div className="absolute inset-0 rounded-full bg-[#22D3EE] opacity-[0.1] blur-[80px] scale-75" />
+            <div className="absolute inset-0 " style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.1), transparent)" }} />
             <Image
               src="/lunette-eclipse.png"
               alt="Lunettes éclipse solaire certifiées ISO 12312-2 pour observer l'éclipse du 12 août 2026"
