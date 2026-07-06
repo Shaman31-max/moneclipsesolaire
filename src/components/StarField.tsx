@@ -87,6 +87,7 @@ export default function StarField() {
 
     let nextShoot = 200 + Math.random() * 300;
     let raf: number;
+    let idleId: number | undefined;
     let t = 0;
 
     const draw = () => {
@@ -159,10 +160,18 @@ export default function StarField() {
 
       raf = requestAnimationFrame(draw);
     };
-    draw();
+    // Démarrage différé : ne pas concurrencer l'hydratation et le LCP
+    const ric = window.requestIdleCallback as typeof window.requestIdleCallback | undefined;
+    const cic = window.cancelIdleCallback as typeof window.cancelIdleCallback | undefined;
+    const usedIdle = typeof ric === "function";
+    idleId = usedIdle ? ric!(() => draw(), { timeout: 2500 }) : (setTimeout(draw, 1200) as unknown as number);
 
     return () => {
       cancelAnimationFrame(raf);
+      if (idleId !== undefined) {
+        if (usedIdle && typeof cic === "function") cic(idleId);
+        else clearTimeout(idleId);
+      }
       clearTimeout(resizeTimer);
       window.removeEventListener("resize", resize);
     };

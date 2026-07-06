@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Outfit } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import ClientProviders from "@/components/ClientProviders";
+
+// Les IDs peuvent contenir un BOM invisible selon comment la variable a été
+// collée dans Vercel — sans nettoyage, gtag charge une 2ème bibliothèque
+// avec un ID invalide (+87 KB de JS mort).
+const GA_ID = (process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "").replace(/[^\x20-\x7E]/g, "").trim();
+const ADS_ID = (process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "").replace(/[^\x20-\x7E]/g, "").trim();
 
 const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"], weight: ["400","700","900"], display: "swap" });
 
@@ -47,18 +52,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="min-h-full flex flex-col">
         <ClientProviders>{children}</ClientProviders>
       </body>
-      {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+      {GA_ID && (
         <>
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
-          {process.env.NEXT_PUBLIC_GOOGLE_ADS_ID && (
-            // Balise Google Ads (remarketing/attribution) — réutilise le gtag.js
-            // déjà chargé par GoogleAnalytics, on ajoute juste la config AW.
-            <Script id="google-ads-config" strategy="afterInteractive">
-              {`window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}');`}
-            </Script>
-          )}
+          {/* Init synchrone légère : les événements s'empilent dans dataLayer
+              et partent quand gtag.js arrive. GA + Google Ads partagent la
+              même bibliothèque (une seule requête). */}
+          <Script id="gtag-init" strategy="afterInteractive">
+            {`window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}');
+              ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ""}`}
+          </Script>
+          {/* lazyOnload : gtag.js (~180 KB) ne concurrence plus le rendu */}
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="lazyOnload" />
         </>
       )}
     </html>
