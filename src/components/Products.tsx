@@ -214,22 +214,6 @@ function ProductCard({ product }: { product: ProductDef }) {
               </span>
             )}
           </div>
-          {product.rating && (
-            <div className="flex items-center gap-1.5 mt-1.5">
-              <div className="flex items-center gap-0.5">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star
-                    key={i}
-                    size={13}
-                    className="text-[#FFB800]"
-                    style={{ fill: "#FFB800", opacity: i <= Math.round(product.rating!.score) ? 1 : 0.25 }}
-                  />
-                ))}
-              </div>
-              <span className="text-xs font-bold text-white">{product.rating.score.toLocaleString("fr-FR")} / 5</span>
-              <span className="text-xs text-white/60">({product.rating.count} avis vérifiés)</span>
-            </div>
-          )}
         </div>
       </div>
 
@@ -416,6 +400,23 @@ function ProductCard({ product }: { product: ProductDef }) {
                 <><ShoppingCart size={18} /> Ajouter au panier — {step.qty} {product.unit}{step.qty > 1 ? "s" : ""}</>
               )}
             </motion.button>
+          </div>
+        )}
+
+        {product.rating && (
+          <div className="flex items-center justify-center gap-1.5 mt-3">
+            <div className="flex items-center gap-0.5">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <Star
+                  key={i}
+                  size={13}
+                  className="text-[#FFB800]"
+                  style={{ fill: "#FFB800", opacity: i <= Math.round(product.rating!.score) ? 1 : 0.25 }}
+                />
+              ))}
+            </div>
+            <span className="text-xs font-bold text-white">{product.rating.score.toLocaleString("fr-FR")} / 5</span>
+            <span className="text-xs text-white/60">({product.rating.count} avis vérifiés)</span>
           </div>
         )}
       </div>
