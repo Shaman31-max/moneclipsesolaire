@@ -161,7 +161,7 @@ function ProductCard({ product }: { product: ProductDef }) {
 
       {/* Product image */}
       {product.image && (
-        <div className="relative z-10 w-full aspect-square mb-4 rounded-2xl bg-white overflow-hidden">
+        <div className="relative z-10 w-1/2 mx-auto aspect-square mb-4 rounded-2xl bg-white overflow-hidden">
           {product.badge && (
             <a
               href="https://www.iso.org/standard/59289.html"
@@ -185,8 +185,8 @@ function ProductCard({ product }: { product: ProductDef }) {
             src={product.image}
             alt={product.name}
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-contain drop-shadow-lg p-6"
+            sizes="(max-width: 768px) 50vw, 25vw"
+            className="object-contain drop-shadow-lg p-4"
           />
         </div>
       )}
