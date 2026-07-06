@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useB2BCart } from "@/contexts/B2BCartContext";
+import { trackBeginCheckout } from "@/lib/analytics";
 
 const links = [
   { href: "/#produits", label: "Commander" },
@@ -16,7 +17,7 @@ const links = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const { totalItems, checkoutUrl } = useCart();
+  const { totalItems, checkoutUrl, items } = useCart();
   const { count: b2bCount, setSidebarOpen } = useB2BCart();
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -84,6 +85,7 @@ export default function Navbar() {
         {totalItems > 0 && (
           <a
             href={checkoutUrl}
+            onClick={() => trackBeginCheckout(items)}
             className="relative flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-black text-black bg-[#FFB800] hover:bg-[#e6a700] transition-colors flex-shrink-0"
             style={{ boxShadow: "0 0 18px rgba(255,184,0,0.45)" }}
           >

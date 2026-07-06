@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import ClientProviders from "@/components/ClientProviders";
 
@@ -46,6 +47,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="min-h-full flex flex-col">
         <ClientProviders>{children}</ClientProviders>
       </body>
+      {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+      )}
     </html>
   );
 }

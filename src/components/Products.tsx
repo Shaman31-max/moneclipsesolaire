@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ShoppingCart, Eye, CheckCircle, Zap, BookOpen, ShieldCheck, ExternalLink } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
+import { trackViewItem, trackAddToCart, trackBeginCheckout } from "@/lib/analytics";
 
 const PRICE_STEPS = [
   { qty: 1,  total: 3.99,  mention: "Solo" },
@@ -99,6 +100,7 @@ function ProductCard({ product }: { product: ProductDef }) {
   const [stepIdx, setStepIdx] = useState(product.defaultStepIdx ?? 0);
   const [added, setAdded] = useState(false);
   const [expanded, setExpanded] = useState(false);
+  const [viewed, setViewed] = useState(false);
   const Icon = product.icon;
   const { addItem, removeItem, checkoutUrl } = useCart();
 
@@ -108,6 +110,17 @@ function ProductCard({ product }: { product: ProductDef }) {
 
   const activeVariantId = product.variantIds ? product.variantIds[stepIdx] : product.variantId;
   const variantNumericId = activeVariantId.split("/").pop()!;
+
+  const handleViewItem = () => {
+    if (viewed) return;
+    setViewed(true);
+    trackViewItem({
+      item_id: variantNumericId,
+      item_name: product.name,
+      price: isFixed ? product.fixedPrice! : step.total,
+      quantity: 1,
+    });
+  };
 
   const handleAdd = () => {
     if (added) {
@@ -121,6 +134,12 @@ function ProductCard({ product }: { product: ProductDef }) {
         price: isFixed ? product.fixedPrice! : step.total,
         productId: product.id,
       });
+      trackAddToCart({
+        item_id: variantNumericId,
+        item_name: product.name,
+        price: isFixed ? product.fixedPrice! : step.total,
+        quantity: 1,
+      });
       setAdded(true);
     }
   };
@@ -130,6 +149,7 @@ function ProductCard({ product }: { product: ProductDef }) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
+      onViewportEnter={handleViewItem}
       transition={{ duration: 0.6 }}
       className="relative glass rounded-3xl p-5 border flex flex-col overflow-hidden"
       style={{ borderColor: `${product.color}20` }}
@@ -339,6 +359,7 @@ function ProductCard({ product }: { product: ProductDef }) {
               onChange={(e) => {
                 if (e.target.checked) {
                   addItem({ variantNumericId, qty: 1, name: product.name, price: product.fixedPrice!, productId: product.id });
+                  trackAddToCart({ item_id: variantNumericId, item_name: product.name, price: product.fixedPrice!, quantity: 1 });
                 } else {
                   removeItem(product.id);
                 }
@@ -385,7 +406,7 @@ function ProductCard({ product }: { product: ProductDef }) {
 }
 
 export default function Products() {
-  const { totalItems, checkoutUrl } = useCart();
+  const { totalItems, checkoutUrl, items } = useCart();
 
   return (
     <section id="produits" className="relative py-24 px-6">
@@ -423,6 +444,7 @@ export default function Products() {
               href={checkoutUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackBeginCheckout(items)}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
