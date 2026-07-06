@@ -99,7 +99,7 @@ const PRODUCTS: ProductDef[] = [
 function ProductCard({ product }: { product: ProductDef }) {
   const [stepIdx, setStepIdx] = useState(product.defaultStepIdx ?? 0);
   const [added, setAdded] = useState(false);
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
   const [viewed, setViewed] = useState(false);
   const Icon = product.icon;
   const { addItem, removeItem, checkoutUrl } = useCart();
@@ -380,8 +380,7 @@ function ProductCard({ product }: { product: ProductDef }) {
               * Prix dégressif en fonction de la quantité commandée
             </p>
             <p className="text-xs text-white/50 text-center">
-              * Production à la demande — commandez maintenant et recevez à partir du <strong className="text-white/70">06 juillet</strong> ·{" "}
-              <a href="/suivi" className="text-[#22D3EE]/70 hover:text-[#22D3EE] underline underline-offset-2 transition-colors">voir le planning</a>
+              * <strong className="text-white/70">Livraison 48h</strong> en boîte aux lettres
             </p>
             <motion.button
               whileTap={{ scale: 0.96 }}
