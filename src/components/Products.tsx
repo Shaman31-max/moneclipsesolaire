@@ -161,14 +161,14 @@ function ProductCard({ product }: { product: ProductDef }) {
 
       {/* Product image */}
       {product.image && (
-        <div className="relative z-10 w-full h-32 mb-3">
+        <div className="relative z-10 w-full aspect-square mb-4 rounded-2xl bg-white overflow-hidden">
           {product.badge && (
             <a
               href="https://www.iso.org/standard/59289.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute top-0 left-0 z-20 group flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl glass border transition-all duration-200 hover:scale-[1.03]"
-              style={{ borderColor: "rgba(34,211,238,0.30)" }}
+              className="absolute top-2 left-2 z-20 group flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border transition-all duration-200 hover:scale-[1.03]"
+              style={{ borderColor: "rgba(34,211,238,0.30)", backgroundColor: "rgba(6,4,18,0.85)" }}
             >
               <div className="flex items-center gap-1 badge-bounce">
                 <div className="w-0 h-0" style={{ borderTop: "4px solid transparent", borderBottom: "4px solid transparent", borderLeft: "6px solid #22D3EE" }} />
@@ -185,8 +185,8 @@ function ProductCard({ product }: { product: ProductDef }) {
             src={product.image}
             alt={product.name}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-contain drop-shadow-lg"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-contain drop-shadow-lg p-6"
           />
         </div>
       )}
@@ -414,7 +414,7 @@ export default function Products() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-[#22D3EE] opacity-[0.03] blur-[100px]" />
       </div>
 
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -431,7 +431,7 @@ export default function Products() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
           {PRODUCTS.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
