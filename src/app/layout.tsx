@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Outfit } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
@@ -48,7 +49,18 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <ClientProviders>{children}</ClientProviders>
       </body>
       {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        <>
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+          {process.env.NEXT_PUBLIC_GOOGLE_ADS_ID && (
+            // Balise Google Ads (remarketing/attribution) — réutilise le gtag.js
+            // déjà chargé par GoogleAnalytics, on ajoute juste la config AW.
+            <Script id="google-ads-config" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}');`}
+            </Script>
+          )}
+        </>
       )}
     </html>
   );
