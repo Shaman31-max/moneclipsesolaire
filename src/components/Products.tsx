@@ -428,7 +428,7 @@ export default function Products() {
   const { totalItems, checkoutUrl, items } = useCart();
 
   return (
-    <section id="produits" className="relative py-24 px-6">
+    <section id="produits" className="relative pt-10 pb-24 px-6">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-[#22D3EE] opacity-[0.03] blur-[100px]" />
       </div>
@@ -439,7 +439,7 @@ export default function Products() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-14"
+          className="text-center mb-8"
         >
           <p className="text-[calc(0.75rem+3px)] uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-medium">Nos Produits</p>
           <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-4">
