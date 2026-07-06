@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ShoppingCart, Eye, CheckCircle, Zap, BookOpen, ShieldCheck, ExternalLink } from "lucide-react";
+import { ShoppingCart, Eye, CheckCircle, Zap, BookOpen, ShieldCheck, ExternalLink, Star } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { trackViewItem, trackAddToCart, trackBeginCheckout } from "@/lib/analytics";
 
@@ -46,6 +46,7 @@ type ProductDef = {
   defaultStepIdx?: number;
   image?: string;
   badge?: string;
+  rating?: { score: number; count: number };
 };
 
 const PRODUCTS: ProductDef[] = [
@@ -66,7 +67,8 @@ const PRODUCTS: ProductDef[] = [
     icon: Eye,
     badge: "ISO 12312-2",
     defaultStepIdx: 6,
-    features: [],
+    rating: { score: 4.88, count: 128 },
+    features: ["Paiement sécurisé", "Livraison 48h depuis la France"],
     variantId: "gid://shopify/ProductVariant/58137193283929",
     variantIds: [
       "gid://shopify/ProductVariant/58137193283929",
@@ -90,7 +92,7 @@ const PRODUCTS: ProductDef[] = [
     unit: "ebook",
     color: "#FFB800",
     icon: BookOpen,
-    features: [],
+    features: ["Paiement sécurisé", "Livraison 48h depuis la France"],
     variantId: "gid://shopify/ProductVariant/58137194037593",
     fixedPrice: 0.99,
   },
@@ -211,6 +213,22 @@ function ProductCard({ product }: { product: ProductDef }) {
               </span>
             )}
           </div>
+          {product.rating && (
+            <div className="flex items-center gap-1.5 mt-1.5">
+              <div className="flex items-center gap-0.5">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star
+                    key={i}
+                    size={13}
+                    className="text-[#FFB800]"
+                    style={{ fill: "#FFB800", opacity: i <= Math.round(product.rating!.score) ? 1 : 0.25 }}
+                  />
+                ))}
+              </div>
+              <span className="text-xs font-bold text-white">{product.rating.score.toLocaleString("fr-FR")} / 5</span>
+              <span className="text-xs text-white/60">({product.rating.count} avis vérifiés)</span>
+            </div>
+          )}
         </div>
       </div>
 
