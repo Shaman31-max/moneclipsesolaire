@@ -23,7 +23,9 @@ function NavCountdown() {
   const [time, setTime] = useState<ReturnType<typeof getLeft> | null>(null);
   useEffect(() => {
     setTime(getLeft());
-    const id = setInterval(() => setTime(getLeft()), 1000);
+    // L'affichage s'arrête à la minute : un tick de 15 s suffit (au lieu de
+    // re-rendre toute la navbar chaque seconde).
+    const id = setInterval(() => setTime(getLeft()), 15000);
     return () => clearInterval(id);
   }, []);
 

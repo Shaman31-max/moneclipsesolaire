@@ -174,6 +174,7 @@ function ProductGallery({ images, badge, eager }: { images: ProductImage[]; badg
               alt={img.alt}
               fill
               sizes="(max-width: 1024px) 90vw, 45vw"
+              quality={70}
               className={`object-contain p-3 transition-opacity duration-200 ${i === idx ? "opacity-100" : "opacity-0"}`}
               priority={eager && i === 0}
             />
