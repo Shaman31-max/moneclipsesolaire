@@ -23,8 +23,8 @@ const categories = [
         a: "1ère série : commandes closes le 15 juin 2026, livraison le 20 juillet 2026 (23 jours avant l'éclipse). 2ème série : commandes closes le 7 juillet 2026, livraison le 7 août 2026 (5 jours avant l'éclipse). Il n'y aura pas de 3ème série ni de vente après ces dates.",
       },
       {
-        q: "Que se passe-t-il si je rate les deux séries ?",
-        a: "Après la clôture de la 2ème série (7 juillet), il ne sera plus possible de commander sur notre site. Nous ne ferons aucune exception et aucune commande express ne sera acceptée après cette date, car le délai de production ne permet pas de garantir la livraison avant le 12 août.",
+        q: "Qui sommes-nous ?",
+        a: "qui-sommes-nous",
       },
       {
         q: "La livraison est-elle garantie avant l'éclipse ?",
@@ -124,6 +124,13 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
                     Suivre ma commande
                   </a>
                   {" "}pour saisir ce numéro et consulter le statut en temps réel directement sur La Poste.fr. En attendant l'expédition, la page affiche également l'avancement de votre commande dans notre planning de production.
+                </>
+              ) : a === "qui-sommes-nous" ? (
+                <>
+                  Nous sommes Julien et Estelle, deux entrepreneurs toulousains passionnés d&apos;e-commerce. Toutes les commandes sont vérifiées, emballées et expédiées par nos soins depuis Toulouse.{" "}
+                  <a href="/qui-sommes-nous" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
+                    Découvrez qui nous sommes →
+                  </a>
                 </>
               ) : a === "expédition-calendrier" ? (
                 <>

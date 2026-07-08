@@ -26,6 +26,8 @@ function fmt(n: number) {
 
 type Bullet = { title: string; text: string };
 
+type ProductImage = { src: string; alt: string };
+
 type ProductDef = {
   id: string;
   name: string;
@@ -45,6 +47,7 @@ type ProductDef = {
   fixedPrice?: number;
   defaultStepIdx?: number;
   image?: string;
+  images?: ProductImage[];
   badge?: string;
   rating?: { score: number; count: number };
 };
@@ -55,6 +58,12 @@ const PRODUCTS: ProductDef[] = [
     name: "Paire de Lunettes Éclipse",
     subtitle: "Observer en toute sécurité",
     image: "/LUNETTE_ECLIPSE_2.png",
+    images: [
+      { src: "/produit-main.webp", alt: "Lunettes éclipse solaire certifiées ISO 12312-2" },
+      { src: "/produit-infographie.webp", alt: "Lunettes éclipse My Solar Eclipse — certifications ISO 12312-2, CE et UKCA" },
+      { src: "/produit-famille.webp", alt: "Famille observant l'éclipse avec les lunettes certifiées" },
+      { src: "/produit-tests.webp", alt: "Rapports de tests — certifiées conformes à la norme ISO 12312-2" },
+    ],
     bullets: [
       { title: "Certification ISO 12312-2 & marquage CE", text: "Conformes à la norme internationale, certification obtenue auprès d'un laboratoire européen agréé." },
       { title: "Filtre solaire optique ND 5.0", text: "Bloque plus de 99,999 % de la lumière solaire, UV et infrarouges." },
@@ -98,6 +107,69 @@ const PRODUCTS: ProductDef[] = [
     fixedPrice: 0.99,
   },
 ];
+
+// Galerie style Amazon : vignettes cliquables à gauche (verticales sur
+// desktop, horizontales sous l'image sur mobile), grande image à droite.
+function ProductGallery({ images, badge }: { images: ProductImage[]; badge?: string }) {
+  const [idx, setIdx] = useState(0);
+
+  const thumbs = images.map((img, i) => (
+    <button
+      key={img.src}
+      onClick={() => setIdx(i)}
+      onMouseEnter={() => setIdx(i)}
+      aria-label={`Voir la photo ${i + 1} : ${img.alt}`}
+      className="relative w-16 h-16 flex-shrink-0 rounded-xl bg-white overflow-hidden transition-all duration-150"
+      style={{
+        border: i === idx ? "2px solid #FFB800" : "2px solid rgba(255,255,255,0.12)",
+        boxShadow: i === idx ? "0 0 12px rgba(255,184,0,0.35)" : "none",
+      }}
+    >
+      <Image src={img.src} alt="" fill sizes="64px" className="object-cover" />
+    </button>
+  ));
+
+  return (
+    <div className="flex flex-col sm:flex-row gap-3">
+      {/* Vignettes — colonne à gauche sur desktop */}
+      <div className="hidden sm:flex flex-col gap-3">{thumbs}</div>
+
+      {/* Image principale */}
+      <div className="relative flex-1 aspect-square rounded-2xl bg-white overflow-hidden">
+        {badge && (
+          <a
+            href="https://www.iso.org/standard/59289.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute top-2 left-2 z-20 group flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border transition-all duration-200 hover:scale-[1.03]"
+            style={{ borderColor: "rgba(34,211,238,0.30)", backgroundColor: "rgba(6,4,18,0.85)" }}
+          >
+            <ShieldCheck size={12} className="text-[#22D3EE] flex-shrink-0" />
+            <div>
+              <div className="text-[10px] font-bold leading-none text-[#22D3EE]">{badge}</div>
+              <div className="text-[8px] text-white/80 mt-0.5 leading-none">DIN CERTCO — Europe</div>
+            </div>
+            <ExternalLink size={9} className="text-white/50 group-hover:text-white/90 transition-colors flex-shrink-0" />
+          </a>
+        )}
+        {images.map((img, i) => (
+          <Image
+            key={img.src}
+            src={img.src}
+            alt={img.alt}
+            fill
+            sizes="(max-width: 1024px) 90vw, 45vw"
+            className={`object-contain p-3 transition-opacity duration-200 ${i === idx ? "opacity-100" : "opacity-0"}`}
+            priority={i === 0}
+          />
+        ))}
+      </div>
+
+      {/* Vignettes — bande horizontale sous l'image sur mobile */}
+      <div className="flex sm:hidden gap-3 justify-center">{thumbs}</div>
+    </div>
+  );
+}
 
 function ProductCard({ product }: { product: ProductDef }) {
   const [stepIdx, setStepIdx] = useState(product.defaultStepIdx ?? 0);
@@ -154,7 +226,7 @@ function ProductCard({ product }: { product: ProductDef }) {
   return (
     <Reveal
       onEnter={handleViewItem}
-      className="relative glass rounded-3xl p-5 border flex flex-col overflow-hidden"
+      className={`relative glass rounded-3xl p-5 md:p-8 border flex flex-col overflow-hidden ${product.images ? "md:col-span-2" : ""}`}
       style={{ borderColor: `${product.color}20` }}
     >
       <div
@@ -162,8 +234,15 @@ function ProductCard({ product }: { product: ProductDef }) {
         style={{ background: `radial-gradient(ellipse at 30% 20%, ${product.color}, transparent 65%)` }}
       />
 
-      {/* Product image */}
-      {product.image && (
+      {/* Fiche style Amazon (galerie à gauche, infos à droite) si plusieurs
+          photos ; sinon layout carte classique via display:contents. */}
+      <div className={product.images ? "relative z-10 lg:grid lg:grid-cols-5 lg:gap-10 lg:items-start" : "contents"}>
+
+      {product.images ? (
+        <div className="lg:col-span-3 mb-5 lg:mb-0">
+          <ProductGallery images={product.images} badge={product.badge} />
+        </div>
+      ) : product.image && (
         <div className="relative z-10 w-1/2 mx-auto aspect-square mb-4 rounded-2xl bg-white overflow-hidden">
           {product.badge && (
             <a
@@ -193,6 +272,8 @@ function ProductCard({ product }: { product: ProductDef }) {
           />
         </div>
       )}
+
+      <div className={product.images ? "lg:col-span-2 flex flex-col" : "contents"}>
 
       {/* Icon + title */}
       <div className="relative z-10 flex items-start gap-3 mb-3">
@@ -406,6 +487,9 @@ function ProductCard({ product }: { product: ProductDef }) {
           </div>
         )}
       </div>
+
+      </div>
+      </div>
     </Reveal>
   );
 }
@@ -414,7 +498,7 @@ export default function Products() {
   const { totalItems, checkoutUrl, items } = useCart();
 
   return (
-    <section id="produits" className="relative pt-10 pb-24 px-6">
+    <section id="produits" className="relative pt-32 xl:pt-24 pb-24 px-6">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] " style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.03), transparent)" }} />
       </div>

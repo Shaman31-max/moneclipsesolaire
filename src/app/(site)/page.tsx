@@ -138,9 +138,9 @@ export default function Home() {
       </div>
 
       <div className="relative z-10">
-        <Hero />
-        <Divider />
         <Products />
+        <Divider />
+        <Hero />
         <Divider />
         <Reassurance />
         <Divider />
