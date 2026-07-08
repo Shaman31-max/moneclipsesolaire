@@ -55,6 +55,7 @@ function NavCountdown() {
 }
 
 const links = [
+  { href: "/#produits", label: "Nos Produits" },
   { href: "/qui-sommes-nous", label: "Qui sommes-nous ?" },
   { href: "/eclipse", label: "L'Éclipse" },
   { href: "/certifications", label: "Nos certifications" },
