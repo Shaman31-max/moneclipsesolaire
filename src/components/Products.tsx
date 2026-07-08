@@ -503,7 +503,7 @@ export default function Products() {
   const { totalItems, checkoutUrl, items } = useCart();
 
   return (
-    <section id="produits" className="relative pt-10 pb-24 px-6 scroll-mt-20">
+    <section id="produits" className="relative pt-32 xl:pt-24 pb-24 px-6 scroll-mt-20">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] " style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.03), transparent)" }} />
       </div>

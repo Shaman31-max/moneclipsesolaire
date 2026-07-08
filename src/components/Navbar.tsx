@@ -6,6 +6,52 @@ import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { trackBeginCheckout } from "@/lib/analytics";
 
+const ECLIPSE = new Date("2026-08-12T10:00:00+02:00");
+function getLeft() {
+  const diff = ECLIPSE.getTime() - Date.now();
+  if (diff <= 0) return { j: 0, h: 0, m: 0 };
+  return {
+    j: Math.floor(diff / 86400000),
+    h: Math.floor((diff % 86400000) / 3600000),
+    m: Math.floor((diff % 3600000) / 60000),
+  };
+}
+function pad(n: number) { return String(n).padStart(2, "0"); }
+
+// Compte à rebours compact intégré au header, à droite du logo.
+function NavCountdown() {
+  const [time, setTime] = useState<ReturnType<typeof getLeft> | null>(null);
+  useEffect(() => {
+    setTime(getLeft());
+    const id = setInterval(() => setTime(getLeft()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="flex items-center gap-1 flex-shrink-0" aria-label="Compte à rebours avant l'éclipse du 12 août 2026">
+      {[
+        { val: time?.j ?? 0, label: "j", padded: false },
+        { val: time?.h ?? 0, label: "h", padded: true },
+        { val: time?.m ?? 0, label: "min", padded: true },
+      ].map(({ val, label, padded }) => (
+        <div
+          key={label}
+          className="glass rounded-lg px-1.5 py-0.5 border border-red-500/40 text-center"
+        >
+          <span
+            suppressHydrationWarning
+            className="text-sm font-black tabular-nums text-red-500"
+            style={{ textShadow: "0 0 10px rgba(239,68,68,0.8)" }}
+          >
+            {padded ? pad(val) : val}
+          </span>
+          <span className="text-[8px] uppercase tracking-wide text-white/70 ml-0.5">{label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 const links = [
   { href: "/qui-sommes-nous", label: "Qui sommes-nous ?" },
   { href: "/#eclipse", label: "L'Éclipse" },
@@ -42,6 +88,8 @@ export default function Navbar() {
             <span style={{ background: "linear-gradient(135deg, #FFB800, #22D3EE)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>.fr</span>
           </span>
         </Link>
+
+        <NavCountdown />
 
         {/* Desktop nav links */}
         <div className="hidden xl:flex items-center gap-6 flex-1 justify-center">

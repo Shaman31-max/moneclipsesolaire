@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import CountdownBanner from "@/components/CountdownBanner";
 import ClientShell from "@/components/ClientShell";
 import SeoContent from "@/components/SeoContent";
 
@@ -138,7 +137,6 @@ export default function Home() {
       </div>
 
       <div className="relative z-10">
-        <CountdownBanner />
         <Products />
         <Divider />
         <Reassurance />
