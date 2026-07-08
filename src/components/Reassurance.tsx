@@ -33,45 +33,10 @@ const badges = [
 // Avis authentiques de clients (retours récoltés par email post-achat).
 const reviews: { name: string; date: string; rating: number; text: string; verified: boolean }[] = [
   {
-    name: "Sophie A. — Bayonne",
+    name: "Sophie A.",
     date: "juin 2026",
     rating: 5,
     text: "Satisfaite de mon achat. Les lunettes semblent robustes, la qualité est au rendez-vous et la livraison a été plus rapide.",
-    verified: true,
-  },
-  {
-    name: "Antoine F. — Toulouse",
-    date: "juin 2026",
-    rating: 5,
-    text: "Je les ai achetées pour observer l'éclipse avec mes enfants. Elles sont confortables et inspirent confiance.",
-    verified: true,
-  },
-  {
-    name: "Kiara D. — Mimizan",
-    date: "juillet 2026",
-    rating: 5,
-    text: "Commande reçue en quelques jours. Les lunettes étaient bien emballées. J'ai fait un test et effectivement on peut regarder le Soleil avec.",
-    verified: true,
-  },
-  {
-    name: "Amandine D. — Bordeaux",
-    date: "juillet 2026",
-    rating: 5,
-    text: "Bon rapport qualité/prix. Les lunettes sont légères et tiennent bien en place. On ne voit absolument rien à travers sauf le Soleil.",
-    verified: true,
-  },
-  {
-    name: "Samira",
-    date: "juillet 2026",
-    rating: 5,
-    text: "RAS",
-    verified: true,
-  },
-  {
-    name: "J.P",
-    date: "juin 2026",
-    rating: 5,
-    text: "Conforme à la description. Très satisfait ! Lunettes conformes.",
     verified: true,
   },
   {
@@ -82,10 +47,45 @@ const reviews: { name: string; date: string; rating: number; text: string; verif
     verified: true,
   },
   {
+    name: "Antoine F.",
+    date: "juin 2026",
+    rating: 5,
+    text: "Je les ai achetées pour observer l'éclipse avec mes enfants. Elles sont confortables et inspirent confiance.",
+    verified: true,
+  },
+  {
+    name: "Samira",
+    date: "juillet 2026",
+    rating: 5,
+    text: "RAS",
+    verified: true,
+  },
+  {
+    name: "Kiara D.",
+    date: "juillet 2026",
+    rating: 5,
+    text: "Commande reçue en quelques jours. Les lunettes étaient bien emballées. J'ai fait un test et effectivement on peut regarder le Soleil avec.",
+    verified: true,
+  },
+  {
     name: "Abdel",
     date: "juillet 2026",
     rating: 5,
     text: "La lettre est arrivée déchirée mais les lunettes étaient ok.",
+    verified: true,
+  },
+  {
+    name: "Amandine D.",
+    date: "juillet 2026",
+    rating: 5,
+    text: "Bon rapport qualité/prix. Les lunettes sont légères et tiennent bien en place. On ne voit absolument rien à travers sauf le Soleil.",
+    verified: true,
+  },
+  {
+    name: "J.P",
+    date: "juin 2026",
+    rating: 5,
+    text: "Conforme à la description. Très satisfait ! Lunettes conformes.",
     verified: true,
   },
 ];
