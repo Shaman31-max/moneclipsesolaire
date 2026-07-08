@@ -99,6 +99,7 @@ const PRODUCTS: ProductDef[] = [
     image: "/ebook.png",
     images: [
       { src: "/ebook.png", alt: "Luna et l'éclipse magique — album illustré pour enfants dès 3 ans" },
+      { src: "/ebook-luna-dos.webp", alt: "Luna et l'éclipse magique — résumé de l'histoire : Luna admire la Lune avant de s'endormir" },
     ],
     desc: "Découvrez Luna et l'éclipse magique, un album illustré plein de douceur qui invite les enfants à partir de 3 ans à explorer la magie des éclipses solaires. À travers une histoire tendre et des illustrations colorées, les petits apprendront à observer ce phénomène fascinant en toute sécurité.",
     unit: "ebook",
