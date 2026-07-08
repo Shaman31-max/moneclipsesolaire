@@ -7,11 +7,10 @@ import { useCart } from "@/contexts/CartContext";
 import { trackBeginCheckout } from "@/lib/analytics";
 
 const links = [
-  { href: "/#produits", label: "Commander" },
+  { href: "/qui-sommes-nous", label: "Qui sommes-nous ?" },
   { href: "/#eclipse", label: "L'Éclipse" },
   { href: "/#certifications", label: "Nos certifications" },
   { href: "/#faq", label: "FAQ" },
-  { href: "/qui-sommes-nous", label: "Qui sommes-nous ?" },
   { href: "/suivi", label: "Suivre ma commande" },
 ];
 
