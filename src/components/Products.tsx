@@ -521,15 +521,11 @@ export default function Products() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <Reveal className="text-center mb-8">
-          <p className="text-[calc(0.75rem+3px)] uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-medium">Éclipse du 12 août 2026</p>
-          <h1 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-4">
-            Lunettes éclipse solaire <span className="gradient-text-blue">certifiées ISO 12312-2</span>
-          </h1>
-          <p className="text-white/75 text-[calc(0.875rem+2px)] max-w-lg mx-auto">
-            Observez l'éclipse du 12 août 2026 en toute sécurité. Prix dégressif selon la quantité, livraison gratuite en France.
-          </p>
-        </Reveal>
+        {/* H1 invisible : la page a besoin d'un H1 pour le SEO (mot-clé
+            principal) mais le titre visuel a été retiré de la landing. */}
+        <h1 className="sr-only">
+          Lunettes éclipse solaire certifiées ISO 12312-2 — Éclipse du 12 août 2026
+        </h1>
 
         <div className="grid md:grid-cols-2 gap-8">
           {PRODUCTS.map((p) => (
