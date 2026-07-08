@@ -61,7 +61,7 @@ export function IsoBadgeInline() {
 
 export default function IsoCertification() {
   return (
-    <section className="relative py-16 px-6 overflow-hidden">
+    <section id="certifications" className="relative py-16 px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[#060412]/60" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22D3EE]/30 to-transparent" />

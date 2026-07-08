@@ -63,6 +63,7 @@ export default function Footer() {
             © 2026 MonEclipseSolaire.fr — Tous droits réservés
           </p>
           <div className="flex flex-wrap gap-4">
+            <a href="/qui-sommes-nous" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">Qui sommes-nous ?</a>
             <a href="/mentions-legales" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">Mentions légales</a>
             <a href="/cgv" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">CGV</a>
             <a href="/confidentialite" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">Confidentialité</a>
