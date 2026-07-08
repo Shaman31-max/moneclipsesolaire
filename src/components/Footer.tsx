@@ -44,7 +44,7 @@ export default function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#E8F0FF]/82 mb-4">Produits</h4>
             <ul className="space-y-2">
               <li><a href="/#produits" className="text-xs text-[#E8F0FF]/65 hover:text-[#22D3EE] transition-colors">Lunettes Éclipse</a></li>
-              <li><a href="/#produits" className="text-xs text-[#E8F0FF]/65 hover:text-[#22D3EE] transition-colors">Filtres téléphone</a></li>
+              <li><a href="/#produits" className="text-xs text-[#E8F0FF]/65 hover:text-[#22D3EE] transition-colors">Ebook</a></li>
             </ul>
           </div>
         </div>
