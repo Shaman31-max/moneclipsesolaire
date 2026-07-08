@@ -148,27 +148,42 @@ export default function Reassurance() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {reviews.map((r, i) => (
-            <Reveal key={i} delay={i * 0.12} className="glass rounded-2xl p-6 border border-white/8 flex flex-col">
-              <div className="flex items-center justify-between mb-3">
-                <Stars rating={r.rating} />
-                <span className="text-[11px] text-white/50">{r.date}</span>
-              </div>
-              <p className="text-sm text-white/90 leading-relaxed flex-1">« {r.text} »</p>
-              <div className="flex items-center gap-2 mt-4 pt-4 border-t border-white/8">
-                <div className="w-8 h-8 rounded-full bg-[#FFB800]/15 border border-[#FFB800]/30 flex items-center justify-center text-xs font-black text-[#FFB800]">
-                  {r.name.replace(/[^\p{L}]/gu, "").charAt(0) || "•"}
+        {/* Carrousel défilant en continu — liste dupliquée pour une boucle
+            sans couture ; pause au survol. */}
+        <style>{`
+          @keyframes reviews-marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+          }
+          .reviews-track { animation: reviews-marquee 45s linear infinite; will-change: transform; }
+          .reviews-marquee:hover .reviews-track { animation-play-state: paused; }
+          @media (prefers-reduced-motion: reduce) {
+            .reviews-track { animation: none; }
+          }
+        `}</style>
+        <div className="reviews-marquee relative overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)" }}>
+          <div className="reviews-track flex gap-5 w-max">
+            {[...reviews, ...reviews].map((r, i) => (
+              <div key={i} aria-hidden={i >= reviews.length} className="glass rounded-2xl p-6 border border-white/8 flex flex-col w-[290px] flex-shrink-0">
+                <div className="flex items-center justify-between mb-3">
+                  <Stars rating={r.rating} />
+                  <span className="text-[11px] text-white/50">{r.date}</span>
                 </div>
-                <span className="text-xs font-bold text-white">{r.name}</span>
-                {r.verified && (
-                  <span className="flex items-center gap-1 text-[10px] text-[#22D3EE] ml-auto">
-                    <BadgeCheck size={12} /> Achat vérifié
-                  </span>
-                )}
+                <p className="text-sm text-white/90 leading-relaxed flex-1">« {r.text} »</p>
+                <div className="flex items-center gap-2 mt-4 pt-4 border-t border-white/8">
+                  <div className="w-8 h-8 rounded-full bg-[#FFB800]/15 border border-[#FFB800]/30 flex items-center justify-center text-xs font-black text-[#FFB800]">
+                    {r.name.replace(/[^\p{L}]/gu, "").charAt(0) || "•"}
+                  </div>
+                  <span className="text-xs font-bold text-white">{r.name}</span>
+                  {r.verified && (
+                    <span className="flex items-center gap-1 text-[10px] text-[#22D3EE] ml-auto">
+                      <BadgeCheck size={12} /> Achat vérifié
+                    </span>
+                  )}
+                </div>
               </div>
-            </Reveal>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
