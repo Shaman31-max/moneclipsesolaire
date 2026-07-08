@@ -55,7 +55,7 @@ type ProductDef = {
 const PRODUCTS: ProductDef[] = [
   {
     id: "glasses",
-    name: "Paire de Lunettes Éclipse",
+    name: "Paire de Lunettes Éclipse Norme Européenne",
     subtitle: "Observer en toute sécurité",
     image: "/LUNETTE_ECLIPSE_2.png",
     images: [
