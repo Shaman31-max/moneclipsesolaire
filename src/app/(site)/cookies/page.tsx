@@ -34,7 +34,7 @@ export default function CookiesPage() {
           </Section>
 
           <Section title="Contact">
-            <p>Pour toute question relative à notre utilisation des cookies : <a href="mailto:contact@moneclipsesolaire.fr" className="text-[#FFB800] underline">contact@moneclipsesolaire.fr</a></p>
+            <p>Pour toute question relative à notre utilisation des cookies : <a href="mailto:postmaster@moneclipsesolaire.fr" className="text-[#FFB800] underline">postmaster@moneclipsesolaire.fr</a></p>
           </Section>
 
         </div>

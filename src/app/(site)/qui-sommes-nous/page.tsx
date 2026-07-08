@@ -80,13 +80,13 @@ export default function QuiSommesNousPage() {
                 </div>
               </div>
               <a
-                href="mailto:contact@moneclipsesolaire.fr"
+                href="mailto:postmaster@moneclipsesolaire.fr"
                 className="glass rounded-2xl p-4 border border-white/8 flex items-start gap-3 hover:border-[#22D3EE]/30 transition-colors"
               >
                 <Mail size={18} className="text-[#22D3EE] flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="text-sm font-black text-white">Une question ?</div>
-                  <div className="text-xs text-white/70 mt-0.5">contact@moneclipsesolaire.fr</div>
+                  <div className="text-xs text-white/70 mt-0.5">postmaster@moneclipsesolaire.fr</div>
                 </div>
               </a>
             </div>

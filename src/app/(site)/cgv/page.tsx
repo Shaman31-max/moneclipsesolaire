@@ -10,7 +10,7 @@ export default function CGVPage() {
         <div className="space-y-10 text-sm text-white/80 leading-relaxed">
 
           <Section title="Article 1 — Identification du vendeur">
-            <p>Le site MonEclipseSolaire.fr est édité par une entité dont le siège social est en France. Pour toute question, vous pouvez nous contacter à l'adresse suivante : <a href="mailto:contact@moneclipsesolaire.fr" className="text-[#FFB800] underline">contact@moneclipsesolaire.fr</a>.</p>
+            <p>Le site MonEclipseSolaire.fr est édité par une entité dont le siège social est en France. Pour toute question, vous pouvez nous contacter à l'adresse suivante : <a href="mailto:postmaster@moneclipsesolaire.fr" className="text-[#FFB800] underline">postmaster@moneclipsesolaire.fr</a>.</p>
           </Section>
 
           <Section title="Article 2 — Objet">
@@ -62,7 +62,7 @@ export default function CGVPage() {
           </Section>
 
           <Section title="Article 11 — Données personnelles">
-            <p>Les données collectées lors de la commande (nom, adresse, email) sont utilisées exclusivement pour le traitement et la livraison de la commande. Elles ne sont pas cédées à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en contactant : <a href="mailto:contact@moneclipsesolaire.fr" className="text-[#FFB800] underline">contact@moneclipsesolaire.fr</a>.</p>
+            <p>Les données collectées lors de la commande (nom, adresse, email) sont utilisées exclusivement pour le traitement et la livraison de la commande. Elles ne sont pas cédées à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en contactant : <a href="mailto:postmaster@moneclipsesolaire.fr" className="text-[#FFB800] underline">postmaster@moneclipsesolaire.fr</a>.</p>
           </Section>
 
           <Section title="Article 12 — Litiges et droit applicable">

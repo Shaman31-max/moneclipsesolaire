@@ -471,7 +471,7 @@ function ProductCard({ product }: { product: ProductDef }) {
         )}
 
         {product.rating && (
-          <div className="flex items-center justify-center gap-1.5 mt-3">
+          <a href="/#avis" className="flex items-center justify-center gap-1.5 mt-3 group cursor-pointer">
             <div className="flex items-center gap-0.5">
               {[1, 2, 3, 4, 5].map((i) => (
                 <Star
@@ -483,8 +483,8 @@ function ProductCard({ product }: { product: ProductDef }) {
               ))}
             </div>
             <span className="text-xs font-bold text-white">{product.rating.score.toLocaleString("fr-FR")} / 5</span>
-            <span className="text-xs text-white/60">({product.rating.count} avis vérifiés)</span>
-          </div>
+            <span className="text-xs text-white/60 underline underline-offset-2 group-hover:text-[#FFB800] transition-colors">({product.rating.count} avis vérifiés)</span>
+          </a>
         )}
       </div>
 

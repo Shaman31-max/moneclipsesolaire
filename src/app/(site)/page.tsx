@@ -36,7 +36,7 @@ const jsonLd = {
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "contact@moneclipsesolaire.fr",
+        "email": "postmaster@moneclipsesolaire.fr",
         "contactType": "customer service",
         "availableLanguage": "French",
       },

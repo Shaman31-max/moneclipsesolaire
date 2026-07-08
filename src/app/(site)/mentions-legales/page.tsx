@@ -11,7 +11,7 @@ export default function MentionsLegalesPage() {
 
           <Section title="1. Éditeur du site">
             <p>Le site <strong className="text-white">MonEclipseSolaire.fr</strong> est édité par une entité de droit français.</p>
-            <p className="mt-2">Email : <a href="mailto:contact@moneclipsesolaire.fr" className="text-[#FFB800] underline">contact@moneclipsesolaire.fr</a></p>
+            <p className="mt-2">Email : <a href="mailto:postmaster@moneclipsesolaire.fr" className="text-[#FFB800] underline">postmaster@moneclipsesolaire.fr</a></p>
           </Section>
 
           <Section title="2. Hébergement">
@@ -37,7 +37,7 @@ export default function MentionsLegalesPage() {
               <li>Droit à la limitation du traitement</li>
               <li>Droit à la portabilité</li>
             </ul>
-            <p className="mt-2">Pour exercer ces droits, contactez-nous à : <a href="mailto:contact@moneclipsesolaire.fr" className="text-[#FFB800] underline">contact@moneclipsesolaire.fr</a>.</p>
+            <p className="mt-2">Pour exercer ces droits, contactez-nous à : <a href="mailto:postmaster@moneclipsesolaire.fr" className="text-[#FFB800] underline">postmaster@moneclipsesolaire.fr</a>.</p>
           </Section>
 
           <Section title="5. Cookies">

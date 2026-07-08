@@ -11,7 +11,7 @@ export default function ConfidentialitePage() {
 
           <Section title="1. Responsable du traitement">
             <p>Le responsable du traitement des données personnelles est l'éditeur du site MonEclipseSolaire.fr.</p>
-            <p className="mt-2">Contact DPO : <a href="mailto:contact@moneclipsesolaire.fr" className="text-[#FFB800] underline">contact@moneclipsesolaire.fr</a></p>
+            <p className="mt-2">Contact DPO : <a href="mailto:postmaster@moneclipsesolaire.fr" className="text-[#FFB800] underline">postmaster@moneclipsesolaire.fr</a></p>
           </Section>
 
           <Section title="2. Données collectées">
@@ -73,7 +73,7 @@ export default function ConfidentialitePage() {
               <li><strong className="text-white">Opposition</strong> : vous opposer à un traitement</li>
               <li><strong className="text-white">Portabilité</strong> : recevoir vos données dans un format structuré</li>
             </ul>
-            <p className="mt-2">Pour exercer ces droits : <a href="mailto:contact@moneclipsesolaire.fr" className="text-[#FFB800] underline">contact@moneclipsesolaire.fr</a>. Vous pouvez également introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-[#FFB800] underline">CNIL</a>.</p>
+            <p className="mt-2">Pour exercer ces droits : <a href="mailto:postmaster@moneclipsesolaire.fr" className="text-[#FFB800] underline">postmaster@moneclipsesolaire.fr</a>. Vous pouvez également introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-[#FFB800] underline">CNIL</a>.</p>
           </Section>
 
           <Section title="8. Sécurité">

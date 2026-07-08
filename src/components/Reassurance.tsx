@@ -25,7 +25,7 @@ const badges = [
   {
     icon: Mail,
     title: "Support réactif",
-    text: "contact@moneclipsesolaire.fr",
+    text: "postmaster@moneclipsesolaire.fr",
     color: "#22D3EE",
   },
 ];
@@ -81,7 +81,7 @@ export default function Reassurance() {
   const avg = reviews.reduce((s, r) => s + r.rating, 0) / reviews.length;
 
   return (
-    <section className="relative py-16 px-6 overflow-hidden" id="avis">
+    <section className="relative py-16 px-6 overflow-hidden scroll-mt-20" id="avis">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[#060412]/60" />
       </div>

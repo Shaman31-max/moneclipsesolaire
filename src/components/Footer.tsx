@@ -51,9 +51,9 @@ export default function Footer() {
 
         {/* Contact bar */}
         <div className="flex flex-wrap gap-4 justify-center mb-8 py-4 glass rounded-xl">
-          <a href="mailto:contact@moneclipsesolaire.fr" className="flex items-center gap-2 text-xs text-[#E8F0FF]/75 hover:text-[#22D3EE] transition-colors">
+          <a href="mailto:postmaster@moneclipsesolaire.fr" className="flex items-center gap-2 text-xs text-[#E8F0FF]/75 hover:text-[#22D3EE] transition-colors">
             <Mail size={13} />
-            contact@moneclipsesolaire.fr
+            postmaster@moneclipsesolaire.fr
           </a>
         </div>
 

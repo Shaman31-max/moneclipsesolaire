@@ -190,7 +190,7 @@ export default function SuiviPage() {
         <div className="anim-fade-in-up-fast mt-6 text-center">
           <p className="text-xs text-white/35">
             Un problème avec votre commande ?{" "}
-            <a href="mailto:contact@moneclipsesolaire.fr" className="text-[#FFB800]/70 hover:text-[#FFB800] underline underline-offset-2 transition-colors">
+            <a href="mailto:postmaster@moneclipsesolaire.fr" className="text-[#FFB800]/70 hover:text-[#FFB800] underline underline-offset-2 transition-colors">
               Contactez-nous
             </a>
           </p>

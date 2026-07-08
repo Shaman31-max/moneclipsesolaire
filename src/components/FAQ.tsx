@@ -237,7 +237,7 @@ export default function FAQ() {
         <Reveal delay={0.2} className="mt-10 flex items-center justify-center gap-4 flex-wrap">
           <p className="text-sm text-white/85">Vous n'avez pas trouvé votre réponse ?</p>
           <a
-            href="mailto:contact@moneclipsesolaire.fr"
+            href="mailto:postmaster@moneclipsesolaire.fr"
             className="flex items-center gap-2 px-5 py-2.5 rounded-full glass border border-[#22D3EE]/25 text-sm font-semibold text-[#FFB800] hover:border-[#22D3EE]/50 transition-all"
           >
             <ShieldCheck size={13} />
