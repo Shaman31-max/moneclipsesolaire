@@ -6,6 +6,7 @@ import SeoContent from "@/components/SeoContent";
 
 // Below-fold: lazy loaded → not in initial JS bundle
 const EclipseInfo      = dynamic(() => import("@/components/EclipseInfo"));
+const Reassurance      = dynamic(() => import("@/components/Reassurance"));
 const IsoCertification = dynamic(() => import("@/components/IsoCertification"));
 const Products         = dynamic(() => import("@/components/Products"));
 const FAQ              = dynamic(() => import("@/components/FAQ"));
@@ -140,6 +141,8 @@ export default function Home() {
         <Hero />
         <Divider />
         <Products />
+        <Divider />
+        <Reassurance />
         <Divider />
         <EclipseInfo />
         <Divider />
