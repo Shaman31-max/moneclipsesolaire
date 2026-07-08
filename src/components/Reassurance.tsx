@@ -85,7 +85,7 @@ const reviews: { name: string; date: string; rating: number; text: string; verif
     name: "J.P",
     date: "juin 2026",
     rating: 5,
-    text: "Conforme à la description. Très satisfait ! Lunettes conformes.",
+    text: "Conforme à la description.",
     verified: true,
   },
 ];
