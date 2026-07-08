@@ -97,6 +97,9 @@ const PRODUCTS: ProductDef[] = [
     name: "Luna et l'éclipse magique",
     subtitle: "Ebook enfant — dès 3 ans",
     image: "/ebook.png",
+    images: [
+      { src: "/ebook.png", alt: "Luna et l'éclipse magique — album illustré pour enfants dès 3 ans" },
+    ],
     desc: "Découvrez Luna et l'éclipse magique, un album illustré plein de douceur qui invite les enfants à partir de 3 ans à explorer la magie des éclipses solaires. À travers une histoire tendre et des illustrations colorées, les petits apprendront à observer ce phénomène fascinant en toute sécurité.",
     unit: "ebook",
     color: "#FFB800",
@@ -129,10 +132,12 @@ function ProductGallery({ images, badge }: { images: ProductImage[]; badge?: str
     </button>
   ));
 
+  const hasThumbs = images.length > 1;
+
   return (
     <div className="flex flex-col sm:flex-row gap-3">
       {/* Vignettes — colonne à gauche sur desktop */}
-      <div className="hidden sm:flex flex-col gap-3">{thumbs}</div>
+      {hasThumbs && <div className="hidden sm:flex flex-col gap-3">{thumbs}</div>}
 
       {/* Image principale */}
       <div className="relative flex-1 aspect-square rounded-2xl bg-white overflow-hidden">
@@ -166,7 +171,7 @@ function ProductGallery({ images, badge }: { images: ProductImage[]; badge?: str
       </div>
 
       {/* Vignettes — bande horizontale sous l'image sur mobile */}
-      <div className="flex sm:hidden gap-3 justify-center">{thumbs}</div>
+      {hasThumbs && <div className="flex sm:hidden gap-3 justify-center">{thumbs}</div>}
     </div>
   );
 }
