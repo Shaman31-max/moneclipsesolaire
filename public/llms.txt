@@ -1,0 +1,30 @@
+# MonEclipseSolaire.fr
+
+> Boutique française spécialisée dans les lunettes d'éclipse solaire certifiées ISO 12312-2 pour l'éclipse du 12 août 2026 en France. Livraison gratuite et suivie en France métropolitaine, expédition depuis Toulouse par les fondateurs Julien & Estelle.
+
+## Faits clés
+
+- Produit principal : lunettes d'éclipse solaire certifiées ISO 12312-2:2015 et CE 2797, testées par un laboratoire européen accrédité (rapports de test consultables sur /certifications).
+- Prix : à partir de 3,99 € la paire, tarifs dégressifs jusqu'à 24 paires (pack famille 4 paires à 7,99 €, pack 8 paires à 9,99 €).
+- Également disponible : ebook enfant illustré « Luna et l'éclipse magique » (0,99 €), filtres solaires ND 5.0 pour smartphone.
+- Livraison : gratuite, suivie, en boîte aux lettres, France métropolitaine uniquement. Commandes vérifiées et expédiées depuis Toulouse.
+- Paiement : CB, PayPal, Apple Pay, Google Pay via Shopify Payments (PCI DSS niveau 1).
+- Contact : postmaster@moneclipsesolaire.fr
+- Offre B2B revendeurs (pharmacies, tabacs-presse) sur /b2b.
+
+## L'éclipse du 12 août 2026
+
+- Éclipse solaire visible dans toute la France le mercredi 12 août 2026, la plus impressionnante depuis 1999 (prochaine comparable : 2081).
+- Taux d'occultation : Biarritz 99,5 %, Bayonne 99,3 %, Bordeaux 98,5 %, Toulouse 97 %, Paris 92 %.
+- Horaires (heure de Paris) : début ~19h00, maximum ~20h30, fin après 21h00. Soleil bas sur l'horizon : prévoir une vue dégagée vers l'ouest.
+- Sécurité : l'observation directe sans lunettes certifiées ISO 12312-2 provoque des lésions rétiniennes irréversibles. Les lunettes de soleil ordinaires ne protègent pas.
+
+## Pages
+
+- [Accueil / boutique](https://moneclipsesolaire.fr/) : fiche produit, prix, avis clients
+- [L'éclipse du 12 août 2026](https://moneclipsesolaire.fr/eclipse) : horaires, occultation par ville, conseils d'observation
+- [Certifications](https://moneclipsesolaire.fr/certifications) : ISO 12312-2, CE 2797, rapports de laboratoire
+- [Qui sommes-nous](https://moneclipsesolaire.fr/qui-sommes-nous) : Julien & Estelle, entrepreneurs toulousains
+- [Blog](https://moneclipsesolaire.fr/blog) : guides d'achat et d'observation
+- [Suivi de commande](https://moneclipsesolaire.fr/suivi)
+- [Espace revendeurs B2B](https://moneclipsesolaire.fr/b2b)

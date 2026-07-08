@@ -10,7 +10,16 @@ export const metadata: Metadata = {
 
 export default function CertificationsPage() {
   return (
-    <main className="min-h-screen bg-[#060412] pt-24 pb-12">
+    <main className="min-h-screen bg-[#060412] pt-28 pb-12">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        <h1 className="text-3xl md:text-4xl font-black text-white">
+          Lunettes éclipse certifiées ISO 12312-2 et CE
+        </h1>
+        <p className="text-white/70 text-sm md:text-base mt-3 max-w-2xl mx-auto">
+          Nos lunettes et filtres sont testés par un laboratoire européen accrédité. Voici les
+          certifications, les contrôles réalisés et comment vérifier le certificat vous-même.
+        </p>
+      </div>
       <IsoCertification />
     </main>
   );

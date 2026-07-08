@@ -511,12 +511,12 @@ export default function Products() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <Reveal className="text-center mb-8">
-          <p className="text-[calc(0.75rem+3px)] uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-medium">Nos Produits</p>
-          <h2 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-4">
-            Choisissez vos <span className="gradient-text-blue">équipements</span>
-          </h2>
+          <p className="text-[calc(0.75rem+3px)] uppercase tracking-[0.3em] text-[#FFB800] mb-3 font-medium">Éclipse du 12 août 2026</p>
+          <h1 className="text-4xl md:text-5xl font-black text-[#DCE8FF] mb-4">
+            Lunettes éclipse solaire <span className="gradient-text-blue">certifiées ISO 12312-2</span>
+          </h1>
           <p className="text-white/75 text-[calc(0.875rem+2px)] max-w-lg mx-auto">
-            Glissez le curseur pour ajuster la quantité, prix dégressif en fonction de la quantité.
+            Observez l'éclipse du 12 août 2026 en toute sécurité. Prix dégressif selon la quantité, livraison gratuite en France.
           </p>
         </Reveal>
 

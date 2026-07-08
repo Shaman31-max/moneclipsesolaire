@@ -57,6 +57,7 @@ const links = [
   { href: "/eclipse", label: "L'Éclipse" },
   { href: "/certifications", label: "Nos certifications" },
   { href: "/#faq", label: "FAQ" },
+  { href: "/blog", label: "Blog" },
   { href: "/suivi", label: "Suivre ma commande" },
 ];
 

@@ -29,7 +29,7 @@ export default function SeoContent() {
           </h2>
           <p className="mb-3">
             Vérifiez trois points avant tout achat de lunettes d'éclipse solaire&nbsp;: la mention de la norme{" "}
-            <a href="#certification" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
+            <a href="/certifications" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
               ISO 12312-2
             </a>{" "}
             imprimée sur la monture, le nom du laboratoire ayant certifié le filtre, et l'absence de rayure ou de
@@ -50,13 +50,16 @@ export default function SeoContent() {
             Commandez vos lunettes d'éclipse solaire à temps
           </h2>
           <p>
-            Nous produisons à la demande en deux séries fermées&nbsp;: commandes closes le 15 juin 2026 (livraison
-            le 20 juillet) puis le 7 juillet 2026 (livraison le 7 août). Après ces dates, aucune commande ne sera
-            acceptée — le délai de fabrication ne permettrait plus de garantir la livraison avant l'éclipse.{" "}
+            À l'approche du 12 août 2026, la demande de lunettes d'éclipse explose et les ruptures de stock sont
+            fréquentes — en 1999, des millions de Français avaient cherché des lunettes au dernier moment.{" "}
             <a href="#produits" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
               Commandez vos lunettes éclipse solaire dès maintenant
             </a>{" "}
-            à partir de 3,99&nbsp;€.
+            à partir de 3,99&nbsp;€, livraison gratuite et suivie partout en France métropolitaine, directement
+            en boîte aux lettres. Chaque commande est vérifiée et expédiée depuis Toulouse par{" "}
+            <a href="/qui-sommes-nous" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
+              Julien &amp; Estelle
+            </a>.
           </p>
         </div>
       </div>
