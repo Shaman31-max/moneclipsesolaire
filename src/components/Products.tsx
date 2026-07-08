@@ -114,14 +114,22 @@ const PRODUCTS: ProductDef[] = [
 
 // Galerie style Amazon : vignettes cliquables à gauche (verticales sur
 // desktop, horizontales sous l'image sur mobile), grande image à droite.
-function ProductGallery({ images, badge }: { images: ProductImage[]; badge?: string }) {
+function ProductGallery({ images, badge, eager }: { images: ProductImage[]; badge?: string; eager?: boolean }) {
   const [idx, setIdx] = useState(0);
+  // Seule l'image active est montée au chargement (LCP) ; les autres sont
+  // montées en différé pour ne pas concurrencer le rendu initial.
+  const [warm, setWarm] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setWarm(true), 3500);
+    return () => clearTimeout(t);
+  }, []);
+  const select = (i: number) => { setWarm(true); setIdx(i); };
 
   const thumbs = images.map((img, i) => (
     <button
       key={img.src}
-      onClick={() => setIdx(i)}
-      onMouseEnter={() => setIdx(i)}
+      onClick={() => select(i)}
+      onMouseEnter={() => select(i)}
       aria-label={`Voir la photo ${i + 1} : ${img.alt}`}
       className="relative w-16 h-16 flex-shrink-0 rounded-xl bg-white overflow-hidden transition-all duration-150"
       style={{
@@ -158,17 +166,19 @@ function ProductGallery({ images, badge }: { images: ProductImage[]; badge?: str
             <ExternalLink size={9} className="text-white/50 group-hover:text-white/90 transition-colors flex-shrink-0" />
           </a>
         )}
-        {images.map((img, i) => (
-          <Image
-            key={img.src}
-            src={img.src}
-            alt={img.alt}
-            fill
-            sizes="(max-width: 1024px) 90vw, 45vw"
-            className={`object-contain p-3 transition-opacity duration-200 ${i === idx ? "opacity-100" : "opacity-0"}`}
-            priority={i === 0}
-          />
-        ))}
+        {images.map((img, i) =>
+          i === idx || warm ? (
+            <Image
+              key={img.src}
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes="(max-width: 1024px) 90vw, 45vw"
+              className={`object-contain p-3 transition-opacity duration-200 ${i === idx ? "opacity-100" : "opacity-0"}`}
+              priority={eager && i === 0}
+            />
+          ) : null
+        )}
       </div>
 
       {/* Vignettes — bande horizontale sous l'image sur mobile */}
@@ -246,7 +256,7 @@ function ProductCard({ product }: { product: ProductDef }) {
 
       {product.images ? (
         <div className="lg:col-span-3 mb-5 lg:mb-0">
-          <ProductGallery images={product.images} badge={product.badge} />
+          <ProductGallery images={product.images} badge={product.badge} eager={product.id === "glasses"} />
         </div>
       ) : product.image && (
         <div className="relative z-10 w-1/2 mx-auto aspect-square mb-4 rounded-2xl bg-white overflow-hidden">

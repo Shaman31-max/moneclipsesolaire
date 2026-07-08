@@ -54,21 +54,31 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <ClientProviders>{children}</ClientProviders>
         <SpeedInsights />
       </body>
+      {/* gtag pèse ~320 KB (GA + 2ème lib Ads) et plombait LCP/TBT même en
+          lazyOnload. On ne le charge qu'à la première interaction utilisateur
+          (ou après 6 s en secours) : les événements s'empilent dans dataLayer
+          et partent dès que la lib arrive — aucune donnée perdue. */}
       {GA_ID && (
-        <>
-          {/* Init synchrone légère : les événements s'empilent dans dataLayer
-              et partent quand gtag.js arrive. GA + Google Ads partagent la
-              même bibliothèque (une seule requête). */}
-          <Script id="gtag-init" strategy="afterInteractive">
-            {`window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_ID}');
-              ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ""}`}
-          </Script>
-          {/* lazyOnload : gtag.js (~180 KB) ne concurrence plus le rendu */}
-          <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="lazyOnload" />
-        </>
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+            ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ""}
+            (function(){
+              var done=false;
+              var evs=['pointerdown','keydown','scroll','touchstart'];
+              function load(){
+                if(done)return;done=true;
+                evs.forEach(function(e){removeEventListener(e,load)});
+                var s=document.createElement('script');
+                s.src='https://www.googletagmanager.com/gtag/js?id=${GA_ID}';
+                s.async=true;document.head.appendChild(s);
+              }
+              evs.forEach(function(e){addEventListener(e,load,{passive:true})});
+              setTimeout(load,6000);
+            })();`}
+        </Script>
       )}
     </html>
   );
