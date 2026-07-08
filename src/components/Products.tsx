@@ -190,11 +190,9 @@ function ProductGallery({ images, badge, eager }: { images: ProductImage[]; badg
 function ProductCard({ product }: { product: ProductDef }) {
   const [stepIdx, setStepIdx] = useState(product.defaultStepIdx ?? 0);
   const [added, setAdded] = useState(false);
-  // Caractéristiques repliées sur mobile, dépliées sur desktop
+  // Caractéristiques repliées par défaut (mobile et desktop) — « En savoir
+  // plus » pour déplier.
   const [expanded, setExpanded] = useState(false);
-  useEffect(() => {
-    if (window.matchMedia("(min-width: 768px)").matches) setExpanded(true);
-  }, []);
   const [viewed, setViewed] = useState(false);
   const Icon = product.icon;
   const { addItem, removeItem, checkoutUrl } = useCart();
