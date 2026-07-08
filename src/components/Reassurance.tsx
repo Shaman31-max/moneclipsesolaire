@@ -12,7 +12,7 @@ const badges = [
   },
   {
     icon: ShieldCheck,
-    title: "Certifié ISO 12312-2",
+    title: "Certifié norme européenne CE",
     text: "Testé par laboratoire européen accrédité",
     color: "#22D3EE",
   },
