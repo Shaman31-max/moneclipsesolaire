@@ -69,7 +69,6 @@ const PRODUCTS: ProductDef[] = [
       { title: "Filtre solaire optique ND 5.0", text: "Bloque plus de 99,999 % de la lumière solaire, UV et infrarouges." },
       { title: "Observation solaire sécurisée", text: "Observer une éclipse directement en toute sécurité." },
       { title: "Adultes & enfants", text: "Design léger et confortable pour toute la famille." },
-      { title: "Production responsable", text: "Fabrication à la demande pour limiter le gaspillage." },
     ],
     unit: "paire",
     color: "#FFB800",
