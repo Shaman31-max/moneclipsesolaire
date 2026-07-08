@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import { ShoppingCart, Eye, CheckCircle, Zap, BookOpen, ShieldCheck, ExternalLink, Star } from "lucide-react";
+import { ShoppingCart, Eye, CheckCircle, BookOpen, ShieldCheck, ExternalLink, Star } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { trackViewItem, trackAddToCart, trackBeginCheckout } from "@/lib/analytics";
 
@@ -503,7 +503,7 @@ export default function Products() {
   const { totalItems, checkoutUrl, items } = useCart();
 
   return (
-    <section id="produits" className="relative pt-32 xl:pt-24 pb-24 px-6">
+    <section id="produits" className="relative pt-10 pb-24 px-6 scroll-mt-20">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] " style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.03), transparent)" }} />
       </div>
@@ -540,34 +540,6 @@ export default function Products() {
           </a>
         )}
 
-        {/* Disclaimer */}
-        <div className="flex items-center gap-3 mt-2 mb-6 px-4 py-3 rounded-xl border border-amber-400/30 bg-amber-400/06">
-          <span className="text-amber-400 text-lg flex-shrink-0">⚠️</span>
-          <p className="text-xs text-white/80">
-            <span className="font-black text-amber-400">* Information importante — </span>
-            Ne pas utiliser si le filtre présente des rayures ou dommages. Enfants : surveillance adulte obligatoire.
-          </p>
-        </div>
-
-        {/* Bandeau livraison */}
-        <Reveal
-          delay={0.2}
-          className="mt-8 relative overflow-hidden rounded-2xl border border-[#22c55e]/40 bg-[#22c55e]/08 px-6 py-5 flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-[#22c55e]/05 via-[#22c55e]/10 to-[#22c55e]/05 pointer-events-none" />
-          <div className="relative z-10 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#22c55e]/20 border border-[#22c55e]/40 flex items-center justify-center flex-shrink-0">
-              <Zap size={18} className="text-[#22c55e]" />
-            </div>
-            <div className="text-left">
-              <div className="text-lg md:text-xl font-black text-white leading-tight">🚚 Livraison gratuite & incluse directement dans votre boîte aux lettres</div>
-              <div className="text-sm font-semibold mt-0.5" style={{ color: "#22c55e" }}>
-                Garantie chez vous avant l'éclipse — sans frais cachés · selon le{" "}
-                <a href="/suivi" className="underline underline-offset-2 hover:text-white transition-colors">planning de livraison</a>*
-              </div>
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
