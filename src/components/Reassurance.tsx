@@ -60,6 +60,34 @@ const reviews: { name: string; date: string; rating: number; text: string; verif
     text: "Bon rapport qualité/prix. Les lunettes sont légères et tiennent bien en place. On ne voit absolument rien à travers sauf le Soleil.",
     verified: true,
   },
+  {
+    name: "Samira",
+    date: "juillet 2026",
+    rating: 4,
+    text: "RAS",
+    verified: true,
+  },
+  {
+    name: "J.P",
+    date: "juin 2026",
+    rating: 3,
+    text: "Conforme à la description. Très satisfait ! Lunettes conformes.",
+    verified: true,
+  },
+  {
+    name: "Alex",
+    date: "juillet 2026",
+    rating: 4,
+    text: "Les lunettes sont conformes, mais le colis a été livré chez mon voisin.",
+    verified: true,
+  },
+  {
+    name: "Abdel",
+    date: "juillet 2026",
+    rating: 4,
+    text: "La lettre est arrivée déchirée mais les lunettes étaient ok.",
+    verified: true,
+  },
 ];
 
 function Stars({ rating }: { rating: number }) {
