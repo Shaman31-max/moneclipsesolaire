@@ -70,7 +70,7 @@ const reviews: { name: string; date: string; rating: number; text: string; verif
   {
     name: "Abdel",
     date: "juillet 2026",
-    rating: 5,
+    rating: 4,
     text: "La lettre est arrivée déchirée mais les lunettes étaient ok.",
     verified: true,
   },
