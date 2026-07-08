@@ -194,7 +194,6 @@ function ProductCard({ product }: { product: ProductDef }) {
   // plus » pour déplier.
   const [expanded, setExpanded] = useState(false);
   const [viewed, setViewed] = useState(false);
-  const Icon = product.icon;
   const { addItem, removeItem, checkoutUrl } = useCart();
 
   const step = PRICE_STEPS[stepIdx];
@@ -289,14 +288,8 @@ function ProductCard({ product }: { product: ProductDef }) {
 
       <div className={product.images ? "lg:col-span-2 flex flex-col" : "contents"}>
 
-      {/* Icon + title */}
+      {/* Title */}
       <div className="relative z-10 flex items-start gap-3 mb-3">
-        <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-          style={{ backgroundColor: `${product.color}15`, border: `1px solid ${product.color}30` }}
-        >
-          <Icon size={20} style={{ color: product.color }} />
-        </div>
         <div>
           {product.subtitle && (
             <div className="text-[12px] uppercase tracking-[0.25em] mb-1" style={{ color: product.color }}>
@@ -514,7 +507,7 @@ export default function Products() {
   const { totalItems, checkoutUrl, items } = useCart();
 
   return (
-    <section id="produits" className="relative pt-32 xl:pt-24 pb-24 px-6 scroll-mt-20">
+    <section id="produits" className="relative pt-28 xl:pt-20 pb-24 px-6 scroll-mt-20">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] " style={{ background: "radial-gradient(closest-side, rgba(34,211,238,0.03), transparent)" }} />
       </div>
