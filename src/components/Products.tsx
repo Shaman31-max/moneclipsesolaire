@@ -56,7 +56,7 @@ const PRODUCTS: ProductDef[] = [
   {
     id: "glasses",
     name: "Paire de Lunettes Éclipse Norme Européenne",
-    subtitle: "Observer en toute sécurité",
+    subtitle: "",
     image: "/LUNETTE_ECLIPSE_2.png",
     images: [
       { src: "/produit-main.webp", alt: "Lunettes éclipse solaire certifiées ISO 12312-2" },
@@ -95,7 +95,7 @@ const PRODUCTS: ProductDef[] = [
   {
     id: "ebook",
     name: "Luna et l'éclipse magique",
-    subtitle: "Ebook enfant — dès 3 ans",
+    subtitle: "",
     image: "/ebook.png",
     images: [
       { src: "/ebook.png", alt: "Luna et l'éclipse magique — album illustré pour enfants dès 3 ans" },
@@ -301,9 +301,11 @@ function ProductCard({ product }: { product: ProductDef }) {
           <Icon size={20} style={{ color: product.color }} />
         </div>
         <div>
-          <div className="text-[12px] uppercase tracking-[0.25em] mb-1" style={{ color: product.color }}>
-            {product.subtitle}
-          </div>
+          {product.subtitle && (
+            <div className="text-[12px] uppercase tracking-[0.25em] mb-1" style={{ color: product.color }}>
+              {product.subtitle}
+            </div>
+          )}
           <div className="flex items-center gap-2 flex-wrap">
             <h3 className="text-xl font-black text-[#DCE8FF] leading-tight">{product.name}</h3>
             {product.badge && (
