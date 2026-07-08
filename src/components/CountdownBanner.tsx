@@ -46,10 +46,6 @@ export default function CountdownBanner() {
             </div>
           ))}
         </div>
-        <p className="text-sm md:text-base font-bold text-white text-center">
-          ⏳ Plus que <span suppressHydrationWarning className="text-red-500">{time?.j ?? "…"} jours</span> avant
-          l&apos;éclipse solaire du 12 août 2026
-        </p>
       </div>
     </div>
   );
