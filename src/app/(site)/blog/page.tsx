@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Clock } from "lucide-react";
 import { BLOG_POSTS } from "@/lib/blog";
+import CommanderCTA from "@/components/CommanderCTA";
 
 export const metadata: Metadata = {
   title: "Blog — Lunettes éclipse & éclipse du 12 août 2026 | MonEclipseSolaire.fr",
@@ -47,6 +48,7 @@ export default function BlogIndexPage() {
           ))}
         </div>
       </div>
+      <CommanderCTA />
     </main>
   );
 }

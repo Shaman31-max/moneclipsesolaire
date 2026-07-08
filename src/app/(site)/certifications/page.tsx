@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import IsoCertification from "@/components/IsoCertification";
+import CommanderCTA from "@/components/CommanderCTA";
 
 export const metadata: Metadata = {
   title: "Nos certifications — MonEclipseSolaire.fr",
@@ -21,6 +22,7 @@ export default function CertificationsPage() {
         </p>
       </div>
       <IsoCertification />
+      <CommanderCTA />
     </main>
   );
 }

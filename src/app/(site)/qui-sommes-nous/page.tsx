@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { MapPin, Package, Mail } from "lucide-react";
+import CommanderCTA from "@/components/CommanderCTA";
 
 export const metadata: Metadata = {
   title: "Qui sommes-nous ? — MonEclipseSolaire.fr",
@@ -93,6 +94,7 @@ export default function QuiSommesNousPage() {
           </div>
         </div>
       </div>
+      <CommanderCTA />
     </main>
   );
 }

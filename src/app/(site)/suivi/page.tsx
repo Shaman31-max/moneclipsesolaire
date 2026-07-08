@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Package, Truck, CheckCircle, Clock, Factory, MapPin, Search, ExternalLink } from "lucide-react";
+import CommanderCTA from "@/components/CommanderCTA";
 
 const STAGES = [
   {
@@ -197,6 +198,7 @@ export default function SuiviPage() {
         </div>
 
       </div>
+      <CommanderCTA />
     </main>
   );
 }
