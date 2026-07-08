@@ -7,7 +7,7 @@ import { ChevronDown, ShieldCheck, Package, Truck, CreditCard, Eye, CalendarCloc
 const categories = [
   {
     icon: CalendarClock,
-    label: "Séries & Livraisons",
+    label: "Commande & Livraison",
     color: "#22D3EE",
     faqs: [
       {
@@ -15,24 +15,12 @@ const categories = [
         a: "eclipse-date",
       },
       {
-        q: "Comment fonctionne le système de production à la demande ?",
-        a: "Pour éviter tout gaspillage sur un événement unique et non renouvelable, nous produisons uniquement ce qui est commandé, en deux séries fermées. Une fois la clôture de chaque série passée, il n'est plus possible de passer commande dans ce batch. Les produits sont fabriqués après la clôture, contrôlés, puis expédiés à la date de livraison prévue.",
-      },
-      {
-        q: "Quelles sont les dates exactes des deux séries ?",
-        a: "1ère série : commandes closes le 15 juin 2026, livraison le 20 juillet 2026 (23 jours avant l'éclipse). 2ème série : commandes closes le 7 juillet 2026, livraison le 7 août 2026 (5 jours avant l'éclipse). Il n'y aura pas de 3ème série ni de vente après ces dates.",
-      },
-      {
         q: "Qui sommes-nous ?",
         a: "qui-sommes-nous",
       },
       {
         q: "La livraison est-elle garantie avant l'éclipse ?",
-        a: "Oui, sous réserve que vous commandiez avant la clôture de la série choisie et que vous fournissiez une adresse de livraison correcte. Nos dates de livraison intègrent une marge de sécurité avec nos transporteurs partenaires (Colissimo, Chronopost). En cas de problème exceptionnel, notre équipe vous contacte immédiatement.",
-      },
-      {
-        q: "Puis-je commander dans les deux séries ?",
-        a: "Oui, c'est possible.",
+        a: "Oui, sous réserve que vous fournissiez une adresse de livraison correcte. Nos dates de livraison intègrent une marge de sécurité avec nos transporteurs partenaires (Colissimo, Chronopost). En cas de problème exceptionnel, notre équipe vous contacte immédiatement.",
       },
     ],
   },

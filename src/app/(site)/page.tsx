@@ -100,7 +100,7 @@ const jsonLd = {
           "name": "La livraison des lunettes éclipse est-elle garantie avant le 12 août 2026 ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui, à condition de commander avant la clôture d'une des deux séries de production : 1ère série close le 15 juin 2026 (livraison le 20 juillet), 2ème série close le 7 juillet 2026 (livraison le 7 août). La livraison est gratuite en France métropolitaine.",
+            "text": "Oui, la livraison avant l'éclipse est garantie sous réserve d'une adresse de livraison correcte. La livraison est gratuite en France métropolitaine, directement en boîte aux lettres.",
           },
         },
       ],
