@@ -74,7 +74,7 @@ const PRODUCTS: ProductDef[] = [
     color: "#FFB800",
     icon: Eye,
     badge: "ISO 12312-2",
-    defaultStepIdx: 6,
+    defaultStepIdx: 0,
     rating: { score: 4.88, count: 128 },
     features: ["Paiement sécurisé", "Livraison 48h depuis la France"],
     variantId: "gid://shopify/ProductVariant/58137193283929",
@@ -405,7 +405,7 @@ function ProductCard({ product }: { product: ProductDef }) {
               {PRICE_STEPS.map((s, i) => (
                 <span
                   key={i}
-                  className="text-[10px] font-bold transition-colors"
+                  className="text-[15px] font-bold transition-colors"
                   style={{ color: i === stepIdx ? product.color : "rgba(220,232,255,0.18)" }}
                 >
                   {s.qty}
