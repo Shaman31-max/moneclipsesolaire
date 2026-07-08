@@ -122,7 +122,7 @@ export default function EclipseInfo() {
             Les lunettes d'éclipse risquent d'être en rupture de stock à l'approche du 12 août 2026.
           </p>
           <a
-            href="#produits"
+            href="/#produits"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FFB800] text-black font-bold text-sm hover:bg-[#FFC933] transition-colors"
           >
             Commander mes lunettes →

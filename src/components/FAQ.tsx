@@ -100,7 +100,7 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
               {a === "eclipse-date" ? (
                 <>
                   L'éclipse solaire aura lieu le <strong className="text-white">12 août 2026</strong>. Consultez le{" "}
-                  <a href="/#eclipse" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
+                  <a href="/eclipse" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
                     planning de l'éclipse
                   </a>
                   {" "}pour les horaires et les zones de visibilité en France.
