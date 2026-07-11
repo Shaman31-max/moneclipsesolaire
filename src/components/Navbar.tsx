@@ -61,7 +61,6 @@ const links = [
   { href: "/certifications", label: "Nos certifications" },
   { href: "/#faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },
-  { href: "/suivi", label: "Suivre ma commande" },
 ];
 
 export default function Navbar() {
