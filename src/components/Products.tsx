@@ -247,11 +247,11 @@ function ProductCard({ product }: { product: ProductDef }) {
       <div className={product.images ? "relative z-10 lg:grid lg:grid-cols-5 lg:gap-10 lg:items-start" : "contents"}>
 
       {product.images ? (
-        <div className="lg:col-span-3 mb-5 lg:mb-0">
+        <div className="lg:col-span-3 mb-5 lg:mb-0 w-4/5 mx-auto">
           <ProductGallery images={product.images} badge={product.badge} eager={product.id === "glasses"} />
         </div>
       ) : product.image && (
-        <div className="relative z-10 w-1/2 mx-auto aspect-square mb-4 rounded-2xl bg-white overflow-hidden">
+        <div className="relative z-10 w-2/5 mx-auto aspect-square mb-4 rounded-2xl bg-white overflow-hidden">
           {product.badge && (
             <a
               href="https://www.iso.org/standard/59289.html"
