@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import TopBanner from "@/components/TopBanner";
+import MobileCartBar from "@/components/MobileCartBar";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,6 +10,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <div style={{ paddingTop: "calc(64px + 36px)" }}>
         {children}
       </div>
+      <MobileCartBar />
     </div>
   );
 }
