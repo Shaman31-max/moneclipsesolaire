@@ -194,7 +194,7 @@ function ProductCard({ product }: { product: ProductDef }) {
   // plus » pour déplier.
   const [expanded, setExpanded] = useState(false);
   const [viewed, setViewed] = useState(false);
-  const { addItem, removeItem, checkoutUrl } = useCart();
+  const { addItem, removeItem, checkoutUrl, items } = useCart();
 
   const step = PRICE_STEPS[stepIdx];
   const unitPrice = step.total / step.qty;
@@ -215,25 +215,20 @@ function ProductCard({ product }: { product: ProductDef }) {
   };
 
   const handleAdd = () => {
-    if (added) {
-      removeItem(product.id);
-      setAdded(false);
-    } else {
-      addItem({
-        variantNumericId,
-        qty: 1,
-        name: product.name,
-        price: isFixed ? product.fixedPrice! : step.total,
-        productId: product.id,
-      });
-      trackAddToCart({
-        item_id: variantNumericId,
-        item_name: product.name,
-        price: isFixed ? product.fixedPrice! : step.total,
-        quantity: 1,
-      });
-      setAdded(true);
-    }
+    addItem({
+      variantNumericId,
+      qty: 1,
+      name: product.name,
+      price: isFixed ? product.fixedPrice! : step.total,
+      productId: product.id,
+    });
+    trackAddToCart({
+      item_id: variantNumericId,
+      item_name: product.name,
+      price: isFixed ? product.fixedPrice! : step.total,
+      quantity: 1,
+    });
+    setAdded(true);
   };
 
   return (
@@ -462,20 +457,35 @@ function ProductCard({ product }: { product: ProductDef }) {
             <p className="text-xs text-white/50 text-center">
               * <strong className="text-white/70">Livraison 48h</strong> en boîte aux lettres
             </p>
-            <button
-              onClick={handleAdd}
-              className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-base text-white transition-all duration-200 active:scale-[0.96]"
-              style={{
-                backgroundColor: added ? "#22c55e" : product.color,
-                boxShadow: added ? "0 0 24px rgba(34,197,94,0.4)" : `0 0 28px ${product.color}50`,
-              }}
-            >
-              {added ? (
-                <><CheckCircle size={18} /> Ajouté au panier</>
-              ) : (
-                <><ShoppingCart size={18} /> Ajouter au panier — {step.qty} {product.unit}{step.qty > 1 ? "s" : ""}</>
-              )}
-            </button>
+            {added ? (
+              <>
+                <a
+                  href={checkoutUrl}
+                  onClick={() => trackBeginCheckout(items)}
+                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-base text-white text-center transition-all duration-200 active:scale-[0.96]"
+                  style={{ backgroundColor: "#22c55e", boxShadow: "0 0 24px rgba(34,197,94,0.4)" }}
+                >
+                  <CheckCircle size={18} className="flex-shrink-0" /> Cliquez ici pour finaliser la commande
+                </a>
+                <button
+                  onClick={() => { removeItem(product.id); setAdded(false); }}
+                  className="text-xs text-white/50 underline underline-offset-2 hover:text-white/80 transition-colors mx-auto"
+                >
+                  Retirer du panier
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={handleAdd}
+                className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-base text-white transition-all duration-200 active:scale-[0.96]"
+                style={{
+                  backgroundColor: product.color,
+                  boxShadow: `0 0 28px ${product.color}50`,
+                }}
+              >
+                <ShoppingCart size={18} /> Ajouter au panier — {step.qty} {product.unit}{step.qty > 1 ? "s" : ""}
+              </button>
+            )}
           </div>
         )}
 
