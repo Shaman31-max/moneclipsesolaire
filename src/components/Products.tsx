@@ -6,19 +6,7 @@ import Reveal from "@/components/Reveal";
 import { ShoppingCart, Eye, CheckCircle, BookOpen, ShieldCheck, ExternalLink, Star } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { trackViewItem, trackAddToCart, trackBeginCheckout } from "@/lib/analytics";
-
-const PRICE_STEPS = [
-  { qty: 1,  total: 3.99,  mention: "Solo" },
-  { qty: 2,  total: 5.99,  mention: "Duo" },
-  { qty: 3,  total: 6.99,  mention: null },
-  { qty: 4,  total: 7.99,  mention: "Famille" },
-  { qty: 5,  total: 8.49,  mention: null },
-  { qty: 6,  total: 8.99,  mention: null },
-  { qty: 8,  total: 9.99,  mention: "⭐ Meilleure offre" },
-  { qty: 12, total: 12.99, mention: null },
-  { qty: 14, total: 13.99, mention: null },
-  { qty: 24, total: 21.99, mention: "🎉 Événement" },
-];
+import { PRICE_STEPS, GLASSES_VARIANT_IDS } from "@/lib/pricing";
 
 function fmt(n: number) {
   return n.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -77,19 +65,8 @@ const PRODUCTS: ProductDef[] = [
     defaultStepIdx: 0,
     rating: { score: 4.88, count: 128 },
     features: ["Paiement sécurisé", "Livraison 48h depuis la France"],
-    variantId: "gid://shopify/ProductVariant/58137193283929",
-    variantIds: [
-      "gid://shopify/ProductVariant/58137193283929",
-      "gid://shopify/ProductVariant/58137193316697",
-      "gid://shopify/ProductVariant/58137193349465",
-      "gid://shopify/ProductVariant/58137193382233",
-      "gid://shopify/ProductVariant/58137193415001",
-      "gid://shopify/ProductVariant/58137193447769",
-      "gid://shopify/ProductVariant/58137193480537",
-      "gid://shopify/ProductVariant/58137193513305",
-      "gid://shopify/ProductVariant/58137193546073",
-      "gid://shopify/ProductVariant/58137193578841",
-    ],
+    variantId: GLASSES_VARIANT_IDS[0],
+    variantIds: GLASSES_VARIANT_IDS,
   },
   {
     id: "ebook",
@@ -195,6 +172,22 @@ function ProductCard({ product }: { product: ProductDef }) {
   const [expanded, setExpanded] = useState(false);
   const [viewed, setViewed] = useState(false);
   const { addItem, removeItem, checkoutUrl, items } = useCart();
+
+  // Garde la fiche alignée sur le panier : quantité modifiée ou article
+  // retiré depuis la barre panier mobile, panier restauré du localStorage.
+  useEffect(() => {
+    const item = items.find((i) => i.productId === product.id);
+    if (!item) {
+      setAdded(false);
+      return;
+    }
+    setAdded(true);
+    if (product.variantIds) {
+      const idx = product.variantIds.findIndex((v) => v.endsWith(`/${item.variantNumericId}`));
+      if (idx >= 0) setStepIdx(idx);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items]);
 
   const step = PRICE_STEPS[stepIdx];
   const unitPrice = step.total / step.qty;
