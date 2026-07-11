@@ -64,7 +64,7 @@ const PRODUCTS: ProductDef[] = [
     badge: "ISO 12312-2",
     defaultStepIdx: 0,
     rating: { score: 4.88, count: 128 },
-    features: ["Paiement sécurisé", "Livraison 48h depuis la France"],
+    features: ["Paiement sécurisé", "Livraison 72h depuis la France"],
     variantId: GLASSES_VARIANT_IDS[0],
     variantIds: GLASSES_VARIANT_IDS,
   },
@@ -82,7 +82,7 @@ const PRODUCTS: ProductDef[] = [
     color: "#FFB800",
     icon: BookOpen,
     rating: { score: 4.9, count: 14 },
-    features: ["Paiement sécurisé", "Livraison 48h depuis la France"],
+    features: ["Paiement sécurisé", "Livraison 72h depuis la France"],
     variantId: "gid://shopify/ProductVariant/58137194037593",
     fixedPrice: 0.99,
   },
@@ -448,7 +448,7 @@ function ProductCard({ product }: { product: ProductDef }) {
               * Prix dégressif en fonction de la quantité commandée
             </p>
             <p className="text-xs text-white/50 text-center">
-              * <strong className="text-white/70">Livraison 48h</strong> en boîte aux lettres
+              * <strong className="text-white/70">Livraison 72h</strong> en boîte aux lettres
             </p>
             {added ? (
               <>
