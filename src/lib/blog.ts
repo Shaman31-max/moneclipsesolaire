@@ -12,6 +12,69 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "meteo-eclipse-12-aout-2026",
+    title: "Météo du 12 août 2026 : quelles chances de ciel dégagé pour l'éclipse ?",
+    description:
+      "Statistiques d'ensoleillement d'août région par région, risques de brume en soirée et plans B : comment maximiser vos chances de voir l'éclipse.",
+    date: "2026-07-12",
+    dateLabel: "12 juillet 2026",
+    readingMinutes: 5,
+  },
+  {
+    slug: "a-quoi-ressemble-eclipse-90-pourcent",
+    title: "Éclipse à 90 % : à quoi ressemblera vraiment le 12 août 2026 ?",
+    description:
+      "Lumière, température, ombres, comportement des animaux : ce qui change concrètement pendant une éclipse partielle profonde, heure par heure.",
+    date: "2026-07-12",
+    dateLabel: "12 juillet 2026",
+    readingMinutes: 5,
+  },
+  {
+    slug: "voir-eclipse-totale-espagne-2026",
+    title: "Éclipse totale 2026 en Espagne : le guide pour les Français qui font le déplacement",
+    description:
+      "Où passe la bande de totalité du 12 août 2026, quelles villes espagnoles viser depuis la France, et comment vivre la totalité en toute sécurité.",
+    date: "2026-07-12",
+    dateLabel: "12 juillet 2026",
+    readingMinutes: 7,
+  },
+  {
+    slug: "eclipse-11-aout-1999",
+    title: "L'éclipse du 11 août 1999 : souvenirs, leçons et parallèles avec 2026",
+    description:
+      "27 ans après la dernière grande éclipse française, ce que 1999 nous a appris — sur l'émotion collective comme sur les accidents oculaires évitables.",
+    date: "2026-07-12",
+    dateLabel: "12 juillet 2026",
+    readingMinutes: 5,
+  },
+  {
+    slug: "apres-eclipse-2026",
+    title: "Après l'éclipse du 12 août 2026 : prochaines éclipses et que faire de vos lunettes",
+    description:
+      "2 août 2027, 26 janvier 2028 : vos lunettes resserviront vite. Comment les conserver, vérifier vos yeux et préparer les prochains rendez-vous.",
+    date: "2026-07-12",
+    dateLabel: "12 juillet 2026",
+    readingMinutes: 4,
+  },
+  {
+    slug: "filtre-appareil-photo-eclipse",
+    title: "Protéger son appareil photo pendant l'éclipse : filtres et méthodes",
+    description:
+      "Filtre ND 5.0, feuille solaire ou lunette d'éclipse adaptée : comment protéger capteur et optique le 12 août 2026, et les erreurs qui coûtent cher.",
+    date: "2026-07-12",
+    dateLabel: "12 juillet 2026",
+    readingMinutes: 5,
+  },
+  {
+    slug: "lunettes-eclipse-entreprises-collectivites",
+    title: "Entreprises, écoles, mairies : commander des lunettes d'éclipse en volume",
+    description:
+      "Équiper une équipe, une classe ou un événement public pour le 12 août 2026 : tarifs dégressifs, délais, facturation et conseils d'organisation.",
+    date: "2026-07-12",
+    dateLabel: "12 juillet 2026",
+    readingMinutes: 4,
+  },
+  {
     slug: "horaires-eclipse-12-aout-2026",
     title: "Éclipse solaire du 12 août 2026 : horaires exacts ville par ville en France",
     description:
