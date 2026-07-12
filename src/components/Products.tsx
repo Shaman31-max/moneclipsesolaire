@@ -161,8 +161,18 @@ function ProductGallery({ images, badge, eager }: { images: ProductImage[]; badg
         )}
       </div>
 
-      {/* Vignettes — bande horizontale sous l'image sur mobile */}
-      {hasThumbs && <div className="flex sm:hidden gap-3 justify-center">{thumbs}</div>}
+      {/* Vignettes — bande horizontale défilable sous l'image sur mobile.
+          Conteneur scrollable + inner en w-max/mx-auto : centré quand tout
+          tient à l'écran, défilable au doigt quand ça déborde. */}
+      {hasThumbs && (
+        <div className="sm:hidden overflow-x-auto snap-x -mx-1 px-1 pb-1" style={{ scrollbarWidth: "none", touchAction: "pan-x pan-y" }}>
+          <div className="flex gap-3 w-max mx-auto">
+            {thumbs.map((t, i) => (
+              <div key={images[i].src} className="snap-center">{t}</div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
