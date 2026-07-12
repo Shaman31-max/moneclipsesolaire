@@ -66,6 +66,7 @@ export default function Footer() {
             <a href="/qui-sommes-nous" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">Qui sommes-nous ?</a>
             <a href="/blog" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">Blog</a>
             <a href="/eclipse/villes" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">L&apos;éclipse ville par ville</a>
+            <a href="/acheter" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">Où acheter ses lunettes</a>
             <a href="/mentions-legales" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">Mentions légales</a>
             <a href="/cgv" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">CGV</a>
             <a href="/confidentialite" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">Confidentialité</a>
