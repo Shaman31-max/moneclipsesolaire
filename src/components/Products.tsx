@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import { ShoppingCart, Eye, CheckCircle, BookOpen, ShieldCheck, ExternalLink, Star } from "lucide-react";
+import { ShoppingCart, Eye, CheckCircle, BookOpen, Star } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { trackViewItem, trackAddToCart, trackBeginCheckout } from "@/lib/analytics";
 import { PRICE_STEPS, GLASSES_VARIANT_IDS } from "@/lib/pricing";
@@ -93,7 +93,7 @@ const PRODUCTS: ProductDef[] = [
 
 // Galerie style Amazon : vignettes cliquables à gauche (verticales sur
 // desktop, horizontales sous l'image sur mobile), grande image à droite.
-function ProductGallery({ images, badge, eager }: { images: ProductImage[]; badge?: string; eager?: boolean }) {
+function ProductGallery({ images, eager }: { images: ProductImage[]; eager?: boolean }) {
   const [idx, setIdx] = useState(0);
   // Seule l'image active est montée au chargement (LCP) ; les autres sont
   // montées en différé pour ne pas concurrencer le rendu initial.
@@ -129,22 +129,6 @@ function ProductGallery({ images, badge, eager }: { images: ProductImage[]; badg
 
       {/* Image principale */}
       <div className="relative flex-1 aspect-square rounded-2xl bg-white overflow-hidden">
-        {badge && (
-          <a
-            href="https://www.iso.org/standard/59289.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute top-2 left-2 z-20 group flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border transition-all duration-200 hover:scale-[1.03]"
-            style={{ borderColor: "rgba(34,211,238,0.30)", backgroundColor: "rgba(6,4,18,0.85)" }}
-          >
-            <ShieldCheck size={12} className="text-[#22D3EE] flex-shrink-0" />
-            <div>
-              <div className="text-[10px] font-bold leading-none text-[#22D3EE]">{badge}</div>
-              <div className="text-[8px] text-white/80 mt-0.5 leading-none">DIN CERTCO — Europe</div>
-            </div>
-            <ExternalLink size={9} className="text-white/50 group-hover:text-white/90 transition-colors flex-shrink-0" />
-          </a>
-        )}
         {images.map((img, i) =>
           i === idx || warm ? (
             <Image
@@ -254,29 +238,10 @@ function ProductCard({ product }: { product: ProductDef }) {
 
       {product.images ? (
         <div className="lg:col-span-3 mb-5 lg:mb-0 w-4/5 mx-auto">
-          <ProductGallery images={product.images} badge={product.badge} eager={product.id === "glasses"} />
+          <ProductGallery images={product.images} eager={product.id === "glasses"} />
         </div>
       ) : product.image && (
         <div className="relative z-10 w-2/5 mx-auto aspect-square mb-4 rounded-2xl bg-white overflow-hidden">
-          {product.badge && (
-            <a
-              href="https://www.iso.org/standard/59289.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute top-2 left-2 z-20 group flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border transition-all duration-200 hover:scale-[1.03]"
-              style={{ borderColor: "rgba(34,211,238,0.30)", backgroundColor: "rgba(6,4,18,0.85)" }}
-            >
-              <div className="flex items-center gap-1 badge-bounce">
-                <div className="w-0 h-0" style={{ borderTop: "4px solid transparent", borderBottom: "4px solid transparent", borderLeft: "6px solid #22D3EE" }} />
-              </div>
-              <ShieldCheck size={12} className="text-[#22D3EE] flex-shrink-0" />
-              <div>
-                <div className="text-[10px] font-bold leading-none text-[#22D3EE]">{product.badge}</div>
-                <div className="text-[8px] text-white/80 mt-0.5 leading-none">DIN CERTCO — Europe</div>
-              </div>
-              <ExternalLink size={9} className="text-white/50 group-hover:text-white/90 transition-colors flex-shrink-0" />
-            </a>
-          )}
           <Image
             src={product.image}
             alt={product.name}
