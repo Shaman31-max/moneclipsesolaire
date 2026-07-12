@@ -49,7 +49,7 @@ export default function BlogArticle({ post, children }: { post: BlogPost; childr
             Prêt pour le 12 août 2026 ?
           </p>
           <p className="text-sm text-white/70 mb-4">
-            Lunettes éclipse certifiées ISO 12312-2, dès 3,99 € — livraison gratuite en France.
+            Lunettes éclipse certifiées ISO 12312-2, dès 2,99 € — livraison gratuite en France.
           </p>
           <Link
             href="/#produits"

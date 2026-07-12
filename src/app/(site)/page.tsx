@@ -11,7 +11,7 @@ const Footer           = dynamic(() => import("@/components/Footer"));
 
 export const metadata: Metadata = {
   title: "Lunettes Éclipse Solaire Certifiées ISO 12312-2 — 12 Août 2026",
-  description: "Achetez vos lunettes éclipse solaire certifiées ISO 12312-2 pour l'éclipse du 12 août 2026 en France. Filtres téléphone, livraison gratuite, dès 3,99 €.",
+  description: "Achetez vos lunettes éclipse solaire certifiées ISO 12312-2 pour l'éclipse du 12 août 2026 en France. Filtres téléphone, livraison gratuite, dès 2,99 €.",
   alternates: { canonical: "https://moneclipsesolaire.fr" },
 };
 
@@ -57,8 +57,8 @@ const jsonLd = {
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "EUR",
-        "lowPrice": "3.99",
-        "highPrice": "21.99",
+        "lowPrice": "2.99",
+        "highPrice": "22.99",
         "offerCount": "10",
         "availability": "https://schema.org/InStock",
         "seller": { "@id": "https://moneclipsesolaire.fr/#organization" },

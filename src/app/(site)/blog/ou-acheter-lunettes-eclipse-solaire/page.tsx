@@ -50,7 +50,7 @@ export default function Page() {
         <strong>MonEclipseSolaire.fr</strong> : nos lunettes sont testées par un laboratoire européen
         accrédité, le certificat est consultable en ligne, et chaque commande est vérifiée et
         expédiée depuis Toulouse <a href="/qui-sommes-nous">par nos soins</a> — livraison gratuite et
-        suivie, directement en boîte aux lettres, à partir de 3,99&nbsp;€ la paire avec des tarifs
+        suivie, directement en boîte aux lettres, à partir de 2,99&nbsp;€ la paire avec des tarifs
         dégressifs pour les familles et les groupes.
       </p>
 

@@ -3,16 +3,15 @@
 // Partagé entre la fiche produit (Products.tsx) et le panier (MobileCartBar).
 
 export const PRICE_STEPS = [
-  { qty: 1,  total: 3.99,  mention: "Solo" },
-  { qty: 2,  total: 5.99,  mention: "Duo" },
-  { qty: 3,  total: 6.99,  mention: null },
-  { qty: 4,  total: 7.99,  mention: "Famille" },
-  { qty: 5,  total: 8.49,  mention: null },
-  { qty: 6,  total: 8.99,  mention: null },
-  { qty: 8,  total: 9.99,  mention: "⭐ Meilleure offre" },
+  { qty: 1,  total: 2.99,  mention: "Solo" },
+  { qty: 2,  total: 3.99,  mention: "Duo" },
+  { qty: 3,  total: 4.99,  mention: null },
+  { qty: 4,  total: 5.99,  mention: "Famille" },
+  { qty: 6,  total: 7.99,  mention: null },
+  { qty: 8,  total: 8.99,  mention: "⭐ Meilleure offre" },
   { qty: 12, total: 12.99, mention: null },
   { qty: 14, total: 13.99, mention: null },
-  { qty: 24, total: 21.99, mention: "🎉 Événement" },
+  { qty: 24, total: 22.99, mention: "🎉 Événement" },
 ];
 
 export const GLASSES_PRODUCT_ID = "glasses";
@@ -23,7 +22,6 @@ export const GLASSES_VARIANT_IDS = [
   "gid://shopify/ProductVariant/58137193316697",
   "gid://shopify/ProductVariant/58137193349465",
   "gid://shopify/ProductVariant/58137193382233",
-  "gid://shopify/ProductVariant/58137193415001",
   "gid://shopify/ProductVariant/58137193447769",
   "gid://shopify/ProductVariant/58137193480537",
   "gid://shopify/ProductVariant/58137193513305",
