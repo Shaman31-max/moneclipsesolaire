@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import EclipseInfo from "@/components/EclipseInfo";
 
 export const metadata: Metadata = {
@@ -21,6 +22,14 @@ export default function EclipsePage() {
         </p>
       </div>
       <EclipseInfo />
+      <div className="max-w-6xl mx-auto px-6 mt-4 text-center">
+        <Link
+          href="/eclipse/villes"
+          className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl border border-[#FFB800]/30 text-sm font-bold text-[#FFB800] hover:bg-[#FFB800]/10 transition-colors"
+        >
+          Horaires et spots d&apos;observation ville par ville →
+        </Link>
+      </div>
     </main>
   );
 }

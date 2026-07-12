@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { BLOG_POSTS } from "@/lib/blog";
+import { VILLES } from "@/lib/villes";
 
 const BASE = "https://moneclipsesolaire.fr";
 
@@ -29,6 +30,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${BASE}/eclipse/villes`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    ...VILLES.map((v) => ({
+      url: `${BASE}/eclipse/${v.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
     {
       url: `${BASE}/certifications`,
       lastModified: new Date(),
