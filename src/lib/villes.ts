@@ -354,7 +354,7 @@ export const VILLES: Ville[] = [
       },
       {
         q: "Où acheter des lunettes d'éclipse à Toulouse ?",
-        a: "Pharmacies, boutiques d'astronomie et la Cité de l'espace en proposeront, avec un risque réel de rupture dans les derniers jours. Commandez en ligne des lunettes certifiées ISO 12312-2 dès maintenant — nous livrons Toulouse en 72 h.",
+        a: "Bonne nouvelle pour les Toulousains : nous proposons une offre locale à 1 € la paire en retrait sur Toulouse, sans frais de livraison (adresse communiquée par email après commande). Sinon, pharmacies, boutiques d'astronomie et la Cité de l'espace en proposeront, avec un risque réel de rupture dans les derniers jours — la livraison 72 h reste disponible partout.",
       },
     ],
     nearby: ["pau", "montpellier", "bordeaux"],

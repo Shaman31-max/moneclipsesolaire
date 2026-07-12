@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Clock, MapPin, Eye, ShoppingCart, ArrowRight } from "lucide-react";
 import { VILLES, getVille } from "@/lib/villes";
+import RetraitToulouse from "@/components/RetraitToulouse";
 
 // Pages SEO locales : une page statique par grande ville française.
 
@@ -140,6 +141,9 @@ export default async function VillePage({ params }: { params: Promise<{ ville: s
           <h2 className="text-2xl font-black text-white mt-10 mb-3">Conseils spécifiques pour {ville.name}</h2>
           <p>{ville.conseils}</p>
         </div>
+
+        {/* Offre locale retrait (Toulouse uniquement) */}
+        {ville.slug === "toulouse" && <RetraitToulouse />}
 
         {/* CTA principal */}
         <div className="mt-12 glass rounded-2xl p-6 border border-[#FFB800]/25 text-center">
