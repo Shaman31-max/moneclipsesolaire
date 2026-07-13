@@ -31,12 +31,31 @@ document.head.appendChild(script);
 window.dataLayer = window.dataLayer || [];
 function gtag() { dataLayer.push(arguments); }
 gtag('js', new Date());
-// send_page_view: false — les pages du site sont déjà suivies côté Next.js,
-// on ne veut que l'événement purchase depuis le checkout.
-gtag('config', GA_MEASUREMENT_ID, { send_page_view: false });
+// Consent Mode v2 — mêmes signaux que le site Next.js.
+gtag('consent', 'default', {
+  ad_storage: 'granted',
+  ad_user_data: 'granted',
+  ad_personalization: 'granted',
+  analytics_storage: 'granted',
+});
 
 analytics.subscribe('checkout_completed', (event) => {
   const checkout = event.data.checkout;
+
+  // Stitching de session : le front Next.js transmet le client_id GA4 et le
+  // gclid via les attributs de panier (voir src/lib/attribution.ts). La
+  // sandbox des Custom Pixels ne garantissant pas l'accès au cookie _ga,
+  // sans ce client_id le purchase créerait une nouvelle identité GA4 et la
+  // conversion serait attribuée en (direct)/(none) dans Google Ads.
+  const attrs = {};
+  (checkout.attributes || []).forEach((a) => { attrs[a.key] = a.value; });
+
+  const config = { send_page_view: false };
+  if (attrs.ga_client_id) config.client_id = attrs.ga_client_id;
+  // send_page_view: false — les pages du site sont déjà suivies côté Next.js,
+  // on ne veut que l'événement purchase depuis le checkout.
+  gtag('config', GA_MEASUREMENT_ID, config);
+
   gtag('event', 'purchase', {
     transaction_id: (checkout.order && checkout.order.id) || checkout.token,
     currency: checkout.currencyCode,
@@ -52,6 +71,11 @@ analytics.subscribe('checkout_completed', (event) => {
   });
 });
 ```
+
+> ℹ️ Les attributs `ga_client_id`, `gclid` et `utm_*` transmis par le front
+> sont aussi visibles sur chaque commande dans l'admin Shopify (section
+> « Informations supplémentaires ») — utile pour auditer l'attribution
+> commande par commande.
 
 > ⚠️ **Ne pas** installer en plus l'app « Google & YouTube » avec GA4 connecté sur la même propriété : elle enverrait ses propres événements (`begin_checkout`, `purchase`) → double comptage. Ce pixel suffit.
 

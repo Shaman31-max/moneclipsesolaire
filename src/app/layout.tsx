@@ -63,6 +63,17 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {`window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+            /* Consent Mode v2 : signaux explicites requis par Google Ads
+               (EEE, mars 2024) pour la mesure et l'attribution des
+               conversions. url_passthrough conserve gclid dans l'URL au fil
+               de la navigation interne. */
+            gtag('consent', 'default', {
+              ad_storage: 'granted',
+              ad_user_data: 'granted',
+              ad_personalization: 'granted',
+              analytics_storage: 'granted',
+              url_passthrough: true
+            });
             gtag('config', '${GA_ID}');
             ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ""}
             (function(){

@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { captureLandingParams, checkoutAttributionSuffix } from "@/lib/attribution";
 
 const SHOPIFY_STORE = "https://shop.moneclipsesolaire.fr";
 
@@ -25,6 +26,19 @@ const CartContext = createContext<CartContextType | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
+  // Suffixe attributes[...] (gclid/UTM/client_id GA4) transmis au checkout
+  // pour l'attribution Google Ads. Calculé côté client uniquement (état
+  // initial vide = pas de mismatch d'hydratation), rafraîchi à chaque
+  // changement de panier (le cookie _ga n'existe qu'après chargement de gtag).
+  const [attributionSuffix, setAttributionSuffix] = useState("");
+
+  useEffect(() => {
+    captureLandingParams();
+  }, []);
+
+  useEffect(() => {
+    setAttributionSuffix(checkoutAttributionSuffix());
+  }, [items]);
 
   useEffect(() => {
     try {
@@ -57,7 +71,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const checkoutUrl = items.length === 0
     ? "#"
-    : `${SHOPIFY_STORE}/cart/${items.map((i) => `${i.variantNumericId}:1`).join(",")}`;
+    : `${SHOPIFY_STORE}/cart/${items.map((i) => `${i.variantNumericId}:1`).join(",")}${attributionSuffix ? `?${attributionSuffix}` : ""}`;
 
   const totalItems = items.reduce((s, i) => s + i.qty, 0);
 
