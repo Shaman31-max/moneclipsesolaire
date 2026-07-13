@@ -63,16 +63,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {`window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            /* Consent Mode v2 : signaux explicites requis par Google Ads
-               (EEE, mars 2024) pour la mesure et l'attribution des
-               conversions. url_passthrough conserve gclid dans l'URL au fil
-               de la navigation interne. */
+            /* Consent Mode v2 : refusé par défaut (RGPD/CNIL), le choix
+               mémorisé par la bannière CookieConsent est réappliqué à
+               chaque visite. En cas de refus, gtag envoie des pings sans
+               cookies et Google modélise les conversions. url_passthrough
+               conserve gclid dans l'URL au fil de la navigation interne. */
+            var mesConsent = 'denied';
+            try { if (localStorage.getItem('mes_consent') === 'granted') mesConsent = 'granted'; } catch(e) {}
             gtag('consent', 'default', {
-              ad_storage: 'granted',
-              ad_user_data: 'granted',
-              ad_personalization: 'granted',
-              analytics_storage: 'granted',
-              url_passthrough: true
+              ad_storage: mesConsent,
+              ad_user_data: mesConsent,
+              ad_personalization: mesConsent,
+              analytics_storage: mesConsent,
+              url_passthrough: true,
+              wait_for_update: 500
             });
             gtag('config', '${GA_ID}');
             ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ""}

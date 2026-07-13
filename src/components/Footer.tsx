@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { Share2, MessageCircle, Globe, Mail, Phone } from "lucide-react";
+import { ManageCookiesButton } from "@/components/CookieConsent";
 
 export default function Footer() {
   return (
@@ -71,6 +72,7 @@ export default function Footer() {
             <a href="/cgv" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">CGV</a>
             <a href="/confidentialite" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">Confidentialité</a>
             <a href="/cookies" className="text-xs text-[#E8F0FF]/45 hover:text-[#22D3EE]/60 transition-colors">Cookies</a>
+            <ManageCookiesButton />
           </div>
         </div>
       </div>
