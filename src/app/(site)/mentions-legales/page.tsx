@@ -41,7 +41,7 @@ export default function MentionsLegalesPage() {
           </Section>
 
           <Section title="5. Cookies">
-            <p>Le site peut utiliser des cookies techniques nécessaires au bon fonctionnement du site (session, panier). Aucun cookie publicitaire ou de tracking tiers n'est déposé sans votre consentement.</p>
+            <p>Le site utilise des cookies techniques nécessaires à son bon fonctionnement (session, panier) ainsi que des cookies de mesure d&apos;audience et de performance publicitaire (Google Analytics, Google Ads). Détail complet sur la page <a href="/cookies" className="text-[#FFB800] underline">Politique de cookies</a>.</p>
           </Section>
 
           <Section title="6. Responsabilité">

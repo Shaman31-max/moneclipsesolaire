@@ -5,7 +5,7 @@ export default function CookiesPage() {
     <main className="min-h-screen bg-[#060412] pt-28 pb-24 px-6">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-black text-white mb-2">Politique de cookies</h1>
-        <p className="text-sm text-white/50 mb-12">Dernière mise à jour : juin 2026</p>
+        <p className="text-sm text-white/50 mb-12">Dernière mise à jour : juillet 2026</p>
 
         <div className="space-y-10 text-sm text-white/80 leading-relaxed">
 
@@ -14,12 +14,14 @@ export default function CookiesPage() {
           </Section>
 
           <Section title="Cookies utilisés sur ce site">
-            <p>MonEclipseSolaire.fr utilise uniquement des cookies strictement nécessaires au fonctionnement du site :</p>
+            <p>MonEclipseSolaire.fr utilise des cookies techniques nécessaires au fonctionnement du site, ainsi que des cookies de mesure d&apos;audience et de performance publicitaire :</p>
             <div className="mt-3 space-y-3">
               <CookieRow name="Session Shopify" purpose="Gestion du panier et de la session d'achat" duration="Session" />
               <CookieRow name="Préférences" purpose="Mémorisation de vos choix de navigation" duration="30 jours" />
+              <CookieRow name="Google Analytics (_ga)" purpose="Mesure d'audience : pages vues, parcours d'achat" duration="13 mois" />
+              <CookieRow name="Google Ads (_gcl_aw)" purpose="Mesure de l'efficacité de nos campagnes publicitaires" duration="90 jours" />
             </div>
-            <p className="mt-4">Nous n'utilisons <strong className="text-white">aucun cookie publicitaire, de tracking ou de réseaux sociaux</strong> sans votre consentement préalable.</p>
+            <p className="mt-4">Ces cookies servent exclusivement à la <strong className="text-white">mesure d&apos;audience et de nos campagnes</strong> — aucune donnée n&apos;est revendue à des tiers. Vous pouvez les bloquer à tout moment via les paramètres de votre navigateur (voir ci-dessous).</p>
           </Section>
 
           <Section title="Comment gérer les cookies ?">
