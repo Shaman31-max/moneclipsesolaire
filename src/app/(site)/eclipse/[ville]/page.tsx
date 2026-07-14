@@ -149,7 +149,7 @@ export default async function VillePage({ params }: { params: Promise<{ ville: s
         <div className="mt-12 glass rounded-2xl p-6 border border-[#FFB800]/25 text-center">
           <p className="text-white font-black text-lg mb-1">Prêt pour le 12 août {ville.in}&nbsp;?</p>
           <p className="text-sm text-white/70 mb-4">
-            Lunettes éclipse certifiées ISO 12312-2, dès 2,99 € — livraison en 72 h à {ville.name} et partout en France.
+            Lunettes éclipse certifiées ISO 12312-2, dès 3,99 € — livraison en 72 h à {ville.name} et partout en France.
           </p>
           <Link
             href="/#produits"

@@ -112,7 +112,7 @@ export default async function EnseignePage({ params }: { params: Promise<{ ensei
             <strong className="text-white">certifiées ISO 12312-2 par DIN CERTCO</strong> — le
             certificat est consultable sur notre{" "}
             <Link href="/certifications" className="text-[#FFB800] underline underline-offset-2">page certifications</Link>.
-            Dès 2,99&nbsp;€ la paire, tarifs dégressifs jusqu&apos;à 24 paires, livraison en
+            Dès 3,99&nbsp;€ la paire, tarifs dégressifs jusqu&apos;à 24 paires, livraison en
             72&nbsp;h partout en France, directement en boîte aux lettres.
           </p>
         </div>
@@ -125,7 +125,7 @@ export default async function EnseignePage({ params }: { params: Promise<{ ensei
           </div>
           <p className="text-white font-black text-lg mb-1">Équipé en 72 h, sans course aux magasins</p>
           <p className="text-sm text-white/70 mb-4">
-            Lunettes éclipse certifiées ISO 12312-2, dès 2,99 € — livraison gratuite en France.
+            Lunettes éclipse certifiées ISO 12312-2, dès 3,99 € — livraison gratuite en France.
           </p>
           <Link
             href="/#produits"

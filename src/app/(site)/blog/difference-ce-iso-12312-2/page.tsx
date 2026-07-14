@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 import { BLOG_POSTS } from "@/lib/blog";
 
@@ -92,7 +92,7 @@ export default function Page() {
         C&apos;est la combinaison que nous appliquons à nos propres produits : notre certificat
         est publié sur la <a href="/certifications">page certifications</a>, et nos{" "}
         <a href="/#produits">lunettes certifiées CE et ISO 12312-2 sont disponibles dès
-        2,99&nbsp;€</a>, livrées en 72&nbsp;h.
+        3,99&nbsp;€</a>, livrées en 72&nbsp;h.
       </p>
 
       <h2>Questions fréquentes</h2>

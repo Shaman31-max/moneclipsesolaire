@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 import { BLOG_POSTS } from "@/lib/blog";
 
@@ -101,7 +101,7 @@ export default function Page() {
           <strong>La protection</strong> : la même règle qu&apos;en 1999, inchangée — des
           lunettes d&apos;éclipse certifiées (aujourd&apos;hui ISO 12312-2), portées pendant
           toute l&apos;observation. Elles sont disponibles{" "}
-          <a href="/#produits">dès 2,99&nbsp;€, livrées en 72&nbsp;h</a>.
+          <a href="/#produits">dès 3,99&nbsp;€, livrées en 72&nbsp;h</a>.
         </li>
       </ul>
 

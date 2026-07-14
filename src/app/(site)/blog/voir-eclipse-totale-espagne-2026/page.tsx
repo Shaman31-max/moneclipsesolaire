@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 import { BLOG_POSTS } from "@/lib/blog";
 
@@ -128,7 +128,7 @@ export default function Page() {
         <a href="/blog/lunettes-de-soleil-eclipse-danger">lunettes de soleil et éclipse</a>{" "}
         explique pourquoi. Que vous restiez en France ou traversiez la frontière, équipez toute
         la voiture avant le départ : nos lunettes certifiées sont disponibles{" "}
-        <a href="/#produits">dès 2,99&nbsp;€</a>, avec tarifs dégressifs et livraison en
+        <a href="/#produits">dès 3,99&nbsp;€</a>, avec tarifs dégressifs et livraison en
         72&nbsp;h — de quoi partir l&apos;esprit tranquille.
       </p>
 

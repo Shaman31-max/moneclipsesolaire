@@ -1,13 +1,13 @@
 import { MapPin, ShoppingCart, TicketPercent } from "lucide-react";
 import { PRICE_STEPS, GLASSES_VARIANT_NUMERIC_IDS } from "@/lib/pricing";
 
-// Offre locale Toulouse : code promo TOULOUSE = 1,99 € de réduction par
+// Offre locale Toulouse : code promo TOULOUSE = 2,99 € de réduction par
 // article sur les variants lunettes (côté Shopify). De 1 à 6 paires les
-// paliers valent quantité + 1,99 € → le code donne exactement 1 €/paire ;
+// paliers valent quantité + 2,99 € → le code donne exactement 1 €/paire ;
 // au-delà, c'est encore moins cher. Les liens checkout pré-remplissent le
 // code via ?discount=TOULOUSE.
 const SHOPIFY_STORE = "https://shop.moneclipsesolaire.fr";
-const REDUCTION = 1.99;
+const REDUCTION = 2.99;
 
 function fmt(n: number) {
   return n.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 import { BLOG_POSTS } from "@/lib/blog";
 
@@ -103,7 +103,7 @@ export default function Page() {
         l&apos;expliquons dans{" "}
         <a href="/blog/lunettes-de-soleil-eclipse-danger">cet article dédié</a>. Seules des
         lunettes certifiées ISO 12312-2 permettent l&apos;observation directe — elles sont
-        disponibles <a href="/#produits">dès 2,99&nbsp;€, livrées en 72&nbsp;h</a>.
+        disponibles <a href="/#produits">dès 3,99&nbsp;€, livrées en 72&nbsp;h</a>.
       </p>
 
       <h2>90 vs 99,5 vs 100&nbsp;% : trois expériences différentes</h2>

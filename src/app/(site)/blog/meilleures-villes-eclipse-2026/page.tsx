@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 import { BLOG_POSTS } from "@/lib/blog";
 
@@ -147,7 +147,7 @@ export default function Page() {
       <p>
         Où que vous soyez, la règle ne change pas : l&apos;éclipse reste partielle
         partout en France, et des <a href="/#produits">lunettes d&apos;éclipse
-        certifiées ISO 12312-2</a> (dès 2,99&nbsp;€, livraison 72&nbsp;h) sont
+        certifiées ISO 12312-2</a> (dès 3,99&nbsp;€, livraison 72&nbsp;h) sont
         obligatoires pour chaque observateur, du début à la fin.
       </p>
 
