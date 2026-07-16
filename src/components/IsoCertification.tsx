@@ -114,6 +114,14 @@ export default function IsoCertification() {
                   >
                     ici →
                   </a>
+                  {" "}— tous les documents officiels (certificat UE, rapport de tests, déclaration
+                  de conformité) sont{" "}
+                  <a
+                    href="/certifications#documents"
+                    className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors"
+                  >
+                    consultables et téléchargeables →
+                  </a>
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {certs.map((c, i) => (
