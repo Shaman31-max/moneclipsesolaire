@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ShoppingCart } from "lucide-react";
 import { ENSEIGNES } from "@/lib/enseignes";
@@ -59,7 +59,7 @@ export default function AcheterPage() {
         <div className="mt-12 glass rounded-2xl p-6 border border-[#FFB800]/25 text-center">
           <p className="text-white font-black text-lg mb-1">Le plus simple reste la vente directe</p>
           <p className="text-sm text-white/70 mb-4">
-            Certificat DIN CERTCO consultable, dès 3,99 €, livraison 72 h en boîte aux lettres.
+            Certificat DIN CERTCO consultable, dès 2,99 €, livraison 72 h en boîte aux lettres.
           </p>
           <Link
             href="/#produits"

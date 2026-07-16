@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 import { BLOG_POSTS } from "@/lib/blog";
 
@@ -76,7 +76,7 @@ export default function Page() {
       </p>
       <p>
         Transparence sur nos prix : nos lunettes certifiées sont à partir de{" "}
-        <strong>3,99&nbsp;€ la paire</strong>, avec un <strong>tarif dégressif
+        <strong>2,99&nbsp;€ la paire</strong>, avec un <strong>tarif dégressif
         jusqu&apos;à 24 paires</strong> — le détail est sur{" "}
         <a href="/#produits">la fiche produit</a>. Pas de pack gonflé, pas de supplément
         « événement » : le prix d&apos;un objet simple, bien fait, certifié.

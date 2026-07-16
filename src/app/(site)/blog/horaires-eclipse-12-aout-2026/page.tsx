@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 import { BLOG_POSTS } from "@/lib/blog";
 import { VILLES } from "@/lib/villes";
@@ -105,7 +105,7 @@ export default function Page() {
       <ul>
         <li>
           <strong>Lunettes d&apos;éclipse certifiées ISO 12312-2</strong> pour chaque
-          participant — commandées à l&apos;avance (dès 3,99&nbsp;€, livraison
+          participant — commandées à l&apos;avance (dès 2,99&nbsp;€, livraison
           72&nbsp;h), les ruptures de dernière minute sont quasi certaines.
         </li>
         <li>

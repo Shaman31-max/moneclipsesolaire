@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 import { BLOG_POSTS } from "@/lib/blog";
 
@@ -72,7 +72,7 @@ export default function Page() {
         d&apos;une éclipse à l&apos;autre</strong> : le filtre ne « périme » pas de
         lui-même, à condition que les lunettes soient restées intactes — sans rayure,
         trou ni pliure du filtre — et stockées à plat, à l&apos;abri. Une paire achetée
-        dès 3,99&nbsp;€ pour 2026 (livraison 72&nbsp;h) peut donc couvrir les trois
+        dès 2,99&nbsp;€ pour 2026 (livraison 72&nbsp;h) peut donc couvrir les trois
         événements, à condition d&apos;un contrôle sérieux avant chaque réutilisation.
         C&apos;est aussi un argument pour équiper toute la famille dès maintenant,
         plutôt que de racheter dans l&apos;urgence — et au prix fort — à chaque éclipse.

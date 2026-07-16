@@ -1,4 +1,4 @@
-﻿// Section de contenu SEO — server component (aucun JS client), texte indexable
+// Section de contenu SEO — server component (aucun JS client), texte indexable
 // ciblant « lunettes éclipse solaire » et ses variantes.
 export default function SeoContent() {
   return (
@@ -55,7 +55,7 @@ export default function SeoContent() {
             <a href="#produits" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
               Commandez vos lunettes éclipse solaire dès maintenant
             </a>{" "}
-            à partir de 3,99&nbsp;€, livraison gratuite et suivie partout en France métropolitaine, directement
+            à partir de 2,99&nbsp;€, livraison gratuite et suivie partout en France métropolitaine, directement
             en boîte aux lettres. Chaque commande est vérifiée et expédiée depuis Toulouse par{" "}
             <a href="/qui-sommes-nous" className="text-[#FFB800] underline underline-offset-2 hover:text-white transition-colors">
               Julien &amp; Estelle

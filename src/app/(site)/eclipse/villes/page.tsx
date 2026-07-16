@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ShoppingCart } from "lucide-react";
 import { VILLES } from "@/lib/villes";
@@ -63,7 +63,7 @@ export default function VillesPage() {
         <div className="mt-12 glass rounded-2xl p-6 border border-[#FFB800]/25 text-center">
           <p className="text-white font-black text-lg mb-1">Où que vous soyez le 12 août…</p>
           <p className="text-sm text-white/70 mb-4">
-            …il vous faudra des lunettes certifiées ISO 12312-2. Dès 3,99 €, livraison 72 h partout en France.
+            …il vous faudra des lunettes certifiées ISO 12312-2. Dès 2,99 €, livraison 72 h partout en France.
           </p>
           <Link
             href="/#produits"

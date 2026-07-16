@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 import { BLOG_POSTS } from "@/lib/blog";
 
@@ -72,7 +72,7 @@ export default function Page() {
       <p>
         Notre boutique applique des <strong>tarifs dégressifs directement en ligne
         jusqu&apos;à 24 paires</strong> : plus la quantité augmente, plus le prix unitaire baisse,
-        dès 3,99&nbsp;€ la paire. Pour une équipe, un petit événement ou une classe de centre aéré,
+        dès 2,99&nbsp;€ la paire. Pour une équipe, un petit événement ou une classe de centre aéré,
         la commande se passe en quelques clics sur{" "}
         <a href="/#produits">notre page produits</a>.
       </p>
