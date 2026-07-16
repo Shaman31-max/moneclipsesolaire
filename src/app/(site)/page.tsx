@@ -55,7 +55,7 @@ const jsonLd = {
       "sku": "LUNETTES-ECLIPSE-ISO",
       "image": [
         "https://moneclipsesolaire.fr/produit-photo-1.webp",
-        "https://moneclipsesolaire.fr/produit-photo-2.webp",
+        "https://moneclipsesolaire.fr/produit-photo-certifications.webp",
         "https://moneclipsesolaire.fr/lunette-eclipse.png",
       ],
       "url": "https://moneclipsesolaire.fr/#produits",

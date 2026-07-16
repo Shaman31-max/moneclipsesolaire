@@ -48,8 +48,7 @@ const PRODUCTS: ProductDef[] = [
     image: "/LUNETTE_ECLIPSE_2.png",
     images: [
       { src: "/produit-photo-1.webp", alt: "Lunettes éclipse solaire certifiées ISO 12312-2 — livraison gratuite 72h depuis la France" },
-      { src: "/produit-photo-2.webp", alt: "Lunettes éclipse My Solar Eclipse — certifications ISO 12312-2, CE et UKCA" },
-      { src: "/produit-photo-3.webp", alt: "Père et fille observant l'éclipse — des lunettes sûres, conformes ISO 12312-2 et certifiées CE" },
+      { src: "/produit-photo-certifications.webp", alt: "Certificat d'examen UE de type CCQS et annexe — certifié EN ISO 12312-2:2015 et marquage CE, téléchargeable dans Nos certifications" },
       { src: "/produit-photo-4.webp", alt: "Convient aux adultes et aux enfants pour observer l'éclipse en toute sécurité" },
       { src: "/produit-photo-5.webp", alt: "Filtre 100 % des rayons nocifs ultraviolets et infrarouges" },
       { src: "/produit-photo-6.webp", alt: "Une seule paire pour 3 éclipses à venir : 12 août 2026, 2 août 2027 et 26 janvier 2028" },
