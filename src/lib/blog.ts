@@ -159,7 +159,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "prix-lunettes-eclipse",
     title: "Lunettes d'éclipse : pourquoi de tels écarts de prix (et pourquoi commander tôt)",
     description:
-      "De 3,99 € à 20 € la paire : ce qui explique les écarts de prix des lunettes d'éclipse, et pourquoi les prix flambent toujours avant l'événement.",
+      "De 2,99 € à 20 € la paire : ce qui explique les écarts de prix des lunettes d'éclipse, et pourquoi les prix flambent toujours avant l'événement.",
     date: "2026-07-12",
     dateLabel: "12 juillet 2026",
     readingMinutes: 4,

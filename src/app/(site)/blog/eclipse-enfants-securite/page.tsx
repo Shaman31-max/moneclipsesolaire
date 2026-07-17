@@ -167,7 +167,7 @@ export default function Page() {
         cadre que pour une famille — <strong>lunettes certifiées pour chaque enfant, encadrement
         renforcé</strong> (un adulte pour un petit groupe), briefing préalable et ateliers de
         projection indirecte pour les plus jeunes. Les structures peuvent nous contacter pour des
-        commandes groupées de lunettes certifiées, dès 3,99&nbsp;€.
+        commandes groupées de lunettes certifiées, dès 2,99&nbsp;€.
       </p>
     </BlogArticle>
   );

@@ -90,7 +90,7 @@ export default function Page() {
         voyage vers le sud de l&apos;Espagne pour les plus motivés, et matériel vérifié. Si
         vos lunettes n&apos;ont pas survécu à 2026 ou qu&apos;il en faut pour toute la
         famille, une paire certifiée ISO 12312-2 se trouve{" "}
-        <a href="/#produits">dès 3,99&nbsp;€, livrée en 72&nbsp;h</a> — autant s&apos;équiper
+        <a href="/#produits">dès 2,99&nbsp;€, livrée en 72&nbsp;h</a> — autant s&apos;équiper
         avant la ruée de l&apos;été prochain.
       </p>
 

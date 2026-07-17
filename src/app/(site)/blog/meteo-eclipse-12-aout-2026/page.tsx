@@ -87,7 +87,7 @@ export default function Page() {
         partout en France, et notre <a href="/blog/meilleures-villes-eclipse-2026">classement
         des meilleures villes</a> croise occultation, climatologie et qualité de
         l&apos;horizon. Et n&apos;attendez pas la dernière minute pour l&apos;équipement : des{" "}
-        <a href="/#produits">lunettes certifiées ISO 12312-2 dès 3,99&nbsp;€</a>, livrées en
+        <a href="/#produits">lunettes certifiées ISO 12312-2 dès 2,99&nbsp;€</a>, livrées en
         72&nbsp;h, se commandent avant que les stocks ne fondent.
       </p>
 

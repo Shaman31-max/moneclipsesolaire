@@ -69,7 +69,7 @@ export default function Page() {
         la méthode dans notre guide{" "}
         <a href="/blog/filtre-solaire-smartphone-eclipse">photographier l&apos;éclipse au
         smartphone</a>. Nos lunettes certifiées, disponibles{" "}
-        <a href="/#produits">dès 3,99&nbsp;€</a>, servent donc à la fois à vos yeux et à votre
+        <a href="/#produits">dès 2,99&nbsp;€</a>, servent donc à la fois à vos yeux et à votre
         téléphone.
       </p>
 

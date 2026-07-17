@@ -97,7 +97,7 @@ export default function Page() {
         l&apos;éclipse — fabrication, projections, croissants sous les arbres — puis, au moment
         du maximum vers 20&nbsp;h&nbsp;30, <strong>chacun chausse ses lunettes</strong> pour
         voir de ses yeux le Soleil réduit à un mince croissant au-dessus de l&apos;horizon. À
-        partir de <strong>3,99&nbsp;€ la paire</strong>, l&apos;expérience directe reste
+        partir de <strong>2,99&nbsp;€ la paire</strong>, l&apos;expérience directe reste
         accessible à tous les budgets — les nôtres sont{" "}
         <a href="/#produits">disponibles ici</a>, avec tarifs dégressifs pour équiper toute la
         famille.

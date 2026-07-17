@@ -106,7 +106,7 @@ export default function Page() {
         <strong>publié en intégralité</strong> sur notre{" "}
         <a href="/certifications">page certifications</a>, où vous pouvez le consulter et le
         vérifier avant de commander. Nos{" "}
-        <a href="/#produits">lunettes certifiées sont disponibles dès 3,99&nbsp;€</a>, livrées
+        <a href="/#produits">lunettes certifiées sont disponibles dès 2,99&nbsp;€</a>, livrées
         en 72&nbsp;h.
       </p>
 
