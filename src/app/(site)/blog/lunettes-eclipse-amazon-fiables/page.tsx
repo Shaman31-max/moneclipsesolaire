@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import BlogArticle from "@/components/BlogArticle";
 import { BLOG_POSTS } from "@/lib/blog";
 
@@ -121,7 +121,7 @@ export default function Page() {
         une adresse en France. Et notre certificat <strong>DIN CERTCO</strong>, attestant la
         conformité de nos filtres à la norme ISO 12312-2, est publié en intégralité sur notre{" "}
         <a href="/certifications">page certifications</a> — vous pouvez le consulter avant même
-        de commander nos <a href="/#produits">lunettes d&apos;éclipse dès 2,99&nbsp;€</a>,
+        de commander nos <a href="/#produits">lunettes d&apos;éclipse dès 3,99&nbsp;€</a>,
         expédiées sous 72&nbsp;h. C&apos;est exactement ce que la checklist ci-dessus vous invite
         à exiger de tout vendeur, nous y compris.
       </p>
