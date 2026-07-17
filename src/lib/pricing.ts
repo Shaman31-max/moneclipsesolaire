@@ -4,12 +4,12 @@
 
 export const PRICE_STEPS = [
   { qty: 1,  total: 2.99,  mention: "Solo" },
-  { qty: 2,  total: 4.99,  mention: "Duo" },
-  { qty: 3,  total: 5.99,  mention: null },
-  { qty: 4,  total: 6.99,  mention: "Famille" },
-  { qty: 6,  total: 7.99,  mention: null },
-  { qty: 8,  total: 9.99,  mention: "⭐ Meilleure offre" },
-  { qty: 12, total: 13.99, mention: null },
+  { qty: 2,  total: 3.99,  mention: "Duo" },
+  { qty: 3,  total: 4.99,  mention: null },
+  { qty: 4,  total: 5.99,  mention: "Famille" },
+  { qty: 6,  total: 6.99,  mention: null },
+  { qty: 8,  total: 8.99,  mention: "⭐ Meilleure offre" },
+  { qty: 12, total: 12.99, mention: null },
   { qty: 14, total: 14.99, mention: null },
   { qty: 24, total: 22.99, mention: "🎉 Événement" },
 ];

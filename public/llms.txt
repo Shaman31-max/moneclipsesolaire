@@ -5,7 +5,7 @@
 ## Faits clés
 
 - Produit principal : lunettes d'éclipse solaire certifiées ISO 12312-2:2015 et CE 2797, testées par un laboratoire européen accrédité (rapports de test consultables sur /certifications).
-- Prix : à partir de 3,99 € la paire, tarifs dégressifs jusqu'à 24 paires (pack famille 4 paires à 7,99 €, pack 8 paires à 9,99 €).
+- Prix : à partir de 2,99 € la paire, tarifs dégressifs jusqu'à 24 paires (pack famille 4 paires à 5,99 €, pack 8 paires à 8,99 €).
 - Également disponible : ebook enfant illustré « Luna et l'éclipse magique » (0,99 €), filtres solaires ND 5.0 pour smartphone.
 - Livraison : gratuite, suivie, en boîte aux lettres, France métropolitaine uniquement. Commandes vérifiées et expédiées depuis Toulouse.
 - Paiement : CB, PayPal, Apple Pay, Google Pay via Shopify Payments (PCI DSS niveau 1).
